@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- taken from http://www.tex.ac.uk/tex-archive/biblio/biber/utf8-macro-map.html -->
 <!-- please note that you have to escape backslashes -->
-<symbols xmlns="http://www.le-tex.de/namespace/mml2tex">
+<symbols xmlns="http://transpect.io/mml2tex">
   <symbol><hex>&#x00C4;</hex><tex>\\&#x22;A</tex></symbol>
   <symbol><hex>&#x00D4;</hex><tex>\\&#x22;a</tex></symbol>
   <symbol><hex>&#x00D6;</hex><tex>\\&#x22;O</tex></symbol>

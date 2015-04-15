@@ -2,9 +2,9 @@
 <xsl:stylesheet 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  
   xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
   xmlns:tr="http://transpect.io"
-  xmlns:mml="http://www.w3.org/1998/Math/MathML" 
-  xmlns:mml2tex="http://www.le-tex.de/namespace/mml2tex"
+  xmlns:mml2tex="http://transpect.io/mml2tex"
   exclude-result-prefixes="tr mml xs mml2tex" 
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
   version="2.0">

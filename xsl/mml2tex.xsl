@@ -2,8 +2,8 @@
 <xsl:stylesheet 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  
   xmlns:xs="http://www.w3.org/2001/XMLSchema"  
-  xmlns:mml="http://www.w3.org/1998/Math/MathML"
   xmlns:tr="http://transpect.io"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML" 
   xmlns:mml2tex="http://transpect.io/mml2tex"
   exclude-result-prefixes="tr mml xs mml2tex" 
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
@@ -231,8 +231,8 @@
   </xsl:template>
 
   <xsl:template match="mfenced" mode="mathml2tex">
-    <!-- curly left braces are converted in texmap -->
-    <xsl:if test="@open[not(. eq '{')]">
+    <xsl:text>\left</xsl:text>
+     <xsl:if test="@open[not(. eq '{')]">
       <xsl:text>\left</xsl:text>
     </xsl:if>
     <xsl:value-of select="if(@open[not(. eq '[')]) then tr:utf2tex(@open)
@@ -253,9 +253,7 @@
     <xsl:text>&#x20;\right</xsl:text>
     <xsl:choose>
       <xsl:when test="@*[local-name() = 'close'] and not(@close eq ']')">
-        <xsl:value-of select="if(string-length(@close) gt 0)
-			      then tr:utf2tex(@close)
-			      else ')' (: sometimes @close is empty :)"/> <!-- . because of missing delimeter -->
+        <xsl:value-of select="if(string-length(@close) gt 0) then tr:utf2tex(@close) else '' (: sometimes @close is empty :)"/>
       </xsl:when>
       <xsl:when test="@*[local-name() = 'close'] and @close eq ']'">
         <xsl:value-of select="']'"/>

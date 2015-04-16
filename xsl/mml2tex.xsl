@@ -253,7 +253,9 @@
     <xsl:text>&#x20;\right</xsl:text>
     <xsl:choose>
       <xsl:when test="@*[local-name() = 'close'] and not(@close eq ']')">
-        <xsl:value-of select="if(string-length(@close) gt 0) then tr:utf2tex(@close) else '.' (: sometimes @close is empty :)"/> <!-- . because of missing delimeter -->
+        <xsl:value-of select="if(string-length(@close) gt 0)
+			      then tr:utf2tex(@close)
+			      else ')' (: sometimes @close is empty :)"/> <!-- . because of missing delimeter -->
       </xsl:when>
       <xsl:when test="@*[local-name() = 'close'] and @close eq ']'">
         <xsl:value-of select="']'"/>

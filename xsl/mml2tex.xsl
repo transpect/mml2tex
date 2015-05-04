@@ -269,13 +269,14 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="mathml2tex">
+    <xsl:variable name="text" select="normalize-space(.)"/>
     <xsl:choose>
       <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms')]">
-        <xsl:variable name="text" select="if(matches(., $texregex)) then tr:utf2tex(.) else replace(., '([{{|}}])', '\\$1')" as="xs:string"/>
+        <xsl:variable name="text" select="if(matches($text, $texregex)) then tr:utf2tex($text) else replace($text, '([{{|}}])', '\\$1')" as="xs:string"/>
         <xsl:value-of select="tr:check-operator(replace($text, '&#xa;', ' '))"/>
       </xsl:when>
       <xsl:when test="parent::mtext">
-        <xsl:value-of select="concat('{\rm ', . ,'}')"/>
+        <xsl:value-of select="concat('{\rm ', $text ,'}')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="yes" select="'unexpected text node', parent::*/name()"/>

@@ -20,6 +20,9 @@
   <symbol><hex>&#x02E7;</hex><tex>\\tone3</tex></symbol>
   <symbol><hex>&#x02E8;</hex><tex>\\tone2</tex></symbol>
   <symbol><hex>&#x02E9;</hex><tex>\\tone1</tex></symbol>
+  <!--  *
+        * greek capital letters
+        * -->
   <symbol><hex>&#x0391;</hex><tex>\\Alpha</tex></symbol>
   <symbol><hex>&#x0392;</hex><tex>\\Beta</tex></symbol>
   <symbol><hex>&#x0393;</hex><tex>\\Gamma</tex></symbol>
@@ -41,9 +44,13 @@
   <symbol><hex>&#x03A4;</hex><tex>\\Tau</tex></symbol>
   <symbol><hex>&#x03A5;</hex><tex>\\Upsilon</tex></symbol>
   <symbol><hex>&#x03A6;</hex><tex>\\Phi</tex></symbol>
+  <symbol><hex>&#x03D5;</hex><tex>\\phi</tex></symbol>
   <symbol><hex>&#x03A7;</hex><tex>\\Chi</tex></symbol>
   <symbol><hex>&#x03A8;</hex><tex>\\Psi</tex></symbol>
   <symbol><hex>&#x03A9;</hex><tex>\\Omega</tex></symbol>
+  <!--  *
+        * greek small letters
+        * -->
   <symbol><hex>&#x03B1;</hex><tex>\\alpha</tex></symbol>
   <symbol><hex>&#x03B2;</hex><tex>\\beta</tex></symbol>
   <symbol><hex>&#x03B3;</hex><tex>\\gamma</tex></symbol>
@@ -69,6 +76,15 @@
   <symbol><hex>&#x03C7;</hex><tex>\\chi</tex></symbol>
   <symbol><hex>&#x03C8;</hex><tex>\\psi</tex></symbol>
   <symbol><hex>&#x03C9;</hex><tex>\\omega</tex></symbol>
+  <!--  *
+        * latin small letters
+        * -->
+  <symbol><hex>&#x0251;</hex><tex>\\alpha</tex></symbol>
+  <symbol><hex>&#x1E9F;</hex><tex>\\delta</tex></symbol>
+  <symbol><hex>&#x0278;</hex><tex>\\varphi</tex></symbol>
+  <!--  *
+        * other symbols
+        * -->
   <symbol><hex>&#x20A1;</hex><tex>\\textcolonmonetary</tex></symbol>
   <symbol><hex>&#x20A4;</hex><tex>\\textlira</tex></symbol>
   <symbol><hex>&#x20A6;</hex><tex>\\textnaira</tex></symbol>
@@ -76,12 +92,14 @@
   <symbol><hex>&#x20AB;</hex><tex>\\textdong</tex></symbol>
   <symbol><hex>&#x20AC;</hex><tex>\\euro</tex></symbol>
   <symbol><hex>&#x2016;</hex><tex>\\|</tex></symbol>
-  <symbol><hex>&#2020;</hex><tex>\\dots</tex></symbol>
+  <symbol><hex>&#x2026;</hex><tex>\\dots</tex></symbol>
   <symbol><hex>&#x2116;</hex><tex>\\textnumero</tex></symbol>
   <symbol><hex>&#x2122;</hex><tex>\\texttrademark</tex></symbol>
+  <symbol><hex>&#x20D6;</hex><tex>\\leftarrow</tex></symbol>
   <symbol><hex>&#x2190;</hex><tex>\\leftarrow</tex></symbol>
   <symbol><hex>&#x2191;</hex><tex>\\uparrow</tex></symbol>
   <symbol><hex>&#x2192;</hex><tex>\\rightarrow</tex></symbol>
+  <symbol><hex>&#x20D7;</hex><tex>\\rightarrow</tex></symbol>
   <symbol><hex>&#x2193;</hex><tex>\\downarrow</tex></symbol>
   <symbol><hex>&#x2194;</hex><tex>\\leftrightarrow</tex></symbol>
   <symbol><hex>&#x2195;</hex><tex>\\updownarrow</tex></symbol>

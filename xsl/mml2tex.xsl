@@ -232,9 +232,6 @@
 
   <xsl:template match="mfenced" mode="mathml2tex">
     <xsl:text>\left</xsl:text>
-     <xsl:if test="@open[not(. eq '{')]">
-      <xsl:text>\left</xsl:text>
-    </xsl:if>
     <xsl:value-of select="if(@open[not(. eq '[')]) then tr:utf2tex(@open)
                           else if(@open[. eq '[']) then '['
                           else '('"/>
@@ -250,18 +247,11 @@
       </xsl:if>
       <xsl:apply-templates select="$els[current()]" mode="#current"/>
     </xsl:for-each>
-    <xsl:text>&#x20;\right</xsl:text>
-    <xsl:choose>
-      <xsl:when test="@*[local-name() = 'close'] and not(@close eq ']')">
-        <xsl:value-of select="if(string-length(@close) gt 0) then tr:utf2tex(@close) else '' (: sometimes @close is empty :)"/>
-      </xsl:when>
-      <xsl:when test="@*[local-name() = 'close'] and @close eq ']'">
-        <xsl:value-of select="']'"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="')'"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:text>\right</xsl:text>
+    <xsl:value-of select="if(@close[not(. eq ']')]) then tr:utf2tex(@close)
+      else if(@close[. eq ']']) then ']'
+      else ')'"/>
+    
   </xsl:template>
 
   <xsl:template match="*[local-name() = ('mstyle')]" mode="mathml2tex">
@@ -344,12 +334,12 @@
     <xsl:variable name="to-replace" select="replace($text, concat('^.*(', $texregex, ').*'), '$1')"/>
     <!-- replace text with tex code fragment. escape curly braces -->
     <xsl:variable name="replace" select="replace($text, 
-      replace($to-replace, '([\{\}])', '\\$1'), 
+      replace($to-replace, '([\{\}\|])', '\\$1'), 
       $texmap/mml2tex:symbol[mml2tex:hex = $to-replace]/mml2tex:tex)"/>
     <xsl:choose>
       <!-- test if replace string matches texregex. condition: shouldn't 
         match curly braces because this will cause an infinite recursive loop. -->
-      <xsl:when test="matches($replace, $texregex) and not(matches($replace, '[\{\}]'))">
+      <xsl:when test="matches($replace, $texregex) and not(matches($replace, '[\{\}\|]'))">
         <xsl:sequence select="tr:utf2tex($replace)"/>
       </xsl:when>
       <xsl:otherwise>

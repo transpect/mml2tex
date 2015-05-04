@@ -2,6 +2,7 @@
 <!-- taken from http://www.tex.ac.uk/tex-archive/biblio/biber/utf8-macro-map.html -->
 <!-- please note that you have to escape backslashes -->
 <symbols xmlns="http://transpect.io/mml2tex">
+  <symbol><hex>&#x007C;</hex><tex>\\lvert</tex></symbol>
   <symbol><hex>&#x00C4;</hex><tex>\\&#x22;A</tex></symbol>
   <symbol><hex>&#x00D4;</hex><tex>\\&#x22;a</tex></symbol>
   <symbol><hex>&#x00D6;</hex><tex>\\&#x22;O</tex></symbol>
@@ -74,6 +75,8 @@
   <symbol><hex>&#x20A9;</hex><tex>\\textwon</tex></symbol>
   <symbol><hex>&#x20AB;</hex><tex>\\textdong</tex></symbol>
   <symbol><hex>&#x20AC;</hex><tex>\\euro</tex></symbol>
+  <symbol><hex>&#x2016;</hex><tex>\\|</tex></symbol>
+  <symbol><hex>&#2020;</hex><tex>\\dots</tex></symbol>
   <symbol><hex>&#x2116;</hex><tex>\\textnumero</tex></symbol>
   <symbol><hex>&#x2122;</hex><tex>\\texttrademark</tex></symbol>
   <symbol><hex>&#x2190;</hex><tex>\\leftarrow</tex></symbol>

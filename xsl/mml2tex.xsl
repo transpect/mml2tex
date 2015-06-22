@@ -16,11 +16,11 @@
   <xsl:variable name="texregex" select="concat('[', string-join($texmap/mml2tex:symbol/mml2tex:hex/text(), ''), ']')"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
-    <xsl:message terminate="yes" select="'ERROR: unknown element', @name"/>    
+    <xsl:message terminate="yes" select="'ERROR: unknown element', name()"/>    
   </xsl:template>
 
   <xsl:template match="@*" mode="mathml2tex">
-    <xsl:message terminate="yes" select="'ERROR: unknown attribute', @name"/>
+    <xsl:message terminate="yes" select="'ERROR: unknown attribute', name()"/>
   </xsl:template>
 
   <xsl:template match="math" mode="mathml2tex">
@@ -36,7 +36,7 @@
 
   <!-- drop attributes and elements -->
   <xsl:template match="@overflow[parent::math]|@movablelimits[parent::mo]|@athcolor|@color|@fontsize|@mathsize|@mathbackground|@background|@maxsize|@minsize|@scriptminsize|@fence|@stretchy|@separator|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@columnalign[parent::mtable]|@align[parent::mtable]|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@linebreak|@symmetric[parent::mo]|@columnspacing|@rowspacing|@columnalign|@groupalign|@columnwidth|@rowalign|@displaystyle|@scriptlevel[parent::mstyle]|@linethickness[parent::mstyle]|@columnlines|@rowlines|@equalcolumns|@equalrows|@frame|@framespacing|@rowspan|@class|@side" mode="mathml2tex">
-    <xsl:message select="'WARNING: attribute', @name, 'in context', parent::*/name(), 'ignored!'"></xsl:message>
+    <xsl:message select="'WARNING: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
   </xsl:template>
   
   <xsl:template match="maligngroup|malignmark|mphantom" mode="mathml2tex">
@@ -230,14 +230,27 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
 
+  <xsl:template match="mfenced[count(mrow/mtable) = 1]
+                              [count(*) = 1]
+                              [@open = '{']
+                              [@close = '']"
+                mode="mathml2tex">
+    <xsl:apply-templates select="mrow/*[following-sibling::mtable]" mode="#current"/>
+    <xsl:text>\begin{cases}
+    </xsl:text>
+    <xsl:apply-templates select="mrow/mtable/mtr" mode="#current"/>
+    <xsl:text>\end{cases}
+    </xsl:text>
+    <xsl:apply-templates select="mrow/*[preceding-sibling::mtable]" mode="#current"/>
+  </xsl:template>
+
   <xsl:template match="mfenced" mode="mathml2tex">
-    <xsl:text>\left</xsl:text>
-    <xsl:value-of select="if(@open[not(. eq '[')]) then tr:utf2tex(@open)
-                          else if(@open[. eq '[']) then '['
-                          else '('"/>
-    <xsl:text>&#x20;</xsl:text>
+    <xsl:call-template name="fence">
+      <xsl:with-param name="pos" select="'left'"/>
+      <xsl:with-param name="val" select="(@open, '(')[1]"/>
+    </xsl:call-template>
     <xsl:variable name="my-seps" select="replace(@separators, '\s+', '')"/>
-    <xsl:variable name="seps" select="if (@separators) then
+    <xsl:variable name="seps" select="if (normalize-space(@separators)) then
                                       for $x in (1 to string-length($my-seps)) return substring($my-seps, $x, 1)
                                       else ','" as="xs:string*"/>
     <xsl:variable name="els" select="*"/>
@@ -247,11 +260,33 @@
       </xsl:if>
       <xsl:apply-templates select="$els[current()]" mode="#current"/>
     </xsl:for-each>
-    <xsl:text>\right</xsl:text>
-    <xsl:value-of select="if(@close[not(. eq ']')]) then tr:utf2tex(@close)
-      else if(@close[. eq ']']) then ']'
-      else ')'"/>
-    
+    <xsl:call-template name="fence">
+      <xsl:with-param name="pos" select="'right'"/>
+      <xsl:with-param name="val" select="(@close, ')')[1]"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template name="fence">
+    <xsl:param name="pos" as="xs:string"><!-- left|right --></xsl:param>
+    <xsl:param name="val" as="xs:string"/>
+    <xsl:choose>
+      <xsl:when test="not(normalize-space($val))">
+        <!-- case: open="" or close="" -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>\</xsl:text>
+        <xsl:value-of select="$pos"/>
+        <xsl:text> </xsl:text>
+        <xsl:choose>
+          <xsl:when test="$val = ('[', ']', '(', ')')">
+            <xsl:value-of select="$val"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="tr:utf2tex($val)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="*[local-name() = ('mstyle')]" mode="mathml2tex">
@@ -269,20 +304,83 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="mathml2tex">
-    <xsl:variable name="text" select="normalize-space(.)"/>
+    <xsl:variable name="text" select="normalize-space(.)" as="xs:string"/>
     <xsl:choose>
+      <xsl:when test="../self::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]">
+        <xsl:text>\</xsl:text>
+        <xsl:value-of select="$text"/>
+        <xsl:text> </xsl:text>
+      </xsl:when>
       <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms')]">
-        <xsl:variable name="text" select="if(matches($text, $texregex)) then tr:utf2tex($text) else replace($text, '([{{|}}])', '\\$1')" as="xs:string"/>
-        <xsl:value-of select="tr:check-operator(replace($text, '&#xa;', ' '))"/>
+        <xsl:variable name="fonts" as="xs:string?" select="tr:text-atts(..)"/>
+        <xsl:variable name="text" as="xs:string">
+          <xsl:choose>
+            <xsl:when test=". = ' '">
+              <xsl:sequence select="'\ '"/>
+            </xsl:when>
+            <xsl:when test="matches($text, $texregex)">
+              <xsl:sequence select="tr:utf2tex($text)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:sequence select="replace($text, '([{{|}}])', '\\$1')"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="text" select="replace($text, '&#xa;', ' ')" as="xs:string"/>
+        <xsl:choose>
+          <xsl:when test="$fonts">
+            <xsl:text>\math</xsl:text>
+            <xsl:value-of select="$fonts"/>
+            <xsl:text>{</xsl:text>
+            <xsl:value-of select="$text"/>
+            <xsl:text>}</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$text"/>
+          </xsl:otherwise> 
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="parent::mtext">
-        <xsl:value-of select="concat('{\rm ', $text ,'}')"/>
+        <xsl:variable name="fonts" as="xs:string" select="tr:text-atts(..)"/>
+        <xsl:value-of select="if (string-length($text) gt 1) then '\text' else '\math'"/>
+        <xsl:value-of select="$fonts"/>
+        <xsl:text>{</xsl:text>
+        <xsl:value-of select="$text"/>
+        <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="yes" select="'unexpected text node', parent::*/name()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
+  <xsl:function name="tr:text-atts" as="xs:string?">
+    <xsl:param name="elt" as="element(*)"/><!-- e.g., mtext -->
+    <xsl:choose>
+      <xsl:when test="$elt/@fontweight = 'bold'">
+        <xsl:choose>
+          <xsl:when test="$elt/@fontstyle = 'italic'">
+            <xsl:sequence select="'bi'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="'bf'"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+          <xsl:when test="$elt/@fontstyle = 'italic'">
+            <xsl:sequence select="'it'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="$elt/self::mtext or $elt/@mathvariant = 'normal'">
+              <xsl:sequence select="'rm'"/>
+            </xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
 
   <xsl:template match="mglyph" mode="mathml2tex">
     <xsl:message>Warnung: mglyph (<xsl:copy-of select="."/>)</xsl:message>
@@ -322,12 +420,9 @@
   </xsl:template>
   
   <!-- check operators -->
-  <xsl:function name="tr:check-operator" as="xs:string">
-    <xsl:param name="operator" as="xs:string"/>
-    <xsl:value-of select="if (normalize-space($operator) = ('sin', 'cos'))
-      then concat('\', normalize-space($operator))
-      else $operator"/>
-  </xsl:function>
+  <xsl:variable name="mml2tex:operator-names" as="xs:string+" 
+    select="('arcsin', 'arctan', 'arg', 'cos', 'cosh', 'cot', 'coth', 'csc', 'deg', 'det', 'dim', 'exp', 'gcd', 'hom', 'ker', 
+             'lg', 'lim', 'liminf', 'limsup', 'ln', 'log', 'max', 'min', 'Pr', 'sec', 'sinh', 'sup', 'tan', 'tanh')"/>
   
   <!-- function to convert utf8 to tex code -->
   <xsl:function name="tr:utf2tex" as="xs:string">

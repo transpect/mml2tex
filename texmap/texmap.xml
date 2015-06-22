@@ -305,6 +305,6 @@
   <symbol><hex>&#x266E;</hex><tex>\\natural</tex></symbol>
   <symbol><hex>&#x266F;</hex><tex>\\sharp</tex></symbol>
   <symbol><hex>&#x305;</hex><tex>\\overline</tex></symbol>
-  <symbol><hex>&#x7b;</hex><tex>\\left\\{</tex></symbol>
-  <symbol><hex>&#x7d;</hex><tex>\\right\\}</tex></symbol>
+  <symbol><hex>&#x7b;</hex><tex>\\{</tex></symbol>
+  <symbol><hex>&#x7d;</hex><tex>\\}</tex></symbol>
 </symbols>

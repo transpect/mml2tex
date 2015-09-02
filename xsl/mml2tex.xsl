@@ -345,7 +345,14 @@
         <xsl:value-of select="if (string-length($text) gt 1) then '\text' else '\math'"/>
         <xsl:value-of select="$fonts"/>
         <xsl:text>{</xsl:text>
-        <xsl:value-of select="$text"/>
+        <xsl:choose>
+          <xsl:when test="matches($text, $texregex)">
+            <xsl:sequence select="tr:utf2tex($text)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$text"/>
+          </xsl:otherwise>
+        </xsl:choose>        
         <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>

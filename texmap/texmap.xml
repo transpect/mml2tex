@@ -127,7 +127,10 @@
   <symbol><hex>&#x2216;</hex><tex>\\setminus</tex></symbol>
   <symbol><hex>&#x2217;</hex><tex>\\ast</tex></symbol>
   <symbol><hex>&#x2218;</hex><tex>\\circ</tex></symbol>
-  <symbol><hex>&#x2219;</hex><tex>\\bullet</tex></symbol>
+  <!-- apparently, authors use mix up the bullet with the 
+    multiplication dot in word equation editor -->
+  <!--<symbol><hex>&#x2219;</hex><tex>\\bullet</tex></symbol>-->
+  <symbol><hex>&#x2219;</hex><tex>\\cdot</tex></symbol>
   <symbol><hex>&#x221A;</hex><tex>\\surd</tex></symbol>
   <symbol><hex>&#x221D;</hex><tex>\\propto</tex></symbol>
   <symbol><hex>&#x221E;</hex><tex>\\infty</tex></symbol>

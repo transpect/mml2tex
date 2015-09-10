@@ -9,7 +9,7 @@
   <symbol><hex>&#x00F6;</hex><tex>\\&#x22;o</tex></symbol>
   <symbol><hex>&#x00DC;</hex><tex>\\&#x22;U</tex></symbol>
   <symbol><hex>&#x00FC;</hex><tex>\\&#x22;u</tex></symbol>
-  <symbol><hex>&#x00DF;</hex><tex>\\ss\\{\\}</tex></symbol>
+  <symbol><hex>&#x00DF;</hex><tex>\\ss{}</tex></symbol>
   <symbol><hex>&#x00AC;</hex><tex>\\lnot</tex></symbol>
   <symbol><hex>&#x00B1;</hex><tex>\\pm</tex></symbol>
   <symbol><hex>&#x00B5;</hex><tex>\\mu</tex></symbol>

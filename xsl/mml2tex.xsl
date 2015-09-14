@@ -434,6 +434,13 @@
   <!-- function to convert utf8 to tex code -->
   <xsl:function name="tr:utf2tex" as="xs:string">
     <xsl:param name="text" as="xs:string"/>
+    <xsl:sequence select="mml2tex:utf2tex($text, ())"/>
+  </xsl:function>
+  
+  <xsl:function name="mml2tex:utf2tex" as="xs:string">
+    <xsl:param name="text" as="xs:string"/>
+    <!-- In order to avoid infinite recursion when mapping % → \% -->
+    <xsl:param name="seen" as="xs:string*"/>
     <xsl:variable name="to-replace" select="replace($text, concat('^.*(', $texregex, ').*'), '$1')"/>
     <!-- replace text with tex code fragment. escape curly braces -->
     <xsl:variable name="replace" select="replace($text, 
@@ -442,8 +449,10 @@
     <xsl:choose>
       <!-- test if replace string matches texregex. condition: shouldn't 
         match curly braces because this will cause an infinite recursive loop. -->
-      <xsl:when test="matches($replace, $texregex) and not(matches($replace, '[\{\}\|]'))">
-        <xsl:sequence select="tr:utf2tex($replace)"/>
+      <xsl:when test="matches($replace, $texregex)
+                      and not($to-replace = $seen)
+                      and not(matches($replace, '[\{\}\|]'))">
+        <xsl:sequence select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$replace"/>

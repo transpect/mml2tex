@@ -316,13 +316,13 @@
         <xsl:variable name="text" as="xs:string">
           <xsl:choose>
             <xsl:when test=". = ' '">
-              <xsl:sequence select="'\ '"/>
+              <xsl:value-of select="'\ '"/>
             </xsl:when>
             <xsl:when test="matches($text, $texregex)">
-              <xsl:sequence select="tr:utf2tex($text)"/>
+              <xsl:value-of select="tr:utf2tex($text)"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:sequence select="replace($text, '([{{|}}])', '\\$1')"/>
+              <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
@@ -347,7 +347,7 @@
         <xsl:text>{</xsl:text>
         <xsl:choose>
           <xsl:when test="matches($text, $texregex)">
-            <xsl:sequence select="tr:utf2tex($text)"/>
+            <xsl:value-of select="tr:utf2tex($text)"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$text"/>
@@ -367,21 +367,21 @@
       <xsl:when test="$elt/@fontweight = 'bold'">
         <xsl:choose>
           <xsl:when test="$elt/@fontstyle = 'italic'">
-            <xsl:sequence select="'bi'"/>
+            <xsl:value-of select="'bi'"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:sequence select="'bf'"/>
+            <xsl:value-of select="'bf'"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
           <xsl:when test="$elt/@fontstyle = 'italic'">
-            <xsl:sequence select="'it'"/>
+            <xsl:value-of select="'it'"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:if test="$elt/self::mtext or $elt/@mathvariant = 'normal'">
-              <xsl:sequence select="'rm'"/>
+              <xsl:value-of select="'rm'"/>
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
@@ -434,7 +434,7 @@
   <!-- function to convert utf8 to tex code -->
   <xsl:function name="tr:utf2tex" as="xs:string">
     <xsl:param name="text" as="xs:string"/>
-    <xsl:sequence select="mml2tex:utf2tex($text, ())"/>
+    <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
   </xsl:function>
   
   <xsl:function name="mml2tex:utf2tex" as="xs:string">
@@ -452,7 +452,7 @@
       <xsl:when test="matches($replace, $texregex)
                       and not($to-replace = $seen)
                       and not(matches($replace, '[\{\}\|%]'))">
-        <xsl:sequence select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
+        <xsl:value-of select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$replace"/>

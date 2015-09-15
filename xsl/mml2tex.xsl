@@ -416,11 +416,10 @@
       <xsl:when test="some $i in $mml-mathvariant-to-tex/var satisfies $mathvariant eq $i/@mml">
         <xsl:value-of select="concat('\', $mml-mathvariant-to-tex/var[@mml eq $mathvariant]/@tex, '{')"/>
         <xsl:apply-templates mode="#current"/>
-        <xsl:text>}&#x20;</xsl:text>
+        <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates mode="#current"/>
-        <xsl:text>&#x20;</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
 

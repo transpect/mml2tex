@@ -2,6 +2,7 @@
 <!-- taken from http://www.tex.ac.uk/tex-archive/biblio/biber/utf8-macro-map.html -->
 <!-- please note that you have to escape backslashes -->
 <symbols xmlns="http://transpect.io/mml2tex">
+  <symbol><hex>&#x25;</hex><tex>\\%</tex></symbol>
   <symbol><hex>&#xb4;</hex><tex>'</tex></symbol>
   <symbol><hex>&#x007C;</hex><tex>\\lvert</tex></symbol>
   <symbol><hex>&#x00C4;</hex><tex>\\&#x22;A</tex></symbol>

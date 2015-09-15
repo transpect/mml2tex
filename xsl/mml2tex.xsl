@@ -451,7 +451,7 @@
         match curly braces because this will cause an infinite recursive loop. -->
       <xsl:when test="matches($replace, $texregex)
                       and not($to-replace = $seen)
-                      and not(matches($replace, '[\{\}\|]'))">
+                      and not(matches($replace, '[\{\}\|%]'))">
         <xsl:sequence select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
       </xsl:when>
       <xsl:otherwise>

@@ -337,6 +337,9 @@
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$text"/>
+            <xsl:if test="starts-with($text, '\')">
+              <xsl:text>&#x20;</xsl:text>
+            </xsl:if>
           </xsl:otherwise> 
         </xsl:choose>
       </xsl:when>

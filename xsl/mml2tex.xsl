@@ -151,7 +151,9 @@
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
     </xsl:if>
+    <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:text>}</xsl:text>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>

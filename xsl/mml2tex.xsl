@@ -279,7 +279,7 @@
         <xsl:value-of select="$val"/>
       </xsl:when>
       <xsl:when test="not(normalize-space($val))">
-        <!-- case: open="" or close="" - user special char 'full stop' to output no fence -->
+        <!-- open="" or close="": use special char 'full stop' to output no fence -->
         <xsl:text>.</xsl:text>
       </xsl:when>
       <xsl:otherwise>

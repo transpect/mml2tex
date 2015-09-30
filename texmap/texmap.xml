@@ -114,7 +114,7 @@
   <symbol><hex>&#x2202;</hex><tex>\\partial</tex></symbol>
   <symbol><hex>&#x2203;</hex><tex>\\exists</tex></symbol>
   <symbol><hex>&#x2204;</hex><tex>\\nexists</tex></symbol>
-  <symbol><hex>&#x2205;</hex><tex>\\set</tex></symbol>
+  <symbol><hex>&#x2205;</hex><tex>\\emptyset</tex></symbol>
   <symbol><hex>&#x2206;</hex><tex>\\Delta</tex></symbol>
   <symbol><hex>&#x2207;</hex><tex>\\nabla</tex></symbol>
   <symbol><hex>&#x2208;</hex><tex>\\in</tex></symbol>

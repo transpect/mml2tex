@@ -271,22 +271,19 @@
   <xsl:template name="fence">
     <xsl:param name="pos" as="xs:string"><!-- left|right --></xsl:param>
     <xsl:param name="val" as="xs:string"/>
+    <xsl:text>\</xsl:text>
+    <xsl:value-of select="$pos"/>
+    <xsl:text> </xsl:text>
     <xsl:choose>
+      <xsl:when test="$val = ('[', ']', '(', ')')">
+        <xsl:value-of select="$val"/>
+      </xsl:when>
       <xsl:when test="not(normalize-space($val))">
-        <!-- case: open="" or close="" -->
+        <!-- case: open="" or close="" - user special char 'full stop' to output no fence -->
+        <xsl:text>.</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>\</xsl:text>
-        <xsl:value-of select="$pos"/>
-        <xsl:text> </xsl:text>
-        <xsl:choose>
-          <xsl:when test="$val = ('[', ']', '(', ')')">
-            <xsl:value-of select="$val"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="tr:utf2tex($val)"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:value-of select="tr:utf2tex($val)"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

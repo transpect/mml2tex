@@ -151,9 +151,7 @@
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
     </xsl:if>
-    <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:text>}</xsl:text>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -271,19 +269,22 @@
   <xsl:template name="fence">
     <xsl:param name="pos" as="xs:string"><!-- left|right --></xsl:param>
     <xsl:param name="val" as="xs:string"/>
-    <xsl:text>\</xsl:text>
-    <xsl:value-of select="$pos"/>
-    <xsl:text> </xsl:text>
     <xsl:choose>
-      <xsl:when test="$val = ('[', ']', '(', ')')">
-        <xsl:value-of select="$val"/>
-      </xsl:when>
       <xsl:when test="not(normalize-space($val))">
-        <!-- open="" or close="": use special char 'full stop' to output no fence -->
-        <xsl:text>.</xsl:text>
+        <!-- case: open="" or close="" -->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="tr:utf2tex($val)"/>
+        <xsl:text>\</xsl:text>
+        <xsl:value-of select="$pos"/>
+        <xsl:text> </xsl:text>
+        <xsl:choose>
+          <xsl:when test="$val = ('[', ']', '(', ')')">
+            <xsl:value-of select="$val"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="tr:utf2tex($val)"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -336,9 +337,6 @@
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$text"/>
-            <xsl:if test="starts-with($text, '\')">
-              <xsl:text>&#x20;</xsl:text>
-            </xsl:if>
           </xsl:otherwise> 
         </xsl:choose>
       </xsl:when>

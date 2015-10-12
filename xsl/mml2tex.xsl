@@ -422,7 +422,6 @@
         <xsl:apply-templates mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
-
   </xsl:template>
   
   <!-- check operators -->
@@ -444,7 +443,7 @@
     <!-- replace text with tex code fragment. escape curly braces -->
     <xsl:variable name="replace" select="replace($text, 
       replace($to-replace, '([\{\}\|])', '\\$1'), 
-      $texmap/mml2tex:symbol[mml2tex:hex = $to-replace]/mml2tex:tex)"/>
+      concat($texmap/mml2tex:symbol[mml2tex:hex = $to-replace]/mml2tex:tex, ' '))"/>
     <xsl:choose>
       <!-- test if replace string matches texregex. condition: shouldn't 
         match curly braces because this will cause an infinite recursive loop. -->
@@ -454,6 +453,7 @@
         <xsl:value-of select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
       </xsl:when>
       <xsl:otherwise>
+        <!-- whitespace prevents undefined control sequences -->
         <xsl:value-of select="$replace"/>
       </xsl:otherwise>
     </xsl:choose>

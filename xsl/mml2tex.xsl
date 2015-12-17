@@ -201,14 +201,17 @@
   <xsl:template match="mover|munder" mode="mathml2tex">
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="diacritical-overline-exists" select="matches(., '&#x305;')" as="xs:boolean"/>
+    <xsl:variable name="diacritical-hat-exists" select="matches(., '&#x302;')" as="xs:boolean"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:value-of select="if (local-name() = 'mover') then 
       if($diacritical-overline-exists) then '\overline' 
+        else
+          if($diacritical-hat-exists) then '\hat' 
         else '\overset' 
       else '\underset'"/>
-    <xsl:if test="not($diacritical-overline-exists)">
+    <xsl:if test="not($diacritical-overline-exists or $diacritical-hat-exists)">
       <xsl:text>{</xsl:text>
       <xsl:apply-templates select="*[2]" mode="#current"/>
       <xsl:text>}</xsl:text>

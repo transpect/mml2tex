@@ -11,76 +11,76 @@
          * -->
   
     <!--EXCLAMATION MARK-->
-    <char character="&#x00021;" string="!"/>
+    <char character="&#x21;" string="!"/>
     <!--NUMBER SIGN-->
-    <char character="&#x00023;" string="\#"/>
+    <char character="&#x23;" string="\#"/>
     <!--= \mathdollar, DOLLAR SIGN-->
-    <char character="&#x00024;" string="\$"/>
+    <char character="&#x24;" string="\$"/>
     <!--PERCENT SIGN-->
-    <char character="&#x00025;" string="\%"/>
+    <char character="&#x25;" string="\%"/>
     <!--# \binampersand (stmaryrd)-->
-    <char character="&#x00026;" string="\&amp;"/>
+    <char character="&#x26;" string="\&amp;"/>
     <!--x :, COLON (not ratio)-->
-    <char character="&#x0003a;" string="\colon"/>
+    <char character="&#x3a;" string="\colon"/>
     <!--LEFT SQUARE BRACKET-->
-    <char character="&#x0005b;" string="\lbrack"/>
+    <char character="&#x5b;" string="\lbrack"/>
     <!--REVERSE SOLIDUS-->
-    <char character="&#x0005c;" string="\backslash"/>
+    <char character="&#x5c;" string="\backslash"/>
     <!--RIGHT SQUARE BRACKET-->
-    <char character="&#x0005d;" string="\rbrack"/>
+    <char character="&#x5d;" string="\rbrack"/>
     <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
-    <char character="&#x0005e;" string="\sphat"/>
+    <char character="&#x5e;" string="\sphat"/>
     <!--LOW LINE, TeX subscript operator-->
-    <char character="&#x0005f;" string="\_"/>
+    <char character="&#x5f;" string="\_"/>
     <!--= \lbrace, LEFT CURLY BRACKET-->
-    <char character="&#x0007b;" string="\{"/>
+    <char character="&#x7b;" string="\{"/>
     <!--= \vert, vertical bar-->
-    <char character="&#x0007c;" string="|"/>
+    <char character="&#x7c;" string="|"/>
     <!--= \rbrace, RIGHT CURLY BRACKET-->
-    <char character="&#x0007d;" string="\}"/>
+    <char character="&#x7d;" string="\}"/>
     <!--# \sim, TILDE-->
-    <char character="&#x0007e;" string="\sptilde"/>
+    <char character="&#x7e;" string="\sptilde"/>
   
     <!-- *
          * Latin-1 Supplement
          * -->
   
     <!--nbsp-->
-    <char character="&#x000a0;" string="~"/>
+    <char character="&#xa0;" string="~"/>
     <!--= \mathcent (txfonts), cent-->
-    <char character="&#x000a2;" string="\cent"/>
+    <char character="&#xa2;" string="\cent"/>
     <!--= \mathsterling (txfonts), POUND SIGN, fourier prints a dollar sign-->
-    <char character="&#x000a3;" string="\pounds"/>
+    <char character="&#xa3;" string="\pounds"/>
     <!--YEN SIGN-->
-    <char character="&#x000a5;" string="\yen"/>
+    <char character="&#xa5;" string="\yen"/>
     <!--= \lnot, NOT SIGN-->
-    <char character="&#x000ac;" string="\neg"/>
+    <char character="&#xac;" string="\neg"/>
     <!--REGISTERED SIGN-->
-    <char character="&#x000ae;" string="\circledR"/>
+    <char character="&#xae;" string="\circledR"/>
     <!--plus-or-minus sign-->
-    <char character="&#x000b1;" string="\pm"/>
+    <char character="&#xb1;" string="\pm"/>
     <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
-    <char character="&#x000b5;" string="\Micro"/>
+    <char character="&#xb5;" string="\Micro"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
-    <char character="&#x000d7;" string="\times"/>
+    <char character="&#xd7;" string="\times"/>
     <!--eth-->
-    <char character="&#x000f0;" string="\eth"/>
+    <char character="&#xf0;" string="\eth"/>
     <!--divide sign-->
-    <char character="&#x000f7;" string="\div"/>
+    <char character="&#xf7;" string="\div"/>
   
     <!-- *
          * Latin Extended-A
          * -->
   
     <!--imath-->
-    <char character="&#x00131;" string="\imath"/>
+    <char character="&#x131;" string="\imath"/>
   
     <!-- *
          * Latin Extended-B
          * -->
   
     <!--jmath-->
-    <char character="&#x00237;" string="\jmath"/>
+    <char character="&#x237;" string="\jmath"/>
   
     <!-- *
          * Spacing Modifier Letters
@@ -91,144 +91,144 @@
          * -->
   
     <!--grave accent-->
-    <char character="&#x00300;" string="\grave"/>
+    <char character="&#x300;" string="\grave"/>
     <!--acute accent-->
-    <char character="&#x00301;" string="\acute"/>
+    <char character="&#x301;" string="\acute"/>
     <!--# \widehat (amssymb), circumflex accent-->
-    <char character="&#x00302;" string="\hat"/>
+    <char character="&#x302;" string="\hat"/>
     <!--# \widetilde (yhmath, fourier), tilde-->
-    <char character="&#x00303;" string="\tilde"/>
+    <char character="&#x303;" string="\tilde"/>
     <!--macron-->
-    <char character="&#x00304;" string="\bar"/>
+    <char character="&#x304;" string="\bar"/>
     <!--overbar embellishment-->
-    <char character="&#x00305;" string="\overline"/>
+    <char character="&#x305;" string="\overline"/>
     <!--breve-->
-    <char character="&#x00306;" string="\breve"/>
+    <char character="&#x306;" string="\breve"/>
     <!--= \Dot (wrisym), dot above-->
-    <char character="&#x00307;" string="\dot"/>
+    <char character="&#x307;" string="\dot"/>
     <!--= \DDot (wrisym), dieresis-->
-    <char character="&#x00308;" string="\ddot"/>
+    <char character="&#x308;" string="\ddot"/>
     <!--= \ring (yhmath), ring-->
-    <char character="&#x0030a;" string="\mathring"/>
+    <char character="&#x30a;" string="\mathring"/>
     <!--caron-->
-    <char character="&#x0030c;" string="\check"/>
+    <char character="&#x30c;" string="\check"/>
     <!--under tilde accent (multiple characters and non-spacing)-->
-    <char character="&#x00330;" string="\utilde"/>
+    <char character="&#x330;" string="\utilde"/>
     <!--COMBINING MACRON BELOW-->
-    <char character="&#x00331;" string="\underbar"/>
+    <char character="&#x331;" string="\underbar"/>
     <!--COMBINING LOW LINE-->
-    <char character="&#x00332;" string="\underline"/>
+    <char character="&#x332;" string="\underline"/>
     <!--COMBINING LONG SOLIDUS OVERLAY-->
-    <char character="&#x00338;" string="\not"/>
+    <char character="&#x338;" string="\not"/>
   
     <!-- *
          * Greek and Coptic
          * -->
   
     <!--= \Gamma (-slantedGreek), = \mathrm{\Gamma}, capital gamma, greek-->
-    <char character="&#x00393;" string="\Gamma"/>
+    <char character="&#x393;" string="\Gamma"/>
     <!--= \Delta (-slantedGreek), = \mathrm{\Delta}, capital delta, greek-->
-    <char character="&#x00394;" string="\Delta"/>
+    <char character="&#x394;" string="\Delta"/>
     <!--= \Theta (-slantedGreek), = \mathrm{\Theta}, capital theta, greek-->
-    <char character="&#x00398;" string="\Theta"/>
+    <char character="&#x398;" string="\Theta"/>
     <!--= \Lambda (-slantedGreek), = \mathrm{\Lambda}, capital lambda, greek-->
-    <char character="&#x0039b;" string="\Lambda"/>
+    <char character="&#x39b;" string="\Lambda"/>
     <!--= \Xi (-slantedGreek), = \mathrm{\Xi}, capital xi, greek-->
-    <char character="&#x0039e;" string="\Xi"/>
+    <char character="&#x39e;" string="\Xi"/>
     <!--= \Pi (-slantedGreek), = \mathrm{\Pi}, capital pi, greek-->
-    <char character="&#x003a0;" string="\Pi"/>
+    <char character="&#x3a0;" string="\Pi"/>
     <!--= \Sigma (-slantedGreek), = \mathrm{\Sigma}, capital sigma, greek-->
-    <char character="&#x003a3;" string="\Sigma"/>
+    <char character="&#x3a3;" string="\Sigma"/>
     <!--= \Upsilon (-slantedGreek), = \mathrm{\Upsilon}, capital upsilon, greek-->
-    <char character="&#x003a5;" string="\Upsilon"/>
+    <char character="&#x3a5;" string="\Upsilon"/>
     <!--= \Phi (-slantedGreek), = \mathrm{\Phi}, capital phi, greek-->
-    <char character="&#x003a6;" string="\Phi"/>
+    <char character="&#x3a6;" string="\Phi"/>
     <!--= \Psi (-slantedGreek), = \mathrm{\Psi}, capital psi, greek-->
-    <char character="&#x003a8;" string="\Psi"/>
+    <char character="&#x3a8;" string="\Psi"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
-    <char character="&#x003a9;" string="\Omega"/>
+    <char character="&#x3a9;" string="\Omega"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
-    <char character="&#x003b1;" string="\alpha"/>
+    <char character="&#x3b1;" string="\alpha"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
-    <char character="&#x003b2;" string="\beta"/>
+    <char character="&#x3b2;" string="\beta"/>
     <!--= \mathrm{\gamma} (omlmathrm), = \gammaup (kpfonts mathdesign), = \upgamma (upgreek),  gamma, greek-->
-    <char character="&#x003b3;" string="\gamma"/>
+    <char character="&#x3b3;" string="\gamma"/>
     <!--= \mathrm{\delta} (omlmathrm), = \deltaup (kpfonts mathdesign), = \updelta (upgreek),  delta, greek-->
-    <char character="&#x003b4;" string="\delta"/>
+    <char character="&#x3b4;" string="\delta"/>
     <!--= \mathrm{\varepsilon} (omlmathrm), = \varepsilonup (kpfonts mathdesign), rounded = \upepsilon (upgreek),  epsilon, greek-->
-    <char character="&#x003b5;" string="\varepsilon"/>
+    <char character="&#x3b5;" string="\varepsilon"/>
     <!--= \mathrm{\zeta} (omlmathrm), = \zetaup (kpfonts mathdesign), = \upzeta (upgreek),  zeta, greek-->
-    <char character="&#x003b6;" string="\zeta"/>
+    <char character="&#x3b6;" string="\zeta"/>
     <!--= \mathrm{\eta} (omlmathrm), = \etaup (kpfonts mathdesign), = \upeta (upgreek),  eta, greek-->
-    <char character="&#x003b7;" string="\eta"/>
+    <char character="&#x3b7;" string="\eta"/>
     <!--= \mathrm{\theta} (omlmathrm), = \thetaup (kpfonts mathdesign), straight theta, = \uptheta (upgreek),  theta, greek-->
-    <char character="&#x003b8;" string="\theta"/>
+    <char character="&#x3b8;" string="\theta"/>
     <!--= \mathrm{\iota} (omlmathrm), = \iotaup (kpfonts mathdesign), = \upiota (upgreek),  iota, greek-->
-    <char character="&#x003b9;" string="\iota"/>
+    <char character="&#x3b9;" string="\iota"/>
     <!--= \mathrm{\kappa} (omlmathrm), = \kappaup (kpfonts mathdesign), = \upkappa (upgreek),  kappa, greek-->
-    <char character="&#x003ba;" string="\kappa"/>
+    <char character="&#x3ba;" string="\kappa"/>
     <!--= \mathrm{\lambda} (omlmathrm), = \lambdaup (kpfonts mathdesign), = \uplambda (upgreek),  lambda, greek-->
-    <char character="&#x003bb;" string="\lambda"/>
+    <char character="&#x3bb;" string="\lambda"/>
     <!--= \mathrm{\mu} (omlmathrm), = \muup (kpfonts mathdesign), = \upmu (upgreek),  mu, greek-->
-    <char character="&#x003bc;" string="\mu"/>
+    <char character="&#x3bc;" string="\mu"/>
     <!--= \mathrm{\nu} (omlmathrm), = \nuup (kpfonts mathdesign), = \upnu (upgreek),  nu, greek-->
-    <char character="&#x003bd;" string="\nu"/>
+    <char character="&#x3bd;" string="\nu"/>
     <!--= \mathrm{\xi} (omlmathrm), = \xiup (kpfonts mathdesign), = \upxi (upgreek),  xi, greek-->
-    <char character="&#x003be;" string="\xi"/>
+    <char character="&#x3be;" string="\xi"/>
     <!--= \mathrm{\pi} (omlmathrm), = \piup (kpfonts mathdesign), = \uppi (upgreek),  pi, greek-->
-    <char character="&#x003c0;" string="\pi"/>
+    <char character="&#x3c0;" string="\pi"/>
     <!--= \mathrm{\rho} (omlmathrm), = \rhoup (kpfonts mathdesign), = \uprho (upgreek),  rho, greek-->
-    <char character="&#x003c1;" string="\rho"/>
+    <char character="&#x3c1;" string="\rho"/>
     <!--= \mathrm{\varsigma} (omlmathrm), = \varsigmaup (kpfonts mathdesign), terminal sigma, greek-->
-    <char character="&#x003c2;" string="\varsigma"/>
+    <char character="&#x3c2;" string="\varsigma"/>
     <!--= \mathrm{\sigma} (omlmathrm), = \sigmaup (kpfonts mathdesign), = \upsigma (upgreek),  sigma, greek-->
-    <char character="&#x003c3;" string="\sigma"/>
+    <char character="&#x3c3;" string="\sigma"/>
     <!--= \mathrm{\tau} (omlmathrm), = \tauup (kpfonts mathdesign), = \uptau (upgreek),  tau, greek-->
-    <char character="&#x003c4;" string="\tau"/>
+    <char character="&#x3c4;" string="\tau"/>
     <!--= \mathrm{\upsilon} (omlmathrm), = \upsilonup (kpfonts mathdesign), = \upupsilon (upgreek),  upsilon, greek-->
-    <char character="&#x003c5;" string="\upsilon"/>
+    <char character="&#x3c5;" string="\upsilon"/>
     <!--= \mathrm{\varphi} (omlmathrm), = \varphiup (kpfonts mathdesign), curly or open = \upvarphi (upgreek),  phi, greek-->
-    <char character="&#x003c6;" string="\varphi"/>
+    <char character="&#x3c6;" string="\varphi"/>
     <!--= \mathrm{\chi} (omlmathrm), = \chiup (kpfonts mathdesign), = \upchi (upgreek),  chi, greek-->
-    <char character="&#x003c7;" string="\chi"/>
+    <char character="&#x3c7;" string="\chi"/>
     <!--= \mathrm{\psi} (omlmathrm), = \psiup (kpfonts mathdesign), = \uppsi (upgreek),  psi, greek-->
-    <char character="&#x003c8;" string="\psi"/>
+    <char character="&#x3c8;" string="\psi"/>
     <!--= \mathrm{\omega} (omlmathrm), = \omegaup (kpfonts mathdesign), = \upomega (upgreek),  omega, greek-->
-    <char character="&#x003c9;" string="\omega"/>
+    <char character="&#x3c9;" string="\omega"/>
     <!--rounded = \upvarbeta (upgreek),  beta, greek-->
-    <char character="&#x003d0;" string="\varbeta"/>
+    <char character="&#x3d0;" string="\varbeta"/>
     <!--= \mathrm{\vartheta} (omlmathrm), = \varthetaup (kpfonts mathdesign), curly or open theta-->
-    <char character="&#x003d1;" string="\vartheta"/>
+    <char character="&#x3d1;" string="\vartheta"/>
     <!--= \mathrm{\phi} (omlmathrm), = \phiup (kpfonts mathdesign), GREEK PHI SYMBOL (straight)-->
-    <char character="&#x003d5;" string="\phi"/>
+    <char character="&#x3d5;" string="\phi"/>
     <!--= \mathrm{\varpi} (omlmathrm), = \varpiup (kpfonts mathdesign), GREEK PI SYMBOL (pomega)-->
-    <char character="&#x003d6;" string="\varpi"/>
+    <char character="&#x3d6;" string="\varpi"/>
     <!--= \Koppa (wrisym), t \Qoppa (LGR), GREEK LETTER ARCHAIC KOPPA-->
-    <char character="&#x003d8;" string="\Qoppa"/>
+    <char character="&#x3d8;" string="\Qoppa"/>
     <!--= \koppa (wrisym), t \qoppa (LGR), GREEK SMALL LETTER ARCHAIC KOPPA-->
-    <char character="&#x003d9;" string="\qoppa"/>
+    <char character="&#x3d9;" string="\qoppa"/>
     <!--capital stigma-->
-    <char character="&#x003da;" string="\Stigma"/>
+    <char character="&#x3da;" string="\Stigma"/>
     <!--GREEK SMALL LETTER STIGMA-->
-    <char character="&#x003db;" string="\stigma"/>
+    <char character="&#x3db;" string="\stigma"/>
     <!--= \Digamma (wrisym), capital digamma-->
-    <char character="&#x003dc;" string="\digamma"/>
+    <char character="&#x3dc;" string="\digamma"/>
     <!--GREEK SMALL LETTER DIGAMMA-->
-    <char character="&#x003dd;" string="\digamma"/>
+    <char character="&#x3dd;" string="\digamma"/>
     <!--capital koppa-->
-    <char character="&#x003de;" string="\Koppa"/>
+    <char character="&#x3de;" string="\Koppa"/>
     <!--GREEK SMALL LETTER KOPPA-->
-    <char character="&#x003df;" string="\koppa"/>
+    <char character="&#x3df;" string="\koppa"/>
     <!--capital sampi-->
-    <char character="&#x003e0;" string="\Sampi"/>
+    <char character="&#x3e0;" string="\Sampi"/>
     <!--# \sampi (wrisym), GREEK SMALL LETTER SAMPI-->
-    <char character="&#x003e1;" string="\sampi"/>
+    <char character="&#x3e1;" string="\sampi"/>
     <!--= \mathrm{\varrho} (omlmathrm), = \varrhoup (kpfonts mathdesign), GREEK RHO SYMBOL (round)-->
-    <char character="&#x003f1;" string="\varrho"/>
+    <char character="&#x3f1;" string="\varrho"/>
     <!--= \mathrm{\epsilon} (omlmathrm), = \epsilonup (kpfonts mathdesign), GREEK LUNATE EPSILON SYMBOL-->
-    <char character="&#x003f5;" string="\epsilon"/>
+    <char character="&#x3f5;" string="\epsilon"/>
     <!--GREEK REVERSED LUNATE EPSILON SYMBOL-->
-    <char character="&#x003f6;" string="\backepsilon"/>
+    <char character="&#x3f6;" string="\backepsilon"/>
   
     <!-- *
           * Cyrillic
@@ -241,29 +241,29 @@
           * -->
   
     <!--emquad-->
-    <char character="&#x02001;" string="\quad"/>
+    <char character="&#x2001;" string="\quad"/>
     <!--= \Vert, double vertical bar-->
-    <char character="&#x02016;" string="\|"/>
+    <char character="&#x2016;" string="\|"/>
     <!--DAGGER relation-->
-    <char character="&#x02020;" string="\dagger"/>
+    <char character="&#x2020;" string="\dagger"/>
     <!--DOUBLE DAGGER relation-->
-    <char character="&#x02021;" string="\ddagger"/>
+    <char character="&#x2021;" string="\ddagger"/>
     <!--ellipsis (horizontal)-->
-    <char character="&#x02026;" string="\ldots"/>
+    <char character="&#x2026;" string="\ldots"/>
     <!--PRIME or minute, not superscripted-->
-    <char character="&#x02032;" string="\prime"/>
+    <char character="&#x2032;" string="\prime"/>
     <!--DOUBLE PRIME or second, not superscripted-->
-    <char character="&#x02033;" string="\second"/>
+    <char character="&#x2033;" string="\second"/>
     <!--TRIPLE PRIME (not superscripted)-->
-    <char character="&#x02034;" string="\third"/>
+    <char character="&#x2034;" string="\third"/>
     <!--reverse prime, not superscripted-->
-    <char character="&#x02035;" string="\backprime"/>
+    <char character="&#x2035;" string="\backprime"/>
     <!--CHARACTER TIE, z notation sequence concatenation-->
-    <char character="&#x02040;" string="\cat"/>
+    <char character="&#x2040;" string="\cat"/>
     <!--QUADRUPLE PRIME, not superscripted-->
-    <char character="&#x02057;" string="\fourth"/>
+    <char character="&#x2057;" string="\fourth"/>
     <!--= \medspace (amsmath), MEDIUM MATHEMATICAL SPACE-->
-    <char character="&#x0205f;" string="\:"/>
+    <char character="&#x205f;" string="\:"/>
   
     <!-- *
           * Superscripts and Subscripts
@@ -282,767 +282,767 @@
           * -->
   
     <!--COMBINING LEFT HARPOON ABOVE-->
-    <char character="&#x020d0;" string="\lvec"/>
+    <char character="&#x20d0;" string="\lvec"/>
     <!--COMBINING RIGHT HARPOON ABOVE-->
-    <char character="&#x020d1;" string="\vec"/>
+    <char character="&#x20d1;" string="\vec"/>
     <!--# \overleftarrow, COMBINING LEFT ARROW ABOVE-->
-    <char character="&#x020d6;" string="\LVec"/>
+    <char character="&#x20d6;" string="\LVec"/>
     <!--= \Vec (wrisym), # \overrightarrow, COMBINING RIGHT ARROW ABOVE-->
-    <char character="&#x020d7;" string="\vec"/>
+    <char character="&#x20d7;" string="\vec"/>
     <!--= \DDDot (wrisym), COMBINING THREE DOTS ABOVE-->
-    <char character="&#x020db;" string="\dddot"/>
+    <char character="&#x20db;" string="\dddot"/>
     <!--COMBINING FOUR DOTS ABOVE-->
-    <char character="&#x020dc;" string="\ddddot"/>
+    <char character="&#x20dc;" string="\ddddot"/>
     <!--COMBINING LEFT RIGHT ARROW ABOVE-->
-    <char character="&#x020e1;" string="\overleftrightarrow"/>
+    <char character="&#x20e1;" string="\overleftrightarrow"/>
     <!--COMBINING LEFT ARROW BELOW-->
-    <char character="&#x020ee;" string="\underleftarrow"/>
+    <char character="&#x20ee;" string="\underleftarrow"/>
     <!--COMBINING RIGHT ARROW BELOW-->
-    <char character="&#x020ef;" string="\underrightarrow"/>
+    <char character="&#x20ef;" string="\underrightarrow"/>
   
     <!-- *
           * Letterlike Symbols
           * -->
   
     <!--= \mathds{C} (dsfont), open face C-->
-    <char character="&#x02102;" string="\mathbb{C}"/>
+    <char character="&#x2102;" string="\mathbb{C}"/>
     <!--EULER CONSTANT-->
-    <char character="&#x02107;" string="\Euler"/>
+    <char character="&#x2107;" string="\Euler"/>
     <!--/scr g, script small letter g-->
-    <char character="&#x0210a;" string="\mathcal{g}"/>
+    <char character="&#x210a;" string="\mathcal{g}"/>
     <!--hamiltonian (script capital H)-->
-    <char character="&#x0210b;" string="\mathcal{H}"/>
+    <char character="&#x210b;" string="\mathcal{H}"/>
     <!--/frak H, black-letter capital H-->
-    <char character="&#x0210c;" string="\mathfrak{H}"/>
+    <char character="&#x210c;" string="\mathfrak{H}"/>
     <!--= \mathds{H} (dsfont), open face capital H-->
-    <char character="&#x0210d;" string="\mathbb{H}"/>
+    <char character="&#x210d;" string="\mathbb{H}"/>
     <!--=\HBar (wrisym), Planck's h over 2pi-->
-    <char character="&#x0210f;" string="\hslash"/>
+    <char character="&#x210f;" string="\hslash"/>
     <!--/scr I, script capital I-->
-    <char character="&#x02110;" string="\mathcal{I}"/>
+    <char character="&#x2110;" string="\mathcal{I}"/>
     <!--= \mathfrak{I} (eufrak), imaginary part-->
-    <char character="&#x02111;" string="\Im"/>
+    <char character="&#x2111;" string="\Im"/>
     <!--lagrangian (script capital L)-->
-    <char character="&#x02112;" string="\mathcal{L}"/>
+    <char character="&#x2112;" string="\mathcal{L}"/>
     <!--cursive small l-->
-    <char character="&#x02113;" string="\ell"/>
+    <char character="&#x2113;" string="\ell"/>
     <!--= \mathds{N} (dsfont), open face N-->
-    <char character="&#x02115;" string="\mathbb{N}"/>
+    <char character="&#x2115;" string="\mathbb{N}"/>
     <!--weierstrass p-->
-    <char character="&#x02118;" string="\wp"/>
+    <char character="&#x2118;" string="\wp"/>
     <!--= \mathds{P} (dsfont), open face P-->
-    <char character="&#x02119;" string="\mathbb{P}"/>
+    <char character="&#x2119;" string="\mathbb{P}"/>
     <!--= \mathds{Q} (dsfont), open face Q-->
-    <char character="&#x0211a;" string="\mathbb{Q}"/>
+    <char character="&#x211a;" string="\mathbb{Q}"/>
     <!--/scr R, script capital R-->
-    <char character="&#x0211b;" string="\mathcal{R}"/>
+    <char character="&#x211b;" string="\mathcal{R}"/>
     <!--= \mathfrak{R} (eufrak), real part-->
-    <char character="&#x0211c;" string="\Re"/>
+    <char character="&#x211c;" string="\Re"/>
     <!--= \mathds{R} (dsfont), open face R-->
-    <char character="&#x0211d;" string="\mathbb{R}"/>
+    <char character="&#x211d;" string="\mathbb{R}"/>
     <!--= \mathds{Z} (dsfont), open face Z-->
-    <char character="&#x02124;" string="\mathbb{Z}"/>
+    <char character="&#x2124;" string="\mathbb{Z}"/>
     <!--# \mathrm{\Omega}, ohm (deprecated in math, use greek letter)-->
-    <char character="&#x02126;" string="\tcohm"/>
+    <char character="&#x2126;" string="\tcohm"/>
     <!--= \Mho (wrisym), t \agemO (wasysym), conductance-->
-    <char character="&#x02127;" string="\mho"/>
+    <char character="&#x2127;" string="\mho"/>
     <!--/frak Z, black-letter capital Z-->
-    <char character="&#x02128;" string="\mathfrak{Z}"/>
+    <char character="&#x2128;" string="\mathfrak{Z}"/>
     <!--# \mathring{\mathrm{A}}, Ångström capital A with ring-->
-    <char character="&#x0212b;" string="\Angstroem"/>
+    <char character="&#x212b;" string="\Angstroem"/>
     <!--bernoulli function (script capital B)-->
-    <char character="&#x0212c;" string="\mathcal{B}"/>
+    <char character="&#x212c;" string="\mathcal{B}"/>
     <!--black-letter capital C-->
-    <char character="&#x0212d;" string="\mathfrak{C}"/>
+    <char character="&#x212d;" string="\mathfrak{C}"/>
     <!--/scr e, script small letter e-->
-    <char character="&#x0212f;" string="\mathcal{e}"/>
+    <char character="&#x212f;" string="\mathcal{e}"/>
     <!--/scr E, script capital E-->
-    <char character="&#x02130;" string="\mathcal{E}"/>
+    <char character="&#x2130;" string="\mathcal{E}"/>
     <!--/scr F, script capital F-->
-    <char character="&#x02131;" string="\mathcal{F}"/>
+    <char character="&#x2131;" string="\mathcal{F}"/>
     <!--TURNED CAPITAL F-->
-    <char character="&#x02132;" string="\Finv"/>
+    <char character="&#x2132;" string="\Finv"/>
     <!--physics m-matrix (SCRIPT CAPITAL M)-->
-    <char character="&#x02133;" string="\mathcal{M}"/>
+    <char character="&#x2133;" string="\mathcal{M}"/>
     <!--order of (SCRIPT SMALL O)-->
-    <char character="&#x02134;" string="\mathcal{o}"/>
+    <char character="&#x2134;" string="\mathcal{o}"/>
     <!--aleph, hebrew-->
-    <char character="&#x02135;" string="\aleph"/>
+    <char character="&#x2135;" string="\aleph"/>
     <!--beth, hebrew-->
-    <char character="&#x02136;" string="\beth"/>
+    <char character="&#x2136;" string="\beth"/>
     <!--gimel, hebrew-->
-    <char character="&#x02137;" string="\gimel"/>
+    <char character="&#x2137;" string="\gimel"/>
     <!--daleth, hebrew-->
-    <char character="&#x02138;" string="\daleth"/>
+    <char character="&#x2138;" string="\daleth"/>
     <!--\DoublePi (wrisym), DOUBLE-STRUCK SMALL PI-->
-    <char character="&#x0213c;" string="\mathbb{pi}"/>
+    <char character="&#x213c;" string="\mathbb{pi}"/>
     <!--\EulerGamma (wrisym), DOUBLE-STRUCK SMALL GAMMA-->
-    <char character="&#x0213d;" string="\mathbb{gamma}"/>
+    <char character="&#x213d;" string="\mathbb{gamma}"/>
     <!--DOUBLE-STRUCK CAPITAL GAMMA-->
-    <char character="&#x0213e;" string="\mathbb{Gamma}"/>
+    <char character="&#x213e;" string="\mathbb{Gamma}"/>
     <!--DOUBLE-STRUCK CAPITAL PI-->
-    <char character="&#x0213f;" string="\mathbb{Pi}"/>
+    <char character="&#x213f;" string="\mathbb{Pi}"/>
     <!--DOUBLE-STRUCK N-ARY SUMMATION-->
-    <char character="&#x02140;" string="\mathbb{Sigma}"/>
+    <char character="&#x2140;" string="\mathbb{Sigma}"/>
     <!--TURNED SANS-SERIF CAPITAL Y-->
-    <char character="&#x02144;" string="\Yup"/>
+    <char character="&#x2144;" string="\Yup"/>
     <!--= \DD (wrisym), DOUBLE-STRUCK ITALIC CAPITAL D-->
-    <char character="&#x02145;" string="\CapitalDifferentialD"/>
+    <char character="&#x2145;" string="\CapitalDifferentialD"/>
     <!--= \dd (wrisym), DOUBLE-STRUCK ITALIC SMALL D-->
-    <char character="&#x02146;" string="\DifferentialD"/>
+    <char character="&#x2146;" string="\DifferentialD"/>
     <!--= \ee (wrisym), DOUBLE-STRUCK ITALIC SMALL E-->
-    <char character="&#x02147;" string="\ExponetialE"/>
+    <char character="&#x2147;" string="\ExponetialE"/>
     <!--= \ii (wrisym), DOUBLE-STRUCK ITALIC SMALL I-->
-    <char character="&#x02148;" string="\ComplexI"/>
+    <char character="&#x2148;" string="\ComplexI"/>
     <!--= \jj (wrisym), DOUBLE-STRUCK ITALIC SMALL J-->
-    <char character="&#x02149;" string="\ComplexJ"/>
+    <char character="&#x2149;" string="\ComplexJ"/>
     <!--# \bindnasrepma (stmaryrd), TURNED AMPERSAND-->
-    <char character="&#x0214b;" string="\invamp"/>
+    <char character="&#x214b;" string="\invamp"/>
   
     <!-- *
          * Arrows
          * -->
   
     <!--= \gets, a: leftward arrow-->
-    <char character="&#x02190;" string="\leftarrow"/>
+    <char character="&#x2190;" string="\leftarrow"/>
     <!--upward arrow-->
-    <char character="&#x02191;" string="\uparrow"/>
+    <char character="&#x2191;" string="\uparrow"/>
     <!--= \to, = \tfun (oz), = \fun (oz), rightward arrow, z notation total function-->
-    <char character="&#x02192;" string="\rightarrow"/>
+    <char character="&#x2192;" string="\rightarrow"/>
     <!--downward arrow-->
-    <char character="&#x02193;" string="\downarrow"/>
+    <char character="&#x2193;" string="\downarrow"/>
     <!--= \rel (oz), LEFT RIGHT ARROW, z notation relation-->
-    <char character="&#x02194;" string="\leftrightarrow"/>
+    <char character="&#x2194;" string="\leftrightarrow"/>
     <!--up and down arrow-->
-    <char character="&#x02195;" string="\updownarrow"/>
+    <char character="&#x2195;" string="\updownarrow"/>
     <!--nw pointing arrow-->
-    <char character="&#x02196;" string="\nwarrow"/>
+    <char character="&#x2196;" string="\nwarrow"/>
     <!--ne pointing arrow-->
-    <char character="&#x02197;" string="\nearrow"/>
+    <char character="&#x2197;" string="\nearrow"/>
     <!--se pointing arrow-->
-    <char character="&#x02198;" string="\searrow"/>
+    <char character="&#x2198;" string="\searrow"/>
     <!--sw pointing arrow-->
-    <char character="&#x02199;" string="\swarrow"/>
+    <char character="&#x2199;" string="\swarrow"/>
     <!--not left arrow-->
-    <char character="&#x0219a;" string="\nleftarrow"/>
+    <char character="&#x219a;" string="\nleftarrow"/>
     <!--not right arrow-->
-    <char character="&#x0219b;" string="\nrightarrow"/>
+    <char character="&#x219b;" string="\nrightarrow"/>
     <!--left two-headed arrow-->
-    <char character="&#x0219e;" string="\twoheadleftarrow"/>
+    <char character="&#x219e;" string="\twoheadleftarrow"/>
     <!--= \tsur (oz), = \surj (oz), right two-headed arrow, z notation total surjection-->
-    <char character="&#x021a0;" string="\twoheadrightarrow"/>
+    <char character="&#x21a0;" string="\twoheadrightarrow"/>
     <!--left arrow-tailed-->
-    <char character="&#x021a2;" string="\leftarrowtail"/>
+    <char character="&#x21a2;" string="\leftarrowtail"/>
     <!--= \tinj (oz), = \inj (oz), right arrow-tailed, z notation total injection-->
-    <char character="&#x021a3;" string="\rightarrowtail"/>
+    <char character="&#x21a3;" string="\rightarrowtail"/>
     <!--= \mappedfrom (kpfonts), maps to, leftward-->
-    <char character="&#x021a4;" string="\mapsfrom"/>
+    <char character="&#x21a4;" string="\mapsfrom"/>
     <!--maps to, upward-->
-    <char character="&#x021a5;" string="\MapsUp"/>
+    <char character="&#x21a5;" string="\MapsUp"/>
     <!--maps to, rightward, z notation maplet-->
-    <char character="&#x021a6;" string="\mapsto"/>
+    <char character="&#x21a6;" string="\mapsto"/>
     <!--maps to, downward-->
-    <char character="&#x021a7;" string="\MapsDown"/>
+    <char character="&#x21a7;" string="\MapsDown"/>
     <!--left arrow-hooked-->
-    <char character="&#x021a9;" string="\hookleftarrow"/>
+    <char character="&#x21a9;" string="\hookleftarrow"/>
     <!--right arrow-hooked-->
-    <char character="&#x021aa;" string="\hookrightarrow"/>
+    <char character="&#x21aa;" string="\hookrightarrow"/>
     <!--left arrow-looped-->
-    <char character="&#x021ab;" string="\looparrowleft"/>
+    <char character="&#x21ab;" string="\looparrowleft"/>
     <!--right arrow-looped-->
-    <char character="&#x021ac;" string="\looparrowright"/>
+    <char character="&#x21ac;" string="\looparrowright"/>
     <!--left and right arr-wavy-->
-    <char character="&#x021ad;" string="\leftrightsquigarrow"/>
+    <char character="&#x21ad;" string="\leftrightsquigarrow"/>
     <!--not left and right arrow-->
-    <char character="&#x021ae;" string="\nleftrightarrow"/>
+    <char character="&#x21ae;" string="\nleftrightarrow"/>
     <!--t \Lightning (marvosym), DOWNWARDS ZIGZAG ARROW-->
-    <char character="&#x021af;" string="\lightning"/>
+    <char character="&#x21af;" string="\lightning"/>
     <!--a: UPWARDS ARROW WITH TIP LEFTWARDS-->
-    <char character="&#x021b0;" string="\Lsh"/>
+    <char character="&#x21b0;" string="\Lsh"/>
     <!--a: UPWARDS ARROW WITH TIP RIGHTWARDS-->
-    <char character="&#x021b1;" string="\Rsh"/>
+    <char character="&#x21b1;" string="\Rsh"/>
     <!--left down angled arrow-->
-    <char character="&#x021b2;" string="\dlsh"/>
+    <char character="&#x21b2;" string="\dlsh"/>
     <!--right down angled arrow-->
-    <char character="&#x021b3;" string="\drsh"/>
+    <char character="&#x21b3;" string="\drsh"/>
     <!--left curved arrow-->
-    <char character="&#x021b6;" string="\curvearrowleft"/>
+    <char character="&#x21b6;" string="\curvearrowleft"/>
     <!--right curved arrow-->
-    <char character="&#x021b7;" string="\curvearrowright"/>
+    <char character="&#x21b7;" string="\curvearrowright"/>
     <!--= \leftturn (wasysym), ANTICLOCKWISE OPEN CIRCLE ARROW-->
-    <char character="&#x021ba;" string="\circlearrowleft"/>
+    <char character="&#x21ba;" string="\circlearrowleft"/>
     <!--= \rightturn (wasysym), CLOCKWISE OPEN CIRCLE ARROW-->
-    <char character="&#x021bb;" string="\circlearrowright"/>
+    <char character="&#x21bb;" string="\circlearrowright"/>
     <!--left harpoon-up-->
-    <char character="&#x021bc;" string="\leftharpoonup"/>
+    <char character="&#x21bc;" string="\leftharpoonup"/>
     <!--left harpoon-down-->
-    <char character="&#x021bd;" string="\leftharpoondown"/>
+    <char character="&#x21bd;" string="\leftharpoondown"/>
     <!--= \restriction (amssymb), = \upharpoonrightup (wrisym), a: up harpoon-right-->
-    <char character="&#x021be;" string="\upharpoonright"/>
+    <char character="&#x21be;" string="\upharpoonright"/>
     <!--= \upharpoonleftup (wrisym), up harpoon-left-->
-    <char character="&#x021bf;" string="\upharpoonleft"/>
+    <char character="&#x21bf;" string="\upharpoonleft"/>
     <!--right harpoon-up-->
-    <char character="&#x021c0;" string="\rightharpoonup"/>
+    <char character="&#x21c0;" string="\rightharpoonup"/>
     <!--right harpoon-down-->
-    <char character="&#x021c1;" string="\rightharpoondown"/>
+    <char character="&#x21c1;" string="\rightharpoondown"/>
     <!--= \upharpoonrightdown (wrisym), down harpoon-right-->
-    <char character="&#x021c2;" string="\downharpoonright"/>
+    <char character="&#x21c2;" string="\downharpoonright"/>
     <!--= \upharpoonleftdown (wrisym), down harpoon-left-->
-    <char character="&#x021c3;" string="\downharpoonleft"/>
+    <char character="&#x21c3;" string="\downharpoonleft"/>
     <!--= \rightleftarrow (wrisym), right arrow over left arrow-->
-    <char character="&#x021c4;" string="\rightleftarrows"/>
+    <char character="&#x21c4;" string="\rightleftarrows"/>
     <!--= \uparrowdownarrow (wrisym), up arrow, down arrow-->
-    <char character="&#x021c5;" string="\updownarrows"/>
+    <char character="&#x21c5;" string="\updownarrows"/>
     <!--= \leftrightarrow (wrisym), left arrow over right arrow-->
-    <char character="&#x021c6;" string="\leftrightarrows"/>
+    <char character="&#x21c6;" string="\leftrightarrows"/>
     <!--two left arrows-->
-    <char character="&#x021c7;" string="\leftleftarrows"/>
+    <char character="&#x21c7;" string="\leftleftarrows"/>
     <!--two up arrows-->
-    <char character="&#x021c8;" string="\upuparrows"/>
+    <char character="&#x21c8;" string="\upuparrows"/>
     <!--two right arrows-->
-    <char character="&#x021c9;" string="\rightrightarrows"/>
+    <char character="&#x21c9;" string="\rightrightarrows"/>
     <!--two down arrows-->
-    <char character="&#x021ca;" string="\downdownarrows"/>
+    <char character="&#x21ca;" string="\downdownarrows"/>
     <!--= \revequilibrium (wrisym), left harpoon over right-->
-    <char character="&#x021cb;" string="\leftrightharpoons"/>
+    <char character="&#x21cb;" string="\leftrightharpoons"/>
     <!--= \equilibrium (wrisym), right harpoon over left-->
-    <char character="&#x021cc;" string="\rightleftharpoons"/>
+    <char character="&#x21cc;" string="\rightleftharpoons"/>
     <!--not implied by-->
-    <char character="&#x021cd;" string="\nLeftarrow"/>
+    <char character="&#x21cd;" string="\nLeftarrow"/>
     <!--not left and right double arrows-->
-    <char character="&#x021ce;" string="\nLeftrightarrow"/>
+    <char character="&#x21ce;" string="\nLeftrightarrow"/>
     <!--not implies-->
-    <char character="&#x021cf;" string="\nRightarrow"/>
+    <char character="&#x21cf;" string="\nRightarrow"/>
     <!--left double arrow-->
-    <char character="&#x021d0;" string="\Leftarrow"/>
+    <char character="&#x21d0;" string="\Leftarrow"/>
     <!--up double arrow-->
-    <char character="&#x021d1;" string="\Uparrow"/>
+    <char character="&#x21d1;" string="\Uparrow"/>
     <!--right double arrow-->
-    <char character="&#x021d2;" string="\Rightarrow"/>
+    <char character="&#x21d2;" string="\Rightarrow"/>
     <!--down double arrow-->
-    <char character="&#x021d3;" string="\Downarrow"/>
+    <char character="&#x21d3;" string="\Downarrow"/>
     <!--left and right double arrow-->
-    <char character="&#x021d4;" string="\Leftrightarrow"/>
+    <char character="&#x21d4;" string="\Leftrightarrow"/>
     <!--up and down double arrow-->
-    <char character="&#x021d5;" string="\Updownarrow"/>
+    <char character="&#x21d5;" string="\Updownarrow"/>
     <!--nw pointing double arrow-->
-    <char character="&#x021d6;" string="\Nwarrow"/>
+    <char character="&#x21d6;" string="\Nwarrow"/>
     <!--ne pointing double arrow-->
-    <char character="&#x021d7;" string="\Nearrow"/>
+    <char character="&#x21d7;" string="\Nearrow"/>
     <!--se pointing double arrow-->
-    <char character="&#x021d8;" string="\Searrow"/>
+    <char character="&#x21d8;" string="\Searrow"/>
     <!--sw pointing double arrow-->
-    <char character="&#x021d9;" string="\Swarrow"/>
+    <char character="&#x21d9;" string="\Swarrow"/>
     <!--left triple arrow-->
-    <char character="&#x021da;" string="\Lleftarrow"/>
+    <char character="&#x21da;" string="\Lleftarrow"/>
     <!--right triple arrow-->
-    <char character="&#x021db;" string="\Rrightarrow"/>
+    <char character="&#x21db;" string="\Rrightarrow"/>
     <!--LEFTWARDS SQUIGGLE ARROW-->
-    <char character="&#x021dc;" string="\leftsquigarrow"/>
+    <char character="&#x21dc;" string="\leftsquigarrow"/>
     <!--RIGHTWARDS SQUIGGLE ARROW-->
-    <char character="&#x021dd;" string="\rightsquigarrow"/>
+    <char character="&#x21dd;" string="\rightsquigarrow"/>
     <!--LEFTWARDS DASHED ARROW-->
-    <char character="&#x021e0;" string="\dashleftarrow"/>
+    <char character="&#x21e0;" string="\dashleftarrow"/>
     <!--= \dasharrow (amsfonts), RIGHTWARDS DASHED ARROW-->
-    <char character="&#x021e2;" string="\dashrightarrow"/>
+    <char character="&#x21e2;" string="\dashrightarrow"/>
     <!--LEFTWARDS ARROW TO BAR-->
-    <char character="&#x021e4;" string="\LeftArrowBar"/>
+    <char character="&#x21e4;" string="\LeftArrowBar"/>
     <!--RIGHTWARDS ARROW TO BAR-->
-    <char character="&#x021e5;" string="\RightArrowBar"/>
+    <char character="&#x21e5;" string="\RightArrowBar"/>
     <!--= \downarrowuparrow (wrisym), DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW-->
-    <char character="&#x021f5;" string="\downuparrows"/>
+    <char character="&#x21f5;" string="\downuparrows"/>
     <!--RIGHTWARDS ARROW WITH VERTICAL STROKE, z notation partial function-->
-    <char character="&#x021f8;" string="\pfun"/>
+    <char character="&#x21f8;" string="\pfun"/>
     <!--RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE, z notation finite function-->
-    <char character="&#x021fb;" string="\ffun"/>
+    <char character="&#x21fb;" string="\ffun"/>
     <!--LEFTWARDS OPEN-HEADED ARROW-->
-    <char character="&#x021fd;" string="\leftarrowtriangle"/>
+    <char character="&#x21fd;" string="\leftarrowtriangle"/>
     <!--RIGHTWARDS OPEN-HEADED ARROW-->
-    <char character="&#x021fe;" string="\rightarrowtriangle"/>
+    <char character="&#x21fe;" string="\rightarrowtriangle"/>
     <!--LEFT RIGHT OPEN-HEADED ARROW-->
-    <char character="&#x021ff;" string="\leftrightarrowtriangle"/>
+    <char character="&#x21ff;" string="\leftrightarrowtriangle"/>
   
     <!-- *
          * Mathematical Operators
          * -->
   
     <!--FOR ALL-->
-    <char character="&#x02200;" string="\forall"/>
+    <char character="&#x2200;" string="\forall"/>
     <!--COMPLEMENT sign-->
-    <char character="&#x02201;" string="\complement"/>
+    <char character="&#x2201;" string="\complement"/>
     <!--# \partial, PARTIAL DIFFERENTIAL-->
-    <char character="&#x02202;" string="\partialup"/>
+    <char character="&#x2202;" string="\partialup"/>
     <!--= \exi (oz), at least one exists-->
-    <char character="&#x02203;" string="\exists"/>
+    <char character="&#x2203;" string="\exists"/>
     <!--= \nexi (oz), negated exists-->
-    <char character="&#x02204;" string="\nexists"/>
+    <char character="&#x2204;" string="\nexists"/>
     <!--circle, slash-->
-    <char character="&#x02205;" string="\varnothing"/>
+    <char character="&#x2205;" string="\varnothing"/>
     <!--NABLA, del, hamilton operator-->
-    <char character="&#x02207;" string="\nabla"/>
+    <char character="&#x2207;" string="\nabla"/>
     <!--set membership, variant-->
-    <char character="&#x02208;" string="\in"/>
+    <char character="&#x2208;" string="\in"/>
     <!--= \nin (wrisym), negated set membership-->
-    <char character="&#x02209;" string="\notin"/>
+    <char character="&#x2209;" string="\notin"/>
     <!--= \owns, contains, variant-->
-    <char character="&#x0220b;" string="\ni"/>
+    <char character="&#x220b;" string="\ni"/>
     <!--= \notni (txfonts), = \notowner (mathabx), = \notowns (fourier), negated contains, variant-->
-    <char character="&#x0220c;" string="\nni"/>
+    <char character="&#x220c;" string="\nni"/>
     <!--product operator-->
-    <char character="&#x0220f;" string="\prod"/>
+    <char character="&#x220f;" string="\prod"/>
     <!--coproduct operator-->
-    <char character="&#x02210;" string="\coprod"/>
+    <char character="&#x2210;" string="\coprod"/>
     <!--summation operator-->
-    <char character="&#x02211;" string="\sum"/>
+    <char character="&#x2211;" string="\sum"/>
     <!--MINUS SIGN-->
-    <char character="&#x02212;" string="-"/>
+    <char character="&#x2212;" string="-"/>
     <!--MINUS-OR-PLUS SIGN-->
-    <char character="&#x02213;" string="\mp"/>
+    <char character="&#x2213;" string="\mp"/>
     <!--plus sign, dot above-->
-    <char character="&#x02214;" string="\dotplus"/>
+    <char character="&#x2214;" string="\dotplus"/>
     <!--DIVISION SLASH-->
-    <char character="&#x02215;" string="\slash"/>
+    <char character="&#x2215;" string="\slash"/>
     <!--small SET MINUS (cf. reverse solidus)-->
-    <char character="&#x02216;" string="\smallsetminus"/>
+    <char character="&#x2216;" string="\smallsetminus"/>
     <!--ASTERISK OPERATOR (Hodge star operator)-->
-    <char character="&#x02217;" string="\ast"/>
+    <char character="&#x2217;" string="\ast"/>
     <!--composite function (small circle)-->
-    <char character="&#x02218;" string="\circ"/>
+    <char character="&#x2218;" string="\circ"/>
     <!--BULLET OPERATOR-->
-    <char character="&#x02219;" string="\bullet"/>
+    <char character="&#x2219;" string="\bullet"/>
     <!--radical-->
-    <char character="&#x0221a;" string="\sqrt"/>
+    <char character="&#x221a;" string="\sqrt"/>
     <!--CUBE ROOT-->
-    <char character="&#x0221b;" string="\sqrt[3]"/>
+    <char character="&#x221b;" string="\sqrt[3]"/>
     <!--FOURTH ROOT-->
-    <char character="&#x0221c;" string="\sqrt[4]"/>
+    <char character="&#x221c;" string="\sqrt[4]"/>
     <!--# \varpropto (amssymb), is PROPORTIONAL TO-->
-    <char character="&#x0221d;" string="\propto"/>
+    <char character="&#x221d;" string="\propto"/>
     <!--INFINITY-->
-    <char character="&#x0221e;" string="\infty"/>
+    <char character="&#x221e;" string="\infty"/>
     <!--right (90 degree) angle-->
-    <char character="&#x0221f;" string="\rightangle"/>
+    <char character="&#x221f;" string="\rightangle"/>
     <!--ANGLE-->
-    <char character="&#x02220;" string="\angle"/>
+    <char character="&#x2220;" string="\angle"/>
     <!--MEASURED ANGLE-->
-    <char character="&#x02221;" string="\measuredangle"/>
+    <char character="&#x2221;" string="\measuredangle"/>
     <!--SPHERICAL ANGLE-->
-    <char character="&#x02222;" string="\sphericalangle"/>
+    <char character="&#x2222;" string="\sphericalangle"/>
     <!--r: DIVIDES-->
-    <char character="&#x02223;" string="\mid"/>
+    <char character="&#x2223;" string="\mid"/>
     <!--negated mid, DOES NOT DIVIDE-->
-    <char character="&#x02224;" string="\nmid"/>
+    <char character="&#x2224;" string="\nmid"/>
     <!--parallel-->
-    <char character="&#x02225;" string="\parallel"/>
+    <char character="&#x2225;" string="\parallel"/>
     <!--not parallel-->
-    <char character="&#x02226;" string="\nparallel"/>
+    <char character="&#x2226;" string="\nparallel"/>
     <!--= \land, b: LOGICAL AND-->
-    <char character="&#x02227;" string="\wedge"/>
+    <char character="&#x2227;" string="\wedge"/>
     <!--= \lor, b: LOGICAL OR-->
-    <char character="&#x02228;" string="\vee"/>
+    <char character="&#x2228;" string="\vee"/>
     <!--INTERSECTION-->
-    <char character="&#x02229;" string="\cap"/>
+    <char character="&#x2229;" string="\cap"/>
     <!--UNION or logical sum-->
-    <char character="&#x0222a;" string="\cup"/>
+    <char character="&#x222a;" string="\cup"/>
     <!--INTEGRAL operator-->
-    <char character="&#x0222b;" string="\int"/>
+    <char character="&#x222b;" string="\int"/>
     <!--DOUBLE INTEGRAL operator-->
-    <char character="&#x0222c;" string="\iint"/>
+    <char character="&#x222c;" string="\iint"/>
     <!--TRIPLE INTEGRAL operator-->
-    <char character="&#x0222d;" string="\iiint"/>
+    <char character="&#x222d;" string="\iiint"/>
     <!--CONTOUR INTEGRAL operator-->
-    <char character="&#x0222e;" string="\oint"/>
+    <char character="&#x222e;" string="\oint"/>
     <!--= \dbloint (wrisym), double contour integral operator-->
-    <char character="&#x0222f;" string="\oiint"/>
+    <char character="&#x222f;" string="\oiint"/>
     <!--triple contour integral operator-->
-    <char character="&#x02230;" string="\oiiint"/>
+    <char character="&#x2230;" string="\oiiint"/>
     <!--= \clockoint (wrisym), contour integral, clockwise-->
-    <char character="&#x02232;" string="\varointclockwise"/>
+    <char character="&#x2232;" string="\varointclockwise"/>
     <!--= \cntclockoint (wrisym), contour integral, anticlockwise-->
-    <char character="&#x02233;" string="\ointctrclockwise"/>
+    <char character="&#x2233;" string="\ointctrclockwise"/>
     <!--= \wasytherefore (wasysym), THEREFORE-->
-    <char character="&#x02234;" string="\therefore"/>
+    <char character="&#x2234;" string="\therefore"/>
     <!--BECAUSE-->
-    <char character="&#x02235;" string="\because"/>
+    <char character="&#x2235;" string="\because"/>
     <!--x \colon, RATIO-->
-    <char character="&#x02236;" string=":"/>
+    <char character="&#x2236;" string=":"/>
     <!--# ::, two colons-->
-    <char character="&#x02237;" string="\Proportion"/>
+    <char character="&#x2237;" string="\Proportion"/>
     <!--# -: ,EXCESS-->
-    <char character="&#x02239;" string="\eqcolon"/>
+    <char character="&#x2239;" string="\eqcolon"/>
     <!--similar to, TILDE OPERATOR-->
-    <char character="&#x0223c;" string="\sim"/>
+    <char character="&#x223c;" string="\sim"/>
     <!--reverse similar-->
-    <char character="&#x0223d;" string="\backsim"/>
+    <char character="&#x223d;" string="\backsim"/>
     <!--SINE WAVE, alternating current-->
-    <char character="&#x0223f;" string="\AC"/>
+    <char character="&#x223f;" string="\AC"/>
     <!--WREATH PRODUCT-->
-    <char character="&#x02240;" string="\wr"/>
+    <char character="&#x2240;" string="\wr"/>
     <!--not similar-->
-    <char character="&#x02241;" string="\nsim"/>
+    <char character="&#x2241;" string="\nsim"/>
     <!--equals, similar-->
-    <char character="&#x02242;" string="\eqsim"/>
+    <char character="&#x2242;" string="\eqsim"/>
     <!--similar, equals-->
-    <char character="&#x02243;" string="\simeq"/>
+    <char character="&#x2243;" string="\simeq"/>
     <!--not similar, equals-->
-    <char character="&#x02244;" string="\nsimeq"/>
+    <char character="&#x2244;" string="\nsimeq"/>
     <!--congruent with-->
-    <char character="&#x02245;" string="\cong"/>
+    <char character="&#x2245;" string="\cong"/>
     <!--not congruent with-->
-    <char character="&#x02247;" string="\ncong"/>
+    <char character="&#x2247;" string="\ncong"/>
     <!--approximate-->
-    <char character="&#x02248;" string="\approx"/>
+    <char character="&#x2248;" string="\approx"/>
     <!--not approximate-->
-    <char character="&#x02249;" string="\napprox"/>
+    <char character="&#x2249;" string="\napprox"/>
     <!--approximate, equals-->
-    <char character="&#x0224a;" string="\approxeq"/>
+    <char character="&#x224a;" string="\approxeq"/>
     <!--asymptotically equal to-->
-    <char character="&#x0224d;" string="\asymp"/>
+    <char character="&#x224d;" string="\asymp"/>
     <!--bumpy equals-->
-    <char character="&#x0224e;" string="\Bumpeq"/>
+    <char character="&#x224e;" string="\Bumpeq"/>
     <!--bumpy equals, equals-->
-    <char character="&#x0224f;" string="\bumpeq"/>
+    <char character="&#x224f;" string="\bumpeq"/>
     <!--= \dotequal (wrisym), equals, single dot above-->
-    <char character="&#x02250;" string="\doteq"/>
+    <char character="&#x2250;" string="\doteq"/>
     <!--= \doteqdot (amssymb), /doteq r: equals, even dots-->
-    <char character="&#x02251;" string="\Doteq"/>
+    <char character="&#x2251;" string="\Doteq"/>
     <!--equals, falling dots-->
-    <char character="&#x02252;" string="\fallingdotseq"/>
+    <char character="&#x2252;" string="\fallingdotseq"/>
     <!--equals, rising dots-->
-    <char character="&#x02253;" string="\risingdotseq"/>
+    <char character="&#x2253;" string="\risingdotseq"/>
     <!--= \coloneqq (txfonts), = \SetDelayed (wrisym), # := colon, equals-->
-    <char character="&#x02254;" string="\coloneq"/>
+    <char character="&#x2254;" string="\coloneq"/>
     <!--= \eqqcolon (txfonts), # =:, equals, colon-->
-    <char character="&#x02255;" string="\eqcolon"/>
+    <char character="&#x2255;" string="\eqcolon"/>
     <!--circle on equals sign-->
-    <char character="&#x02256;" string="\eqcirc"/>
+    <char character="&#x2256;" string="\eqcirc"/>
     <!--circle, equals-->
-    <char character="&#x02257;" string="\circeq"/>
+    <char character="&#x2257;" string="\circeq"/>
     <!--= \sdef (oz), t \Corresponds (marvosym), corresponds to (wedge over equals)-->
-    <char character="&#x02259;" string="\corresponds"/>
+    <char character="&#x2259;" string="\corresponds"/>
     <!--= \varsdef (oz), triangle, equals-->
-    <char character="&#x0225c;" string="\triangleq"/>
+    <char character="&#x225c;" string="\triangleq"/>
     <!--= \ne, r: not equal-->
-    <char character="&#x02260;" string="\neq"/>
+    <char character="&#x2260;" string="\neq"/>
     <!--identical with-->
-    <char character="&#x02261;" string="\equiv"/>
+    <char character="&#x2261;" string="\equiv"/>
     <!--not identical with-->
-    <char character="&#x02262;" string="\nequiv"/>
+    <char character="&#x2262;" string="\nequiv"/>
     <!--= \le, r: less-than-or-equal-->
-    <char character="&#x02264;" string="\leq"/>
+    <char character="&#x2264;" string="\leq"/>
     <!--= \ge, r: greater-than-or-equal-->
-    <char character="&#x02265;" string="\geq"/>
+    <char character="&#x2265;" string="\geq"/>
     <!--less, double equals-->
-    <char character="&#x02266;" string="\leqq"/>
+    <char character="&#x2266;" string="\leqq"/>
     <!--greater, double equals-->
-    <char character="&#x02267;" string="\geqq"/>
+    <char character="&#x2267;" string="\geqq"/>
     <!--less, not double equals-->
-    <char character="&#x02268;" string="\lneqq"/>
+    <char character="&#x2268;" string="\lneqq"/>
     <!--greater, not double equals-->
-    <char character="&#x02269;" string="\gneqq"/>
+    <char character="&#x2269;" string="\gneqq"/>
     <!--much less than, type 2-->
-    <char character="&#x0226a;" string="\ll"/>
+    <char character="&#x226a;" string="\ll"/>
     <!--much greater than, type 2-->
-    <char character="&#x0226b;" string="\gg"/>
+    <char character="&#x226b;" string="\gg"/>
     <!--BETWEEN-->
-    <char character="&#x0226c;" string="\between"/>
+    <char character="&#x226c;" string="\between"/>
     <!--= \nasymp (wrisym), not asymptotically equal to-->
-    <char character="&#x0226d;" string="\notasymp"/>
+    <char character="&#x226d;" string="\notasymp"/>
     <!--NOT LESS-THAN-->
-    <char character="&#x0226e;" string="\nless"/>
+    <char character="&#x226e;" string="\nless"/>
     <!--NOT GREATER-THAN-->
-    <char character="&#x0226f;" string="\ngtr"/>
+    <char character="&#x226f;" string="\ngtr"/>
     <!--= \nleqslant (fourier), not less-than-or-equal-->
-    <char character="&#x02270;" string="\nleq"/>
+    <char character="&#x2270;" string="\nleq"/>
     <!--= \ngeqslant (fourier), not greater-than-or-equal-->
-    <char character="&#x02271;" string="\ngeq"/>
+    <char character="&#x2271;" string="\ngeq"/>
     <!--= \apprle (wasysym), = \LessTilde (wrisym), less, similar-->
-    <char character="&#x02272;" string="\lesssim"/>
+    <char character="&#x2272;" string="\lesssim"/>
     <!--= \apprge (wasysym), = \GreaterTilde (wrisym), greater, similar-->
-    <char character="&#x02273;" string="\gtrsim"/>
+    <char character="&#x2273;" string="\gtrsim"/>
     <!--not less, similar-->
-    <char character="&#x02274;" string="\NotLessTilde"/>
+    <char character="&#x2274;" string="\NotLessTilde"/>
     <!--not greater, similar-->
-    <char character="&#x02275;" string="\NotGreaterTilde"/>
+    <char character="&#x2275;" string="\NotGreaterTilde"/>
     <!--less, greater-->
-    <char character="&#x02276;" string="\lessgtr"/>
+    <char character="&#x2276;" string="\lessgtr"/>
     <!--= \GreaterLess (wrisym), greater, less-->
-    <char character="&#x02277;" string="\gtrless"/>
+    <char character="&#x2277;" string="\gtrless"/>
     <!--not greater, less-->
-    <char character="&#x02279;" string="\NotGreaterLess"/>
+    <char character="&#x2279;" string="\NotGreaterLess"/>
     <!--PRECEDES-->
-    <char character="&#x0227a;" string="\prec"/>
+    <char character="&#x227a;" string="\prec"/>
     <!--SUCCEEDS-->
-    <char character="&#x0227b;" string="\succ"/>
+    <char character="&#x227b;" string="\succ"/>
     <!--= \PrecedesSlantEqual (wrisym), precedes, curly equals-->
-    <char character="&#x0227c;" string="\preccurlyeq"/>
+    <char character="&#x227c;" string="\preccurlyeq"/>
     <!--= \SucceedsSlantEqual (wrisym), succeeds, curly equals-->
-    <char character="&#x0227d;" string="\succcurlyeq"/>
+    <char character="&#x227d;" string="\succcurlyeq"/>
     <!--= \PrecedesTilde (wrisym), precedes, similar-->
-    <char character="&#x0227e;" string="\precsim"/>
+    <char character="&#x227e;" string="\precsim"/>
     <!--= \SucceedsTilde (wrisym), succeeds, similar-->
-    <char character="&#x0227f;" string="\succsim"/>
+    <char character="&#x227f;" string="\succsim"/>
     <!--not precedes-->
-    <char character="&#x02280;" string="\nprec"/>
+    <char character="&#x2280;" string="\nprec"/>
     <!--not succeeds-->
-    <char character="&#x02281;" string="\nsucc"/>
+    <char character="&#x2281;" string="\nsucc"/>
     <!--subset or is implied by-->
-    <char character="&#x02282;" string="\subset"/>
+    <char character="&#x2282;" string="\subset"/>
     <!--superset or implies-->
-    <char character="&#x02283;" string="\supset"/>
+    <char character="&#x2283;" string="\supset"/>
     <!--not subset, variant [slash negation]-->
-    <char character="&#x02284;" string="\nsubset"/>
+    <char character="&#x2284;" string="\nsubset"/>
     <!--not superset, variant [slash negation]-->
-    <char character="&#x02285;" string="\nsupset"/>
+    <char character="&#x2285;" string="\nsupset"/>
     <!--subset, equals-->
-    <char character="&#x02286;" string="\subseteq"/>
+    <char character="&#x2286;" string="\subseteq"/>
     <!--superset, equals-->
-    <char character="&#x02287;" string="\supseteq"/>
+    <char character="&#x2287;" string="\supseteq"/>
     <!--not subset, equals-->
-    <char character="&#x02288;" string="\nsubseteq"/>
+    <char character="&#x2288;" string="\nsubseteq"/>
     <!--not superset, equals-->
-    <char character="&#x02289;" string="\nsupseteq"/>
+    <char character="&#x2289;" string="\nsupseteq"/>
     <!--= \varsubsetneq (fourier), subset, not equals-->
-    <char character="&#x0228a;" string="\subsetneq"/>
+    <char character="&#x228a;" string="\subsetneq"/>
     <!--superset, not equals-->
-    <char character="&#x0228b;" string="\supsetneq"/>
+    <char character="&#x228b;" string="\supsetneq"/>
     <!--= \buni (oz), plus sign in union-->
-    <char character="&#x0228e;" string="\uplus"/>
+    <char character="&#x228e;" string="\uplus"/>
     <!--square subset-->
-    <char character="&#x0228f;" string="\sqsubset"/>
+    <char character="&#x228f;" string="\sqsubset"/>
     <!--square superset-->
-    <char character="&#x02290;" string="\sqsupset"/>
+    <char character="&#x2290;" string="\sqsupset"/>
     <!--square subset, equals-->
-    <char character="&#x02291;" string="\sqsubseteq"/>
+    <char character="&#x2291;" string="\sqsubseteq"/>
     <!--square superset, equals-->
-    <char character="&#x02292;" string="\sqsupseteq"/>
+    <char character="&#x2292;" string="\sqsupseteq"/>
     <!--square intersection-->
-    <char character="&#x02293;" string="\sqcap"/>
+    <char character="&#x2293;" string="\sqcap"/>
     <!--square union-->
-    <char character="&#x02294;" string="\sqcup"/>
+    <char character="&#x2294;" string="\sqcup"/>
     <!--plus sign in circle-->
-    <char character="&#x02295;" string="\oplus"/>
+    <char character="&#x2295;" string="\oplus"/>
     <!--minus sign in circle-->
-    <char character="&#x02296;" string="\ominus"/>
+    <char character="&#x2296;" string="\ominus"/>
     <!--multiply sign in circle-->
-    <char character="&#x02297;" string="\otimes"/>
+    <char character="&#x2297;" string="\otimes"/>
     <!--solidus in circle-->
-    <char character="&#x02298;" string="\oslash"/>
+    <char character="&#x2298;" string="\oslash"/>
     <!--middle dot in circle-->
-    <char character="&#x02299;" string="\odot"/>
+    <char character="&#x2299;" string="\odot"/>
     <!--small circle in circle-->
-    <char character="&#x0229a;" string="\circledcirc"/>
+    <char character="&#x229a;" string="\circledcirc"/>
     <!--asterisk in circle-->
-    <char character="&#x0229b;" string="\circledast"/>
+    <char character="&#x229b;" string="\circledast"/>
     <!--hyphen in circle-->
-    <char character="&#x0229d;" string="\circleddash"/>
+    <char character="&#x229d;" string="\circleddash"/>
     <!--plus sign in box-->
-    <char character="&#x0229e;" string="\boxplus"/>
+    <char character="&#x229e;" string="\boxplus"/>
     <!--minus sign in box-->
-    <char character="&#x0229f;" string="\boxminus"/>
+    <char character="&#x229f;" string="\boxminus"/>
     <!--multiply sign in box-->
-    <char character="&#x022a0;" string="\boxtimes"/>
+    <char character="&#x22a0;" string="\boxtimes"/>
     <!--/dotsquare /boxdot b: small dot in box-->
-    <char character="&#x022a1;" string="\boxdot"/>
+    <char character="&#x22a1;" string="\boxdot"/>
     <!--RIGHT TACK, proves, implies, yields, (vertical, dash)-->
-    <char character="&#x022a2;" string="\vdash"/>
+    <char character="&#x22a2;" string="\vdash"/>
     <!--LEFT TACK, non-theorem, does not yield, (dash, vertical)-->
-    <char character="&#x022a3;" string="\dashv"/>
+    <char character="&#x22a3;" string="\dashv"/>
     <!--DOWN TACK, top-->
-    <char character="&#x022a4;" string="\top"/>
+    <char character="&#x22a4;" string="\top"/>
     <!--UP TACK, bottom-->
-    <char character="&#x022a5;" string="\bot"/>
+    <char character="&#x22a5;" string="\bot"/>
     <!--MODELS (vertical, short double dash)-->
-    <char character="&#x022a7;" string="\models"/>
+    <char character="&#x22a7;" string="\models"/>
     <!--TRUE (vertical, double dash)-->
-    <char character="&#x022a8;" string="\vDash"/>
+    <char character="&#x22a8;" string="\vDash"/>
     <!--double vertical, dash-->
-    <char character="&#x022a9;" string="\Vdash"/>
+    <char character="&#x22a9;" string="\Vdash"/>
     <!--triple vertical, dash-->
-    <char character="&#x022aa;" string="\Vvdash"/>
+    <char character="&#x22aa;" string="\Vvdash"/>
     <!--double vert, double dash-->
-    <char character="&#x022ab;" string="\VDash"/>
+    <char character="&#x22ab;" string="\VDash"/>
     <!--not vertical, dash-->
-    <char character="&#x022ac;" string="\nvdash"/>
+    <char character="&#x22ac;" string="\nvdash"/>
     <!--not vertical, double dash-->
-    <char character="&#x022ad;" string="\nvDash"/>
+    <char character="&#x22ad;" string="\nvDash"/>
     <!--not double vertical, dash-->
-    <char character="&#x022ae;" string="\nVdash"/>
+    <char character="&#x22ae;" string="\nVdash"/>
     <!--not double vert, double dash-->
-    <char character="&#x022af;" string="\nVDash"/>
+    <char character="&#x22af;" string="\nVDash"/>
     <!--left triangle, open, variant-->
-    <char character="&#x022b2;" string="\vartriangleleft"/>
+    <char character="&#x22b2;" string="\vartriangleleft"/>
     <!--right triangle, open, variant-->
-    <char character="&#x022b3;" string="\vartriangleright"/>
+    <char character="&#x22b3;" string="\vartriangleright"/>
     <!--= \unlhd (wrisym), left triangle, equals-->
-    <char character="&#x022b4;" string="\trianglelefteq"/>
+    <char character="&#x22b4;" string="\trianglelefteq"/>
     <!--= \unrhd (wrisym), right triangle, equals-->
-    <char character="&#x022b5;" string="\trianglerighteq"/>
+    <char character="&#x22b5;" string="\trianglerighteq"/>
     <!--ORIGINAL OF-->
-    <char character="&#x022b6;" string="\multimapdotbothA"/>
+    <char character="&#x22b6;" string="\multimapdotbothA"/>
     <!--IMAGE OF-->
-    <char character="&#x022b7;" string="\multimapdotbothB"/>
+    <char character="&#x22b7;" string="\multimapdotbothB"/>
     <!--/MULTIMAP a:-->
-    <char character="&#x022b8;" string="\multimap"/>
+    <char character="&#x22b8;" string="\multimap"/>
     <!--intercal-->
-    <char character="&#x022ba;" string="\intercal"/>
+    <char character="&#x22ba;" string="\intercal"/>
     <!--logical or, bar below (large vee); exclusive disjunction-->
-    <char character="&#x022bb;" string="\veebar"/>
+    <char character="&#x22bb;" string="\veebar"/>
     <!--logical NAND (bar over wedge)-->
-    <char character="&#x022bc;" string="\barwedge"/>
+    <char character="&#x22bc;" string="\barwedge"/>
     <!--logical or operator-->
-    <char character="&#x022c0;" string="\bigwedge"/>
+    <char character="&#x22c0;" string="\bigwedge"/>
     <!--logical and operator-->
-    <char character="&#x022c1;" string="\bigvee"/>
+    <char character="&#x22c1;" string="\bigvee"/>
     <!--= \dint (oz), \dinter (oz), intersection operator-->
-    <char character="&#x022c2;" string="\bigcap"/>
+    <char character="&#x22c2;" string="\bigcap"/>
     <!--= \duni (oz), \dunion (oz), union operator-->
-    <char character="&#x022c3;" string="\bigcup"/>
+    <char character="&#x22c3;" string="\bigcup"/>
     <!--DIAMOND OPERATOR (white diamond)-->
-    <char character="&#x022c4;" string="\diamond"/>
+    <char character="&#x22c4;" string="\diamond"/>
     <!--DOT OPERATOR (small middle dot)-->
-    <char character="&#x022c5;" string="\cdot"/>
+    <char character="&#x22c5;" string="\cdot"/>
     <!--small star, filled, low-->
-    <char character="&#x022c6;" string="\star"/>
+    <char character="&#x22c6;" string="\star"/>
     <!--division on times-->
-    <char character="&#x022c7;" string="\divideontimes"/>
+    <char character="&#x22c7;" string="\divideontimes"/>
     <!--= \lrtimes (txfonts), BOWTIE-->
-    <char character="&#x022c8;" string="\bowtie"/>
+    <char character="&#x22c8;" string="\bowtie"/>
     <!--times sign, left closed-->
-    <char character="&#x022c9;" string="\ltimes"/>
+    <char character="&#x22c9;" string="\ltimes"/>
     <!--times sign, right closed-->
-    <char character="&#x022ca;" string="\rtimes"/>
+    <char character="&#x22ca;" string="\rtimes"/>
     <!--LEFT SEMIDIRECT PRODUCT-->
-    <char character="&#x022cb;" string="\leftthreetimes"/>
+    <char character="&#x22cb;" string="\leftthreetimes"/>
     <!--RIGHT SEMIDIRECT PRODUCT-->
-    <char character="&#x022cc;" string="\rightthreetimes"/>
+    <char character="&#x22cc;" string="\rightthreetimes"/>
     <!--reverse similar, equals-->
-    <char character="&#x022cd;" string="\backsimeq"/>
+    <char character="&#x22cd;" string="\backsimeq"/>
     <!--CURLY LOGICAL OR-->
-    <char character="&#x022ce;" string="\curlyvee"/>
+    <char character="&#x22ce;" string="\curlyvee"/>
     <!--CURLY LOGICAL AND-->
-    <char character="&#x022cf;" string="\curlywedge"/>
+    <char character="&#x22cf;" string="\curlywedge"/>
     <!--DOUBLE SUBSET-->
-    <char character="&#x022d0;" string="\Subset"/>
+    <char character="&#x22d0;" string="\Subset"/>
     <!--DOUBLE SUPERSET-->
-    <char character="&#x022d1;" string="\Supset"/>
+    <char character="&#x22d1;" string="\Supset"/>
     <!--/cap /doublecap b: DOUBLE INTERSECTION-->
-    <char character="&#x022d2;" string="\Cap"/>
+    <char character="&#x22d2;" string="\Cap"/>
     <!--/cup /doublecup b: DOUBLE UNION-->
-    <char character="&#x022d3;" string="\Cup"/>
+    <char character="&#x22d3;" string="\Cup"/>
     <!--PITCHFORK-->
-    <char character="&#x022d4;" string="\pitchfork"/>
+    <char character="&#x22d4;" string="\pitchfork"/>
     <!--parallel, equal; equal or parallel-->
-    <char character="&#x022d5;" string="\hash"/>
+    <char character="&#x22d5;" string="\hash"/>
     <!--less than, with dot-->
-    <char character="&#x022d6;" string="\lessdot"/>
+    <char character="&#x22d6;" string="\lessdot"/>
     <!--greater than, with dot-->
-    <char character="&#x022d7;" string="\gtrdot"/>
+    <char character="&#x22d7;" string="\gtrdot"/>
     <!--triple less-than-->
-    <char character="&#x022d8;" string="\lll"/>
+    <char character="&#x22d8;" string="\lll"/>
     <!--triple greater-than-->
-    <char character="&#x022d9;" string="\ggg"/>
+    <char character="&#x22d9;" string="\ggg"/>
     <!--less, equals, greater-->
-    <char character="&#x022da;" string="\lesseqgtr"/>
+    <char character="&#x22da;" string="\lesseqgtr"/>
     <!--greater, equals, less-->
-    <char character="&#x022db;" string="\gtreqless"/>
+    <char character="&#x22db;" string="\gtreqless"/>
     <!--curly equals, precedes-->
-    <char character="&#x022de;" string="\curlyeqprec"/>
+    <char character="&#x22de;" string="\curlyeqprec"/>
     <!--curly equals, succeeds-->
-    <char character="&#x022df;" string="\curlyeqsucc"/>
+    <char character="&#x22df;" string="\curlyeqsucc"/>
     <!--DOES NOT PRECEDE OR EQUAL-->
-    <char character="&#x022e0;" string="\npreceq"/>
+    <char character="&#x22e0;" string="\npreceq"/>
     <!--not succeeds, curly equals-->
-    <char character="&#x022e1;" string="\nsucceq"/>
+    <char character="&#x22e1;" string="\nsucceq"/>
     <!--not, square subset, equals-->
-    <char character="&#x022e2;" string="\nsqsubseteq"/>
+    <char character="&#x22e2;" string="\nsqsubseteq"/>
     <!--not, square superset, equals-->
-    <char character="&#x022e3;" string="\nsqsupseteq"/>
+    <char character="&#x22e3;" string="\nsqsupseteq"/>
     <!--less, not similar-->
-    <char character="&#x022e6;" string="\lnsim"/>
+    <char character="&#x22e6;" string="\lnsim"/>
     <!--greater, not similar-->
-    <char character="&#x022e7;" string="\gnsim"/>
+    <char character="&#x22e7;" string="\gnsim"/>
     <!--precedes, not similar-->
-    <char character="&#x022e8;" string="\precnsim"/>
+    <char character="&#x22e8;" string="\precnsim"/>
     <!--succeeds, not similar-->
-    <char character="&#x022e9;" string="\succnsim"/>
+    <char character="&#x22e9;" string="\succnsim"/>
     <!--= \NotLeftTriangle (wrisym), not left triangle-->
-    <char character="&#x022ea;" string="\ntriangleleft"/>
+    <char character="&#x22ea;" string="\ntriangleleft"/>
     <!--= \NotRightTriangle (wrisym), not right triangle-->
-    <char character="&#x022eb;" string="\ntriangleright"/>
+    <char character="&#x22eb;" string="\ntriangleright"/>
     <!--= \nunlhd (wrisym), not left triangle, equals-->
-    <char character="&#x022ec;" string="\ntrianglelefteq"/>
+    <char character="&#x22ec;" string="\ntrianglelefteq"/>
     <!--= \nunrhd (wrisym), not right triangle, equals-->
-    <char character="&#x022ed;" string="\ntrianglerighteq"/>
+    <char character="&#x22ed;" string="\ntrianglerighteq"/>
     <!--VERTICAL ELLIPSIS-->
-    <char character="&#x022ee;" string="\vdots"/>
+    <char character="&#x22ee;" string="\vdots"/>
     <!--three dots, centered-->
-    <char character="&#x022ef;" string="\cdots"/>
+    <char character="&#x22ef;" string="\cdots"/>
     <!--= \adots (yhmath), three dots, ascending-->
-    <char character="&#x022f0;" string="\iddots"/>
+    <char character="&#x22f0;" string="\iddots"/>
     <!--three dots, descending-->
-    <char character="&#x022f1;" string="\ddots"/>
+    <char character="&#x22f1;" string="\ddots"/>
     <!--ELEMENT OF WITH OVERBAR-->
-    <char character="&#x022f6;" string="\barin"/>
+    <char character="&#x22f6;" string="\barin"/>
   
     <!-- *
           * Miscellaneous Technical
           * -->
   
     <!--# \varnothing (amssymb), DIAMETER SIGN-->
-    <char character="&#x02300;" string="\diameter"/>
+    <char character="&#x2300;" string="\diameter"/>
     <!--LEFT CEILING-->
-    <char character="&#x02308;" string="\lceil"/>
+    <char character="&#x2308;" string="\lceil"/>
     <!--RIGHT CEILING-->
-    <char character="&#x02309;" string="\rceil"/>
+    <char character="&#x2309;" string="\rceil"/>
     <!--LEFT FLOOR-->
-    <char character="&#x0230a;" string="\lfloor"/>
+    <char character="&#x230a;" string="\lfloor"/>
     <!--RIGHT FLOOR-->
-    <char character="&#x0230b;" string="\rfloor"/>
+    <char character="&#x230b;" string="\rfloor"/>
     <!--reverse not-->
-    <char character="&#x02310;" string="\invneg"/>
+    <char character="&#x2310;" string="\invneg"/>
     <!--SQUARE LOZENGE-->
-    <char character="&#x02311;" string="\wasylozenge"/>
+    <char character="&#x2311;" string="\wasylozenge"/>
     <!--upper left corner-->
-    <char character="&#x0231c;" string="\ulcorner"/>
+    <char character="&#x231c;" string="\ulcorner"/>
     <!--upper right corner-->
-    <char character="&#x0231d;" string="\urcorner"/>
+    <char character="&#x231d;" string="\urcorner"/>
     <!--lower left corner-->
-    <char character="&#x0231e;" string="\llcorner"/>
+    <char character="&#x231e;" string="\llcorner"/>
     <!--lower right corner-->
-    <char character="&#x0231f;" string="\lrcorner"/>
+    <char character="&#x231f;" string="\lrcorner"/>
     <!--# \smallFROWN, down curve-->
-    <char character="&#x02322;" string="\frown"/>
+    <char character="&#x2322;" string="\frown"/>
     <!--# \smallSMILE, up curve-->
-    <char character="&#x02323;" string="\smile"/>
+    <char character="&#x2323;" string="\smile"/>
     <!--APL FUNCTIONAL SYMBOL QUAD DIVIDE-->
-    <char character="&#x02339;" string="\APLinv"/>
+    <char character="&#x2339;" string="\APLinv"/>
     <!--APL FUNCTIONAL SYMBOL SLASH BAR, solidus, bar through-->
-    <char character="&#x0233f;" string="\notslash"/>
+    <char character="&#x233f;" string="\notslash"/>
     <!--APL FUNCTIONAL SYMBOL BACKSLASH BAR-->
-    <char character="&#x02340;" string="\notbackslash"/>
+    <char character="&#x2340;" string="\notbackslash"/>
     <!--APL FUNCTIONAL SYMBOL QUAD LEFTWARDS ARROW-->
-    <char character="&#x02347;" string="\APLleftarrowbox"/>
+    <char character="&#x2347;" string="\APLleftarrowbox"/>
     <!--APL FUNCTIONAL SYMBOL QUAD RIGHTWARDS ARROW-->
-    <char character="&#x02348;" string="\APLrightarrowbox"/>
+    <char character="&#x2348;" string="\APLrightarrowbox"/>
     <!--APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW-->
-    <char character="&#x02350;" string="\APLuparrowbox"/>
+    <char character="&#x2350;" string="\APLuparrowbox"/>
     <!--APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW-->
-    <char character="&#x02357;" string="\APLdownarrowbox"/>
+    <char character="&#x2357;" string="\APLdownarrowbox"/>
     <!--APL FUNCTIONAL SYMBOL UP SHOE JOT-->
-    <char character="&#x0235d;" string="\APLcomment"/>
+    <char character="&#x235d;" string="\APLcomment"/>
     <!--APL FUNCTIONAL SYMBOL QUOTE QUAD-->
-    <char character="&#x0235e;" string="\APLinput"/>
+    <char character="&#x235e;" string="\APLinput"/>
     <!--APL FUNCTIONAL SYMBOL CIRCLE STAR-->
-    <char character="&#x0235f;" string="\APLlog"/>
+    <char character="&#x235f;" string="\APLlog"/>
     <!--= \wideparen (yhmath mathabx fourier), TOP PARENTHESIS (mathematical use)-->
-    <char character="&#x023dc;" string="\overparen"/>
+    <char character="&#x23dc;" string="\overparen"/>
     <!--BOTTOM PARENTHESIS (mathematical use)-->
-    <char character="&#x023dd;" string="\underparen"/>
+    <char character="&#x23dd;" string="\underparen"/>
     <!--TOP CURLY BRACKET (mathematical use)-->
-    <char character="&#x023de;" string="\overbrace"/>
+    <char character="&#x23de;" string="\overbrace"/>
     <!--BOTTOM CURLY BRACKET (mathematical use)-->
-    <char character="&#x023df;" string="\underbrace"/>
+    <char character="&#x23df;" string="\underbrace"/>
   
     <!-- *
           * Enclosed Alphanumerics
@@ -1067,521 +1067,521 @@
           * -->
   
     <!--= \triangle (amsfonts), # \vartriangle (amssymb), big up triangle, open-->
-    <char character="&#x025b3;" string="\bigtriangleup"/>
+    <char character="&#x25b3;" string="\bigtriangleup"/>
     <!--up triangle, filled-->
-    <char character="&#x025b4;" string="\blacktriangleup"/>
+    <char character="&#x25b4;" string="\blacktriangleup"/>
     <!--# \vartriangle (amssymb), small up triangle, open-->
-    <char character="&#x025b5;" string="\smalltriangleup"/>
+    <char character="&#x25b5;" string="\smalltriangleup"/>
     <!--= \blacktriangleright (fourier -mathabx), (large) right triangle, filled-->
-    <char character="&#x025b6;" string="\RHD"/>
+    <char character="&#x25b6;" string="\RHD"/>
     <!--= \rres (oz), = \RightTriangle (wrisym), (large) right triangle, open; z notation range restriction-->
-    <char character="&#x025b7;" string="\rhd"/>
+    <char character="&#x25b7;" string="\rhd"/>
     <!--right triangle, filled-->
-    <char character="&#x025b8;" string="\blacktriangleright"/>
+    <char character="&#x25b8;" string="\blacktriangleright"/>
     <!--# \triangleright, x \triangleright (mathabx), right triangle, open-->
-    <char character="&#x025b9;" string="\smalltriangleright"/>
+    <char character="&#x25b9;" string="\smalltriangleright"/>
     <!--big down triangle, open-->
-    <char character="&#x025bd;" string="\bigtriangledown"/>
+    <char character="&#x25bd;" string="\bigtriangledown"/>
     <!--BLACK DOWN-POINTING SMALL TRIANGLE-->
-    <char character="&#x025be;" string="\blacktriangledown"/>
+    <char character="&#x25be;" string="\blacktriangledown"/>
     <!--# \triangledown (amssymb), WHITE DOWN-POINTING SMALL TRIANGLE-->
-    <char character="&#x025bf;" string="\smalltriangledown"/>
+    <char character="&#x25bf;" string="\smalltriangledown"/>
     <!--= \blacktriangleleft (fourier -mathabx), (large) left triangle, filled-->
-    <char character="&#x025c0;" string="\LHD"/>
+    <char character="&#x25c0;" string="\LHD"/>
     <!--= \dres (oz), = \LeftTriangle (wrisym), (large) left triangle, open; z notation domain restriction-->
-    <char character="&#x025c1;" string="\lhd"/>
+    <char character="&#x25c1;" string="\lhd"/>
     <!--left triangle, filled-->
-    <char character="&#x025c2;" string="\blacktriangleleft"/>
+    <char character="&#x25c2;" string="\blacktriangleleft"/>
     <!--# \triangleleft, x \triangleleft (mathabx), left triangle, open-->
-    <char character="&#x025c3;" string="\smalltriangleleft"/>
+    <char character="&#x25c3;" string="\smalltriangleleft"/>
     <!--BLACK DIAMOND-->
-    <char character="&#x025c6;" string="\Diamondblack"/>
+    <char character="&#x25c6;" string="\Diamondblack"/>
     <!--WHITE DIAMOND; diamond, open-->
-    <char character="&#x025c7;" string="\Diamond"/>
+    <char character="&#x25c7;" string="\Diamond"/>
     <!--LOZENGE or total mark-->
-    <char character="&#x025ca;" string="\lozenge"/>
+    <char character="&#x25ca;" string="\lozenge"/>
     <!--medium large circle-->
-    <char character="&#x025cb;" string="\Circle"/>
+    <char character="&#x25cb;" string="\Circle"/>
     <!--circle, filled-->
-    <char character="&#x025cf;" string="\CIRCLE"/>
+    <char character="&#x25cf;" string="\CIRCLE"/>
     <!--circle, filled left half [harvey ball]-->
-    <char character="&#x025d0;" string="\LEFTcircle"/>
+    <char character="&#x25d0;" string="\LEFTcircle"/>
     <!--circle, filled right half-->
-    <char character="&#x025d1;" string="\RIGHTcircle"/>
+    <char character="&#x25d1;" string="\RIGHTcircle"/>
     <!--LEFT HALF BLACK CIRCLE-->
-    <char character="&#x025d6;" string="\LEFTCIRCLE"/>
+    <char character="&#x25d6;" string="\LEFTCIRCLE"/>
     <!--RIGHT HALF BLACK CIRCLE-->
-    <char character="&#x025d7;" string="\RIGHTCIRCLE"/>
+    <char character="&#x25d7;" string="\RIGHTCIRCLE"/>
     <!--vertical bar in box-->
-    <char character="&#x025eb;" string="\boxbar"/>
+    <char character="&#x25eb;" string="\boxbar"/>
     <!--WHITE MEDIUM SQUARE-->
-    <char character="&#x025fb;" string="\square"/>
+    <char character="&#x25fb;" string="\square"/>
     <!--BLACK MEDIUM SQUARE-->
-    <char character="&#x025fc;" string="\blacksquare"/>
+    <char character="&#x25fc;" string="\blacksquare"/>
   
     <!-- *
           * Miscellaneous Symbols
           * -->
   
     <!--star, filled-->
-    <char character="&#x02605;" string="\bigstar"/>
+    <char character="&#x2605;" string="\bigstar"/>
     <!--SUN-->
-    <char character="&#x02609;" string="\Sun"/>
+    <char character="&#x2609;" string="\Sun"/>
     <!--BALLOT BOX-->
-    <char character="&#x02610;" string="\Square"/>
+    <char character="&#x2610;" string="\Square"/>
     <!--t \Checkedbox (marvosym), BALLOT BOX WITH CHECK-->
-    <char character="&#x02611;" string="\CheckedBox"/>
+    <char character="&#x2611;" string="\CheckedBox"/>
     <!--t \Crossedbox (marvosym), BALLOT BOX WITH X-->
-    <char character="&#x02612;" string="\XBox"/>
+    <char character="&#x2612;" string="\XBox"/>
     <!--HOT BEVERAGE-->
-    <char character="&#x02615;" string="\steaming"/>
+    <char character="&#x2615;" string="\steaming"/>
     <!--WHITE RIGHT POINTING INDEX-->
-    <char character="&#x0261e;" string="\pointright"/>
+    <char character="&#x261e;" string="\pointright"/>
     <!--SKULL AND CROSSBONES-->
-    <char character="&#x02620;" string="\skull"/>
+    <char character="&#x2620;" string="\skull"/>
     <!--RADIOACTIVE SIGN-->
-    <char character="&#x02622;" string="\radiation"/>
+    <char character="&#x2622;" string="\radiation"/>
     <!--BIOHAZARD SIGN-->
-    <char character="&#x02623;" string="\biohazard"/>
+    <char character="&#x2623;" string="\biohazard"/>
     <!--YIN YANG-->
-    <char character="&#x0262f;" string="\yinyang"/>
+    <char character="&#x262f;" string="\yinyang"/>
     <!--= \sadface (arevmath), WHITE FROWNING FACE-->
-    <char character="&#x02639;" string="\frownie"/>
+    <char character="&#x2639;" string="\frownie"/>
     <!--= \smileface (arevmath), WHITE SMILING FACE-->
-    <char character="&#x0263a;" string="\smiley"/>
+    <char character="&#x263a;" string="\smiley"/>
     <!--= \invsmileface (arevmath), BLACK SMILING FACE-->
-    <char character="&#x0263b;" string="\blacksmiley"/>
+    <char character="&#x263b;" string="\blacksmiley"/>
     <!--WHITE SUN WITH RAYS-->
-    <char character="&#x0263c;" string="\sun"/>
+    <char character="&#x263c;" string="\sun"/>
     <!--FIRST QUARTER MOON-->
-    <char character="&#x0263d;" string="\rightmoon"/>
+    <char character="&#x263d;" string="\rightmoon"/>
     <!--LAST QUARTER MOON-->
-    <char character="&#x0263e;" string="\leftmoon"/>
+    <char character="&#x263e;" string="\leftmoon"/>
     <!--= \Mercury (mathabx), MERCURY-->
-    <char character="&#x0263f;" string="\mercury"/>
+    <char character="&#x263f;" string="\mercury"/>
     <!--= \Venus (mathabx), = \girl (mathabx), venus, female-->
-    <char character="&#x02640;" string="\female"/>
+    <char character="&#x2640;" string="\female"/>
     <!--= \varEarth (mathabx), EARTH-->
-    <char character="&#x02641;" string="\earth"/>
+    <char character="&#x2641;" string="\earth"/>
     <!--= \Mars (mathabx), = \boy (mathabx), mars, male-->
-    <char character="&#x02642;" string="\male"/>
+    <char character="&#x2642;" string="\male"/>
     <!--= \Jupiter (mathabx), JUPITER-->
-    <char character="&#x02643;" string="\jupiter"/>
+    <char character="&#x2643;" string="\jupiter"/>
     <!--= \Saturn (mathabx), SATURN-->
-    <char character="&#x02644;" string="\saturn"/>
+    <char character="&#x2644;" string="\saturn"/>
     <!--= \Uranus (mathabx), URANUS-->
-    <char character="&#x02645;" string="\uranus"/>
+    <char character="&#x2645;" string="\uranus"/>
     <!--= \Neptune (mathabx), NEPTUNE-->
-    <char character="&#x02646;" string="\neptune"/>
+    <char character="&#x2646;" string="\neptune"/>
     <!--= \Pluto (mathabx), PLUTO-->
-    <char character="&#x02647;" string="\pluto"/>
+    <char character="&#x2647;" string="\pluto"/>
     <!--= \Aries (mathabx), ARIES-->
-    <char character="&#x02648;" string="\aries"/>
+    <char character="&#x2648;" string="\aries"/>
     <!--= \Taurus (mathabx), TAURUS-->
-    <char character="&#x02649;" string="\taurus"/>
+    <char character="&#x2649;" string="\taurus"/>
     <!--= \Gemini (mathabx), GEMINI-->
-    <char character="&#x0264a;" string="\gemini"/>
+    <char character="&#x264a;" string="\gemini"/>
     <!--CANCER-->
-    <char character="&#x0264b;" string="\cancer"/>
+    <char character="&#x264b;" string="\cancer"/>
     <!--= \Leo (mathabx), LEO-->
-    <char character="&#x0264c;" string="\leo"/>
+    <char character="&#x264c;" string="\leo"/>
     <!--VIRGO-->
-    <char character="&#x0264d;" string="\virgo"/>
+    <char character="&#x264d;" string="\virgo"/>
     <!--= \Libra (mathabx), LIBRA-->
-    <char character="&#x0264e;" string="\libra"/>
+    <char character="&#x264e;" string="\libra"/>
     <!--= \Scorpio (mathabx), SCORPIUS-->
-    <char character="&#x0264f;" string="\scorpio"/>
+    <char character="&#x264f;" string="\scorpio"/>
     <!--SAGITTARIUS-->
-    <char character="&#x02650;" string="\sagittarius"/>
+    <char character="&#x2650;" string="\sagittarius"/>
     <!--CAPRICORN-->
-    <char character="&#x02651;" string="\capricornus"/>
+    <char character="&#x2651;" string="\capricornus"/>
     <!--AQUARIUS-->
-    <char character="&#x02652;" string="\aquarius"/>
+    <char character="&#x2652;" string="\aquarius"/>
     <!--PISCES-->
-    <char character="&#x02653;" string="\pisces"/>
+    <char character="&#x2653;" string="\pisces"/>
     <!--spades suit symbol-->
-    <char character="&#x02660;" string="\spadesuit"/>
+    <char character="&#x2660;" string="\spadesuit"/>
     <!--heart suit symbol-->
-    <char character="&#x02661;" string="\heartsuit"/>
+    <char character="&#x2661;" string="\heartsuit"/>
     <!--diamond suit symbol-->
-    <char character="&#x02662;" string="\diamondsuit"/>
+    <char character="&#x2662;" string="\diamondsuit"/>
     <!--club suit symbol-->
-    <char character="&#x02663;" string="\clubsuit"/>
+    <char character="&#x2663;" string="\clubsuit"/>
     <!--= \varspade (arevmath), spade, white (card suit)-->
-    <char character="&#x02664;" string="\varspadesuit"/>
+    <char character="&#x2664;" string="\varspadesuit"/>
     <!--= \varheart (arevmath), filled heart (card suit)-->
-    <char character="&#x02665;" string="\varheartsuit"/>
+    <char character="&#x2665;" string="\varheartsuit"/>
     <!--= \vardiamond (arevmath), filled diamond (card suit)-->
-    <char character="&#x02666;" string="\vardiamondsuit"/>
+    <char character="&#x2666;" string="\vardiamondsuit"/>
     <!--= \varclub (arevmath), club, white (card suit)-->
-    <char character="&#x02667;" string="\varclubsuit"/>
+    <char character="&#x2667;" string="\varclubsuit"/>
     <!--music note (sung text sign)-->
-    <char character="&#x02669;" string="\quarternote"/>
+    <char character="&#x2669;" string="\quarternote"/>
     <!--EIGHTH NOTE-->
-    <char character="&#x0266a;" string="\eighthnote"/>
+    <char character="&#x266a;" string="\eighthnote"/>
     <!--BEAMED EIGHTH NOTES-->
-    <char character="&#x0266b;" string="\twonotes"/>
+    <char character="&#x266b;" string="\twonotes"/>
     <!--BEAMED SIXTEENTH NOTES-->
-    <char character="&#x0266c;" string="\sixteenthnote"/>
+    <char character="&#x266c;" string="\sixteenthnote"/>
     <!--musical flat-->
-    <char character="&#x0266d;" string="\flat"/>
+    <char character="&#x266d;" string="\flat"/>
     <!--music natural-->
-    <char character="&#x0266e;" string="\natural"/>
+    <char character="&#x266e;" string="\natural"/>
     <!--# \# (oz), musical sharp, z notation infix bag count-->
-    <char character="&#x0266f;" string="\sharp"/>
+    <char character="&#x266f;" string="\sharp"/>
     <!--BLACK UNIVERSAL RECYCLING SYMBOL-->
-    <char character="&#x0267b;" string="\recycle"/>
+    <char character="&#x267b;" string="\recycle"/>
     <!--ANCHOR-->
-    <char character="&#x02693;" string="\anchor"/>
+    <char character="&#x2693;" string="\anchor"/>
     <!--CROSSED SWORDS-->
-    <char character="&#x02694;" string="\swords"/>
+    <char character="&#x2694;" string="\swords"/>
     <!--WARNING SIGN-->
-    <char character="&#x026a0;" string="\warning"/>
+    <char character="&#x26a0;" string="\warning"/>
     <!--MEDIUM WHITE CIRCLE-->
-    <char character="&#x026aa;" string="\medcirc"/>
+    <char character="&#x26aa;" string="\medcirc"/>
     <!--MEDIUM BLACK CIRCLE-->
-    <char character="&#x026ab;" string="\medbullet"/>
+    <char character="&#x26ab;" string="\medbullet"/>
   
     <!-- *
           * Dingbats
           * -->
   
     <!--LOWER RIGHT PENCIL-->
-    <char character="&#x0270e;" string="\pencil"/>
+    <char character="&#x270e;" string="\pencil"/>
     <!--= \ballotcheck (arevmath), tick, CHECK MARK-->
-    <char character="&#x02713;" string="\checkmark"/>
+    <char character="&#x2713;" string="\checkmark"/>
     <!--BALLOT X-->
-    <char character="&#x02717;" string="\ballotx"/>
+    <char character="&#x2717;" string="\ballotx"/>
     <!--MALTESE CROSS-->
-    <char character="&#x02720;" string="\maltese"/>
+    <char character="&#x2720;" string="\maltese"/>
     <!--THREE-D TOP-LIGHTED RIGHTWARDS ARROWHEAD-->
-    <char character="&#x027a2;" string="\arrowbullet"/>
+    <char character="&#x27a2;" string="\arrowbullet"/>
   
     <!-- *
           * Miscellaneous Mathematical Symbols-A
           * -->
   
     <!--PERPENDICULAR-->
-    <char character="&#x027c2;" string="\perp"/>
+    <char character="&#x27c2;" string="\perp"/>
     <!--= \lbag (stmaryrd -oz), LEFT S-SHAPED BAG DELIMITER-->
-    <char character="&#x027c5;" string="\Lbag"/>
+    <char character="&#x27c5;" string="\Lbag"/>
     <!--= \rbag (stmaryrd -oz), RIGHT S-SHAPED BAG DELIMITER-->
-    <char character="&#x027c6;" string="\Rbag"/>
+    <char character="&#x27c6;" string="\Rbag"/>
     <!--WHITE DIAMOND WITH CENTRED DOT-->
-    <char character="&#x027d0;" string="\Diamonddot"/>
+    <char character="&#x27d0;" string="\Diamonddot"/>
     <!--LEFT MULTIMAP-->
-    <char character="&#x027dc;" string="\multimapinv"/>
+    <char character="&#x27dc;" string="\multimapinv"/>
     <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
-    <char character="&#x027e6;" string="\llbracket"/>
+    <char character="&#x27e6;" string="\llbracket"/>
     <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
-    <char character="&#x027e7;" string="\rrbracket"/>
+    <char character="&#x27e7;" string="\rrbracket"/>
     <!--MATHEMATICAL LEFT ANGLE BRACKET-->
-    <char character="&#x027e8;" string="\langle"/>
+    <char character="&#x27e8;" string="\langle"/>
     <!--MATHEMATICAL RIGHT ANGLE BRACKET-->
-    <char character="&#x027e9;" string="\rangle"/>
+    <char character="&#x27e9;" string="\rangle"/>
     <!--MATHEMATICAL LEFT DOUBLE ANGLE BRACKET, z notation left chevron bracket-->
-    <char character="&#x027ea;" string="\lang"/>
+    <char character="&#x27ea;" string="\lang"/>
     <!--MATHEMATICAL RIGHT DOUBLE ANGLE BRACKET, z notation right chevron bracket-->
-    <char character="&#x027eb;" string="\rang"/>
+    <char character="&#x27eb;" string="\rang"/>
     <!--MATHEMATICAL LEFT FLATTENED PARENTHESIS-->
-    <char character="&#x027ee;" string="\lgroup"/>
+    <char character="&#x27ee;" string="\lgroup"/>
     <!--MATHEMATICAL RIGHT FLATTENED PARENTHESIS-->
-    <char character="&#x027ef;" string="\rgroup"/>
+    <char character="&#x27ef;" string="\rgroup"/>
   
     <!-- *
           * Supplemental Arrows-A
           * -->
   
     <!--LONG LEFTWARDS ARROW-->
-    <char character="&#x027f5;" string="\longleftarrow"/>
+    <char character="&#x27f5;" string="\longleftarrow"/>
     <!--LONG RIGHTWARDS ARROW-->
-    <char character="&#x027f6;" string="\longrightarrow"/>
+    <char character="&#x27f6;" string="\longrightarrow"/>
     <!--LONG LEFT RIGHT ARROW-->
-    <char character="&#x027f7;" string="\longleftrightarrow"/>
+    <char character="&#x27f7;" string="\longleftrightarrow"/>
     <!--= \impliedby (amsmath), LONG LEFTWARDS DOUBLE ARROW-->
-    <char character="&#x027f8;" string="\Longleftarrow"/>
+    <char character="&#x27f8;" string="\Longleftarrow"/>
     <!--= \implies (amsmath), LONG RIGHTWARDS DOUBLE ARROW-->
-    <char character="&#x027f9;" string="\Longrightarrow"/>
+    <char character="&#x27f9;" string="\Longrightarrow"/>
     <!--= \iff (oz), LONG LEFT RIGHT DOUBLE ARROW-->
-    <char character="&#x027fa;" string="\Longleftrightarrow"/>
+    <char character="&#x27fa;" string="\Longleftrightarrow"/>
     <!--= \longmappedfrom (kpfonts), LONG LEFTWARDS ARROW FROM BAR-->
-    <char character="&#x027fb;" string="\longmapsfrom"/>
+    <char character="&#x27fb;" string="\longmapsfrom"/>
     <!--LONG RIGHTWARDS ARROW FROM BAR-->
-    <char character="&#x027fc;" string="\longmapsto"/>
+    <char character="&#x27fc;" string="\longmapsto"/>
     <!--= \Longmappedfrom (kpfonts), LONG LEFTWARDS DOUBLE ARROW FROM BAR-->
-    <char character="&#x027fd;" string="\Longmapsfrom"/>
+    <char character="&#x27fd;" string="\Longmapsfrom"/>
     <!--LONG RIGHTWARDS DOUBLE ARROW FROM BAR-->
-    <char character="&#x027fe;" string="\Longmapsto"/>
+    <char character="&#x27fe;" string="\Longmapsto"/>
   
     <!-- *
           * Supplemental Arrows-B
           * -->
   
     <!--= \psurj (oz), RIGHTWARDS TWO-HEADED ARROW WITH VERTICAL STROKE, z notation partial surjection-->
-    <char character="&#x02900;" string="\psur"/>
+    <char character="&#x2900;" string="\psur"/>
     <!--= \Mappedfrom (kpfonts), LEFTWARDS DOUBLE ARROW FROM BAR-->
-    <char character="&#x02906;" string="\Mapsfrom"/>
+    <char character="&#x2906;" string="\Mapsfrom"/>
     <!--RIGHTWARDS DOUBLE ARROW FROM BAR-->
-    <char character="&#x02907;" string="\Mapsto"/>
+    <char character="&#x2907;" string="\Mapsto"/>
     <!--UPWARDS ARROW TO BAR-->
-    <char character="&#x02912;" string="\UpArrowBar"/>
+    <char character="&#x2912;" string="\UpArrowBar"/>
     <!--DOWNWARDS ARROW TO BAR-->
-    <char character="&#x02913;" string="\DownArrowBar"/>
+    <char character="&#x2913;" string="\DownArrowBar"/>
     <!--RIGHTWARDS ARROW WITH TAIL WITH VERTICAL STROKE, z notation partial injection-->
-    <char character="&#x02914;" string="\pinj"/>
+    <char character="&#x2914;" string="\pinj"/>
     <!--RIGHTWARDS ARROW WITH TAIL WITH DOUBLE VERTICAL STROKE, z notation finite injection-->
-    <char character="&#x02915;" string="\finj"/>
+    <char character="&#x2915;" string="\finj"/>
     <!--RIGHTWARDS TWO-HEADED ARROW WITH TAIL, z notation bijection-->
-    <char character="&#x02916;" string="\bij"/>
+    <char character="&#x2916;" string="\bij"/>
     <!--WAVE ARROW POINTING DIRECTLY RIGHT-->
-    <char character="&#x02933;" string="\leadsto"/>
+    <char character="&#x2933;" string="\leadsto"/>
     <!--LEFT BARB UP RIGHT BARB DOWN HARPOON-->
-    <char character="&#x0294a;" string="\leftrightharpoon"/>
+    <char character="&#x294a;" string="\leftrightharpoon"/>
     <!--LEFT BARB DOWN RIGHT BARB UP HARPOON-->
-    <char character="&#x0294b;" string="\rightleftharpoon"/>
+    <char character="&#x294b;" string="\rightleftharpoon"/>
     <!--LEFT BARB UP RIGHT BARB UP HARPOON-->
-    <char character="&#x0294e;" string="\leftrightharpoonup"/>
+    <char character="&#x294e;" string="\leftrightharpoonup"/>
     <!--UP BARB RIGHT DOWN BARB RIGHT HARPOON-->
-    <char character="&#x0294f;" string="\rightupdownharpoon"/>
+    <char character="&#x294f;" string="\rightupdownharpoon"/>
     <!--LEFT BARB DOWN RIGHT BARB DOWN HARPOON-->
-    <char character="&#x02950;" string="\leftrightharpoondown"/>
+    <char character="&#x2950;" string="\leftrightharpoondown"/>
     <!--UP BARB LEFT DOWN BARB LEFT HARPOON-->
-    <char character="&#x02951;" string="\leftupdownharpoon"/>
+    <char character="&#x2951;" string="\leftupdownharpoon"/>
     <!--LEFTWARDS HARPOON WITH BARB UP TO BAR-->
-    <char character="&#x02952;" string="\LeftVectorBar"/>
+    <char character="&#x2952;" string="\LeftVectorBar"/>
     <!--RIGHTWARDS HARPOON WITH BARB UP TO BAR-->
-    <char character="&#x02953;" string="\RightVectorBar"/>
+    <char character="&#x2953;" string="\RightVectorBar"/>
     <!--UPWARDS HARPOON WITH BARB RIGHT TO BAR-->
-    <char character="&#x02954;" string="\RightUpVectorBar"/>
+    <char character="&#x2954;" string="\RightUpVectorBar"/>
     <!--DOWNWARDS HARPOON WITH BARB RIGHT TO BAR-->
-    <char character="&#x02955;" string="\RightDownVectorBar"/>
+    <char character="&#x2955;" string="\RightDownVectorBar"/>
     <!--LEFTWARDS HARPOON WITH BARB DOWN TO BAR-->
-    <char character="&#x02956;" string="\DownLeftVectorBar"/>
+    <char character="&#x2956;" string="\DownLeftVectorBar"/>
     <!--RIGHTWARDS HARPOON WITH BARB DOWN TO BAR-->
-    <char character="&#x02957;" string="\DownRightVectorBar"/>
+    <char character="&#x2957;" string="\DownRightVectorBar"/>
     <!--UPWARDS HARPOON WITH BARB LEFT TO BAR-->
-    <char character="&#x02958;" string="\LeftUpVectorBar"/>
+    <char character="&#x2958;" string="\LeftUpVectorBar"/>
     <!--DOWNWARDS HARPOON WITH BARB LEFT TO BAR-->
-    <char character="&#x02959;" string="\LeftDownVectorBar"/>
+    <char character="&#x2959;" string="\LeftDownVectorBar"/>
     <!--LEFTWARDS HARPOON WITH BARB UP FROM BAR-->
-    <char character="&#x0295a;" string="\LeftTeeVector"/>
+    <char character="&#x295a;" string="\LeftTeeVector"/>
     <!--RIGHTWARDS HARPOON WITH BARB UP FROM BAR-->
-    <char character="&#x0295b;" string="\RightTeeVector"/>
+    <char character="&#x295b;" string="\RightTeeVector"/>
     <!--UPWARDS HARPOON WITH BARB RIGHT FROM BAR-->
-    <char character="&#x0295c;" string="\RightUpTeeVector"/>
+    <char character="&#x295c;" string="\RightUpTeeVector"/>
     <!--DOWNWARDS HARPOON WITH BARB RIGHT FROM BAR-->
-    <char character="&#x0295d;" string="\RightDownTeeVector"/>
+    <char character="&#x295d;" string="\RightDownTeeVector"/>
     <!--LEFTWARDS HARPOON WITH BARB DOWN FROM BAR-->
-    <char character="&#x0295e;" string="\DownLeftTeeVector"/>
+    <char character="&#x295e;" string="\DownLeftTeeVector"/>
     <!--RIGHTWARDS HARPOON WITH BARB DOWN FROM BAR-->
-    <char character="&#x0295f;" string="\DownRightTeeVector"/>
+    <char character="&#x295f;" string="\DownRightTeeVector"/>
     <!--UPWARDS HARPOON WITH BARB LEFT FROM BAR-->
-    <char character="&#x02960;" string="\LeftUpTeeVector"/>
+    <char character="&#x2960;" string="\LeftUpTeeVector"/>
     <!--DOWNWARDS HARPOON WITH BARB LEFT FROM BAR-->
-    <char character="&#x02961;" string="\LeftDownTeeVector"/>
+    <char character="&#x2961;" string="\LeftDownTeeVector"/>
     <!--LEFTWARDS HARPOON WITH BARB UP ABOVE LEFTWARDS HARPOON WITH BARB DOWN-->
-    <char character="&#x02962;" string="\leftleftharpoons"/>
+    <char character="&#x2962;" string="\leftleftharpoons"/>
     <!--UPWARDS HARPOON WITH BARB LEFT BESIDE UPWARDS HARPOON WITH BARB RIGHT-->
-    <char character="&#x02963;" string="\upupharpoons"/>
+    <char character="&#x2963;" string="\upupharpoons"/>
     <!--RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN-->
-    <char character="&#x02964;" string="\rightrightharpoons"/>
+    <char character="&#x2964;" string="\rightrightharpoons"/>
     <!--DOWNWARDS HARPOON WITH BARB LEFT BESIDE DOWNWARDS HARPOON WITH BARB RIGHT-->
-    <char character="&#x02965;" string="\downdownharpoons"/>
+    <char character="&#x2965;" string="\downdownharpoons"/>
     <!--LEFTWARDS HARPOON WITH BARB UP ABOVE LONG DASH-->
-    <char character="&#x0296a;" string="\leftbarharpoon"/>
+    <char character="&#x296a;" string="\leftbarharpoon"/>
     <!--LEFTWARDS HARPOON WITH BARB DOWN BELOW LONG DASH-->
-    <char character="&#x0296b;" string="\barleftharpoon"/>
+    <char character="&#x296b;" string="\barleftharpoon"/>
     <!--RIGHTWARDS HARPOON WITH BARB UP ABOVE LONG DASH-->
-    <char character="&#x0296c;" string="\rightbarharpoon"/>
+    <char character="&#x296c;" string="\rightbarharpoon"/>
     <!--RIGHTWARDS HARPOON WITH BARB DOWN BELOW LONG DASH-->
-    <char character="&#x0296d;" string="\barrightharpoon"/>
+    <char character="&#x296d;" string="\barrightharpoon"/>
     <!--= \upequilibrium (wrisym), UPWARDS HARPOON WITH BARB LEFT BESIDE DOWNWARDS HARPOON WITH BARB RIGHT-->
-    <char character="&#x0296e;" string="\updownharpoons"/>
+    <char character="&#x296e;" string="\updownharpoons"/>
     <!--= \uprevequilibrium (wrisym), DOWNWARDS HARPOON WITH BARB LEFT BESIDE UPWARDS HARPOON WITH BARB RIGHT-->
-    <char character="&#x0296f;" string="\downupharpoons"/>
+    <char character="&#x296f;" string="\downupharpoons"/>
     <!--LEFT FISH TAIL-->
-    <char character="&#x0297c;" string="\strictfi"/>
+    <char character="&#x297c;" string="\strictfi"/>
     <!--RIGHT FISH TAIL-->
-    <char character="&#x0297d;" string="\strictif"/>
+    <char character="&#x297d;" string="\strictif"/>
   
     <!-- *
           * Miscellaneous Mathematical Symbols-B
           * -->
   
     <!--TRIPLE VERTICAL BAR DELIMITER-->
-    <char character="&#x02980;" string="\VERT"/>
+    <char character="&#x2980;" string="\VERT"/>
     <!--= \dot (oz), Z NOTATION SPOT-->
-    <char character="&#x02981;" string="\spot"/>
+    <char character="&#x2981;" string="\spot"/>
     <!--LEFT WHITE PARENTHESIS-->
-    <char character="&#x02985;" string="\Lparen"/>
+    <char character="&#x2985;" string="\Lparen"/>
     <!--RIGHT WHITE PARENTHESIS-->
-    <char character="&#x02986;" string="\Rparen"/>
+    <char character="&#x2986;" string="\Rparen"/>
     <!--= \llparenthesis (stmaryrd), Z NOTATION LEFT IMAGE BRACKET-->
-    <char character="&#x02987;" string="\limg"/>
+    <char character="&#x2987;" string="\limg"/>
     <!--= \rrparenthesis (stmaryrd), Z NOTATION RIGHT IMAGE BRACKET-->
-    <char character="&#x02988;" string="\rimg"/>
+    <char character="&#x2988;" string="\rimg"/>
     <!--Z NOTATION LEFT BINDING BRACKET-->
-    <char character="&#x02989;" string="\lblot"/>
+    <char character="&#x2989;" string="\lblot"/>
     <!--Z NOTATION RIGHT BINDING BRACKET-->
-    <char character="&#x0298a;" string="\rblot"/>
+    <char character="&#x298a;" string="\rblot"/>
     <!--CIRCLED REVERSE SOLIDUS-->
-    <char character="&#x029b8;" string="\circledbslash"/>
+    <char character="&#x29b8;" string="\circledbslash"/>
     <!--CIRCLED LESS-THAN-->
-    <char character="&#x029c0;" string="\circledless"/>
+    <char character="&#x29c0;" string="\circledless"/>
     <!--CIRCLED GREATER-THAN-->
-    <char character="&#x029c1;" string="\circledgtr"/>
+    <char character="&#x29c1;" string="\circledgtr"/>
     <!--SQUARED RISING DIAGONAL SLASH-->
-    <char character="&#x029c4;" string="\boxslash"/>
+    <char character="&#x29c4;" string="\boxslash"/>
     <!--SQUARED FALLING DIAGONAL SLASH-->
-    <char character="&#x029c5;" string="\boxbslash"/>
+    <char character="&#x29c5;" string="\boxbslash"/>
     <!--SQUARED ASTERISK-->
-    <char character="&#x029c6;" string="\boxast"/>
+    <char character="&#x29c6;" string="\boxast"/>
     <!--SQUARED SMALL CIRCLE-->
-    <char character="&#x029c7;" string="\boxcircle"/>
+    <char character="&#x29c7;" string="\boxcircle"/>
     <!--SQUARED SQUARE-->
-    <char character="&#x029c8;" string="\boxbox"/>
+    <char character="&#x29c8;" string="\boxbox"/>
     <!--LEFT TRIANGLE BESIDE VERTICAL BAR-->
-    <char character="&#x029cf;" string="\LeftTriangleBar"/>
+    <char character="&#x29cf;" string="\LeftTriangleBar"/>
     <!--VERTICAL BAR BESIDE RIGHT TRIANGLE-->
-    <char character="&#x029d0;" string="\RightTriangleBar"/>
+    <char character="&#x29d0;" string="\RightTriangleBar"/>
     <!--DOUBLE-ENDED MULTIMAP-->
-    <char character="&#x029df;" string="\multimapboth"/>
+    <char character="&#x29df;" string="\multimapboth"/>
     <!--BLACK LOZENGE-->
-    <char character="&#x029eb;" string="\blacklozenge"/>
+    <char character="&#x29eb;" string="\blacklozenge"/>
     <!--REVERSE SOLIDUS OPERATOR-->
-    <char character="&#x029f5;" string="\setminus"/>
+    <char character="&#x29f5;" string="\setminus"/>
     <!--= \hide (oz), BIG REVERSE SOLIDUS, z notation schema hiding-->
-    <char character="&#x029f9;" string="\zhide"/>
+    <char character="&#x29f9;" string="\zhide"/>
   
     <!-- *
           * Supplemental Mathematical Operators
           * -->
   
     <!--N-ARY CIRCLED DOT OPERATOR-->
-    <char character="&#x02a00;" string="\bigodot"/>
+    <char character="&#x2a00;" string="\bigodot"/>
     <!--N-ARY CIRCLED PLUS OPERATOR-->
-    <char character="&#x02a01;" string="\bigoplus"/>
+    <char character="&#x2a01;" string="\bigoplus"/>
     <!--N-ARY CIRCLED TIMES OPERATOR-->
-    <char character="&#x02a02;" string="\bigotimes"/>
+    <char character="&#x2a02;" string="\bigotimes"/>
     <!--N-ARY UNION OPERATOR WITH PLUS-->
-    <char character="&#x02a04;" string="\biguplus"/>
+    <char character="&#x2a04;" string="\biguplus"/>
     <!--N-ARY SQUARE INTERSECTION OPERATOR-->
-    <char character="&#x02a05;" string="\bigsqcap"/>
+    <char character="&#x2a05;" string="\bigsqcap"/>
     <!--N-ARY SQUARE UNION OPERATOR-->
-    <char character="&#x02a06;" string="\bigsqcup"/>
+    <char character="&#x2a06;" string="\bigsqcup"/>
     <!--N-ARY TIMES OPERATOR-->
-    <char character="&#x02a09;" string="\varprod"/>
+    <char character="&#x2a09;" string="\varprod"/>
     <!--QUADRUPLE INTEGRAL OPERATOR-->
-    <char character="&#x02a0c;" string="\iiiint"/>
+    <char character="&#x2a0c;" string="\iiiint"/>
     <!--INTEGRAL AVERAGE WITH SLASH-->
-    <char character="&#x02a0f;" string="\fint"/>
+    <char character="&#x2a0f;" string="\fint"/>
     <!--= \sqrint (wrisym), QUATERNION INTEGRAL OPERATOR-->
-    <char character="&#x02a16;" string="\sqint"/>
+    <char character="&#x2a16;" string="\sqint"/>
     <!--JOIN-->
-    <char character="&#x02a1d;" string="\Join"/>
+    <char character="&#x2a1d;" string="\Join"/>
     <!--= \semi (oz), = \fatsemi (stmaryrd), Z NOTATION SCHEMA COMPOSITION-->
-    <char character="&#x02a1f;" string="\zcmp"/>
+    <char character="&#x2a1f;" string="\zcmp"/>
     <!--Z NOTATION SCHEMA PIPING-->
-    <char character="&#x02a20;" string="\zpipe"/>
+    <char character="&#x2a20;" string="\zpipe"/>
     <!--= \project (oz), Z NOTATION SCHEMA PROJECTION-->
-    <char character="&#x02a21;" string="\zproject"/>
+    <char character="&#x2a21;" string="\zproject"/>
     <!--= \comp (oz), Z NOTATION RELATIONAL COMPOSITION-->
-    <char character="&#x02a3e;" string="\fcmp"/>
+    <char character="&#x2a3e;" string="\fcmp"/>
     <!--AMALGAMATION OR COPRODUCT-->
-    <char character="&#x02a3f;" string="\amalg"/>
+    <char character="&#x2a3f;" string="\amalg"/>
     <!--LOGICAL AND WITH DOUBLE OVERBAR-->
-    <char character="&#x02a5e;" string="\doublebarwedge"/>
+    <char character="&#x2a5e;" string="\doublebarwedge"/>
     <!--= \ndres (oz), Z NOTATION DOMAIN ANTIRESTRICTION-->
-    <char character="&#x02a64;" string="\dsub"/>
+    <char character="&#x2a64;" string="\dsub"/>
     <!--= \nrres (oz), Z NOTATION RANGE ANTIRESTRICTION-->
-    <char character="&#x02a65;" string="\rsub"/>
+    <char character="&#x2a65;" string="\rsub"/>
     <!--# ::=, x \Coloneq (txfonts), DOUBLE COLON EQUAL-->
-    <char character="&#x02a74;" string="\Coloneqq"/>
+    <char character="&#x2a74;" string="\Coloneqq"/>
     <!--# ==, TWO CONSECUTIVE EQUALS SIGNS-->
-    <char character="&#x02a75;" string="\Equal"/>
+    <char character="&#x2a75;" string="\Equal"/>
     <!--# ===, THREE CONSECUTIVE EQUALS SIGNS-->
-    <char character="&#x02a76;" string="\Same"/>
+    <char character="&#x2a76;" string="\Same"/>
     <!--LESS-THAN OR SLANTED EQUAL TO-->
-    <char character="&#x02a7d;" string="\leqslant"/>
+    <char character="&#x2a7d;" string="\leqslant"/>
     <!--GREATER-THAN OR SLANTED EQUAL TO-->
-    <char character="&#x02a7e;" string="\geqslant"/>
+    <char character="&#x2a7e;" string="\geqslant"/>
     <!--LESS-THAN OR APPROXIMATE-->
-    <char character="&#x02a85;" string="\lessapprox"/>
+    <char character="&#x2a85;" string="\lessapprox"/>
     <!--GREATER-THAN OR APPROXIMATE-->
-    <char character="&#x02a86;" string="\gtrapprox"/>
+    <char character="&#x2a86;" string="\gtrapprox"/>
     <!--LESS-THAN AND SINGLE-LINE NOT EQUAL TO-->
-    <char character="&#x02a87;" string="\lneq"/>
+    <char character="&#x2a87;" string="\lneq"/>
     <!--GREATER-THAN AND SINGLE-LINE NOT EQUAL TO-->
-    <char character="&#x02a88;" string="\gneq"/>
+    <char character="&#x2a88;" string="\gneq"/>
     <!--LESS-THAN AND NOT APPROXIMATE-->
-    <char character="&#x02a89;" string="\lnapprox"/>
+    <char character="&#x2a89;" string="\lnapprox"/>
     <!--GREATER-THAN AND NOT APPROXIMATE-->
-    <char character="&#x02a8a;" string="\gnapprox"/>
+    <char character="&#x2a8a;" string="\gnapprox"/>
     <!--LESS-THAN ABOVE DOUBLE-LINE EQUAL ABOVE GREATER-THAN-->
-    <char character="&#x02a8b;" string="\lesseqqgtr"/>
+    <char character="&#x2a8b;" string="\lesseqqgtr"/>
     <!--GREATER-THAN ABOVE DOUBLE-LINE EQUAL ABOVE LESS-THAN-->
-    <char character="&#x02a8c;" string="\gtreqqless"/>
+    <char character="&#x2a8c;" string="\gtreqqless"/>
     <!--SLANTED EQUAL TO OR LESS-THAN-->
-    <char character="&#x02a95;" string="\eqslantless"/>
+    <char character="&#x2a95;" string="\eqslantless"/>
     <!--SLANTED EQUAL TO OR GREATER-THAN-->
-    <char character="&#x02a96;" string="\eqslantgtr"/>
+    <char character="&#x2a96;" string="\eqslantgtr"/>
     <!--= \lll (mathabx -amssymb), DOUBLE NESTED LESS-THAN-->
-    <char character="&#x02aa1;" string="\NestedLessLess"/>
+    <char character="&#x2aa1;" string="\NestedLessLess"/>
     <!--= \ggg (mathabx -amssymb), DOUBLE NESTED GREATER-THAN-->
-    <char character="&#x02aa2;" string="\NestedGreaterGreater"/>
+    <char character="&#x2aa2;" string="\NestedGreaterGreater"/>
     <!--LESS-THAN CLOSED BY CURVE-->
-    <char character="&#x02aa6;" string="\leftslice"/>
+    <char character="&#x2aa6;" string="\leftslice"/>
     <!--GREATER-THAN CLOSED BY CURVE-->
-    <char character="&#x02aa7;" string="\rightslice"/>
+    <char character="&#x2aa7;" string="\rightslice"/>
     <!--PRECEDES ABOVE SINGLE-LINE EQUALS SIGN-->
-    <char character="&#x02aaf;" string="\preceq"/>
+    <char character="&#x2aaf;" string="\preceq"/>
     <!--SUCCEEDS ABOVE SINGLE-LINE EQUALS SIGN-->
-    <char character="&#x02ab0;" string="\succeq"/>
+    <char character="&#x2ab0;" string="\succeq"/>
     <!--PRECEDES ABOVE EQUALS SIGN-->
-    <char character="&#x02ab3;" string="\preceqq"/>
+    <char character="&#x2ab3;" string="\preceqq"/>
     <!--SUCCEEDS ABOVE EQUALS SIGN-->
-    <char character="&#x02ab4;" string="\succeqq"/>
+    <char character="&#x2ab4;" string="\succeqq"/>
     <!--PRECEDES ABOVE ALMOST EQUAL TO-->
-    <char character="&#x02ab7;" string="\precapprox"/>
+    <char character="&#x2ab7;" string="\precapprox"/>
     <!--SUCCEEDS ABOVE ALMOST EQUAL TO-->
-    <char character="&#x02ab8;" string="\succapprox"/>
+    <char character="&#x2ab8;" string="\succapprox"/>
     <!--PRECEDES ABOVE NOT ALMOST EQUAL TO-->
-    <char character="&#x02ab9;" string="\precnapprox"/>
+    <char character="&#x2ab9;" string="\precnapprox"/>
     <!--SUCCEEDS ABOVE NOT ALMOST EQUAL TO-->
-    <char character="&#x02aba;" string="\succnapprox"/>
+    <char character="&#x2aba;" string="\succnapprox"/>
     <!--DOUBLE PRECEDES-->
-    <char character="&#x02abb;" string="\llcurly"/>
+    <char character="&#x2abb;" string="\llcurly"/>
     <!--DOUBLE SUCCEEDS-->
-    <char character="&#x02abc;" string="\ggcurly"/>
+    <char character="&#x2abc;" string="\ggcurly"/>
     <!--SUBSET OF ABOVE EQUALS SIGN-->
-    <char character="&#x02ac5;" string="\subseteqq"/>
+    <char character="&#x2ac5;" string="\subseteqq"/>
     <!--SUPERSET OF ABOVE EQUALS SIGN-->
-    <char character="&#x02ac6;" string="\supseteqq"/>
+    <char character="&#x2ac6;" string="\supseteqq"/>
     <!--SUBSET OF ABOVE NOT EQUAL TO-->
-    <char character="&#x02acb;" string="\subsetneqq"/>
+    <char character="&#x2acb;" string="\subsetneqq"/>
     <!--SUPERSET OF ABOVE NOT EQUAL TO-->
-    <char character="&#x02acc;" string="\supsetneqq"/>
+    <char character="&#x2acc;" string="\supsetneqq"/>
     <!--DOUBLE DOWN TACK-->
-    <char character="&#x02aea;" string="\Top"/>
+    <char character="&#x2aea;" string="\Top"/>
     <!--= \Perp (txfonts), DOUBLE UP TACK-->
-    <char character="&#x02aeb;" string="\Bot"/>
+    <char character="&#x2aeb;" string="\Bot"/>
     <!--TRIPLE VERTICAL BAR BINARY RELATION-->
-    <char character="&#x02af4;" string="\interleave"/>
+    <char character="&#x2af4;" string="\interleave"/>
     <!--LARGE TRIPLE VERTICAL BAR OPERATOR-->
-    <char character="&#x02afc;" string="\biginterleave"/>
+    <char character="&#x2afc;" string="\biginterleave"/>
     <!--# \varparallel (txfonts), DOUBLE SOLIDUS OPERATOR-->
-    <char character="&#x02afd;" string="\sslash"/>
+    <char character="&#x2afd;" string="\sslash"/>
     <!--WHITE VERTICAL BAR-->
-    <char character="&#x02afe;" string="\talloblong"/>
+    <char character="&#x2afe;" string="\talloblong"/>
   
     <!-- *
          * Miscellaneous Symbols and Arrows
          * -->
   
     <!--BLACK LARGE SQUARE-->
-    <char character="&#x02b1b;" string="\blacksquare"/>
+    <char character="&#x2b1b;" string="\blacksquare"/>
     <!--WHITE LARGE SQUARE-->
-    <char character="&#x02b1c;" string="\square"/>
+    <char character="&#x2b1c;" string="\square"/>
   
     <!-- *
          * CJK Symbols and Punctuation

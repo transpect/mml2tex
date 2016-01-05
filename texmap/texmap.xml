@@ -1,315 +1,3231 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!-- taken from http://www.tex.ac.uk/tex-archive/biblio/biber/utf8-macro-map.html -->
-<!-- please note that you have to escape backslashes -->
-<symbols xmlns="http://transpect.io/mml2tex">
-  <symbol><hex>&#x25;</hex><tex>\\%</tex></symbol>
-  <symbol><hex>&#xb4;</hex><tex>'</tex></symbol>
-  <symbol><hex>&#x007C;</hex><tex>\\lvert</tex></symbol>
-  <symbol><hex>&#x00C4;</hex><tex>\\&#x22;A</tex></symbol>
-  <symbol><hex>&#x00D4;</hex><tex>\\&#x22;a</tex></symbol>
-  <symbol><hex>&#x00D6;</hex><tex>\\&#x22;O</tex></symbol>
-  <symbol><hex>&#x00F6;</hex><tex>\\&#x22;o</tex></symbol>
-  <symbol><hex>&#x00DC;</hex><tex>\\&#x22;U</tex></symbol>
-  <symbol><hex>&#x00FC;</hex><tex>\\&#x22;u</tex></symbol>
-  <symbol><hex>&#x00DF;</hex><tex>\\ss{}</tex></symbol>
-  <symbol><hex>&#x00AC;</hex><tex>\\lnot</tex></symbol>
-  <symbol><hex>&#x00B1;</hex><tex>\\pm</tex></symbol>
-  <symbol><hex>&#x00B5;</hex><tex>\\mu</tex></symbol>
-  <symbol><hex>&#x00D7;</hex><tex>\\times</tex></symbol>
-  <symbol><hex>&#x00F7;</hex><tex>\\div</tex></symbol>
-  <symbol><hex>&#x02E5;</hex><tex>\\tone5</tex></symbol>
-  <symbol><hex>&#x02E6;</hex><tex>\\tone4</tex></symbol>
-  <symbol><hex>&#x02E7;</hex><tex>\\tone3</tex></symbol>
-  <symbol><hex>&#x02E8;</hex><tex>\\tone2</tex></symbol>
-  <symbol><hex>&#x02E9;</hex><tex>\\tone1</tex></symbol>
-  <!--  *
-        * greek capital letters
-        * -->
-  <symbol><hex>&#x0391;</hex><tex>\\Alpha</tex></symbol>
-  <symbol><hex>&#x0392;</hex><tex>\\Beta</tex></symbol>
-  <symbol><hex>&#x0393;</hex><tex>\\Gamma</tex></symbol>
-  <symbol><hex>&#x0394;</hex><tex>\\Delta</tex></symbol>
-  <symbol><hex>&#x0395;</hex><tex>\\Epsilon</tex></symbol>
-  <symbol><hex>&#x0396;</hex><tex>\\Zeta</tex></symbol>
-  <symbol><hex>&#x0397;</hex><tex>\\Eta</tex></symbol>
-  <symbol><hex>&#x0398;</hex><tex>\\Theta</tex></symbol>
-  <symbol><hex>&#x0399;</hex><tex>\\Iota</tex></symbol>
-  <symbol><hex>&#x039A;</hex><tex>\\Kappa</tex></symbol>
-  <symbol><hex>&#x039B;</hex><tex>\\Lambda</tex></symbol>
-  <symbol><hex>&#x039C;</hex><tex>\\Mu</tex></symbol>
-  <symbol><hex>&#x039D;</hex><tex>\\Nu</tex></symbol>
-  <symbol><hex>&#x039E;</hex><tex>\\Xi</tex></symbol>
-  <symbol><hex>&#x039F;</hex><tex>\\Omicron</tex></symbol>
-  <symbol><hex>&#x03A0;</hex><tex>\\Pi</tex></symbol>
-  <symbol><hex>&#x03A1;</hex><tex>\\Rho</tex></symbol>
-  <symbol><hex>&#x03A3;</hex><tex>\\Sigma</tex></symbol>
-  <symbol><hex>&#x03A4;</hex><tex>\\Tau</tex></symbol>
-  <symbol><hex>&#x03A5;</hex><tex>\\Upsilon</tex></symbol>
-  <symbol><hex>&#x03A6;</hex><tex>\\Phi</tex></symbol>
-  <symbol><hex>&#x03D5;</hex><tex>\\phi</tex></symbol>
-  <symbol><hex>&#x03A7;</hex><tex>\\Chi</tex></symbol>
-  <symbol><hex>&#x03A8;</hex><tex>\\Psi</tex></symbol>
-  <symbol><hex>&#x03A9;</hex><tex>\\Omega</tex></symbol>
-  <!--  *
-        * greek small letters
-        * -->
-  <symbol><hex>&#x03B1;</hex><tex>\\alpha</tex></symbol>
-  <symbol><hex>&#x03B2;</hex><tex>\\beta</tex></symbol>
-  <symbol><hex>&#x03B3;</hex><tex>\\gamma</tex></symbol>
-  <symbol><hex>&#x03B4;</hex><tex>\\delta</tex></symbol>
-  <symbol><hex>&#x03B5;</hex><tex>\\varepsilon</tex></symbol>
-  <symbol><hex>&#x03B6;</hex><tex>\\zeta</tex></symbol>
-  <symbol><hex>&#x03B7;</hex><tex>\\eta</tex></symbol>
-  <symbol><hex>&#x03B8;</hex><tex>\\vartheta</tex></symbol>
-  <symbol><hex>&#x03B9;</hex><tex>\\iota</tex></symbol>
-  <symbol><hex>&#x03BA;</hex><tex>\\kappa</tex></symbol>
-  <symbol><hex>&#x03BB;</hex><tex>\\lambda</tex></symbol>
-  <symbol><hex>&#x03BC;</hex><tex>\\mu</tex></symbol>
-  <symbol><hex>&#x03BD;</hex><tex>\\nu</tex></symbol>
-  <symbol><hex>&#x03BE;</hex><tex>\\xi</tex></symbol>
-  <symbol><hex>&#x03BF;</hex><tex>\\omicron</tex></symbol>
-  <symbol><hex>&#x03C0;</hex><tex>\\pi</tex></symbol>
-  <symbol><hex>&#x03C1;</hex><tex>\\varrho</tex></symbol>
-  <symbol><hex>&#x03C2;</hex><tex>\\varsigma</tex></symbol>
-  <symbol><hex>&#x03C3;</hex><tex>\\sigma</tex></symbol>
-  <symbol><hex>&#x03C4;</hex><tex>\\tau</tex></symbol>
-  <symbol><hex>&#x03C5;</hex><tex>\\upsilon</tex></symbol>
-  <symbol><hex>&#x03C6;</hex><tex>\\varphi</tex></symbol>
-  <symbol><hex>&#x03C7;</hex><tex>\\chi</tex></symbol>
-  <symbol><hex>&#x03C8;</hex><tex>\\psi</tex></symbol>
-  <symbol><hex>&#x03C9;</hex><tex>\\omega</tex></symbol>
-  <!--  *
-        * latin small letters
-        * -->
-  <symbol><hex>&#x0251;</hex><tex>\\alpha</tex></symbol>
-  <symbol><hex>&#x1E9F;</hex><tex>\\delta</tex></symbol>
-  <symbol><hex>&#x0278;</hex><tex>\\varphi</tex></symbol>
-  <!--  *
-        * other symbols
-        * -->
-  <symbol><hex>&#x20A1;</hex><tex>\\textcolonmonetary</tex></symbol>
-  <symbol><hex>&#x20A4;</hex><tex>\\textlira</tex></symbol>
-  <symbol><hex>&#x20A6;</hex><tex>\\textnaira</tex></symbol>
-  <symbol><hex>&#x20A9;</hex><tex>\\textwon</tex></symbol>
-  <symbol><hex>&#x20AB;</hex><tex>\\textdong</tex></symbol>
-  <symbol><hex>&#x20AC;</hex><tex>\\euro</tex></symbol>
-  <symbol><hex>&#x2016;</hex><tex>\\|</tex></symbol>
-  <symbol><hex>&#x2026;</hex><tex>\\dots</tex></symbol>
-  <symbol><hex>&#x2116;</hex><tex>\\textnumero</tex></symbol>
-  <symbol><hex>&#x2122;</hex><tex>\\texttrademark</tex></symbol>
-  <symbol><hex>&#x20D6;</hex><tex>\\leftarrow</tex></symbol>
-  <symbol><hex>&#x2190;</hex><tex>\\leftarrow</tex></symbol>
-  <symbol><hex>&#x2191;</hex><tex>\\uparrow</tex></symbol>
-  <symbol><hex>&#x2192;</hex><tex>\\rightarrow</tex></symbol>
-  <symbol><hex>&#x20D7;</hex><tex>\\rightarrow</tex></symbol>
-  <symbol><hex>&#x2193;</hex><tex>\\downarrow</tex></symbol>
-  <symbol><hex>&#x2194;</hex><tex>\\leftrightarrow</tex></symbol>
-  <symbol><hex>&#x2195;</hex><tex>\\updownarrow</tex></symbol>
-  <symbol><hex>&#x219D;</hex><tex>\\leadsto</tex></symbol>
-  <symbol><hex>&#x21CC;</hex><tex>\\rightleftharpoons</tex></symbol>
-  <symbol><hex>&#x21D2;</hex><tex>\\Rightarrow</tex></symbol>
-  <symbol><hex>&#x21D4;</hex><tex>\\Leftrightarrow</tex></symbol>
-  <symbol><hex>&#x2200;</hex><tex>\\forall</tex></symbol>
-  <symbol><hex>&#x2201;</hex><tex>\\complement</tex></symbol>
-  <symbol><hex>&#x2202;</hex><tex>\\partial</tex></symbol>
-  <symbol><hex>&#x2203;</hex><tex>\\exists</tex></symbol>
-  <symbol><hex>&#x2204;</hex><tex>\\nexists</tex></symbol>
-  <symbol><hex>&#x2205;</hex><tex>\\emptyset</tex></symbol>
-  <symbol><hex>&#x2206;</hex><tex>\\Delta</tex></symbol>
-  <symbol><hex>&#x2207;</hex><tex>\\nabla</tex></symbol>
-  <symbol><hex>&#x2208;</hex><tex>\\in</tex></symbol>
-  <symbol><hex>&#x2209;</hex><tex>\\notin</tex></symbol>
-  <symbol><hex>&#x220B;</hex><tex>\\ni</tex></symbol>
-  <symbol><hex>&#x220C;</hex><tex>\\not\\ni</tex></symbol>
-  <symbol><hex>&#x220F;</hex><tex>\\prod</tex></symbol>
-  <symbol><hex>&#x2210;</hex><tex>\\coprod</tex></symbol>
-  <symbol><hex>&#x2211;</hex><tex>\\sum</tex></symbol>
-  <symbol><hex>&#x2213;</hex><tex>\\mp</tex></symbol>
-  <symbol><hex>&#x2214;</hex><tex>\\dotplus</tex></symbol>
-  <symbol><hex>&#x2216;</hex><tex>\\setminus</tex></symbol>
-  <symbol><hex>&#x2217;</hex><tex>\\ast</tex></symbol>
-  <symbol><hex>&#x2218;</hex><tex>\\circ</tex></symbol>
-  <!-- apparently, authors use mix up the bullet with the 
-    multiplication dot in word equation editor -->
-  <!--<symbol><hex>&#x2219;</hex><tex>\\bullet</tex></symbol>-->
-  <symbol><hex>&#x2219;</hex><tex>\\cdot</tex></symbol>
-  <symbol><hex>&#x221A;</hex><tex>\\surd</tex></symbol>
-  <symbol><hex>&#x221D;</hex><tex>\\propto</tex></symbol>
-  <symbol><hex>&#x221E;</hex><tex>\\infty</tex></symbol>
-  <symbol><hex>&#x2220;</hex><tex>\\angle</tex></symbol>
-  <symbol><hex>&#x2221;</hex><tex>\\measuredangle</tex></symbol>
-  <symbol><hex>&#x2222;</hex><tex>\\sphericalangle</tex></symbol>
-  <symbol><hex>&#x2223;</hex><tex>\\mid</tex></symbol>
-  <symbol><hex>&#x2224;</hex><tex>\\nmid</tex></symbol>
-  <symbol><hex>&#x2225;</hex><tex>\\parallel</tex></symbol>
-  <symbol><hex>&#x2226;</hex><tex>\\nparallel</tex></symbol>
-  <symbol><hex>&#x2227;</hex><tex>\\wedge</tex></symbol>
-  <symbol><hex>&#x2228;</hex><tex>\\vee</tex></symbol>
-  <symbol><hex>&#x2229;</hex><tex>\\cap</tex></symbol>
-  <symbol><hex>&#x222A;</hex><tex>\\cup</tex></symbol>
-  <symbol><hex>&#x222B;</hex><tex>\\int</tex></symbol>
-  <symbol><hex>&#x222C;</hex><tex>\\iint</tex></symbol>
-  <symbol><hex>&#x222D;</hex><tex>\\iiint</tex></symbol>
-  <symbol><hex>&#x222E;</hex><tex>\\oint</tex></symbol>
-  <symbol><hex>&#x2234;</hex><tex>\\therefore</tex></symbol>
-  <symbol><hex>&#x2235;</hex><tex>\\because</tex></symbol>
-  <symbol><hex>&#x223C;</hex><tex>\\sim</tex></symbol>
-  <symbol><hex>&#x223D;</hex><tex>\\backsim</tex></symbol>
-  <symbol><hex>&#x2240;</hex><tex>\\wr</tex></symbol>
-  <symbol><hex>&#x2241;</hex><tex>\\nsim</tex></symbol>
-  <symbol><hex>&#x2243;</hex><tex>\\simeq</tex></symbol>
-  <symbol><hex>&#x2244;</hex><tex>\\not\\simeq</tex></symbol>
-  <symbol><hex>&#x2245;</hex><tex>\\cong</tex></symbol>
-  <symbol><hex>&#x2247;</hex><tex>\\ncong</tex></symbol>
-  <symbol><hex>&#x2248;</hex><tex>\\approx</tex></symbol>
-  <symbol><hex>&#x2249;</hex><tex>\\not\\approx</tex></symbol>
-  <symbol><hex>&#x224A;</hex><tex>\\approxeq</tex></symbol>
-  <symbol><hex>&#x224D;</hex><tex>\\asymp</tex></symbol>
-  <symbol><hex>&#x224E;</hex><tex>\\Bumpeq</tex></symbol>
-  <symbol><hex>&#x224F;</hex><tex>\\bumpeq</tex></symbol>
-  <symbol><hex>&#x2250;</hex><tex>\\doteq</tex></symbol>
-  <symbol><hex>&#x2251;</hex><tex>\\doteqdot</tex></symbol>
-  <symbol><hex>&#x2252;</hex><tex>\\fallingdotseq</tex></symbol>
-  <symbol><hex>&#x2253;</hex><tex>\\risingdotseq</tex></symbol>
-  <symbol><hex>&#x2256;</hex><tex>\\eqcirc</tex></symbol>
-  <symbol><hex>&#x2257;</hex><tex>\\circeq</tex></symbol>
-  <symbol><hex>&#x225C;</hex><tex>\\triangleq</tex></symbol>
-  <symbol><hex>&#x2260;</hex><tex>\\neq</tex></symbol>
-  <symbol><hex>&#x2261;</hex><tex>\\equiv</tex></symbol>
-  <symbol><hex>&#x2262;</hex><tex>\\not\\equiv</tex></symbol>
-  <symbol><hex>&#x2264;</hex><tex>\\leq</tex></symbol>
-  <symbol><hex>&#x2265;</hex><tex>\\geq</tex></symbol>
-  <symbol><hex>&#x2266;</hex><tex>\\leqq</tex></symbol>
-  <symbol><hex>&#x2267;</hex><tex>\\geqq</tex></symbol>
-  <symbol><hex>&#x2268;</hex><tex>\\lneqq</tex></symbol>
-  <symbol><hex>&#x2269;</hex><tex>\\gneqq</tex></symbol>
-  <symbol><hex>&#x226A;</hex><tex>\\ll</tex></symbol>
-  <symbol><hex>&#x226B;</hex><tex>\\gg</tex></symbol>
-  <symbol><hex>&#x226C;</hex><tex>\\between</tex></symbol>
-  <symbol><hex>&#x226D;</hex><tex>\\not\\asymp</tex></symbol>
-  <symbol><hex>&#x226E;</hex><tex>\\nless</tex></symbol>
-  <symbol><hex>&#x226F;</hex><tex>\\ngtr</tex></symbol>
-  <symbol><hex>&#x2270;</hex><tex>\\nleq</tex></symbol>
-  <symbol><hex>&#x2271;</hex><tex>\\ngeq</tex></symbol>
-  <symbol><hex>&#x2272;</hex><tex>\\lesssim</tex></symbol>
-  <symbol><hex>&#x2273;</hex><tex>\\gtrsim</tex></symbol>
-  <symbol><hex>&#x2274;</hex><tex>\\not\\lesssim</tex></symbol>
-  <symbol><hex>&#x2275;</hex><tex>\\not\\gtrsim</tex></symbol>
-  <symbol><hex>&#x2276;</hex><tex>\\lessgtr</tex></symbol>
-  <symbol><hex>&#x2277;</hex><tex>\\gtrless</tex></symbol>
-  <symbol><hex>&#x227A;</hex><tex>\\prec</tex></symbol>
-  <symbol><hex>&#x227B;</hex><tex>\\succ</tex></symbol>
-  <symbol><hex>&#x227C;</hex><tex>\\preccurlyeq</tex></symbol>
-  <symbol><hex>&#x227D;</hex><tex>\\succcurlyeq</tex></symbol>
-  <symbol><hex>&#x227E;</hex><tex>\\precsim</tex></symbol>
-  <symbol><hex>&#x227F;</hex><tex>\\succsim</tex></symbol>
-  <symbol><hex>&#x2280;</hex><tex>\\nprec</tex></symbol>
-  <symbol><hex>&#x2281;</hex><tex>\\nsucc</tex></symbol>
-  <symbol><hex>&#x2282;</hex><tex>\\subset</tex></symbol>
-  <symbol><hex>&#x2283;</hex><tex>\\supset</tex></symbol>
-  <symbol><hex>&#x2284;</hex><tex>\\not\\subset</tex></symbol>
-  <symbol><hex>&#x2285;</hex><tex>\\not\\supset</tex></symbol>
-  <symbol><hex>&#x2286;</hex><tex>\\subseteq</tex></symbol>
-  <symbol><hex>&#x2287;</hex><tex>\\supseteq</tex></symbol>
-  <symbol><hex>&#x2288;</hex><tex>\\nsubseteq</tex></symbol>
-  <symbol><hex>&#x2289;</hex><tex>\\nsupseteq</tex></symbol>
-  <symbol><hex>&#x228A;</hex><tex>\\subsetneq</tex></symbol>
-  <symbol><hex>&#x228B;</hex><tex>\\supsetneq</tex></symbol>
-  <symbol><hex>&#x228E;</hex><tex>\\uplus</tex></symbol>
-  <symbol><hex>&#x228F;</hex><tex>\\sqsubset</tex></symbol>
-  <symbol><hex>&#x2290;</hex><tex>\\sqsupset</tex></symbol>
-  <symbol><hex>&#x2291;</hex><tex>\\sqsubseteq</tex></symbol>
-  <symbol><hex>&#x2292;</hex><tex>\\sqsupseteq</tex></symbol>
-  <symbol><hex>&#x2293;</hex><tex>\\sqcap</tex></symbol>
-  <symbol><hex>&#x2294;</hex><tex>\\sqcup</tex></symbol>
-  <symbol><hex>&#x2295;</hex><tex>\\oplus</tex></symbol>
-  <symbol><hex>&#x2296;</hex><tex>\\ominus</tex></symbol>
-  <symbol><hex>&#x2297;</hex><tex>\\otimes</tex></symbol>
-  <symbol><hex>&#x2298;</hex><tex>\\oslash</tex></symbol>
-  <symbol><hex>&#x2299;</hex><tex>\\odot</tex></symbol>
-  <symbol><hex>&#x229A;</hex><tex>\\circledcirc</tex></symbol>
-  <symbol><hex>&#x229B;</hex><tex>\\circledast</tex></symbol>
-  <symbol><hex>&#x229D;</hex><tex>\\circleddash</tex></symbol>
-  <symbol><hex>&#x229E;</hex><tex>\\boxplus</tex></symbol>
-  <symbol><hex>&#x229F;</hex><tex>\\boxminus</tex></symbol>
-  <symbol><hex>&#x22A0;</hex><tex>\\boxtimes</tex></symbol>
-  <symbol><hex>&#x22A1;</hex><tex>\\boxdot</tex></symbol>
-  <symbol><hex>&#x22A2;</hex><tex>\\vdash</tex></symbol>
-  <symbol><hex>&#x22A3;</hex><tex>\\dashv</tex></symbol>
-  <symbol><hex>&#x22A4;</hex><tex>\\top</tex></symbol>
-  <symbol><hex>&#x22A5;</hex><tex>\\bot</tex></symbol>
-  <symbol><hex>&#x22A9;</hex><tex>\\Vdash</tex></symbol>
-  <symbol><hex>&#x22AA;</hex><tex>\\Vvdash</tex></symbol>
-  <symbol><hex>&#x22AE;</hex><tex>\\nVdash</tex></symbol>
-  <symbol><hex>&#x22B2;</hex><tex>\\lhd</tex></symbol>
-  <symbol><hex>&#x22B3;</hex><tex>\\rhd</tex></symbol>
-  <symbol><hex>&#x22B4;</hex><tex>\\unlhd</tex></symbol>
-  <symbol><hex>&#x22B5;</hex><tex>\\unrhd</tex></symbol>
-  <symbol><hex>&#x22B8;</hex><tex>\\multimap</tex></symbol>
-  <symbol><hex>&#x22BA;</hex><tex>\\intercal</tex></symbol>
-  <symbol><hex>&#x22BB;</hex><tex>\\veebar</tex></symbol>
-  <symbol><hex>&#x22BC;</hex><tex>\\barwedge</tex></symbol>
-  <symbol><hex>&#x22C0;</hex><tex>\\bigwedge</tex></symbol>
-  <symbol><hex>&#x22C1;</hex><tex>\\bigvee</tex></symbol>
-  <symbol><hex>&#x22C2;</hex><tex>\\bigcap</tex></symbol>
-  <symbol><hex>&#x22C3;</hex><tex>\\bigcup</tex></symbol>
-  <symbol><hex>&#x22C4;</hex><tex>\\diamond</tex></symbol>
-  <symbol><hex>&#x22C5;</hex><tex>\\cdot</tex></symbol>
-  <symbol><hex>&#x22C6;</hex><tex>\\star</tex></symbol>
-  <symbol><hex>&#x22C7;</hex><tex>\\divideontimes</tex></symbol>
-  <symbol><hex>&#x22C8;</hex><tex>\\bowtie</tex></symbol>
-  <symbol><hex>&#x22C9;</hex><tex>\\ltimes</tex></symbol>
-  <symbol><hex>&#x22CA;</hex><tex>\\rtimes</tex></symbol>
-  <symbol><hex>&#x22CB;</hex><tex>\\leftthreetimes</tex></symbol>
-  <symbol><hex>&#x22CC;</hex><tex>\\rightthreetimes</tex></symbol>
-  <symbol><hex>&#x22CD;</hex><tex>\\backsimeq</tex></symbol>
-  <symbol><hex>&#x22CE;</hex><tex>\\curlyvee</tex></symbol>
-  <symbol><hex>&#x22CF;</hex><tex>\\curlywedge</tex></symbol>
-  <symbol><hex>&#x22D0;</hex><tex>\\Subset</tex></symbol>
-  <symbol><hex>&#x22D1;</hex><tex>\\Supset</tex></symbol>
-  <symbol><hex>&#x22D2;</hex><tex>\\Cap</tex></symbol>
-  <symbol><hex>&#x22D3;</hex><tex>\\Cup</tex></symbol>
-  <symbol><hex>&#x22D4;</hex><tex>\\pitchfork</tex></symbol>
-  <symbol><hex>&#x22D6;</hex><tex>\\lessdot</tex></symbol>
-  <symbol><hex>&#x22D7;</hex><tex>\\gtrdot</tex></symbol>
-  <symbol><hex>&#x22D8;</hex><tex>\\lll</tex></symbol>
-  <symbol><hex>&#x22D9;</hex><tex>\\ggg</tex></symbol>
-  <symbol><hex>&#x22DA;</hex><tex>\\lesseqgtr</tex></symbol>
-  <symbol><hex>&#x22DB;</hex><tex>\\gtreqless</tex></symbol>
-  <symbol><hex>&#x22DE;</hex><tex>\\curlyeqprec</tex></symbol>
-  <symbol><hex>&#x22DF;</hex><tex>\\curlyeqsucc</tex></symbol>
-  <symbol><hex>&#x22E0;</hex><tex>\\not\\preccurlyeq</tex></symbol>
-  <symbol><hex>&#x22E1;</hex><tex>\\not\\succcurlyeq</tex></symbol>
-  <symbol><hex>&#x22E2;</hex><tex>\\not\\sqsubseteq</tex></symbol>
-  <symbol><hex>&#x22E3;</hex><tex>\\not\\sqsupseteq</tex></symbol>
-  <symbol><hex>&#x22E6;</hex><tex>\\lnsim</tex></symbol>
-  <symbol><hex>&#x22E7;</hex><tex>\\gnsim</tex></symbol>
-  <symbol><hex>&#x22E8;</hex><tex>\\precnsim</tex></symbol>
-  <symbol><hex>&#x22E9;</hex><tex>\\succnsim</tex></symbol>
-  <symbol><hex>&#x22EA;</hex><tex>\\ntriangleleft</tex></symbol>
-  <symbol><hex>&#x22EB;</hex><tex>\\ntriangleright</tex></symbol>
-  <symbol><hex>&#x22EC;</hex><tex>\\ntrianglelefteq</tex></symbol>
-  <symbol><hex>&#x22ED;</hex><tex>\\ntrianglerighteq</tex></symbol>
-  <symbol><hex>&#x22EE;</hex><tex>\\vdots</tex></symbol>
-  <symbol><hex>&#x22EF;</hex><tex>\\cdots</tex></symbol>
-  <symbol><hex>&#x22F1;</hex><tex>\\ddots</tex></symbol>
-  <symbol><hex>&#x2308;</hex><tex>\\lceil</tex></symbol>
-  <symbol><hex>&#x2309;</hex><tex>\\rceil</tex></symbol>
-  <symbol><hex>&#x230A;</hex><tex>\\lfloor</tex></symbol>
-  <symbol><hex>&#x230B;</hex><tex>\\rfloor</tex></symbol>
-  <symbol><hex>&#x2329;</hex><tex>\\langle</tex></symbol>
-  <symbol><hex>&#x27e8;</hex><tex>\\langle</tex></symbol>
-  <symbol><hex>&#x232a;</hex><tex>\\rangle</tex></symbol>
-  <symbol><hex>&#x27e9;</hex><tex>\\rangle</tex></symbol>
-  <symbol><hex>&#x25A1;</hex><tex>\\Box</tex></symbol>
-  <symbol><hex>&#x2660;</hex><tex>\\spadesuit</tex></symbol>
-  <symbol><hex>&#x2661;</hex><tex>\\heartsuit</tex></symbol>
-  <symbol><hex>&#x2662;</hex><tex>\\diamondsuit</tex></symbol>
-  <symbol><hex>&#x2663;</hex><tex>\\clubsuit</tex></symbol>
-  <symbol><hex>&#x266D;</hex><tex>\\flat</tex></symbol>
-  <symbol><hex>&#x266E;</hex><tex>\\natural</tex></symbol>
-  <symbol><hex>&#x266F;</hex><tex>\\sharp</tex></symbol>
-  <symbol><hex>&#x305;</hex><tex>\\overline</tex></symbol>
-  <symbol><hex>&#x7b;</hex><tex>\\{</tex></symbol>
-  <symbol><hex>&#x7d;</hex><tex>\\}</tex></symbol>
-</symbols>
+<?xml version="1.0" encoding="UTF-8"?>
+<set xmlns="http://transpect.io/xml2tex">
+  <charmap>
+  
+    <!-- *
+         * Unicode characters and corresponding LaTeX math mode commands
+         * -->  
+  
+    <!-- *
+         * Basic Latin
+         * -->
+  
+    <!--EXCLAMATION MARK-->
+    <char character="&#x00021;" string="!"/>
+    <!--NUMBER SIGN-->
+    <char character="&#x00023;" string="\#"/>
+    <!--= \mathdollar, DOLLAR SIGN-->
+    <char character="&#x00024;" string="\$"/>
+    <!--PERCENT SIGN-->
+    <char character="&#x00025;" string="\%"/>
+    <!--# \binampersand (stmaryrd)-->
+    <char character="&#x00026;" string="\&amp;"/>
+    <!--x :, COLON (not ratio)-->
+    <char character="&#x0003a;" string="\colon"/>
+    <!--LEFT SQUARE BRACKET-->
+    <char character="&#x0005b;" string="\lbrack"/>
+    <!--REVERSE SOLIDUS-->
+    <char character="&#x0005c;" string="\backslash"/>
+    <!--RIGHT SQUARE BRACKET-->
+    <char character="&#x0005d;" string="\rbrack"/>
+    <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
+    <char character="&#x0005e;" string="\sphat"/>
+    <!--LOW LINE, TeX subscript operator-->
+    <char character="&#x0005f;" string="\_"/>
+    <!--= \lbrace, LEFT CURLY BRACKET-->
+    <char character="&#x0007b;" string="\{"/>
+    <!--= \vert, vertical bar-->
+    <char character="&#x0007c;" string="|"/>
+    <!--= \rbrace, RIGHT CURLY BRACKET-->
+    <char character="&#x0007d;" string="\}"/>
+    <!--# \sim, TILDE-->
+    <char character="&#x0007e;" string="\sptilde"/>
+  
+    <!-- *
+         * Latin-1 Supplement
+         * -->
+  
+    <!--nbsp-->
+    <char character="&#x000a0;" string="~"/>
+    <!--= \mathcent (txfonts), cent-->
+    <char character="&#x000a2;" string="\cent"/>
+    <!--= \mathsterling (txfonts), POUND SIGN, fourier prints a dollar sign-->
+    <char character="&#x000a3;" string="\pounds"/>
+    <!--YEN SIGN-->
+    <char character="&#x000a5;" string="\yen"/>
+    <!--= \lnot, NOT SIGN-->
+    <char character="&#x000ac;" string="\neg"/>
+    <!--REGISTERED SIGN-->
+    <char character="&#x000ae;" string="\circledR"/>
+    <!--plus-or-minus sign-->
+    <char character="&#x000b1;" string="\pm"/>
+    <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
+    <char character="&#x000b5;" string="\Micro"/>
+    <!--MULTIPLICATION SIGN, z notation Cartesian product-->
+    <char character="&#x000d7;" string="\times"/>
+    <!--eth-->
+    <char character="&#x000f0;" string="\eth"/>
+    <!--divide sign-->
+    <char character="&#x000f7;" string="\div"/>
+  
+    <!-- *
+         * Latin Extended-A
+         * -->
+  
+    <!--imath-->
+    <char character="&#x00131;" string="\imath"/>
+  
+    <!-- *
+         * Latin Extended-B
+         * -->
+  
+    <!--jmath-->
+    <char character="&#x00237;" string="\jmath"/>
+  
+    <!-- *
+         * Spacing Modifier Letters
+         * -->
+  
+    <!-- *
+         * Combining Diacritical Marks
+         * -->
+  
+    <!--grave accent-->
+    <char character="&#x00300;" string="\grave"/>
+    <!--acute accent-->
+    <char character="&#x00301;" string="\acute"/>
+    <!--# \widehat (amssymb), circumflex accent-->
+    <char character="&#x00302;" string="\hat"/>
+    <!--# \widetilde (yhmath, fourier), tilde-->
+    <char character="&#x00303;" string="\tilde"/>
+    <!--macron-->
+    <char character="&#x00304;" string="\bar"/>
+    <!--overbar embellishment-->
+    <char character="&#x00305;" string="\overline"/>
+    <!--breve-->
+    <char character="&#x00306;" string="\breve"/>
+    <!--= \Dot (wrisym), dot above-->
+    <char character="&#x00307;" string="\dot"/>
+    <!--= \DDot (wrisym), dieresis-->
+    <char character="&#x00308;" string="\ddot"/>
+    <!--= \ring (yhmath), ring-->
+    <char character="&#x0030a;" string="\mathring"/>
+    <!--caron-->
+    <char character="&#x0030c;" string="\check"/>
+    <!--under tilde accent (multiple characters and non-spacing)-->
+    <char character="&#x00330;" string="\utilde"/>
+    <!--COMBINING MACRON BELOW-->
+    <char character="&#x00331;" string="\underbar"/>
+    <!--COMBINING LOW LINE-->
+    <char character="&#x00332;" string="\underline"/>
+    <!--COMBINING LONG SOLIDUS OVERLAY-->
+    <char character="&#x00338;" string="\not"/>
+  
+    <!-- *
+         * Greek and Coptic
+         * -->
+  
+    <!--= \Gamma (-slantedGreek), = \mathrm{\Gamma}, capital gamma, greek-->
+    <char character="&#x00393;" string="\Gamma"/>
+    <!--= \Delta (-slantedGreek), = \mathrm{\Delta}, capital delta, greek-->
+    <char character="&#x00394;" string="\Delta"/>
+    <!--= \Theta (-slantedGreek), = \mathrm{\Theta}, capital theta, greek-->
+    <char character="&#x00398;" string="\Theta"/>
+    <!--= \Lambda (-slantedGreek), = \mathrm{\Lambda}, capital lambda, greek-->
+    <char character="&#x0039b;" string="\Lambda"/>
+    <!--= \Xi (-slantedGreek), = \mathrm{\Xi}, capital xi, greek-->
+    <char character="&#x0039e;" string="\Xi"/>
+    <!--= \Pi (-slantedGreek), = \mathrm{\Pi}, capital pi, greek-->
+    <char character="&#x003a0;" string="\Pi"/>
+    <!--= \Sigma (-slantedGreek), = \mathrm{\Sigma}, capital sigma, greek-->
+    <char character="&#x003a3;" string="\Sigma"/>
+    <!--= \Upsilon (-slantedGreek), = \mathrm{\Upsilon}, capital upsilon, greek-->
+    <char character="&#x003a5;" string="\Upsilon"/>
+    <!--= \Phi (-slantedGreek), = \mathrm{\Phi}, capital phi, greek-->
+    <char character="&#x003a6;" string="\Phi"/>
+    <!--= \Psi (-slantedGreek), = \mathrm{\Psi}, capital psi, greek-->
+    <char character="&#x003a8;" string="\Psi"/>
+    <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
+    <char character="&#x003a9;" string="\Omega"/>
+    <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
+    <char character="&#x003b1;" string="\alpha"/>
+    <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
+    <char character="&#x003b2;" string="\beta"/>
+    <!--= \mathrm{\gamma} (omlmathrm), = \gammaup (kpfonts mathdesign), = \upgamma (upgreek),  gamma, greek-->
+    <char character="&#x003b3;" string="\gamma"/>
+    <!--= \mathrm{\delta} (omlmathrm), = \deltaup (kpfonts mathdesign), = \updelta (upgreek),  delta, greek-->
+    <char character="&#x003b4;" string="\delta"/>
+    <!--= \mathrm{\varepsilon} (omlmathrm), = \varepsilonup (kpfonts mathdesign), rounded = \upepsilon (upgreek),  epsilon, greek-->
+    <char character="&#x003b5;" string="\varepsilon"/>
+    <!--= \mathrm{\zeta} (omlmathrm), = \zetaup (kpfonts mathdesign), = \upzeta (upgreek),  zeta, greek-->
+    <char character="&#x003b6;" string="\zeta"/>
+    <!--= \mathrm{\eta} (omlmathrm), = \etaup (kpfonts mathdesign), = \upeta (upgreek),  eta, greek-->
+    <char character="&#x003b7;" string="\eta"/>
+    <!--= \mathrm{\theta} (omlmathrm), = \thetaup (kpfonts mathdesign), straight theta, = \uptheta (upgreek),  theta, greek-->
+    <char character="&#x003b8;" string="\theta"/>
+    <!--= \mathrm{\iota} (omlmathrm), = \iotaup (kpfonts mathdesign), = \upiota (upgreek),  iota, greek-->
+    <char character="&#x003b9;" string="\iota"/>
+    <!--= \mathrm{\kappa} (omlmathrm), = \kappaup (kpfonts mathdesign), = \upkappa (upgreek),  kappa, greek-->
+    <char character="&#x003ba;" string="\kappa"/>
+    <!--= \mathrm{\lambda} (omlmathrm), = \lambdaup (kpfonts mathdesign), = \uplambda (upgreek),  lambda, greek-->
+    <char character="&#x003bb;" string="\lambda"/>
+    <!--= \mathrm{\mu} (omlmathrm), = \muup (kpfonts mathdesign), = \upmu (upgreek),  mu, greek-->
+    <char character="&#x003bc;" string="\mu"/>
+    <!--= \mathrm{\nu} (omlmathrm), = \nuup (kpfonts mathdesign), = \upnu (upgreek),  nu, greek-->
+    <char character="&#x003bd;" string="\nu"/>
+    <!--= \mathrm{\xi} (omlmathrm), = \xiup (kpfonts mathdesign), = \upxi (upgreek),  xi, greek-->
+    <char character="&#x003be;" string="\xi"/>
+    <!--= \mathrm{\pi} (omlmathrm), = \piup (kpfonts mathdesign), = \uppi (upgreek),  pi, greek-->
+    <char character="&#x003c0;" string="\pi"/>
+    <!--= \mathrm{\rho} (omlmathrm), = \rhoup (kpfonts mathdesign), = \uprho (upgreek),  rho, greek-->
+    <char character="&#x003c1;" string="\rho"/>
+    <!--= \mathrm{\varsigma} (omlmathrm), = \varsigmaup (kpfonts mathdesign), terminal sigma, greek-->
+    <char character="&#x003c2;" string="\varsigma"/>
+    <!--= \mathrm{\sigma} (omlmathrm), = \sigmaup (kpfonts mathdesign), = \upsigma (upgreek),  sigma, greek-->
+    <char character="&#x003c3;" string="\sigma"/>
+    <!--= \mathrm{\tau} (omlmathrm), = \tauup (kpfonts mathdesign), = \uptau (upgreek),  tau, greek-->
+    <char character="&#x003c4;" string="\tau"/>
+    <!--= \mathrm{\upsilon} (omlmathrm), = \upsilonup (kpfonts mathdesign), = \upupsilon (upgreek),  upsilon, greek-->
+    <char character="&#x003c5;" string="\upsilon"/>
+    <!--= \mathrm{\varphi} (omlmathrm), = \varphiup (kpfonts mathdesign), curly or open = \upvarphi (upgreek),  phi, greek-->
+    <char character="&#x003c6;" string="\varphi"/>
+    <!--= \mathrm{\chi} (omlmathrm), = \chiup (kpfonts mathdesign), = \upchi (upgreek),  chi, greek-->
+    <char character="&#x003c7;" string="\chi"/>
+    <!--= \mathrm{\psi} (omlmathrm), = \psiup (kpfonts mathdesign), = \uppsi (upgreek),  psi, greek-->
+    <char character="&#x003c8;" string="\psi"/>
+    <!--= \mathrm{\omega} (omlmathrm), = \omegaup (kpfonts mathdesign), = \upomega (upgreek),  omega, greek-->
+    <char character="&#x003c9;" string="\omega"/>
+    <!--rounded = \upvarbeta (upgreek),  beta, greek-->
+    <char character="&#x003d0;" string="\varbeta"/>
+    <!--= \mathrm{\vartheta} (omlmathrm), = \varthetaup (kpfonts mathdesign), curly or open theta-->
+    <char character="&#x003d1;" string="\vartheta"/>
+    <!--= \mathrm{\phi} (omlmathrm), = \phiup (kpfonts mathdesign), GREEK PHI SYMBOL (straight)-->
+    <char character="&#x003d5;" string="\phi"/>
+    <!--= \mathrm{\varpi} (omlmathrm), = \varpiup (kpfonts mathdesign), GREEK PI SYMBOL (pomega)-->
+    <char character="&#x003d6;" string="\varpi"/>
+    <!--= \Koppa (wrisym), t \Qoppa (LGR), GREEK LETTER ARCHAIC KOPPA-->
+    <char character="&#x003d8;" string="\Qoppa"/>
+    <!--= \koppa (wrisym), t \qoppa (LGR), GREEK SMALL LETTER ARCHAIC KOPPA-->
+    <char character="&#x003d9;" string="\qoppa"/>
+    <!--capital stigma-->
+    <char character="&#x003da;" string="\Stigma"/>
+    <!--GREEK SMALL LETTER STIGMA-->
+    <char character="&#x003db;" string="\stigma"/>
+    <!--= \Digamma (wrisym), capital digamma-->
+    <char character="&#x003dc;" string="\digamma"/>
+    <!--GREEK SMALL LETTER DIGAMMA-->
+    <char character="&#x003dd;" string="\digamma"/>
+    <!--capital koppa-->
+    <char character="&#x003de;" string="\Koppa"/>
+    <!--GREEK SMALL LETTER KOPPA-->
+    <char character="&#x003df;" string="\koppa"/>
+    <!--capital sampi-->
+    <char character="&#x003e0;" string="\Sampi"/>
+    <!--# \sampi (wrisym), GREEK SMALL LETTER SAMPI-->
+    <char character="&#x003e1;" string="\sampi"/>
+    <!--= \mathrm{\varrho} (omlmathrm), = \varrhoup (kpfonts mathdesign), GREEK RHO SYMBOL (round)-->
+    <char character="&#x003f1;" string="\varrho"/>
+    <!--= \mathrm{\epsilon} (omlmathrm), = \epsilonup (kpfonts mathdesign), GREEK LUNATE EPSILON SYMBOL-->
+    <char character="&#x003f5;" string="\epsilon"/>
+    <!--GREEK REVERSED LUNATE EPSILON SYMBOL-->
+    <char character="&#x003f6;" string="\backepsilon"/>
+  
+    <!-- *
+          * Cyrillic
+          * -->
+  
+  
+  
+    <!-- *
+          * General Punctuation
+          * -->
+  
+    <!--emquad-->
+    <char character="&#x02001;" string="\quad"/>
+    <!--= \Vert, double vertical bar-->
+    <char character="&#x02016;" string="\|"/>
+    <!--DAGGER relation-->
+    <char character="&#x02020;" string="\dagger"/>
+    <!--DOUBLE DAGGER relation-->
+    <char character="&#x02021;" string="\ddagger"/>
+    <!--ellipsis (horizontal)-->
+    <char character="&#x02026;" string="\ldots"/>
+    <!--PRIME or minute, not superscripted-->
+    <char character="&#x02032;" string="\prime"/>
+    <!--DOUBLE PRIME or second, not superscripted-->
+    <char character="&#x02033;" string="\second"/>
+    <!--TRIPLE PRIME (not superscripted)-->
+    <char character="&#x02034;" string="\third"/>
+    <!--reverse prime, not superscripted-->
+    <char character="&#x02035;" string="\backprime"/>
+    <!--CHARACTER TIE, z notation sequence concatenation-->
+    <char character="&#x02040;" string="\cat"/>
+    <!--QUADRUPLE PRIME, not superscripted-->
+    <char character="&#x02057;" string="\fourth"/>
+    <!--= \medspace (amsmath), MEDIUM MATHEMATICAL SPACE-->
+    <char character="&#x0205f;" string="\:"/>
+  
+    <!-- *
+          * Superscripts and Subscripts
+          * -->
+  
+  
+  
+    <!-- *
+          * Currency Symbols
+          * -->
+  
+  
+  
+    <!-- *
+          * Combining Diacritical Marks for Symbols
+          * -->
+  
+    <!--COMBINING LEFT HARPOON ABOVE-->
+    <char character="&#x020d0;" string="\lvec"/>
+    <!--COMBINING RIGHT HARPOON ABOVE-->
+    <char character="&#x020d1;" string="\vec"/>
+    <!--# \overleftarrow, COMBINING LEFT ARROW ABOVE-->
+    <char character="&#x020d6;" string="\LVec"/>
+    <!--= \Vec (wrisym), # \overrightarrow, COMBINING RIGHT ARROW ABOVE-->
+    <char character="&#x020d7;" string="\vec"/>
+    <!--= \DDDot (wrisym), COMBINING THREE DOTS ABOVE-->
+    <char character="&#x020db;" string="\dddot"/>
+    <!--COMBINING FOUR DOTS ABOVE-->
+    <char character="&#x020dc;" string="\ddddot"/>
+    <!--COMBINING LEFT RIGHT ARROW ABOVE-->
+    <char character="&#x020e1;" string="\overleftrightarrow"/>
+    <!--COMBINING LEFT ARROW BELOW-->
+    <char character="&#x020ee;" string="\underleftarrow"/>
+    <!--COMBINING RIGHT ARROW BELOW-->
+    <char character="&#x020ef;" string="\underrightarrow"/>
+  
+    <!-- *
+          * Letterlike Symbols
+          * -->
+  
+    <!--= \mathds{C} (dsfont), open face C-->
+    <char character="&#x02102;" string="\mathbb{C}"/>
+    <!--EULER CONSTANT-->
+    <char character="&#x02107;" string="\Euler"/>
+    <!--/scr g, script small letter g-->
+    <char character="&#x0210a;" string="\mathcal{g}"/>
+    <!--hamiltonian (script capital H)-->
+    <char character="&#x0210b;" string="\mathcal{H}"/>
+    <!--/frak H, black-letter capital H-->
+    <char character="&#x0210c;" string="\mathfrak{H}"/>
+    <!--= \mathds{H} (dsfont), open face capital H-->
+    <char character="&#x0210d;" string="\mathbb{H}"/>
+    <!--=\HBar (wrisym), Planck's h over 2pi-->
+    <char character="&#x0210f;" string="\hslash"/>
+    <!--/scr I, script capital I-->
+    <char character="&#x02110;" string="\mathcal{I}"/>
+    <!--= \mathfrak{I} (eufrak), imaginary part-->
+    <char character="&#x02111;" string="\Im"/>
+    <!--lagrangian (script capital L)-->
+    <char character="&#x02112;" string="\mathcal{L}"/>
+    <!--cursive small l-->
+    <char character="&#x02113;" string="\ell"/>
+    <!--= \mathds{N} (dsfont), open face N-->
+    <char character="&#x02115;" string="\mathbb{N}"/>
+    <!--weierstrass p-->
+    <char character="&#x02118;" string="\wp"/>
+    <!--= \mathds{P} (dsfont), open face P-->
+    <char character="&#x02119;" string="\mathbb{P}"/>
+    <!--= \mathds{Q} (dsfont), open face Q-->
+    <char character="&#x0211a;" string="\mathbb{Q}"/>
+    <!--/scr R, script capital R-->
+    <char character="&#x0211b;" string="\mathcal{R}"/>
+    <!--= \mathfrak{R} (eufrak), real part-->
+    <char character="&#x0211c;" string="\Re"/>
+    <!--= \mathds{R} (dsfont), open face R-->
+    <char character="&#x0211d;" string="\mathbb{R}"/>
+    <!--= \mathds{Z} (dsfont), open face Z-->
+    <char character="&#x02124;" string="\mathbb{Z}"/>
+    <!--# \mathrm{\Omega}, ohm (deprecated in math, use greek letter)-->
+    <char character="&#x02126;" string="\tcohm"/>
+    <!--= \Mho (wrisym), t \agemO (wasysym), conductance-->
+    <char character="&#x02127;" string="\mho"/>
+    <!--/frak Z, black-letter capital Z-->
+    <char character="&#x02128;" string="\mathfrak{Z}"/>
+    <!--# \mathring{\mathrm{A}}, Ångström capital A with ring-->
+    <char character="&#x0212b;" string="\Angstroem"/>
+    <!--bernoulli function (script capital B)-->
+    <char character="&#x0212c;" string="\mathcal{B}"/>
+    <!--black-letter capital C-->
+    <char character="&#x0212d;" string="\mathfrak{C}"/>
+    <!--/scr e, script small letter e-->
+    <char character="&#x0212f;" string="\mathcal{e}"/>
+    <!--/scr E, script capital E-->
+    <char character="&#x02130;" string="\mathcal{E}"/>
+    <!--/scr F, script capital F-->
+    <char character="&#x02131;" string="\mathcal{F}"/>
+    <!--TURNED CAPITAL F-->
+    <char character="&#x02132;" string="\Finv"/>
+    <!--physics m-matrix (SCRIPT CAPITAL M)-->
+    <char character="&#x02133;" string="\mathcal{M}"/>
+    <!--order of (SCRIPT SMALL O)-->
+    <char character="&#x02134;" string="\mathcal{o}"/>
+    <!--aleph, hebrew-->
+    <char character="&#x02135;" string="\aleph"/>
+    <!--beth, hebrew-->
+    <char character="&#x02136;" string="\beth"/>
+    <!--gimel, hebrew-->
+    <char character="&#x02137;" string="\gimel"/>
+    <!--daleth, hebrew-->
+    <char character="&#x02138;" string="\daleth"/>
+    <!--\DoublePi (wrisym), DOUBLE-STRUCK SMALL PI-->
+    <char character="&#x0213c;" string="\mathbb{pi}"/>
+    <!--\EulerGamma (wrisym), DOUBLE-STRUCK SMALL GAMMA-->
+    <char character="&#x0213d;" string="\mathbb{gamma}"/>
+    <!--DOUBLE-STRUCK CAPITAL GAMMA-->
+    <char character="&#x0213e;" string="\mathbb{Gamma}"/>
+    <!--DOUBLE-STRUCK CAPITAL PI-->
+    <char character="&#x0213f;" string="\mathbb{Pi}"/>
+    <!--DOUBLE-STRUCK N-ARY SUMMATION-->
+    <char character="&#x02140;" string="\mathbb{Sigma}"/>
+    <!--TURNED SANS-SERIF CAPITAL Y-->
+    <char character="&#x02144;" string="\Yup"/>
+    <!--= \DD (wrisym), DOUBLE-STRUCK ITALIC CAPITAL D-->
+    <char character="&#x02145;" string="\CapitalDifferentialD"/>
+    <!--= \dd (wrisym), DOUBLE-STRUCK ITALIC SMALL D-->
+    <char character="&#x02146;" string="\DifferentialD"/>
+    <!--= \ee (wrisym), DOUBLE-STRUCK ITALIC SMALL E-->
+    <char character="&#x02147;" string="\ExponetialE"/>
+    <!--= \ii (wrisym), DOUBLE-STRUCK ITALIC SMALL I-->
+    <char character="&#x02148;" string="\ComplexI"/>
+    <!--= \jj (wrisym), DOUBLE-STRUCK ITALIC SMALL J-->
+    <char character="&#x02149;" string="\ComplexJ"/>
+    <!--# \bindnasrepma (stmaryrd), TURNED AMPERSAND-->
+    <char character="&#x0214b;" string="\invamp"/>
+  
+    <!-- *
+         * Arrows
+         * -->
+  
+    <!--= \gets, a: leftward arrow-->
+    <char character="&#x02190;" string="\leftarrow"/>
+    <!--upward arrow-->
+    <char character="&#x02191;" string="\uparrow"/>
+    <!--= \to, = \tfun (oz), = \fun (oz), rightward arrow, z notation total function-->
+    <char character="&#x02192;" string="\rightarrow"/>
+    <!--downward arrow-->
+    <char character="&#x02193;" string="\downarrow"/>
+    <!--= \rel (oz), LEFT RIGHT ARROW, z notation relation-->
+    <char character="&#x02194;" string="\leftrightarrow"/>
+    <!--up and down arrow-->
+    <char character="&#x02195;" string="\updownarrow"/>
+    <!--nw pointing arrow-->
+    <char character="&#x02196;" string="\nwarrow"/>
+    <!--ne pointing arrow-->
+    <char character="&#x02197;" string="\nearrow"/>
+    <!--se pointing arrow-->
+    <char character="&#x02198;" string="\searrow"/>
+    <!--sw pointing arrow-->
+    <char character="&#x02199;" string="\swarrow"/>
+    <!--not left arrow-->
+    <char character="&#x0219a;" string="\nleftarrow"/>
+    <!--not right arrow-->
+    <char character="&#x0219b;" string="\nrightarrow"/>
+    <!--left two-headed arrow-->
+    <char character="&#x0219e;" string="\twoheadleftarrow"/>
+    <!--= \tsur (oz), = \surj (oz), right two-headed arrow, z notation total surjection-->
+    <char character="&#x021a0;" string="\twoheadrightarrow"/>
+    <!--left arrow-tailed-->
+    <char character="&#x021a2;" string="\leftarrowtail"/>
+    <!--= \tinj (oz), = \inj (oz), right arrow-tailed, z notation total injection-->
+    <char character="&#x021a3;" string="\rightarrowtail"/>
+    <!--= \mappedfrom (kpfonts), maps to, leftward-->
+    <char character="&#x021a4;" string="\mapsfrom"/>
+    <!--maps to, upward-->
+    <char character="&#x021a5;" string="\MapsUp"/>
+    <!--maps to, rightward, z notation maplet-->
+    <char character="&#x021a6;" string="\mapsto"/>
+    <!--maps to, downward-->
+    <char character="&#x021a7;" string="\MapsDown"/>
+    <!--left arrow-hooked-->
+    <char character="&#x021a9;" string="\hookleftarrow"/>
+    <!--right arrow-hooked-->
+    <char character="&#x021aa;" string="\hookrightarrow"/>
+    <!--left arrow-looped-->
+    <char character="&#x021ab;" string="\looparrowleft"/>
+    <!--right arrow-looped-->
+    <char character="&#x021ac;" string="\looparrowright"/>
+    <!--left and right arr-wavy-->
+    <char character="&#x021ad;" string="\leftrightsquigarrow"/>
+    <!--not left and right arrow-->
+    <char character="&#x021ae;" string="\nleftrightarrow"/>
+    <!--t \Lightning (marvosym), DOWNWARDS ZIGZAG ARROW-->
+    <char character="&#x021af;" string="\lightning"/>
+    <!--a: UPWARDS ARROW WITH TIP LEFTWARDS-->
+    <char character="&#x021b0;" string="\Lsh"/>
+    <!--a: UPWARDS ARROW WITH TIP RIGHTWARDS-->
+    <char character="&#x021b1;" string="\Rsh"/>
+    <!--left down angled arrow-->
+    <char character="&#x021b2;" string="\dlsh"/>
+    <!--right down angled arrow-->
+    <char character="&#x021b3;" string="\drsh"/>
+    <!--left curved arrow-->
+    <char character="&#x021b6;" string="\curvearrowleft"/>
+    <!--right curved arrow-->
+    <char character="&#x021b7;" string="\curvearrowright"/>
+    <!--= \leftturn (wasysym), ANTICLOCKWISE OPEN CIRCLE ARROW-->
+    <char character="&#x021ba;" string="\circlearrowleft"/>
+    <!--= \rightturn (wasysym), CLOCKWISE OPEN CIRCLE ARROW-->
+    <char character="&#x021bb;" string="\circlearrowright"/>
+    <!--left harpoon-up-->
+    <char character="&#x021bc;" string="\leftharpoonup"/>
+    <!--left harpoon-down-->
+    <char character="&#x021bd;" string="\leftharpoondown"/>
+    <!--= \restriction (amssymb), = \upharpoonrightup (wrisym), a: up harpoon-right-->
+    <char character="&#x021be;" string="\upharpoonright"/>
+    <!--= \upharpoonleftup (wrisym), up harpoon-left-->
+    <char character="&#x021bf;" string="\upharpoonleft"/>
+    <!--right harpoon-up-->
+    <char character="&#x021c0;" string="\rightharpoonup"/>
+    <!--right harpoon-down-->
+    <char character="&#x021c1;" string="\rightharpoondown"/>
+    <!--= \upharpoonrightdown (wrisym), down harpoon-right-->
+    <char character="&#x021c2;" string="\downharpoonright"/>
+    <!--= \upharpoonleftdown (wrisym), down harpoon-left-->
+    <char character="&#x021c3;" string="\downharpoonleft"/>
+    <!--= \rightleftarrow (wrisym), right arrow over left arrow-->
+    <char character="&#x021c4;" string="\rightleftarrows"/>
+    <!--= \uparrowdownarrow (wrisym), up arrow, down arrow-->
+    <char character="&#x021c5;" string="\updownarrows"/>
+    <!--= \leftrightarrow (wrisym), left arrow over right arrow-->
+    <char character="&#x021c6;" string="\leftrightarrows"/>
+    <!--two left arrows-->
+    <char character="&#x021c7;" string="\leftleftarrows"/>
+    <!--two up arrows-->
+    <char character="&#x021c8;" string="\upuparrows"/>
+    <!--two right arrows-->
+    <char character="&#x021c9;" string="\rightrightarrows"/>
+    <!--two down arrows-->
+    <char character="&#x021ca;" string="\downdownarrows"/>
+    <!--= \revequilibrium (wrisym), left harpoon over right-->
+    <char character="&#x021cb;" string="\leftrightharpoons"/>
+    <!--= \equilibrium (wrisym), right harpoon over left-->
+    <char character="&#x021cc;" string="\rightleftharpoons"/>
+    <!--not implied by-->
+    <char character="&#x021cd;" string="\nLeftarrow"/>
+    <!--not left and right double arrows-->
+    <char character="&#x021ce;" string="\nLeftrightarrow"/>
+    <!--not implies-->
+    <char character="&#x021cf;" string="\nRightarrow"/>
+    <!--left double arrow-->
+    <char character="&#x021d0;" string="\Leftarrow"/>
+    <!--up double arrow-->
+    <char character="&#x021d1;" string="\Uparrow"/>
+    <!--right double arrow-->
+    <char character="&#x021d2;" string="\Rightarrow"/>
+    <!--down double arrow-->
+    <char character="&#x021d3;" string="\Downarrow"/>
+    <!--left and right double arrow-->
+    <char character="&#x021d4;" string="\Leftrightarrow"/>
+    <!--up and down double arrow-->
+    <char character="&#x021d5;" string="\Updownarrow"/>
+    <!--nw pointing double arrow-->
+    <char character="&#x021d6;" string="\Nwarrow"/>
+    <!--ne pointing double arrow-->
+    <char character="&#x021d7;" string="\Nearrow"/>
+    <!--se pointing double arrow-->
+    <char character="&#x021d8;" string="\Searrow"/>
+    <!--sw pointing double arrow-->
+    <char character="&#x021d9;" string="\Swarrow"/>
+    <!--left triple arrow-->
+    <char character="&#x021da;" string="\Lleftarrow"/>
+    <!--right triple arrow-->
+    <char character="&#x021db;" string="\Rrightarrow"/>
+    <!--LEFTWARDS SQUIGGLE ARROW-->
+    <char character="&#x021dc;" string="\leftsquigarrow"/>
+    <!--RIGHTWARDS SQUIGGLE ARROW-->
+    <char character="&#x021dd;" string="\rightsquigarrow"/>
+    <!--LEFTWARDS DASHED ARROW-->
+    <char character="&#x021e0;" string="\dashleftarrow"/>
+    <!--= \dasharrow (amsfonts), RIGHTWARDS DASHED ARROW-->
+    <char character="&#x021e2;" string="\dashrightarrow"/>
+    <!--LEFTWARDS ARROW TO BAR-->
+    <char character="&#x021e4;" string="\LeftArrowBar"/>
+    <!--RIGHTWARDS ARROW TO BAR-->
+    <char character="&#x021e5;" string="\RightArrowBar"/>
+    <!--= \downarrowuparrow (wrisym), DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW-->
+    <char character="&#x021f5;" string="\downuparrows"/>
+    <!--RIGHTWARDS ARROW WITH VERTICAL STROKE, z notation partial function-->
+    <char character="&#x021f8;" string="\pfun"/>
+    <!--RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE, z notation finite function-->
+    <char character="&#x021fb;" string="\ffun"/>
+    <!--LEFTWARDS OPEN-HEADED ARROW-->
+    <char character="&#x021fd;" string="\leftarrowtriangle"/>
+    <!--RIGHTWARDS OPEN-HEADED ARROW-->
+    <char character="&#x021fe;" string="\rightarrowtriangle"/>
+    <!--LEFT RIGHT OPEN-HEADED ARROW-->
+    <char character="&#x021ff;" string="\leftrightarrowtriangle"/>
+  
+    <!-- *
+         * Mathematical Operators
+         * -->
+  
+    <!--FOR ALL-->
+    <char character="&#x02200;" string="\forall"/>
+    <!--COMPLEMENT sign-->
+    <char character="&#x02201;" string="\complement"/>
+    <!--# \partial, PARTIAL DIFFERENTIAL-->
+    <char character="&#x02202;" string="\partialup"/>
+    <!--= \exi (oz), at least one exists-->
+    <char character="&#x02203;" string="\exists"/>
+    <!--= \nexi (oz), negated exists-->
+    <char character="&#x02204;" string="\nexists"/>
+    <!--circle, slash-->
+    <char character="&#x02205;" string="\varnothing"/>
+    <!--NABLA, del, hamilton operator-->
+    <char character="&#x02207;" string="\nabla"/>
+    <!--set membership, variant-->
+    <char character="&#x02208;" string="\in"/>
+    <!--= \nin (wrisym), negated set membership-->
+    <char character="&#x02209;" string="\notin"/>
+    <!--= \owns, contains, variant-->
+    <char character="&#x0220b;" string="\ni"/>
+    <!--= \notni (txfonts), = \notowner (mathabx), = \notowns (fourier), negated contains, variant-->
+    <char character="&#x0220c;" string="\nni"/>
+    <!--product operator-->
+    <char character="&#x0220f;" string="\prod"/>
+    <!--coproduct operator-->
+    <char character="&#x02210;" string="\coprod"/>
+    <!--summation operator-->
+    <char character="&#x02211;" string="\sum"/>
+    <!--MINUS SIGN-->
+    <char character="&#x02212;" string="-"/>
+    <!--MINUS-OR-PLUS SIGN-->
+    <char character="&#x02213;" string="\mp"/>
+    <!--plus sign, dot above-->
+    <char character="&#x02214;" string="\dotplus"/>
+    <!--DIVISION SLASH-->
+    <char character="&#x02215;" string="\slash"/>
+    <!--small SET MINUS (cf. reverse solidus)-->
+    <char character="&#x02216;" string="\smallsetminus"/>
+    <!--ASTERISK OPERATOR (Hodge star operator)-->
+    <char character="&#x02217;" string="\ast"/>
+    <!--composite function (small circle)-->
+    <char character="&#x02218;" string="\circ"/>
+    <!--BULLET OPERATOR-->
+    <char character="&#x02219;" string="\bullet"/>
+    <!--radical-->
+    <char character="&#x0221a;" string="\sqrt"/>
+    <!--CUBE ROOT-->
+    <char character="&#x0221b;" string="\sqrt[3]"/>
+    <!--FOURTH ROOT-->
+    <char character="&#x0221c;" string="\sqrt[4]"/>
+    <!--# \varpropto (amssymb), is PROPORTIONAL TO-->
+    <char character="&#x0221d;" string="\propto"/>
+    <!--INFINITY-->
+    <char character="&#x0221e;" string="\infty"/>
+    <!--right (90 degree) angle-->
+    <char character="&#x0221f;" string="\rightangle"/>
+    <!--ANGLE-->
+    <char character="&#x02220;" string="\angle"/>
+    <!--MEASURED ANGLE-->
+    <char character="&#x02221;" string="\measuredangle"/>
+    <!--SPHERICAL ANGLE-->
+    <char character="&#x02222;" string="\sphericalangle"/>
+    <!--r: DIVIDES-->
+    <char character="&#x02223;" string="\mid"/>
+    <!--negated mid, DOES NOT DIVIDE-->
+    <char character="&#x02224;" string="\nmid"/>
+    <!--parallel-->
+    <char character="&#x02225;" string="\parallel"/>
+    <!--not parallel-->
+    <char character="&#x02226;" string="\nparallel"/>
+    <!--= \land, b: LOGICAL AND-->
+    <char character="&#x02227;" string="\wedge"/>
+    <!--= \lor, b: LOGICAL OR-->
+    <char character="&#x02228;" string="\vee"/>
+    <!--INTERSECTION-->
+    <char character="&#x02229;" string="\cap"/>
+    <!--UNION or logical sum-->
+    <char character="&#x0222a;" string="\cup"/>
+    <!--INTEGRAL operator-->
+    <char character="&#x0222b;" string="\int"/>
+    <!--DOUBLE INTEGRAL operator-->
+    <char character="&#x0222c;" string="\iint"/>
+    <!--TRIPLE INTEGRAL operator-->
+    <char character="&#x0222d;" string="\iiint"/>
+    <!--CONTOUR INTEGRAL operator-->
+    <char character="&#x0222e;" string="\oint"/>
+    <!--= \dbloint (wrisym), double contour integral operator-->
+    <char character="&#x0222f;" string="\oiint"/>
+    <!--triple contour integral operator-->
+    <char character="&#x02230;" string="\oiiint"/>
+    <!--= \clockoint (wrisym), contour integral, clockwise-->
+    <char character="&#x02232;" string="\varointclockwise"/>
+    <!--= \cntclockoint (wrisym), contour integral, anticlockwise-->
+    <char character="&#x02233;" string="\ointctrclockwise"/>
+    <!--= \wasytherefore (wasysym), THEREFORE-->
+    <char character="&#x02234;" string="\therefore"/>
+    <!--BECAUSE-->
+    <char character="&#x02235;" string="\because"/>
+    <!--x \colon, RATIO-->
+    <char character="&#x02236;" string=":"/>
+    <!--# ::, two colons-->
+    <char character="&#x02237;" string="\Proportion"/>
+    <!--# -: ,EXCESS-->
+    <char character="&#x02239;" string="\eqcolon"/>
+    <!--similar to, TILDE OPERATOR-->
+    <char character="&#x0223c;" string="\sim"/>
+    <!--reverse similar-->
+    <char character="&#x0223d;" string="\backsim"/>
+    <!--SINE WAVE, alternating current-->
+    <char character="&#x0223f;" string="\AC"/>
+    <!--WREATH PRODUCT-->
+    <char character="&#x02240;" string="\wr"/>
+    <!--not similar-->
+    <char character="&#x02241;" string="\nsim"/>
+    <!--equals, similar-->
+    <char character="&#x02242;" string="\eqsim"/>
+    <!--similar, equals-->
+    <char character="&#x02243;" string="\simeq"/>
+    <!--not similar, equals-->
+    <char character="&#x02244;" string="\nsimeq"/>
+    <!--congruent with-->
+    <char character="&#x02245;" string="\cong"/>
+    <!--not congruent with-->
+    <char character="&#x02247;" string="\ncong"/>
+    <!--approximate-->
+    <char character="&#x02248;" string="\approx"/>
+    <!--not approximate-->
+    <char character="&#x02249;" string="\napprox"/>
+    <!--approximate, equals-->
+    <char character="&#x0224a;" string="\approxeq"/>
+    <!--asymptotically equal to-->
+    <char character="&#x0224d;" string="\asymp"/>
+    <!--bumpy equals-->
+    <char character="&#x0224e;" string="\Bumpeq"/>
+    <!--bumpy equals, equals-->
+    <char character="&#x0224f;" string="\bumpeq"/>
+    <!--= \dotequal (wrisym), equals, single dot above-->
+    <char character="&#x02250;" string="\doteq"/>
+    <!--= \doteqdot (amssymb), /doteq r: equals, even dots-->
+    <char character="&#x02251;" string="\Doteq"/>
+    <!--equals, falling dots-->
+    <char character="&#x02252;" string="\fallingdotseq"/>
+    <!--equals, rising dots-->
+    <char character="&#x02253;" string="\risingdotseq"/>
+    <!--= \coloneqq (txfonts), = \SetDelayed (wrisym), # := colon, equals-->
+    <char character="&#x02254;" string="\coloneq"/>
+    <!--= \eqqcolon (txfonts), # =:, equals, colon-->
+    <char character="&#x02255;" string="\eqcolon"/>
+    <!--circle on equals sign-->
+    <char character="&#x02256;" string="\eqcirc"/>
+    <!--circle, equals-->
+    <char character="&#x02257;" string="\circeq"/>
+    <!--= \sdef (oz), t \Corresponds (marvosym), corresponds to (wedge over equals)-->
+    <char character="&#x02259;" string="\corresponds"/>
+    <!--= \varsdef (oz), triangle, equals-->
+    <char character="&#x0225c;" string="\triangleq"/>
+    <!--= \ne, r: not equal-->
+    <char character="&#x02260;" string="\neq"/>
+    <!--identical with-->
+    <char character="&#x02261;" string="\equiv"/>
+    <!--not identical with-->
+    <char character="&#x02262;" string="\nequiv"/>
+    <!--= \le, r: less-than-or-equal-->
+    <char character="&#x02264;" string="\leq"/>
+    <!--= \ge, r: greater-than-or-equal-->
+    <char character="&#x02265;" string="\geq"/>
+    <!--less, double equals-->
+    <char character="&#x02266;" string="\leqq"/>
+    <!--greater, double equals-->
+    <char character="&#x02267;" string="\geqq"/>
+    <!--less, not double equals-->
+    <char character="&#x02268;" string="\lneqq"/>
+    <!--greater, not double equals-->
+    <char character="&#x02269;" string="\gneqq"/>
+    <!--much less than, type 2-->
+    <char character="&#x0226a;" string="\ll"/>
+    <!--much greater than, type 2-->
+    <char character="&#x0226b;" string="\gg"/>
+    <!--BETWEEN-->
+    <char character="&#x0226c;" string="\between"/>
+    <!--= \nasymp (wrisym), not asymptotically equal to-->
+    <char character="&#x0226d;" string="\notasymp"/>
+    <!--NOT LESS-THAN-->
+    <char character="&#x0226e;" string="\nless"/>
+    <!--NOT GREATER-THAN-->
+    <char character="&#x0226f;" string="\ngtr"/>
+    <!--= \nleqslant (fourier), not less-than-or-equal-->
+    <char character="&#x02270;" string="\nleq"/>
+    <!--= \ngeqslant (fourier), not greater-than-or-equal-->
+    <char character="&#x02271;" string="\ngeq"/>
+    <!--= \apprle (wasysym), = \LessTilde (wrisym), less, similar-->
+    <char character="&#x02272;" string="\lesssim"/>
+    <!--= \apprge (wasysym), = \GreaterTilde (wrisym), greater, similar-->
+    <char character="&#x02273;" string="\gtrsim"/>
+    <!--not less, similar-->
+    <char character="&#x02274;" string="\NotLessTilde"/>
+    <!--not greater, similar-->
+    <char character="&#x02275;" string="\NotGreaterTilde"/>
+    <!--less, greater-->
+    <char character="&#x02276;" string="\lessgtr"/>
+    <!--= \GreaterLess (wrisym), greater, less-->
+    <char character="&#x02277;" string="\gtrless"/>
+    <!--not greater, less-->
+    <char character="&#x02279;" string="\NotGreaterLess"/>
+    <!--PRECEDES-->
+    <char character="&#x0227a;" string="\prec"/>
+    <!--SUCCEEDS-->
+    <char character="&#x0227b;" string="\succ"/>
+    <!--= \PrecedesSlantEqual (wrisym), precedes, curly equals-->
+    <char character="&#x0227c;" string="\preccurlyeq"/>
+    <!--= \SucceedsSlantEqual (wrisym), succeeds, curly equals-->
+    <char character="&#x0227d;" string="\succcurlyeq"/>
+    <!--= \PrecedesTilde (wrisym), precedes, similar-->
+    <char character="&#x0227e;" string="\precsim"/>
+    <!--= \SucceedsTilde (wrisym), succeeds, similar-->
+    <char character="&#x0227f;" string="\succsim"/>
+    <!--not precedes-->
+    <char character="&#x02280;" string="\nprec"/>
+    <!--not succeeds-->
+    <char character="&#x02281;" string="\nsucc"/>
+    <!--subset or is implied by-->
+    <char character="&#x02282;" string="\subset"/>
+    <!--superset or implies-->
+    <char character="&#x02283;" string="\supset"/>
+    <!--not subset, variant [slash negation]-->
+    <char character="&#x02284;" string="\nsubset"/>
+    <!--not superset, variant [slash negation]-->
+    <char character="&#x02285;" string="\nsupset"/>
+    <!--subset, equals-->
+    <char character="&#x02286;" string="\subseteq"/>
+    <!--superset, equals-->
+    <char character="&#x02287;" string="\supseteq"/>
+    <!--not subset, equals-->
+    <char character="&#x02288;" string="\nsubseteq"/>
+    <!--not superset, equals-->
+    <char character="&#x02289;" string="\nsupseteq"/>
+    <!--= \varsubsetneq (fourier), subset, not equals-->
+    <char character="&#x0228a;" string="\subsetneq"/>
+    <!--superset, not equals-->
+    <char character="&#x0228b;" string="\supsetneq"/>
+    <!--= \buni (oz), plus sign in union-->
+    <char character="&#x0228e;" string="\uplus"/>
+    <!--square subset-->
+    <char character="&#x0228f;" string="\sqsubset"/>
+    <!--square superset-->
+    <char character="&#x02290;" string="\sqsupset"/>
+    <!--square subset, equals-->
+    <char character="&#x02291;" string="\sqsubseteq"/>
+    <!--square superset, equals-->
+    <char character="&#x02292;" string="\sqsupseteq"/>
+    <!--square intersection-->
+    <char character="&#x02293;" string="\sqcap"/>
+    <!--square union-->
+    <char character="&#x02294;" string="\sqcup"/>
+    <!--plus sign in circle-->
+    <char character="&#x02295;" string="\oplus"/>
+    <!--minus sign in circle-->
+    <char character="&#x02296;" string="\ominus"/>
+    <!--multiply sign in circle-->
+    <char character="&#x02297;" string="\otimes"/>
+    <!--solidus in circle-->
+    <char character="&#x02298;" string="\oslash"/>
+    <!--middle dot in circle-->
+    <char character="&#x02299;" string="\odot"/>
+    <!--small circle in circle-->
+    <char character="&#x0229a;" string="\circledcirc"/>
+    <!--asterisk in circle-->
+    <char character="&#x0229b;" string="\circledast"/>
+    <!--hyphen in circle-->
+    <char character="&#x0229d;" string="\circleddash"/>
+    <!--plus sign in box-->
+    <char character="&#x0229e;" string="\boxplus"/>
+    <!--minus sign in box-->
+    <char character="&#x0229f;" string="\boxminus"/>
+    <!--multiply sign in box-->
+    <char character="&#x022a0;" string="\boxtimes"/>
+    <!--/dotsquare /boxdot b: small dot in box-->
+    <char character="&#x022a1;" string="\boxdot"/>
+    <!--RIGHT TACK, proves, implies, yields, (vertical, dash)-->
+    <char character="&#x022a2;" string="\vdash"/>
+    <!--LEFT TACK, non-theorem, does not yield, (dash, vertical)-->
+    <char character="&#x022a3;" string="\dashv"/>
+    <!--DOWN TACK, top-->
+    <char character="&#x022a4;" string="\top"/>
+    <!--UP TACK, bottom-->
+    <char character="&#x022a5;" string="\bot"/>
+    <!--MODELS (vertical, short double dash)-->
+    <char character="&#x022a7;" string="\models"/>
+    <!--TRUE (vertical, double dash)-->
+    <char character="&#x022a8;" string="\vDash"/>
+    <!--double vertical, dash-->
+    <char character="&#x022a9;" string="\Vdash"/>
+    <!--triple vertical, dash-->
+    <char character="&#x022aa;" string="\Vvdash"/>
+    <!--double vert, double dash-->
+    <char character="&#x022ab;" string="\VDash"/>
+    <!--not vertical, dash-->
+    <char character="&#x022ac;" string="\nvdash"/>
+    <!--not vertical, double dash-->
+    <char character="&#x022ad;" string="\nvDash"/>
+    <!--not double vertical, dash-->
+    <char character="&#x022ae;" string="\nVdash"/>
+    <!--not double vert, double dash-->
+    <char character="&#x022af;" string="\nVDash"/>
+    <!--left triangle, open, variant-->
+    <char character="&#x022b2;" string="\vartriangleleft"/>
+    <!--right triangle, open, variant-->
+    <char character="&#x022b3;" string="\vartriangleright"/>
+    <!--= \unlhd (wrisym), left triangle, equals-->
+    <char character="&#x022b4;" string="\trianglelefteq"/>
+    <!--= \unrhd (wrisym), right triangle, equals-->
+    <char character="&#x022b5;" string="\trianglerighteq"/>
+    <!--ORIGINAL OF-->
+    <char character="&#x022b6;" string="\multimapdotbothA"/>
+    <!--IMAGE OF-->
+    <char character="&#x022b7;" string="\multimapdotbothB"/>
+    <!--/MULTIMAP a:-->
+    <char character="&#x022b8;" string="\multimap"/>
+    <!--intercal-->
+    <char character="&#x022ba;" string="\intercal"/>
+    <!--logical or, bar below (large vee); exclusive disjunction-->
+    <char character="&#x022bb;" string="\veebar"/>
+    <!--logical NAND (bar over wedge)-->
+    <char character="&#x022bc;" string="\barwedge"/>
+    <!--logical or operator-->
+    <char character="&#x022c0;" string="\bigwedge"/>
+    <!--logical and operator-->
+    <char character="&#x022c1;" string="\bigvee"/>
+    <!--= \dint (oz), \dinter (oz), intersection operator-->
+    <char character="&#x022c2;" string="\bigcap"/>
+    <!--= \duni (oz), \dunion (oz), union operator-->
+    <char character="&#x022c3;" string="\bigcup"/>
+    <!--DIAMOND OPERATOR (white diamond)-->
+    <char character="&#x022c4;" string="\diamond"/>
+    <!--DOT OPERATOR (small middle dot)-->
+    <char character="&#x022c5;" string="\cdot"/>
+    <!--small star, filled, low-->
+    <char character="&#x022c6;" string="\star"/>
+    <!--division on times-->
+    <char character="&#x022c7;" string="\divideontimes"/>
+    <!--= \lrtimes (txfonts), BOWTIE-->
+    <char character="&#x022c8;" string="\bowtie"/>
+    <!--times sign, left closed-->
+    <char character="&#x022c9;" string="\ltimes"/>
+    <!--times sign, right closed-->
+    <char character="&#x022ca;" string="\rtimes"/>
+    <!--LEFT SEMIDIRECT PRODUCT-->
+    <char character="&#x022cb;" string="\leftthreetimes"/>
+    <!--RIGHT SEMIDIRECT PRODUCT-->
+    <char character="&#x022cc;" string="\rightthreetimes"/>
+    <!--reverse similar, equals-->
+    <char character="&#x022cd;" string="\backsimeq"/>
+    <!--CURLY LOGICAL OR-->
+    <char character="&#x022ce;" string="\curlyvee"/>
+    <!--CURLY LOGICAL AND-->
+    <char character="&#x022cf;" string="\curlywedge"/>
+    <!--DOUBLE SUBSET-->
+    <char character="&#x022d0;" string="\Subset"/>
+    <!--DOUBLE SUPERSET-->
+    <char character="&#x022d1;" string="\Supset"/>
+    <!--/cap /doublecap b: DOUBLE INTERSECTION-->
+    <char character="&#x022d2;" string="\Cap"/>
+    <!--/cup /doublecup b: DOUBLE UNION-->
+    <char character="&#x022d3;" string="\Cup"/>
+    <!--PITCHFORK-->
+    <char character="&#x022d4;" string="\pitchfork"/>
+    <!--parallel, equal; equal or parallel-->
+    <char character="&#x022d5;" string="\hash"/>
+    <!--less than, with dot-->
+    <char character="&#x022d6;" string="\lessdot"/>
+    <!--greater than, with dot-->
+    <char character="&#x022d7;" string="\gtrdot"/>
+    <!--triple less-than-->
+    <char character="&#x022d8;" string="\lll"/>
+    <!--triple greater-than-->
+    <char character="&#x022d9;" string="\ggg"/>
+    <!--less, equals, greater-->
+    <char character="&#x022da;" string="\lesseqgtr"/>
+    <!--greater, equals, less-->
+    <char character="&#x022db;" string="\gtreqless"/>
+    <!--curly equals, precedes-->
+    <char character="&#x022de;" string="\curlyeqprec"/>
+    <!--curly equals, succeeds-->
+    <char character="&#x022df;" string="\curlyeqsucc"/>
+    <!--DOES NOT PRECEDE OR EQUAL-->
+    <char character="&#x022e0;" string="\npreceq"/>
+    <!--not succeeds, curly equals-->
+    <char character="&#x022e1;" string="\nsucceq"/>
+    <!--not, square subset, equals-->
+    <char character="&#x022e2;" string="\nsqsubseteq"/>
+    <!--not, square superset, equals-->
+    <char character="&#x022e3;" string="\nsqsupseteq"/>
+    <!--less, not similar-->
+    <char character="&#x022e6;" string="\lnsim"/>
+    <!--greater, not similar-->
+    <char character="&#x022e7;" string="\gnsim"/>
+    <!--precedes, not similar-->
+    <char character="&#x022e8;" string="\precnsim"/>
+    <!--succeeds, not similar-->
+    <char character="&#x022e9;" string="\succnsim"/>
+    <!--= \NotLeftTriangle (wrisym), not left triangle-->
+    <char character="&#x022ea;" string="\ntriangleleft"/>
+    <!--= \NotRightTriangle (wrisym), not right triangle-->
+    <char character="&#x022eb;" string="\ntriangleright"/>
+    <!--= \nunlhd (wrisym), not left triangle, equals-->
+    <char character="&#x022ec;" string="\ntrianglelefteq"/>
+    <!--= \nunrhd (wrisym), not right triangle, equals-->
+    <char character="&#x022ed;" string="\ntrianglerighteq"/>
+    <!--VERTICAL ELLIPSIS-->
+    <char character="&#x022ee;" string="\vdots"/>
+    <!--three dots, centered-->
+    <char character="&#x022ef;" string="\cdots"/>
+    <!--= \adots (yhmath), three dots, ascending-->
+    <char character="&#x022f0;" string="\iddots"/>
+    <!--three dots, descending-->
+    <char character="&#x022f1;" string="\ddots"/>
+    <!--ELEMENT OF WITH OVERBAR-->
+    <char character="&#x022f6;" string="\barin"/>
+  
+    <!-- *
+          * Miscellaneous Technical
+          * -->
+  
+    <!--# \varnothing (amssymb), DIAMETER SIGN-->
+    <char character="&#x02300;" string="\diameter"/>
+    <!--LEFT CEILING-->
+    <char character="&#x02308;" string="\lceil"/>
+    <!--RIGHT CEILING-->
+    <char character="&#x02309;" string="\rceil"/>
+    <!--LEFT FLOOR-->
+    <char character="&#x0230a;" string="\lfloor"/>
+    <!--RIGHT FLOOR-->
+    <char character="&#x0230b;" string="\rfloor"/>
+    <!--reverse not-->
+    <char character="&#x02310;" string="\invneg"/>
+    <!--SQUARE LOZENGE-->
+    <char character="&#x02311;" string="\wasylozenge"/>
+    <!--upper left corner-->
+    <char character="&#x0231c;" string="\ulcorner"/>
+    <!--upper right corner-->
+    <char character="&#x0231d;" string="\urcorner"/>
+    <!--lower left corner-->
+    <char character="&#x0231e;" string="\llcorner"/>
+    <!--lower right corner-->
+    <char character="&#x0231f;" string="\lrcorner"/>
+    <!--# \smallFROWN, down curve-->
+    <char character="&#x02322;" string="\frown"/>
+    <!--# \smallSMILE, up curve-->
+    <char character="&#x02323;" string="\smile"/>
+    <!--APL FUNCTIONAL SYMBOL QUAD DIVIDE-->
+    <char character="&#x02339;" string="\APLinv"/>
+    <!--APL FUNCTIONAL SYMBOL SLASH BAR, solidus, bar through-->
+    <char character="&#x0233f;" string="\notslash"/>
+    <!--APL FUNCTIONAL SYMBOL BACKSLASH BAR-->
+    <char character="&#x02340;" string="\notbackslash"/>
+    <!--APL FUNCTIONAL SYMBOL QUAD LEFTWARDS ARROW-->
+    <char character="&#x02347;" string="\APLleftarrowbox"/>
+    <!--APL FUNCTIONAL SYMBOL QUAD RIGHTWARDS ARROW-->
+    <char character="&#x02348;" string="\APLrightarrowbox"/>
+    <!--APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW-->
+    <char character="&#x02350;" string="\APLuparrowbox"/>
+    <!--APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW-->
+    <char character="&#x02357;" string="\APLdownarrowbox"/>
+    <!--APL FUNCTIONAL SYMBOL UP SHOE JOT-->
+    <char character="&#x0235d;" string="\APLcomment"/>
+    <!--APL FUNCTIONAL SYMBOL QUOTE QUAD-->
+    <char character="&#x0235e;" string="\APLinput"/>
+    <!--APL FUNCTIONAL SYMBOL CIRCLE STAR-->
+    <char character="&#x0235f;" string="\APLlog"/>
+    <!--= \wideparen (yhmath mathabx fourier), TOP PARENTHESIS (mathematical use)-->
+    <char character="&#x023dc;" string="\overparen"/>
+    <!--BOTTOM PARENTHESIS (mathematical use)-->
+    <char character="&#x023dd;" string="\underparen"/>
+    <!--TOP CURLY BRACKET (mathematical use)-->
+    <char character="&#x023de;" string="\overbrace"/>
+    <!--BOTTOM CURLY BRACKET (mathematical use)-->
+    <char character="&#x023df;" string="\underbrace"/>
+  
+    <!-- *
+          * Enclosed Alphanumerics
+          * -->
+  
+  
+  
+    <!-- *
+          * Box Drawing
+          * -->
+  
+  
+  
+    <!-- *
+          * Block Elements
+          * -->
+  
+  
+  
+    <!-- *
+          * Geometric Shapes
+          * -->
+  
+    <!--= \triangle (amsfonts), # \vartriangle (amssymb), big up triangle, open-->
+    <char character="&#x025b3;" string="\bigtriangleup"/>
+    <!--up triangle, filled-->
+    <char character="&#x025b4;" string="\blacktriangleup"/>
+    <!--# \vartriangle (amssymb), small up triangle, open-->
+    <char character="&#x025b5;" string="\smalltriangleup"/>
+    <!--= \blacktriangleright (fourier -mathabx), (large) right triangle, filled-->
+    <char character="&#x025b6;" string="\RHD"/>
+    <!--= \rres (oz), = \RightTriangle (wrisym), (large) right triangle, open; z notation range restriction-->
+    <char character="&#x025b7;" string="\rhd"/>
+    <!--right triangle, filled-->
+    <char character="&#x025b8;" string="\blacktriangleright"/>
+    <!--# \triangleright, x \triangleright (mathabx), right triangle, open-->
+    <char character="&#x025b9;" string="\smalltriangleright"/>
+    <!--big down triangle, open-->
+    <char character="&#x025bd;" string="\bigtriangledown"/>
+    <!--BLACK DOWN-POINTING SMALL TRIANGLE-->
+    <char character="&#x025be;" string="\blacktriangledown"/>
+    <!--# \triangledown (amssymb), WHITE DOWN-POINTING SMALL TRIANGLE-->
+    <char character="&#x025bf;" string="\smalltriangledown"/>
+    <!--= \blacktriangleleft (fourier -mathabx), (large) left triangle, filled-->
+    <char character="&#x025c0;" string="\LHD"/>
+    <!--= \dres (oz), = \LeftTriangle (wrisym), (large) left triangle, open; z notation domain restriction-->
+    <char character="&#x025c1;" string="\lhd"/>
+    <!--left triangle, filled-->
+    <char character="&#x025c2;" string="\blacktriangleleft"/>
+    <!--# \triangleleft, x \triangleleft (mathabx), left triangle, open-->
+    <char character="&#x025c3;" string="\smalltriangleleft"/>
+    <!--BLACK DIAMOND-->
+    <char character="&#x025c6;" string="\Diamondblack"/>
+    <!--WHITE DIAMOND; diamond, open-->
+    <char character="&#x025c7;" string="\Diamond"/>
+    <!--LOZENGE or total mark-->
+    <char character="&#x025ca;" string="\lozenge"/>
+    <!--medium large circle-->
+    <char character="&#x025cb;" string="\Circle"/>
+    <!--circle, filled-->
+    <char character="&#x025cf;" string="\CIRCLE"/>
+    <!--circle, filled left half [harvey ball]-->
+    <char character="&#x025d0;" string="\LEFTcircle"/>
+    <!--circle, filled right half-->
+    <char character="&#x025d1;" string="\RIGHTcircle"/>
+    <!--LEFT HALF BLACK CIRCLE-->
+    <char character="&#x025d6;" string="\LEFTCIRCLE"/>
+    <!--RIGHT HALF BLACK CIRCLE-->
+    <char character="&#x025d7;" string="\RIGHTCIRCLE"/>
+    <!--vertical bar in box-->
+    <char character="&#x025eb;" string="\boxbar"/>
+    <!--WHITE MEDIUM SQUARE-->
+    <char character="&#x025fb;" string="\square"/>
+    <!--BLACK MEDIUM SQUARE-->
+    <char character="&#x025fc;" string="\blacksquare"/>
+  
+    <!-- *
+          * Miscellaneous Symbols
+          * -->
+  
+    <!--star, filled-->
+    <char character="&#x02605;" string="\bigstar"/>
+    <!--SUN-->
+    <char character="&#x02609;" string="\Sun"/>
+    <!--BALLOT BOX-->
+    <char character="&#x02610;" string="\Square"/>
+    <!--t \Checkedbox (marvosym), BALLOT BOX WITH CHECK-->
+    <char character="&#x02611;" string="\CheckedBox"/>
+    <!--t \Crossedbox (marvosym), BALLOT BOX WITH X-->
+    <char character="&#x02612;" string="\XBox"/>
+    <!--HOT BEVERAGE-->
+    <char character="&#x02615;" string="\steaming"/>
+    <!--WHITE RIGHT POINTING INDEX-->
+    <char character="&#x0261e;" string="\pointright"/>
+    <!--SKULL AND CROSSBONES-->
+    <char character="&#x02620;" string="\skull"/>
+    <!--RADIOACTIVE SIGN-->
+    <char character="&#x02622;" string="\radiation"/>
+    <!--BIOHAZARD SIGN-->
+    <char character="&#x02623;" string="\biohazard"/>
+    <!--YIN YANG-->
+    <char character="&#x0262f;" string="\yinyang"/>
+    <!--= \sadface (arevmath), WHITE FROWNING FACE-->
+    <char character="&#x02639;" string="\frownie"/>
+    <!--= \smileface (arevmath), WHITE SMILING FACE-->
+    <char character="&#x0263a;" string="\smiley"/>
+    <!--= \invsmileface (arevmath), BLACK SMILING FACE-->
+    <char character="&#x0263b;" string="\blacksmiley"/>
+    <!--WHITE SUN WITH RAYS-->
+    <char character="&#x0263c;" string="\sun"/>
+    <!--FIRST QUARTER MOON-->
+    <char character="&#x0263d;" string="\rightmoon"/>
+    <!--LAST QUARTER MOON-->
+    <char character="&#x0263e;" string="\leftmoon"/>
+    <!--= \Mercury (mathabx), MERCURY-->
+    <char character="&#x0263f;" string="\mercury"/>
+    <!--= \Venus (mathabx), = \girl (mathabx), venus, female-->
+    <char character="&#x02640;" string="\female"/>
+    <!--= \varEarth (mathabx), EARTH-->
+    <char character="&#x02641;" string="\earth"/>
+    <!--= \Mars (mathabx), = \boy (mathabx), mars, male-->
+    <char character="&#x02642;" string="\male"/>
+    <!--= \Jupiter (mathabx), JUPITER-->
+    <char character="&#x02643;" string="\jupiter"/>
+    <!--= \Saturn (mathabx), SATURN-->
+    <char character="&#x02644;" string="\saturn"/>
+    <!--= \Uranus (mathabx), URANUS-->
+    <char character="&#x02645;" string="\uranus"/>
+    <!--= \Neptune (mathabx), NEPTUNE-->
+    <char character="&#x02646;" string="\neptune"/>
+    <!--= \Pluto (mathabx), PLUTO-->
+    <char character="&#x02647;" string="\pluto"/>
+    <!--= \Aries (mathabx), ARIES-->
+    <char character="&#x02648;" string="\aries"/>
+    <!--= \Taurus (mathabx), TAURUS-->
+    <char character="&#x02649;" string="\taurus"/>
+    <!--= \Gemini (mathabx), GEMINI-->
+    <char character="&#x0264a;" string="\gemini"/>
+    <!--CANCER-->
+    <char character="&#x0264b;" string="\cancer"/>
+    <!--= \Leo (mathabx), LEO-->
+    <char character="&#x0264c;" string="\leo"/>
+    <!--VIRGO-->
+    <char character="&#x0264d;" string="\virgo"/>
+    <!--= \Libra (mathabx), LIBRA-->
+    <char character="&#x0264e;" string="\libra"/>
+    <!--= \Scorpio (mathabx), SCORPIUS-->
+    <char character="&#x0264f;" string="\scorpio"/>
+    <!--SAGITTARIUS-->
+    <char character="&#x02650;" string="\sagittarius"/>
+    <!--CAPRICORN-->
+    <char character="&#x02651;" string="\capricornus"/>
+    <!--AQUARIUS-->
+    <char character="&#x02652;" string="\aquarius"/>
+    <!--PISCES-->
+    <char character="&#x02653;" string="\pisces"/>
+    <!--spades suit symbol-->
+    <char character="&#x02660;" string="\spadesuit"/>
+    <!--heart suit symbol-->
+    <char character="&#x02661;" string="\heartsuit"/>
+    <!--diamond suit symbol-->
+    <char character="&#x02662;" string="\diamondsuit"/>
+    <!--club suit symbol-->
+    <char character="&#x02663;" string="\clubsuit"/>
+    <!--= \varspade (arevmath), spade, white (card suit)-->
+    <char character="&#x02664;" string="\varspadesuit"/>
+    <!--= \varheart (arevmath), filled heart (card suit)-->
+    <char character="&#x02665;" string="\varheartsuit"/>
+    <!--= \vardiamond (arevmath), filled diamond (card suit)-->
+    <char character="&#x02666;" string="\vardiamondsuit"/>
+    <!--= \varclub (arevmath), club, white (card suit)-->
+    <char character="&#x02667;" string="\varclubsuit"/>
+    <!--music note (sung text sign)-->
+    <char character="&#x02669;" string="\quarternote"/>
+    <!--EIGHTH NOTE-->
+    <char character="&#x0266a;" string="\eighthnote"/>
+    <!--BEAMED EIGHTH NOTES-->
+    <char character="&#x0266b;" string="\twonotes"/>
+    <!--BEAMED SIXTEENTH NOTES-->
+    <char character="&#x0266c;" string="\sixteenthnote"/>
+    <!--musical flat-->
+    <char character="&#x0266d;" string="\flat"/>
+    <!--music natural-->
+    <char character="&#x0266e;" string="\natural"/>
+    <!--# \# (oz), musical sharp, z notation infix bag count-->
+    <char character="&#x0266f;" string="\sharp"/>
+    <!--BLACK UNIVERSAL RECYCLING SYMBOL-->
+    <char character="&#x0267b;" string="\recycle"/>
+    <!--ANCHOR-->
+    <char character="&#x02693;" string="\anchor"/>
+    <!--CROSSED SWORDS-->
+    <char character="&#x02694;" string="\swords"/>
+    <!--WARNING SIGN-->
+    <char character="&#x026a0;" string="\warning"/>
+    <!--MEDIUM WHITE CIRCLE-->
+    <char character="&#x026aa;" string="\medcirc"/>
+    <!--MEDIUM BLACK CIRCLE-->
+    <char character="&#x026ab;" string="\medbullet"/>
+  
+    <!-- *
+          * Dingbats
+          * -->
+  
+    <!--LOWER RIGHT PENCIL-->
+    <char character="&#x0270e;" string="\pencil"/>
+    <!--= \ballotcheck (arevmath), tick, CHECK MARK-->
+    <char character="&#x02713;" string="\checkmark"/>
+    <!--BALLOT X-->
+    <char character="&#x02717;" string="\ballotx"/>
+    <!--MALTESE CROSS-->
+    <char character="&#x02720;" string="\maltese"/>
+    <!--THREE-D TOP-LIGHTED RIGHTWARDS ARROWHEAD-->
+    <char character="&#x027a2;" string="\arrowbullet"/>
+  
+    <!-- *
+          * Miscellaneous Mathematical Symbols-A
+          * -->
+  
+    <!--PERPENDICULAR-->
+    <char character="&#x027c2;" string="\perp"/>
+    <!--= \lbag (stmaryrd -oz), LEFT S-SHAPED BAG DELIMITER-->
+    <char character="&#x027c5;" string="\Lbag"/>
+    <!--= \rbag (stmaryrd -oz), RIGHT S-SHAPED BAG DELIMITER-->
+    <char character="&#x027c6;" string="\Rbag"/>
+    <!--WHITE DIAMOND WITH CENTRED DOT-->
+    <char character="&#x027d0;" string="\Diamonddot"/>
+    <!--LEFT MULTIMAP-->
+    <char character="&#x027dc;" string="\multimapinv"/>
+    <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
+    <char character="&#x027e6;" string="\llbracket"/>
+    <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
+    <char character="&#x027e7;" string="\rrbracket"/>
+    <!--MATHEMATICAL LEFT ANGLE BRACKET-->
+    <char character="&#x027e8;" string="\langle"/>
+    <!--MATHEMATICAL RIGHT ANGLE BRACKET-->
+    <char character="&#x027e9;" string="\rangle"/>
+    <!--MATHEMATICAL LEFT DOUBLE ANGLE BRACKET, z notation left chevron bracket-->
+    <char character="&#x027ea;" string="\lang"/>
+    <!--MATHEMATICAL RIGHT DOUBLE ANGLE BRACKET, z notation right chevron bracket-->
+    <char character="&#x027eb;" string="\rang"/>
+    <!--MATHEMATICAL LEFT FLATTENED PARENTHESIS-->
+    <char character="&#x027ee;" string="\lgroup"/>
+    <!--MATHEMATICAL RIGHT FLATTENED PARENTHESIS-->
+    <char character="&#x027ef;" string="\rgroup"/>
+  
+    <!-- *
+          * Supplemental Arrows-A
+          * -->
+  
+    <!--LONG LEFTWARDS ARROW-->
+    <char character="&#x027f5;" string="\longleftarrow"/>
+    <!--LONG RIGHTWARDS ARROW-->
+    <char character="&#x027f6;" string="\longrightarrow"/>
+    <!--LONG LEFT RIGHT ARROW-->
+    <char character="&#x027f7;" string="\longleftrightarrow"/>
+    <!--= \impliedby (amsmath), LONG LEFTWARDS DOUBLE ARROW-->
+    <char character="&#x027f8;" string="\Longleftarrow"/>
+    <!--= \implies (amsmath), LONG RIGHTWARDS DOUBLE ARROW-->
+    <char character="&#x027f9;" string="\Longrightarrow"/>
+    <!--= \iff (oz), LONG LEFT RIGHT DOUBLE ARROW-->
+    <char character="&#x027fa;" string="\Longleftrightarrow"/>
+    <!--= \longmappedfrom (kpfonts), LONG LEFTWARDS ARROW FROM BAR-->
+    <char character="&#x027fb;" string="\longmapsfrom"/>
+    <!--LONG RIGHTWARDS ARROW FROM BAR-->
+    <char character="&#x027fc;" string="\longmapsto"/>
+    <!--= \Longmappedfrom (kpfonts), LONG LEFTWARDS DOUBLE ARROW FROM BAR-->
+    <char character="&#x027fd;" string="\Longmapsfrom"/>
+    <!--LONG RIGHTWARDS DOUBLE ARROW FROM BAR-->
+    <char character="&#x027fe;" string="\Longmapsto"/>
+  
+    <!-- *
+          * Supplemental Arrows-B
+          * -->
+  
+    <!--= \psurj (oz), RIGHTWARDS TWO-HEADED ARROW WITH VERTICAL STROKE, z notation partial surjection-->
+    <char character="&#x02900;" string="\psur"/>
+    <!--= \Mappedfrom (kpfonts), LEFTWARDS DOUBLE ARROW FROM BAR-->
+    <char character="&#x02906;" string="\Mapsfrom"/>
+    <!--RIGHTWARDS DOUBLE ARROW FROM BAR-->
+    <char character="&#x02907;" string="\Mapsto"/>
+    <!--UPWARDS ARROW TO BAR-->
+    <char character="&#x02912;" string="\UpArrowBar"/>
+    <!--DOWNWARDS ARROW TO BAR-->
+    <char character="&#x02913;" string="\DownArrowBar"/>
+    <!--RIGHTWARDS ARROW WITH TAIL WITH VERTICAL STROKE, z notation partial injection-->
+    <char character="&#x02914;" string="\pinj"/>
+    <!--RIGHTWARDS ARROW WITH TAIL WITH DOUBLE VERTICAL STROKE, z notation finite injection-->
+    <char character="&#x02915;" string="\finj"/>
+    <!--RIGHTWARDS TWO-HEADED ARROW WITH TAIL, z notation bijection-->
+    <char character="&#x02916;" string="\bij"/>
+    <!--WAVE ARROW POINTING DIRECTLY RIGHT-->
+    <char character="&#x02933;" string="\leadsto"/>
+    <!--LEFT BARB UP RIGHT BARB DOWN HARPOON-->
+    <char character="&#x0294a;" string="\leftrightharpoon"/>
+    <!--LEFT BARB DOWN RIGHT BARB UP HARPOON-->
+    <char character="&#x0294b;" string="\rightleftharpoon"/>
+    <!--LEFT BARB UP RIGHT BARB UP HARPOON-->
+    <char character="&#x0294e;" string="\leftrightharpoonup"/>
+    <!--UP BARB RIGHT DOWN BARB RIGHT HARPOON-->
+    <char character="&#x0294f;" string="\rightupdownharpoon"/>
+    <!--LEFT BARB DOWN RIGHT BARB DOWN HARPOON-->
+    <char character="&#x02950;" string="\leftrightharpoondown"/>
+    <!--UP BARB LEFT DOWN BARB LEFT HARPOON-->
+    <char character="&#x02951;" string="\leftupdownharpoon"/>
+    <!--LEFTWARDS HARPOON WITH BARB UP TO BAR-->
+    <char character="&#x02952;" string="\LeftVectorBar"/>
+    <!--RIGHTWARDS HARPOON WITH BARB UP TO BAR-->
+    <char character="&#x02953;" string="\RightVectorBar"/>
+    <!--UPWARDS HARPOON WITH BARB RIGHT TO BAR-->
+    <char character="&#x02954;" string="\RightUpVectorBar"/>
+    <!--DOWNWARDS HARPOON WITH BARB RIGHT TO BAR-->
+    <char character="&#x02955;" string="\RightDownVectorBar"/>
+    <!--LEFTWARDS HARPOON WITH BARB DOWN TO BAR-->
+    <char character="&#x02956;" string="\DownLeftVectorBar"/>
+    <!--RIGHTWARDS HARPOON WITH BARB DOWN TO BAR-->
+    <char character="&#x02957;" string="\DownRightVectorBar"/>
+    <!--UPWARDS HARPOON WITH BARB LEFT TO BAR-->
+    <char character="&#x02958;" string="\LeftUpVectorBar"/>
+    <!--DOWNWARDS HARPOON WITH BARB LEFT TO BAR-->
+    <char character="&#x02959;" string="\LeftDownVectorBar"/>
+    <!--LEFTWARDS HARPOON WITH BARB UP FROM BAR-->
+    <char character="&#x0295a;" string="\LeftTeeVector"/>
+    <!--RIGHTWARDS HARPOON WITH BARB UP FROM BAR-->
+    <char character="&#x0295b;" string="\RightTeeVector"/>
+    <!--UPWARDS HARPOON WITH BARB RIGHT FROM BAR-->
+    <char character="&#x0295c;" string="\RightUpTeeVector"/>
+    <!--DOWNWARDS HARPOON WITH BARB RIGHT FROM BAR-->
+    <char character="&#x0295d;" string="\RightDownTeeVector"/>
+    <!--LEFTWARDS HARPOON WITH BARB DOWN FROM BAR-->
+    <char character="&#x0295e;" string="\DownLeftTeeVector"/>
+    <!--RIGHTWARDS HARPOON WITH BARB DOWN FROM BAR-->
+    <char character="&#x0295f;" string="\DownRightTeeVector"/>
+    <!--UPWARDS HARPOON WITH BARB LEFT FROM BAR-->
+    <char character="&#x02960;" string="\LeftUpTeeVector"/>
+    <!--DOWNWARDS HARPOON WITH BARB LEFT FROM BAR-->
+    <char character="&#x02961;" string="\LeftDownTeeVector"/>
+    <!--LEFTWARDS HARPOON WITH BARB UP ABOVE LEFTWARDS HARPOON WITH BARB DOWN-->
+    <char character="&#x02962;" string="\leftleftharpoons"/>
+    <!--UPWARDS HARPOON WITH BARB LEFT BESIDE UPWARDS HARPOON WITH BARB RIGHT-->
+    <char character="&#x02963;" string="\upupharpoons"/>
+    <!--RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN-->
+    <char character="&#x02964;" string="\rightrightharpoons"/>
+    <!--DOWNWARDS HARPOON WITH BARB LEFT BESIDE DOWNWARDS HARPOON WITH BARB RIGHT-->
+    <char character="&#x02965;" string="\downdownharpoons"/>
+    <!--LEFTWARDS HARPOON WITH BARB UP ABOVE LONG DASH-->
+    <char character="&#x0296a;" string="\leftbarharpoon"/>
+    <!--LEFTWARDS HARPOON WITH BARB DOWN BELOW LONG DASH-->
+    <char character="&#x0296b;" string="\barleftharpoon"/>
+    <!--RIGHTWARDS HARPOON WITH BARB UP ABOVE LONG DASH-->
+    <char character="&#x0296c;" string="\rightbarharpoon"/>
+    <!--RIGHTWARDS HARPOON WITH BARB DOWN BELOW LONG DASH-->
+    <char character="&#x0296d;" string="\barrightharpoon"/>
+    <!--= \upequilibrium (wrisym), UPWARDS HARPOON WITH BARB LEFT BESIDE DOWNWARDS HARPOON WITH BARB RIGHT-->
+    <char character="&#x0296e;" string="\updownharpoons"/>
+    <!--= \uprevequilibrium (wrisym), DOWNWARDS HARPOON WITH BARB LEFT BESIDE UPWARDS HARPOON WITH BARB RIGHT-->
+    <char character="&#x0296f;" string="\downupharpoons"/>
+    <!--LEFT FISH TAIL-->
+    <char character="&#x0297c;" string="\strictfi"/>
+    <!--RIGHT FISH TAIL-->
+    <char character="&#x0297d;" string="\strictif"/>
+  
+    <!-- *
+          * Miscellaneous Mathematical Symbols-B
+          * -->
+  
+    <!--TRIPLE VERTICAL BAR DELIMITER-->
+    <char character="&#x02980;" string="\VERT"/>
+    <!--= \dot (oz), Z NOTATION SPOT-->
+    <char character="&#x02981;" string="\spot"/>
+    <!--LEFT WHITE PARENTHESIS-->
+    <char character="&#x02985;" string="\Lparen"/>
+    <!--RIGHT WHITE PARENTHESIS-->
+    <char character="&#x02986;" string="\Rparen"/>
+    <!--= \llparenthesis (stmaryrd), Z NOTATION LEFT IMAGE BRACKET-->
+    <char character="&#x02987;" string="\limg"/>
+    <!--= \rrparenthesis (stmaryrd), Z NOTATION RIGHT IMAGE BRACKET-->
+    <char character="&#x02988;" string="\rimg"/>
+    <!--Z NOTATION LEFT BINDING BRACKET-->
+    <char character="&#x02989;" string="\lblot"/>
+    <!--Z NOTATION RIGHT BINDING BRACKET-->
+    <char character="&#x0298a;" string="\rblot"/>
+    <!--CIRCLED REVERSE SOLIDUS-->
+    <char character="&#x029b8;" string="\circledbslash"/>
+    <!--CIRCLED LESS-THAN-->
+    <char character="&#x029c0;" string="\circledless"/>
+    <!--CIRCLED GREATER-THAN-->
+    <char character="&#x029c1;" string="\circledgtr"/>
+    <!--SQUARED RISING DIAGONAL SLASH-->
+    <char character="&#x029c4;" string="\boxslash"/>
+    <!--SQUARED FALLING DIAGONAL SLASH-->
+    <char character="&#x029c5;" string="\boxbslash"/>
+    <!--SQUARED ASTERISK-->
+    <char character="&#x029c6;" string="\boxast"/>
+    <!--SQUARED SMALL CIRCLE-->
+    <char character="&#x029c7;" string="\boxcircle"/>
+    <!--SQUARED SQUARE-->
+    <char character="&#x029c8;" string="\boxbox"/>
+    <!--LEFT TRIANGLE BESIDE VERTICAL BAR-->
+    <char character="&#x029cf;" string="\LeftTriangleBar"/>
+    <!--VERTICAL BAR BESIDE RIGHT TRIANGLE-->
+    <char character="&#x029d0;" string="\RightTriangleBar"/>
+    <!--DOUBLE-ENDED MULTIMAP-->
+    <char character="&#x029df;" string="\multimapboth"/>
+    <!--BLACK LOZENGE-->
+    <char character="&#x029eb;" string="\blacklozenge"/>
+    <!--REVERSE SOLIDUS OPERATOR-->
+    <char character="&#x029f5;" string="\setminus"/>
+    <!--= \hide (oz), BIG REVERSE SOLIDUS, z notation schema hiding-->
+    <char character="&#x029f9;" string="\zhide"/>
+  
+    <!-- *
+          * Supplemental Mathematical Operators
+          * -->
+  
+    <!--N-ARY CIRCLED DOT OPERATOR-->
+    <char character="&#x02a00;" string="\bigodot"/>
+    <!--N-ARY CIRCLED PLUS OPERATOR-->
+    <char character="&#x02a01;" string="\bigoplus"/>
+    <!--N-ARY CIRCLED TIMES OPERATOR-->
+    <char character="&#x02a02;" string="\bigotimes"/>
+    <!--N-ARY UNION OPERATOR WITH PLUS-->
+    <char character="&#x02a04;" string="\biguplus"/>
+    <!--N-ARY SQUARE INTERSECTION OPERATOR-->
+    <char character="&#x02a05;" string="\bigsqcap"/>
+    <!--N-ARY SQUARE UNION OPERATOR-->
+    <char character="&#x02a06;" string="\bigsqcup"/>
+    <!--N-ARY TIMES OPERATOR-->
+    <char character="&#x02a09;" string="\varprod"/>
+    <!--QUADRUPLE INTEGRAL OPERATOR-->
+    <char character="&#x02a0c;" string="\iiiint"/>
+    <!--INTEGRAL AVERAGE WITH SLASH-->
+    <char character="&#x02a0f;" string="\fint"/>
+    <!--= \sqrint (wrisym), QUATERNION INTEGRAL OPERATOR-->
+    <char character="&#x02a16;" string="\sqint"/>
+    <!--JOIN-->
+    <char character="&#x02a1d;" string="\Join"/>
+    <!--= \semi (oz), = \fatsemi (stmaryrd), Z NOTATION SCHEMA COMPOSITION-->
+    <char character="&#x02a1f;" string="\zcmp"/>
+    <!--Z NOTATION SCHEMA PIPING-->
+    <char character="&#x02a20;" string="\zpipe"/>
+    <!--= \project (oz), Z NOTATION SCHEMA PROJECTION-->
+    <char character="&#x02a21;" string="\zproject"/>
+    <!--= \comp (oz), Z NOTATION RELATIONAL COMPOSITION-->
+    <char character="&#x02a3e;" string="\fcmp"/>
+    <!--AMALGAMATION OR COPRODUCT-->
+    <char character="&#x02a3f;" string="\amalg"/>
+    <!--LOGICAL AND WITH DOUBLE OVERBAR-->
+    <char character="&#x02a5e;" string="\doublebarwedge"/>
+    <!--= \ndres (oz), Z NOTATION DOMAIN ANTIRESTRICTION-->
+    <char character="&#x02a64;" string="\dsub"/>
+    <!--= \nrres (oz), Z NOTATION RANGE ANTIRESTRICTION-->
+    <char character="&#x02a65;" string="\rsub"/>
+    <!--# ::=, x \Coloneq (txfonts), DOUBLE COLON EQUAL-->
+    <char character="&#x02a74;" string="\Coloneqq"/>
+    <!--# ==, TWO CONSECUTIVE EQUALS SIGNS-->
+    <char character="&#x02a75;" string="\Equal"/>
+    <!--# ===, THREE CONSECUTIVE EQUALS SIGNS-->
+    <char character="&#x02a76;" string="\Same"/>
+    <!--LESS-THAN OR SLANTED EQUAL TO-->
+    <char character="&#x02a7d;" string="\leqslant"/>
+    <!--GREATER-THAN OR SLANTED EQUAL TO-->
+    <char character="&#x02a7e;" string="\geqslant"/>
+    <!--LESS-THAN OR APPROXIMATE-->
+    <char character="&#x02a85;" string="\lessapprox"/>
+    <!--GREATER-THAN OR APPROXIMATE-->
+    <char character="&#x02a86;" string="\gtrapprox"/>
+    <!--LESS-THAN AND SINGLE-LINE NOT EQUAL TO-->
+    <char character="&#x02a87;" string="\lneq"/>
+    <!--GREATER-THAN AND SINGLE-LINE NOT EQUAL TO-->
+    <char character="&#x02a88;" string="\gneq"/>
+    <!--LESS-THAN AND NOT APPROXIMATE-->
+    <char character="&#x02a89;" string="\lnapprox"/>
+    <!--GREATER-THAN AND NOT APPROXIMATE-->
+    <char character="&#x02a8a;" string="\gnapprox"/>
+    <!--LESS-THAN ABOVE DOUBLE-LINE EQUAL ABOVE GREATER-THAN-->
+    <char character="&#x02a8b;" string="\lesseqqgtr"/>
+    <!--GREATER-THAN ABOVE DOUBLE-LINE EQUAL ABOVE LESS-THAN-->
+    <char character="&#x02a8c;" string="\gtreqqless"/>
+    <!--SLANTED EQUAL TO OR LESS-THAN-->
+    <char character="&#x02a95;" string="\eqslantless"/>
+    <!--SLANTED EQUAL TO OR GREATER-THAN-->
+    <char character="&#x02a96;" string="\eqslantgtr"/>
+    <!--= \lll (mathabx -amssymb), DOUBLE NESTED LESS-THAN-->
+    <char character="&#x02aa1;" string="\NestedLessLess"/>
+    <!--= \ggg (mathabx -amssymb), DOUBLE NESTED GREATER-THAN-->
+    <char character="&#x02aa2;" string="\NestedGreaterGreater"/>
+    <!--LESS-THAN CLOSED BY CURVE-->
+    <char character="&#x02aa6;" string="\leftslice"/>
+    <!--GREATER-THAN CLOSED BY CURVE-->
+    <char character="&#x02aa7;" string="\rightslice"/>
+    <!--PRECEDES ABOVE SINGLE-LINE EQUALS SIGN-->
+    <char character="&#x02aaf;" string="\preceq"/>
+    <!--SUCCEEDS ABOVE SINGLE-LINE EQUALS SIGN-->
+    <char character="&#x02ab0;" string="\succeq"/>
+    <!--PRECEDES ABOVE EQUALS SIGN-->
+    <char character="&#x02ab3;" string="\preceqq"/>
+    <!--SUCCEEDS ABOVE EQUALS SIGN-->
+    <char character="&#x02ab4;" string="\succeqq"/>
+    <!--PRECEDES ABOVE ALMOST EQUAL TO-->
+    <char character="&#x02ab7;" string="\precapprox"/>
+    <!--SUCCEEDS ABOVE ALMOST EQUAL TO-->
+    <char character="&#x02ab8;" string="\succapprox"/>
+    <!--PRECEDES ABOVE NOT ALMOST EQUAL TO-->
+    <char character="&#x02ab9;" string="\precnapprox"/>
+    <!--SUCCEEDS ABOVE NOT ALMOST EQUAL TO-->
+    <char character="&#x02aba;" string="\succnapprox"/>
+    <!--DOUBLE PRECEDES-->
+    <char character="&#x02abb;" string="\llcurly"/>
+    <!--DOUBLE SUCCEEDS-->
+    <char character="&#x02abc;" string="\ggcurly"/>
+    <!--SUBSET OF ABOVE EQUALS SIGN-->
+    <char character="&#x02ac5;" string="\subseteqq"/>
+    <!--SUPERSET OF ABOVE EQUALS SIGN-->
+    <char character="&#x02ac6;" string="\supseteqq"/>
+    <!--SUBSET OF ABOVE NOT EQUAL TO-->
+    <char character="&#x02acb;" string="\subsetneqq"/>
+    <!--SUPERSET OF ABOVE NOT EQUAL TO-->
+    <char character="&#x02acc;" string="\supsetneqq"/>
+    <!--DOUBLE DOWN TACK-->
+    <char character="&#x02aea;" string="\Top"/>
+    <!--= \Perp (txfonts), DOUBLE UP TACK-->
+    <char character="&#x02aeb;" string="\Bot"/>
+    <!--TRIPLE VERTICAL BAR BINARY RELATION-->
+    <char character="&#x02af4;" string="\interleave"/>
+    <!--LARGE TRIPLE VERTICAL BAR OPERATOR-->
+    <char character="&#x02afc;" string="\biginterleave"/>
+    <!--# \varparallel (txfonts), DOUBLE SOLIDUS OPERATOR-->
+    <char character="&#x02afd;" string="\sslash"/>
+    <!--WHITE VERTICAL BAR-->
+    <char character="&#x02afe;" string="\talloblong"/>
+  
+    <!-- *
+         * Miscellaneous Symbols and Arrows
+         * -->
+  
+    <!--BLACK LARGE SQUARE-->
+    <char character="&#x02b1b;" string="\blacksquare"/>
+    <!--WHITE LARGE SQUARE-->
+    <char character="&#x02b1c;" string="\square"/>
+  
+    <!-- *
+         * CJK Symbols and Punctuation
+         * -->
+  
+  
+  
+    <!-- *
+         * Hiragana
+         * -->
+  
+  
+  
+    <!-- *
+         * Alphabetic Presentation Forms
+         * -->
+  
+  
+  
+    <!-- *
+         * Variation Selectors
+         * -->
+  
+  
+  
+    <!-- *
+         * Small Form Variants
+         * -->
+  
+  
+  
+    <!-- *
+         * Halfwidth and Fullwidth Forms
+         * -->
+  
+  
+  
+    <!-- *
+         * Mathematical Alphanumeric Symbols
+         * -->
+  
+    <!--MATHEMATICAL BOLD CAPITAL A-->
+    <char character="&#x1d400;" string="\mathbf{A}"/>
+    <!--MATHEMATICAL BOLD CAPITAL B-->
+    <char character="&#x1d401;" string="\mathbf{B}"/>
+    <!--MATHEMATICAL BOLD CAPITAL C-->
+    <char character="&#x1d402;" string="\mathbf{C}"/>
+    <!--MATHEMATICAL BOLD CAPITAL D-->
+    <char character="&#x1d403;" string="\mathbf{D}"/>
+    <!--MATHEMATICAL BOLD CAPITAL E-->
+    <char character="&#x1d404;" string="\mathbf{E}"/>
+    <!--MATHEMATICAL BOLD CAPITAL F-->
+    <char character="&#x1d405;" string="\mathbf{F}"/>
+    <!--MATHEMATICAL BOLD CAPITAL G-->
+    <char character="&#x1d406;" string="\mathbf{G}"/>
+    <!--MATHEMATICAL BOLD CAPITAL H-->
+    <char character="&#x1d407;" string="\mathbf{H}"/>
+    <!--MATHEMATICAL BOLD CAPITAL I-->
+    <char character="&#x1d408;" string="\mathbf{I}"/>
+    <!--MATHEMATICAL BOLD CAPITAL J-->
+    <char character="&#x1d409;" string="\mathbf{J}"/>
+    <!--MATHEMATICAL BOLD CAPITAL K-->
+    <char character="&#x1d40a;" string="\mathbf{K}"/>
+    <!--MATHEMATICAL BOLD CAPITAL L-->
+    <char character="&#x1d40b;" string="\mathbf{L}"/>
+    <!--MATHEMATICAL BOLD CAPITAL M-->
+    <char character="&#x1d40c;" string="\mathbf{M}"/>
+    <!--MATHEMATICAL BOLD CAPITAL N-->
+    <char character="&#x1d40d;" string="\mathbf{N}"/>
+    <!--MATHEMATICAL BOLD CAPITAL O-->
+    <char character="&#x1d40e;" string="\mathbf{O}"/>
+    <!--MATHEMATICAL BOLD CAPITAL P-->
+    <char character="&#x1d40f;" string="\mathbf{P}"/>
+    <!--MATHEMATICAL BOLD CAPITAL Q-->
+    <char character="&#x1d410;" string="\mathbf{Q}"/>
+    <!--MATHEMATICAL BOLD CAPITAL R-->
+    <char character="&#x1d411;" string="\mathbf{R}"/>
+    <!--MATHEMATICAL BOLD CAPITAL S-->
+    <char character="&#x1d412;" string="\mathbf{S}"/>
+    <!--MATHEMATICAL BOLD CAPITAL T-->
+    <char character="&#x1d413;" string="\mathbf{T}"/>
+    <!--MATHEMATICAL BOLD CAPITAL U-->
+    <char character="&#x1d414;" string="\mathbf{U}"/>
+    <!--MATHEMATICAL BOLD CAPITAL V-->
+    <char character="&#x1d415;" string="\mathbf{V}"/>
+    <!--MATHEMATICAL BOLD CAPITAL W-->
+    <char character="&#x1d416;" string="\mathbf{W}"/>
+    <!--MATHEMATICAL BOLD CAPITAL X-->
+    <char character="&#x1d417;" string="\mathbf{X}"/>
+    <!--MATHEMATICAL BOLD CAPITAL Y-->
+    <char character="&#x1d418;" string="\mathbf{Y}"/>
+    <!--MATHEMATICAL BOLD CAPITAL Z-->
+    <char character="&#x1d419;" string="\mathbf{Z}"/>
+    <!--MATHEMATICAL BOLD SMALL A-->
+    <char character="&#x1d41a;" string="\mathbf{a}"/>
+    <!--MATHEMATICAL BOLD SMALL B-->
+    <char character="&#x1d41b;" string="\mathbf{b}"/>
+    <!--MATHEMATICAL BOLD SMALL C-->
+    <char character="&#x1d41c;" string="\mathbf{c}"/>
+    <!--MATHEMATICAL BOLD SMALL D-->
+    <char character="&#x1d41d;" string="\mathbf{d}"/>
+    <!--MATHEMATICAL BOLD SMALL E-->
+    <char character="&#x1d41e;" string="\mathbf{e}"/>
+    <!--MATHEMATICAL BOLD SMALL F-->
+    <char character="&#x1d41f;" string="\mathbf{f}"/>
+    <!--MATHEMATICAL BOLD SMALL G-->
+    <char character="&#x1d420;" string="\mathbf{g}"/>
+    <!--MATHEMATICAL BOLD SMALL H-->
+    <char character="&#x1d421;" string="\mathbf{h}"/>
+    <!--MATHEMATICAL BOLD SMALL I-->
+    <char character="&#x1d422;" string="\mathbf{i}"/>
+    <!--MATHEMATICAL BOLD SMALL J-->
+    <char character="&#x1d423;" string="\mathbf{j}"/>
+    <!--MATHEMATICAL BOLD SMALL K-->
+    <char character="&#x1d424;" string="\mathbf{k}"/>
+    <!--MATHEMATICAL BOLD SMALL L-->
+    <char character="&#x1d425;" string="\mathbf{l}"/>
+    <!--MATHEMATICAL BOLD SMALL M-->
+    <char character="&#x1d426;" string="\mathbf{m}"/>
+    <!--MATHEMATICAL BOLD SMALL N-->
+    <char character="&#x1d427;" string="\mathbf{n}"/>
+    <!--MATHEMATICAL BOLD SMALL O-->
+    <char character="&#x1d428;" string="\mathbf{o}"/>
+    <!--MATHEMATICAL BOLD SMALL P-->
+    <char character="&#x1d429;" string="\mathbf{p}"/>
+    <!--MATHEMATICAL BOLD SMALL Q-->
+    <char character="&#x1d42a;" string="\mathbf{q}"/>
+    <!--MATHEMATICAL BOLD SMALL R-->
+    <char character="&#x1d42b;" string="\mathbf{r}"/>
+    <!--MATHEMATICAL BOLD SMALL S-->
+    <char character="&#x1d42c;" string="\mathbf{s}"/>
+    <!--MATHEMATICAL BOLD SMALL T-->
+    <char character="&#x1d42d;" string="\mathbf{t}"/>
+    <!--MATHEMATICAL BOLD SMALL U-->
+    <char character="&#x1d42e;" string="\mathbf{u}"/>
+    <!--MATHEMATICAL BOLD SMALL V-->
+    <char character="&#x1d42f;" string="\mathbf{v}"/>
+    <!--MATHEMATICAL BOLD SMALL W-->
+    <char character="&#x1d430;" string="\mathbf{w}"/>
+    <!--MATHEMATICAL BOLD SMALL X-->
+    <char character="&#x1d431;" string="\mathbf{x}"/>
+    <!--MATHEMATICAL BOLD SMALL Y-->
+    <char character="&#x1d432;" string="\mathbf{y}"/>
+    <!--MATHEMATICAL BOLD SMALL Z-->
+    <char character="&#x1d433;" string="\mathbf{z}"/>
+    <!--= \mathit{A}, MATHEMATICAL ITALIC CAPITAL A-->
+    <char character="&#x1d434;" string="A"/>
+    <!--= \mathit{B}, MATHEMATICAL ITALIC CAPITAL B-->
+    <char character="&#x1d435;" string="B"/>
+    <!--= \mathit{C}, MATHEMATICAL ITALIC CAPITAL C-->
+    <char character="&#x1d436;" string="C"/>
+    <!--= \mathit{D}, MATHEMATICAL ITALIC CAPITAL D-->
+    <char character="&#x1d437;" string="D"/>
+    <!--= \mathit{E}, MATHEMATICAL ITALIC CAPITAL E-->
+    <char character="&#x1d438;" string="E"/>
+    <!--= \mathit{F}, MATHEMATICAL ITALIC CAPITAL F-->
+    <char character="&#x1d439;" string="F"/>
+    <!--= \mathit{G}, MATHEMATICAL ITALIC CAPITAL G-->
+    <char character="&#x1d43a;" string="G"/>
+    <!--= \mathit{H}, MATHEMATICAL ITALIC CAPITAL H-->
+    <char character="&#x1d43b;" string="H"/>
+    <!--= \mathit{I}, MATHEMATICAL ITALIC CAPITAL I-->
+    <char character="&#x1d43c;" string="I"/>
+    <!--= \mathit{J}, MATHEMATICAL ITALIC CAPITAL J-->
+    <char character="&#x1d43d;" string="J"/>
+    <!--= \mathit{K}, MATHEMATICAL ITALIC CAPITAL K-->
+    <char character="&#x1d43e;" string="K"/>
+    <!--= \mathit{L}, MATHEMATICAL ITALIC CAPITAL L-->
+    <char character="&#x1d43f;" string="L"/>
+    <!--= \mathit{M}, MATHEMATICAL ITALIC CAPITAL M-->
+    <char character="&#x1d440;" string="M"/>
+    <!--= \mathit{N}, MATHEMATICAL ITALIC CAPITAL N-->
+    <char character="&#x1d441;" string="N"/>
+    <!--= \mathit{O}, MATHEMATICAL ITALIC CAPITAL O-->
+    <char character="&#x1d442;" string="O"/>
+    <!--= \mathit{P}, MATHEMATICAL ITALIC CAPITAL P-->
+    <char character="&#x1d443;" string="P"/>
+    <!--= \mathit{Q}, MATHEMATICAL ITALIC CAPITAL Q-->
+    <char character="&#x1d444;" string="Q"/>
+    <!--= \mathit{R}, MATHEMATICAL ITALIC CAPITAL R-->
+    <char character="&#x1d445;" string="R"/>
+    <!--= \mathit{S}, MATHEMATICAL ITALIC CAPITAL S-->
+    <char character="&#x1d446;" string="S"/>
+    <!--= \mathit{T}, MATHEMATICAL ITALIC CAPITAL T-->
+    <char character="&#x1d447;" string="T"/>
+    <!--= \mathit{U}, MATHEMATICAL ITALIC CAPITAL U-->
+    <char character="&#x1d448;" string="U"/>
+    <!--= \mathit{V}, MATHEMATICAL ITALIC CAPITAL V-->
+    <char character="&#x1d449;" string="V"/>
+    <!--= \mathit{W}, MATHEMATICAL ITALIC CAPITAL W-->
+    <char character="&#x1d44a;" string="W"/>
+    <!--= \mathit{X}, MATHEMATICAL ITALIC CAPITAL X-->
+    <char character="&#x1d44b;" string="X"/>
+    <!--= \mathit{Y}, MATHEMATICAL ITALIC CAPITAL Y-->
+    <char character="&#x1d44c;" string="Y"/>
+    <!--= \mathit{Z}, MATHEMATICAL ITALIC CAPITAL Z-->
+    <char character="&#x1d44d;" string="Z"/>
+    <!--= \mathit{a}, MATHEMATICAL ITALIC SMALL A-->
+    <char character="&#x1d44e;" string="a"/>
+    <!--= \mathit{b}, MATHEMATICAL ITALIC SMALL B-->
+    <char character="&#x1d44f;" string="b"/>
+    <!--= \mathit{c}, MATHEMATICAL ITALIC SMALL C-->
+    <char character="&#x1d450;" string="c"/>
+    <!--= \mathit{d}, MATHEMATICAL ITALIC SMALL D-->
+    <char character="&#x1d451;" string="d"/>
+    <!--= \mathit{e}, MATHEMATICAL ITALIC SMALL E-->
+    <char character="&#x1d452;" string="e"/>
+    <!--= \mathit{f}, MATHEMATICAL ITALIC SMALL F-->
+    <char character="&#x1d453;" string="f"/>
+    <!--= \mathit{g}, MATHEMATICAL ITALIC SMALL G-->
+    <char character="&#x1d454;" string="g"/>
+    <!--= \mathit{i}, MATHEMATICAL ITALIC SMALL I-->
+    <char character="&#x1d456;" string="i"/>
+    <!--= \mathit{j}, MATHEMATICAL ITALIC SMALL J-->
+    <char character="&#x1d457;" string="j"/>
+    <!--= \mathit{k}, MATHEMATICAL ITALIC SMALL K-->
+    <char character="&#x1d458;" string="k"/>
+    <!--= \mathit{l}, MATHEMATICAL ITALIC SMALL L-->
+    <char character="&#x1d459;" string="l"/>
+    <!--= \mathit{m}, MATHEMATICAL ITALIC SMALL M-->
+    <char character="&#x1d45a;" string="m"/>
+    <!--= \mathit{n}, MATHEMATICAL ITALIC SMALL N-->
+    <char character="&#x1d45b;" string="n"/>
+    <!--= \mathit{o}, MATHEMATICAL ITALIC SMALL O-->
+    <char character="&#x1d45c;" string="o"/>
+    <!--= \mathit{p}, MATHEMATICAL ITALIC SMALL P-->
+    <char character="&#x1d45d;" string="p"/>
+    <!--= \mathit{q}, MATHEMATICAL ITALIC SMALL Q-->
+    <char character="&#x1d45e;" string="q"/>
+    <!--= \mathit{r}, MATHEMATICAL ITALIC SMALL R-->
+    <char character="&#x1d45f;" string="r"/>
+    <!--= \mathit{s}, MATHEMATICAL ITALIC SMALL S-->
+    <char character="&#x1d460;" string="s"/>
+    <!--= \mathit{t}, MATHEMATICAL ITALIC SMALL T-->
+    <char character="&#x1d461;" string="t"/>
+    <!--= \mathit{u}, MATHEMATICAL ITALIC SMALL U-->
+    <char character="&#x1d462;" string="u"/>
+    <!--= \mathit{v}, MATHEMATICAL ITALIC SMALL V-->
+    <char character="&#x1d463;" string="v"/>
+    <!--= \mathit{w}, MATHEMATICAL ITALIC SMALL W-->
+    <char character="&#x1d464;" string="w"/>
+    <!--= \mathit{x}, MATHEMATICAL ITALIC SMALL X-->
+    <char character="&#x1d465;" string="x"/>
+    <!--= \mathit{y}, MATHEMATICAL ITALIC SMALL Y-->
+    <char character="&#x1d466;" string="y"/>
+    <!--= \mathit{z}, MATHEMATICAL ITALIC SMALL Z-->
+    <char character="&#x1d467;" string="z"/>
+    <!--= \mathbold{A} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL A-->
+    <char character="&#x1d468;" string="\mathbfit{A}"/>
+    <!--= \mathbold{B} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL B-->
+    <char character="&#x1d469;" string="\mathbfit{B}"/>
+    <!--= \mathbold{C} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL C-->
+    <char character="&#x1d46a;" string="\mathbfit{C}"/>
+    <!--= \mathbold{D} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL D-->
+    <char character="&#x1d46b;" string="\mathbfit{D}"/>
+    <!--= \mathbold{E} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL E-->
+    <char character="&#x1d46c;" string="\mathbfit{E}"/>
+    <!--= \mathbold{F} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL F-->
+    <char character="&#x1d46d;" string="\mathbfit{F}"/>
+    <!--= \mathbold{G} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL G-->
+    <char character="&#x1d46e;" string="\mathbfit{G}"/>
+    <!--= \mathbold{H} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL H-->
+    <char character="&#x1d46f;" string="\mathbfit{H}"/>
+    <!--= \mathbold{I} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL I-->
+    <char character="&#x1d470;" string="\mathbfit{I}"/>
+    <!--= \mathbold{J} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL J-->
+    <char character="&#x1d471;" string="\mathbfit{J}"/>
+    <!--= \mathbold{K} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL K-->
+    <char character="&#x1d472;" string="\mathbfit{K}"/>
+    <!--= \mathbold{L} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL L-->
+    <char character="&#x1d473;" string="\mathbfit{L}"/>
+    <!--= \mathbold{M} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL M-->
+    <char character="&#x1d474;" string="\mathbfit{M}"/>
+    <!--= \mathbold{N} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL N-->
+    <char character="&#x1d475;" string="\mathbfit{N}"/>
+    <!--= \mathbold{O} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL O-->
+    <char character="&#x1d476;" string="\mathbfit{O}"/>
+    <!--= \mathbold{P} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL P-->
+    <char character="&#x1d477;" string="\mathbfit{P}"/>
+    <!--= \mathbold{Q} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL Q-->
+    <char character="&#x1d478;" string="\mathbfit{Q}"/>
+    <!--= \mathbold{R} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL R-->
+    <char character="&#x1d479;" string="\mathbfit{R}"/>
+    <!--= \mathbold{S} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL S-->
+    <char character="&#x1d47a;" string="\mathbfit{S}"/>
+    <!--= \mathbold{T} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL T-->
+    <char character="&#x1d47b;" string="\mathbfit{T}"/>
+    <!--= \mathbold{U} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL U-->
+    <char character="&#x1d47c;" string="\mathbfit{U}"/>
+    <!--= \mathbold{V} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL V-->
+    <char character="&#x1d47d;" string="\mathbfit{V}"/>
+    <!--= \mathbold{W} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL W-->
+    <char character="&#x1d47e;" string="\mathbfit{W}"/>
+    <!--= \mathbold{X} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL X-->
+    <char character="&#x1d47f;" string="\mathbfit{X}"/>
+    <!--= \mathbold{Y} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL Y-->
+    <char character="&#x1d480;" string="\mathbfit{Y}"/>
+    <!--= \mathbold{Z} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL Z-->
+    <char character="&#x1d481;" string="\mathbfit{Z}"/>
+    <!--= \mathbold{a} (fixmath), MATHEMATICAL BOLD ITALIC SMALL A-->
+    <char character="&#x1d482;" string="\mathbfit{a}"/>
+    <!--= \mathbold{b} (fixmath), MATHEMATICAL BOLD ITALIC SMALL B-->
+    <char character="&#x1d483;" string="\mathbfit{b}"/>
+    <!--= \mathbold{c} (fixmath), MATHEMATICAL BOLD ITALIC SMALL C-->
+    <char character="&#x1d484;" string="\mathbfit{c}"/>
+    <!--= \mathbold{d} (fixmath), MATHEMATICAL BOLD ITALIC SMALL D-->
+    <char character="&#x1d485;" string="\mathbfit{d}"/>
+    <!--= \mathbold{e} (fixmath), MATHEMATICAL BOLD ITALIC SMALL E-->
+    <char character="&#x1d486;" string="\mathbfit{e}"/>
+    <!--= \mathbold{f} (fixmath), MATHEMATICAL BOLD ITALIC SMALL F-->
+    <char character="&#x1d487;" string="\mathbfit{f}"/>
+    <!--= \mathbold{g} (fixmath), MATHEMATICAL BOLD ITALIC SMALL G-->
+    <char character="&#x1d488;" string="\mathbfit{g}"/>
+    <!--= \mathbold{h} (fixmath), MATHEMATICAL BOLD ITALIC SMALL H-->
+    <char character="&#x1d489;" string="\mathbfit{h}"/>
+    <!--= \mathbold{i} (fixmath), MATHEMATICAL BOLD ITALIC SMALL I-->
+    <char character="&#x1d48a;" string="\mathbfit{i}"/>
+    <!--= \mathbold{j} (fixmath), MATHEMATICAL BOLD ITALIC SMALL J-->
+    <char character="&#x1d48b;" string="\mathbfit{j}"/>
+    <!--= \mathbold{k} (fixmath), MATHEMATICAL BOLD ITALIC SMALL K-->
+    <char character="&#x1d48c;" string="\mathbfit{k}"/>
+    <!--= \mathbold{l} (fixmath), MATHEMATICAL BOLD ITALIC SMALL L-->
+    <char character="&#x1d48d;" string="\mathbfit{l}"/>
+    <!--= \mathbold{m} (fixmath), MATHEMATICAL BOLD ITALIC SMALL M-->
+    <char character="&#x1d48e;" string="\mathbfit{m}"/>
+    <!--= \mathbold{n} (fixmath), MATHEMATICAL BOLD ITALIC SMALL N-->
+    <char character="&#x1d48f;" string="\mathbfit{n}"/>
+    <!--= \mathbold{o} (fixmath), MATHEMATICAL BOLD ITALIC SMALL O-->
+    <char character="&#x1d490;" string="\mathbfit{o}"/>
+    <!--= \mathbold{p} (fixmath), MATHEMATICAL BOLD ITALIC SMALL P-->
+    <char character="&#x1d491;" string="\mathbfit{p}"/>
+    <!--= \mathbold{q} (fixmath), MATHEMATICAL BOLD ITALIC SMALL Q-->
+    <char character="&#x1d492;" string="\mathbfit{q}"/>
+    <!--= \mathbold{r} (fixmath), MATHEMATICAL BOLD ITALIC SMALL R-->
+    <char character="&#x1d493;" string="\mathbfit{r}"/>
+    <!--= \mathbold{s} (fixmath), MATHEMATICAL BOLD ITALIC SMALL S-->
+    <char character="&#x1d494;" string="\mathbfit{s}"/>
+    <!--= \mathbold{t} (fixmath), MATHEMATICAL BOLD ITALIC SMALL T-->
+    <char character="&#x1d495;" string="\mathbfit{t}"/>
+    <!--= \mathbold{u} (fixmath), MATHEMATICAL BOLD ITALIC SMALL U-->
+    <char character="&#x1d496;" string="\mathbfit{u}"/>
+    <!--= \mathbold{v} (fixmath), MATHEMATICAL BOLD ITALIC SMALL V-->
+    <char character="&#x1d497;" string="\mathbfit{v}"/>
+    <!--= \mathbold{w} (fixmath), MATHEMATICAL BOLD ITALIC SMALL W-->
+    <char character="&#x1d498;" string="\mathbfit{w}"/>
+    <!--= \mathbold{x} (fixmath), MATHEMATICAL BOLD ITALIC SMALL X-->
+    <char character="&#x1d499;" string="\mathbfit{x}"/>
+    <!--= \mathbold{y} (fixmath), MATHEMATICAL BOLD ITALIC SMALL Y-->
+    <char character="&#x1d49a;" string="\mathbfit{y}"/>
+    <!--= \mathbold{z} (fixmath), MATHEMATICAL BOLD ITALIC SMALL Z-->
+    <char character="&#x1d49b;" string="\mathbfit{z}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL A-->
+    <char character="&#x1d49c;" string="\mathcal{A}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL C-->
+    <char character="&#x1d49e;" string="\mathcal{C}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL D-->
+    <char character="&#x1d49f;" string="\mathcal{D}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL G-->
+    <char character="&#x1d4a2;" string="\mathcal{G}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL J-->
+    <char character="&#x1d4a5;" string="\mathcal{J}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL K-->
+    <char character="&#x1d4a6;" string="\mathcal{K}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL N-->
+    <char character="&#x1d4a9;" string="\mathcal{N}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL O-->
+    <char character="&#x1d4aa;" string="\mathcal{O}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL P-->
+    <char character="&#x1d4ab;" string="\mathcal{P}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL Q-->
+    <char character="&#x1d4ac;" string="\mathcal{Q}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL S-->
+    <char character="&#x1d4ae;" string="\mathcal{S}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL T-->
+    <char character="&#x1d4af;" string="\mathcal{T}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL U-->
+    <char character="&#x1d4b0;" string="\mathcal{U}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL V-->
+    <char character="&#x1d4b1;" string="\mathcal{V}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL W-->
+    <char character="&#x1d4b2;" string="\mathcal{W}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL X-->
+    <char character="&#x1d4b3;" string="\mathcal{X}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL Y-->
+    <char character="&#x1d4b4;" string="\mathcal{Y}"/>
+    <!--MATHEMATICAL SCRIPT CAPITAL Z-->
+    <char character="&#x1d4b5;" string="\mathcal{Z}"/>
+    <!--MATHEMATICAL SCRIPT SMALL A-->
+    <char character="&#x1d4b6;" string="\mathcal{a}"/>
+    <!--MATHEMATICAL SCRIPT SMALL B-->
+    <char character="&#x1d4b7;" string="\mathcal{b}"/>
+    <!--MATHEMATICAL SCRIPT SMALL C-->
+    <char character="&#x1d4b8;" string="\mathcal{c}"/>
+    <!--MATHEMATICAL SCRIPT SMALL D-->
+    <char character="&#x1d4b9;" string="\mathcal{d}"/>
+    <!--MATHEMATICAL SCRIPT SMALL F-->
+    <char character="&#x1d4bb;" string="\mathcal{f}"/>
+    <!--MATHEMATICAL SCRIPT SMALL H-->
+    <char character="&#x1d4bd;" string="\mathcal{h}"/>
+    <!--MATHEMATICAL SCRIPT SMALL I-->
+    <char character="&#x1d4be;" string="\mathcal{i}"/>
+    <!--MATHEMATICAL SCRIPT SMALL J-->
+    <char character="&#x1d4bf;" string="\mathcal{j}"/>
+    <!--MATHEMATICAL SCRIPT SMALL K-->
+    <char character="&#x1d4c0;" string="\mathcal{k}"/>
+    <!--MATHEMATICAL SCRIPT SMALL L-->
+    <char character="&#x1d4c1;" string="\mathcal{l}"/>
+    <!--MATHEMATICAL SCRIPT SMALL M-->
+    <char character="&#x1d4c2;" string="\mathcal{m}"/>
+    <!--MATHEMATICAL SCRIPT SMALL N-->
+    <char character="&#x1d4c3;" string="\mathcal{n}"/>
+    <!--MATHEMATICAL SCRIPT SMALL P-->
+    <char character="&#x1d4c5;" string="\mathcal{p}"/>
+    <!--MATHEMATICAL SCRIPT SMALL Q-->
+    <char character="&#x1d4c6;" string="\mathcal{q}"/>
+    <!--MATHEMATICAL SCRIPT SMALL R-->
+    <char character="&#x1d4c7;" string="\mathcal{r}"/>
+    <!--MATHEMATICAL SCRIPT SMALL S-->
+    <char character="&#x1d4c8;" string="\mathcal{s}"/>
+    <!--MATHEMATICAL SCRIPT SMALL T-->
+    <char character="&#x1d4c9;" string="\mathcal{t}"/>
+    <!--MATHEMATICAL SCRIPT SMALL U-->
+    <char character="&#x1d4ca;" string="\mathcal{u}"/>
+    <!--MATHEMATICAL SCRIPT SMALL V-->
+    <char character="&#x1d4cb;" string="\mathcal{v}"/>
+    <!--MATHEMATICAL SCRIPT SMALL W-->
+    <char character="&#x1d4cc;" string="\mathcal{w}"/>
+    <!--MATHEMATICAL SCRIPT SMALL X-->
+    <char character="&#x1d4cd;" string="\mathcal{x}"/>
+    <!--MATHEMATICAL SCRIPT SMALL Y-->
+    <char character="&#x1d4ce;" string="\mathcal{y}"/>
+    <!--MATHEMATICAL SCRIPT SMALL Z-->
+    <char character="&#x1d4cf;" string="\mathcal{z}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL A-->
+    <char character="&#x1d504;" string="\mathfrak{A}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL B-->
+    <char character="&#x1d505;" string="\mathfrak{B}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL D-->
+    <char character="&#x1d507;" string="\mathfrak{D}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL E-->
+    <char character="&#x1d508;" string="\mathfrak{E}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL F-->
+    <char character="&#x1d509;" string="\mathfrak{F}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL G-->
+    <char character="&#x1d50a;" string="\mathfrak{G}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL J-->
+    <char character="&#x1d50d;" string="\mathfrak{J}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL K-->
+    <char character="&#x1d50e;" string="\mathfrak{K}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL L-->
+    <char character="&#x1d50f;" string="\mathfrak{L}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL M-->
+    <char character="&#x1d510;" string="\mathfrak{M}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL N-->
+    <char character="&#x1d511;" string="\mathfrak{N}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL O-->
+    <char character="&#x1d512;" string="\mathfrak{O}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL P-->
+    <char character="&#x1d513;" string="\mathfrak{P}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL Q-->
+    <char character="&#x1d514;" string="\mathfrak{Q}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL S-->
+    <char character="&#x1d516;" string="\mathfrak{S}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL T-->
+    <char character="&#x1d517;" string="\mathfrak{T}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL U-->
+    <char character="&#x1d518;" string="\mathfrak{U}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL V-->
+    <char character="&#x1d519;" string="\mathfrak{V}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL W-->
+    <char character="&#x1d51a;" string="\mathfrak{W}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL X-->
+    <char character="&#x1d51b;" string="\mathfrak{X}"/>
+    <!--MATHEMATICAL FRAKTUR CAPITAL Y-->
+    <char character="&#x1d51c;" string="\mathfrak{Y}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL A-->
+    <char character="&#x1d51e;" string="\mathfrak{a}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL B-->
+    <char character="&#x1d51f;" string="\mathfrak{b}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL C-->
+    <char character="&#x1d520;" string="\mathfrak{c}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL D-->
+    <char character="&#x1d521;" string="\mathfrak{d}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL E-->
+    <char character="&#x1d522;" string="\mathfrak{e}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL F-->
+    <char character="&#x1d523;" string="\mathfrak{f}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL G-->
+    <char character="&#x1d524;" string="\mathfrak{g}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL H-->
+    <char character="&#x1d525;" string="\mathfrak{h}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL I-->
+    <char character="&#x1d526;" string="\mathfrak{i}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL J-->
+    <char character="&#x1d527;" string="\mathfrak{j}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL K-->
+    <char character="&#x1d528;" string="\mathfrak{k}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL L-->
+    <char character="&#x1d529;" string="\mathfrak{l}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL M-->
+    <char character="&#x1d52a;" string="\mathfrak{m}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL N-->
+    <char character="&#x1d52b;" string="\mathfrak{n}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL O-->
+    <char character="&#x1d52c;" string="\mathfrak{o}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL P-->
+    <char character="&#x1d52d;" string="\mathfrak{p}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL Q-->
+    <char character="&#x1d52e;" string="\mathfrak{q}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL R-->
+    <char character="&#x1d52f;" string="\mathfrak{r}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL S-->
+    <char character="&#x1d530;" string="\mathfrak{s}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL T-->
+    <char character="&#x1d531;" string="\mathfrak{t}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL U-->
+    <char character="&#x1d532;" string="\mathfrak{u}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL V-->
+    <char character="&#x1d533;" string="\mathfrak{v}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL W-->
+    <char character="&#x1d534;" string="\mathfrak{w}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL X-->
+    <char character="&#x1d535;" string="\mathfrak{x}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL Y-->
+    <char character="&#x1d536;" string="\mathfrak{y}"/>
+    <!--MATHEMATICAL FRAKTUR SMALL Z-->
+    <char character="&#x1d537;" string="\mathfrak{z}"/>
+    <!--= \mathds{A} (dsfont), MATHEMATICAL DOUBLE-STRUCK CAPITAL A-->
+    <char character="&#x1d538;" string="\mathbb{A}"/>
+    <!--= \mathds{B} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL B-->
+    <char character="&#x1d539;" string="\mathbb{B}"/>
+    <!--= \mathds{D} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL D-->
+    <char character="&#x1d53b;" string="\mathbb{D}"/>
+    <!--= \mathds{E} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL E-->
+    <char character="&#x1d53c;" string="\mathbb{E}"/>
+    <!--= \mathds{F} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL F-->
+    <char character="&#x1d53d;" string="\mathbb{F}"/>
+    <!--= \mathds{G} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL G-->
+    <char character="&#x1d53e;" string="\mathbb{G}"/>
+    <!--= \mathds{I} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL I-->
+    <char character="&#x1d540;" string="\mathbb{I}"/>
+    <!--= \mathds{J} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL J-->
+    <char character="&#x1d541;" string="\mathbb{J}"/>
+    <!--= \mathds{K} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL K-->
+    <char character="&#x1d542;" string="\mathbb{K}"/>
+    <!--= \mathds{L} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL L-->
+    <char character="&#x1d543;" string="\mathbb{L}"/>
+    <!--= \mathds{M} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL M-->
+    <char character="&#x1d544;" string="\mathbb{M}"/>
+    <!--= \mathds{O} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL O-->
+    <char character="&#x1d546;" string="\mathbb{O}"/>
+    <!--= \mathds{S} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL S-->
+    <char character="&#x1d54a;" string="\mathbb{S}"/>
+    <!--= \mathds{T} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL T-->
+    <char character="&#x1d54b;" string="\mathbb{T}"/>
+    <!--= \mathds{U} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL U-->
+    <char character="&#x1d54c;" string="\mathbb{U}"/>
+    <!--= \mathds{V} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL V-->
+    <char character="&#x1d54d;" string="\mathbb{V}"/>
+    <!--= \mathds{W} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL W-->
+    <char character="&#x1d54e;" string="\mathbb{W}"/>
+    <!--= \mathds{X} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL X-->
+    <char character="&#x1d54f;" string="\mathbb{X}"/>
+    <!--= \mathds{Y} (dsfont), matMATHEMATICAL DOUBLE-STRUCK CAPITAL Y-->
+    <char character="&#x1d550;" string="\mathbb{Y}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL A-->
+    <char character="&#x1d552;" string="\mathbb{a}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL B-->
+    <char character="&#x1d553;" string="\mathbb{b}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL C-->
+    <char character="&#x1d554;" string="\mathbb{c}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL D-->
+    <char character="&#x1d555;" string="\mathbb{d}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL E-->
+    <char character="&#x1d556;" string="\mathbb{e}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL F-->
+    <char character="&#x1d557;" string="\mathbb{f}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL G-->
+    <char character="&#x1d558;" string="\mathbb{g}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL H-->
+    <char character="&#x1d559;" string="\mathbb{h}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL I-->
+    <char character="&#x1d55a;" string="\mathbb{i}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL J-->
+    <char character="&#x1d55b;" string="\mathbb{j}"/>
+    <!--= \Bbbk (amssymb), MATHEMATICAL DOUBLE-STRUCK SMALL K-->
+    <char character="&#x1d55c;" string="\mathbb{k}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL L-->
+    <char character="&#x1d55d;" string="\mathbb{l}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL M-->
+    <char character="&#x1d55e;" string="\mathbb{m}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL N-->
+    <char character="&#x1d55f;" string="\mathbb{n}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL O-->
+    <char character="&#x1d560;" string="\mathbb{o}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL P-->
+    <char character="&#x1d561;" string="\mathbb{p}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL Q-->
+    <char character="&#x1d562;" string="\mathbb{q}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL R-->
+    <char character="&#x1d563;" string="\mathbb{r}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL S-->
+    <char character="&#x1d564;" string="\mathbb{s}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL T-->
+    <char character="&#x1d565;" string="\mathbb{t}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL U-->
+    <char character="&#x1d566;" string="\mathbb{u}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL V-->
+    <char character="&#x1d567;" string="\mathbb{v}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL W-->
+    <char character="&#x1d568;" string="\mathbb{w}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL X-->
+    <char character="&#x1d569;" string="\mathbb{x}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL Y-->
+    <char character="&#x1d56a;" string="\mathbb{y}"/>
+    <!--MATHEMATICAL DOUBLE-STRUCK SMALL Z-->
+    <char character="&#x1d56b;" string="\mathbb{z}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL A-->
+    <char character="&#x1d5a0;" string="\mathsf{A}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL B-->
+    <char character="&#x1d5a1;" string="\mathsf{B}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL C-->
+    <char character="&#x1d5a2;" string="\mathsf{C}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL D-->
+    <char character="&#x1d5a3;" string="\mathsf{D}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL E-->
+    <char character="&#x1d5a4;" string="\mathsf{E}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL F-->
+    <char character="&#x1d5a5;" string="\mathsf{F}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL G-->
+    <char character="&#x1d5a6;" string="\mathsf{G}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL H-->
+    <char character="&#x1d5a7;" string="\mathsf{H}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL I-->
+    <char character="&#x1d5a8;" string="\mathsf{I}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL J-->
+    <char character="&#x1d5a9;" string="\mathsf{J}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL K-->
+    <char character="&#x1d5aa;" string="\mathsf{K}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL L-->
+    <char character="&#x1d5ab;" string="\mathsf{L}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL M-->
+    <char character="&#x1d5ac;" string="\mathsf{M}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL N-->
+    <char character="&#x1d5ad;" string="\mathsf{N}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL O-->
+    <char character="&#x1d5ae;" string="\mathsf{O}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL P-->
+    <char character="&#x1d5af;" string="\mathsf{P}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL Q-->
+    <char character="&#x1d5b0;" string="\mathsf{Q}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL R-->
+    <char character="&#x1d5b1;" string="\mathsf{R}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL S-->
+    <char character="&#x1d5b2;" string="\mathsf{S}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL T-->
+    <char character="&#x1d5b3;" string="\mathsf{T}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL U-->
+    <char character="&#x1d5b4;" string="\mathsf{U}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL V-->
+    <char character="&#x1d5b5;" string="\mathsf{V}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL W-->
+    <char character="&#x1d5b6;" string="\mathsf{W}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL X-->
+    <char character="&#x1d5b7;" string="\mathsf{X}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL Y-->
+    <char character="&#x1d5b8;" string="\mathsf{Y}"/>
+    <!--MATHEMATICAL SANS-SERIF CAPITAL Z-->
+    <char character="&#x1d5b9;" string="\mathsf{Z}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL A-->
+    <char character="&#x1d5ba;" string="\mathsf{a}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL B-->
+    <char character="&#x1d5bb;" string="\mathsf{b}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL C-->
+    <char character="&#x1d5bc;" string="\mathsf{c}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL D-->
+    <char character="&#x1d5bd;" string="\mathsf{d}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL E-->
+    <char character="&#x1d5be;" string="\mathsf{e}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL F-->
+    <char character="&#x1d5bf;" string="\mathsf{f}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL G-->
+    <char character="&#x1d5c0;" string="\mathsf{g}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL H-->
+    <char character="&#x1d5c1;" string="\mathsf{h}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL I-->
+    <char character="&#x1d5c2;" string="\mathsf{i}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL J-->
+    <char character="&#x1d5c3;" string="\mathsf{j}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL K-->
+    <char character="&#x1d5c4;" string="\mathsf{k}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL L-->
+    <char character="&#x1d5c5;" string="\mathsf{l}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL M-->
+    <char character="&#x1d5c6;" string="\mathsf{m}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL N-->
+    <char character="&#x1d5c7;" string="\mathsf{n}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL O-->
+    <char character="&#x1d5c8;" string="\mathsf{o}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL P-->
+    <char character="&#x1d5c9;" string="\mathsf{p}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL Q-->
+    <char character="&#x1d5ca;" string="\mathsf{q}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL R-->
+    <char character="&#x1d5cb;" string="\mathsf{r}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL S-->
+    <char character="&#x1d5cc;" string="\mathsf{s}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL T-->
+    <char character="&#x1d5cd;" string="\mathsf{t}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL U-->
+    <char character="&#x1d5ce;" string="\mathsf{u}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL V-->
+    <char character="&#x1d5cf;" string="\mathsf{v}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL W-->
+    <char character="&#x1d5d0;" string="\mathsf{w}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL X-->
+    <char character="&#x1d5d1;" string="\mathsf{x}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL Y-->
+    <char character="&#x1d5d2;" string="\mathsf{y}"/>
+    <!--MATHEMATICAL SANS-SERIF SMALL Z-->
+    <char character="&#x1d5d3;" string="\mathsf{z}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL A-->
+    <char character="&#x1d5d4;" string="\mathsfbf{A}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL B-->
+    <char character="&#x1d5d5;" string="\mathsfbf{B}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL C-->
+    <char character="&#x1d5d6;" string="\mathsfbf{C}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL D-->
+    <char character="&#x1d5d7;" string="\mathsfbf{D}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL E-->
+    <char character="&#x1d5d8;" string="\mathsfbf{E}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL F-->
+    <char character="&#x1d5d9;" string="\mathsfbf{F}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL G-->
+    <char character="&#x1d5da;" string="\mathsfbf{G}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL H-->
+    <char character="&#x1d5db;" string="\mathsfbf{H}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL I-->
+    <char character="&#x1d5dc;" string="\mathsfbf{I}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL J-->
+    <char character="&#x1d5dd;" string="\mathsfbf{J}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL K-->
+    <char character="&#x1d5de;" string="\mathsfbf{K}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL L-->
+    <char character="&#x1d5df;" string="\mathsfbf{L}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL M-->
+    <char character="&#x1d5e0;" string="\mathsfbf{M}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL N-->
+    <char character="&#x1d5e1;" string="\mathsfbf{N}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL O-->
+    <char character="&#x1d5e2;" string="\mathsfbf{O}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL P-->
+    <char character="&#x1d5e3;" string="\mathsfbf{P}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL Q-->
+    <char character="&#x1d5e4;" string="\mathsfbf{Q}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL R-->
+    <char character="&#x1d5e5;" string="\mathsfbf{R}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL S-->
+    <char character="&#x1d5e6;" string="\mathsfbf{S}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL T-->
+    <char character="&#x1d5e7;" string="\mathsfbf{T}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL U-->
+    <char character="&#x1d5e8;" string="\mathsfbf{U}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL V-->
+    <char character="&#x1d5e9;" string="\mathsfbf{V}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL W-->
+    <char character="&#x1d5ea;" string="\mathsfbf{W}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL X-->
+    <char character="&#x1d5eb;" string="\mathsfbf{X}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL Y-->
+    <char character="&#x1d5ec;" string="\mathsfbf{Y}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL Z-->
+    <char character="&#x1d5ed;" string="\mathsfbf{Z}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL A-->
+    <char character="&#x1d5ee;" string="\mathsfbf{a}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL B-->
+    <char character="&#x1d5ef;" string="\mathsfbf{b}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL C-->
+    <char character="&#x1d5f0;" string="\mathsfbf{c}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL D-->
+    <char character="&#x1d5f1;" string="\mathsfbf{d}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL E-->
+    <char character="&#x1d5f2;" string="\mathsfbf{e}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL F-->
+    <char character="&#x1d5f3;" string="\mathsfbf{f}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL G-->
+    <char character="&#x1d5f4;" string="\mathsfbf{g}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL H-->
+    <char character="&#x1d5f5;" string="\mathsfbf{h}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL I-->
+    <char character="&#x1d5f6;" string="\mathsfbf{i}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL J-->
+    <char character="&#x1d5f7;" string="\mathsfbf{j}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL K-->
+    <char character="&#x1d5f8;" string="\mathsfbf{k}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL L-->
+    <char character="&#x1d5f9;" string="\mathsfbf{l}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL M-->
+    <char character="&#x1d5fa;" string="\mathsfbf{m}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL N-->
+    <char character="&#x1d5fb;" string="\mathsfbf{n}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL O-->
+    <char character="&#x1d5fc;" string="\mathsfbf{o}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL P-->
+    <char character="&#x1d5fd;" string="\mathsfbf{p}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL Q-->
+    <char character="&#x1d5fe;" string="\mathsfbf{q}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL R-->
+    <char character="&#x1d5ff;" string="\mathsfbf{r}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL S-->
+    <char character="&#x1d600;" string="\mathsfbf{s}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL T-->
+    <char character="&#x1d601;" string="\mathsfbf{t}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL U-->
+    <char character="&#x1d602;" string="\mathsfbf{u}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL V-->
+    <char character="&#x1d603;" string="\mathsfbf{v}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL W-->
+    <char character="&#x1d604;" string="\mathsfbf{w}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL X-->
+    <char character="&#x1d605;" string="\mathsfbf{x}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL Y-->
+    <char character="&#x1d606;" string="\mathsfbf{y}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL Z-->
+    <char character="&#x1d607;" string="\mathsfbf{z}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL A-->
+    <char character="&#x1d608;" string="\mathsfit{A}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL B-->
+    <char character="&#x1d609;" string="\mathsfit{B}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL C-->
+    <char character="&#x1d60a;" string="\mathsfit{C}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL D-->
+    <char character="&#x1d60b;" string="\mathsfit{D}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL E-->
+    <char character="&#x1d60c;" string="\mathsfit{E}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL F-->
+    <char character="&#x1d60d;" string="\mathsfit{F}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL G-->
+    <char character="&#x1d60e;" string="\mathsfit{G}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL H-->
+    <char character="&#x1d60f;" string="\mathsfit{H}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL I-->
+    <char character="&#x1d610;" string="\mathsfit{I}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL J-->
+    <char character="&#x1d611;" string="\mathsfit{J}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL K-->
+    <char character="&#x1d612;" string="\mathsfit{K}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL L-->
+    <char character="&#x1d613;" string="\mathsfit{L}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL M-->
+    <char character="&#x1d614;" string="\mathsfit{M}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL N-->
+    <char character="&#x1d615;" string="\mathsfit{N}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL O-->
+    <char character="&#x1d616;" string="\mathsfit{O}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL P-->
+    <char character="&#x1d617;" string="\mathsfit{P}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL Q-->
+    <char character="&#x1d618;" string="\mathsfit{Q}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL R-->
+    <char character="&#x1d619;" string="\mathsfit{R}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL S-->
+    <char character="&#x1d61a;" string="\mathsfit{S}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL T-->
+    <char character="&#x1d61b;" string="\mathsfit{T}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL U-->
+    <char character="&#x1d61c;" string="\mathsfit{U}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL V-->
+    <char character="&#x1d61d;" string="\mathsfit{V}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL W-->
+    <char character="&#x1d61e;" string="\mathsfit{W}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL X-->
+    <char character="&#x1d61f;" string="\mathsfit{X}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL Y-->
+    <char character="&#x1d620;" string="\mathsfit{Y}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC CAPITAL Z-->
+    <char character="&#x1d621;" string="\mathsfit{Z}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL A-->
+    <char character="&#x1d622;" string="\mathsfit{a}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL B-->
+    <char character="&#x1d623;" string="\mathsfit{b}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL C-->
+    <char character="&#x1d624;" string="\mathsfit{c}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL D-->
+    <char character="&#x1d625;" string="\mathsfit{d}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL E-->
+    <char character="&#x1d626;" string="\mathsfit{e}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL F-->
+    <char character="&#x1d627;" string="\mathsfit{f}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL G-->
+    <char character="&#x1d628;" string="\mathsfit{g}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL H-->
+    <char character="&#x1d629;" string="\mathsfit{h}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL I-->
+    <char character="&#x1d62a;" string="\mathsfit{i}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL J-->
+    <char character="&#x1d62b;" string="\mathsfit{j}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL K-->
+    <char character="&#x1d62c;" string="\mathsfit{k}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL L-->
+    <char character="&#x1d62d;" string="\mathsfit{l}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL M-->
+    <char character="&#x1d62e;" string="\mathsfit{m}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL N-->
+    <char character="&#x1d62f;" string="\mathsfit{n}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL O-->
+    <char character="&#x1d630;" string="\mathsfit{o}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL P-->
+    <char character="&#x1d631;" string="\mathsfit{p}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL Q-->
+    <char character="&#x1d632;" string="\mathsfit{q}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL R-->
+    <char character="&#x1d633;" string="\mathsfit{r}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL S-->
+    <char character="&#x1d634;" string="\mathsfit{s}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL T-->
+    <char character="&#x1d635;" string="\mathsfit{t}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL U-->
+    <char character="&#x1d636;" string="\mathsfit{u}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL V-->
+    <char character="&#x1d637;" string="\mathsfit{v}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL W-->
+    <char character="&#x1d638;" string="\mathsfit{w}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL X-->
+    <char character="&#x1d639;" string="\mathsfit{x}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL Y-->
+    <char character="&#x1d63a;" string="\mathsfit{y}"/>
+    <!--MATHEMATICAL SANS-SERIF ITALIC SMALL Z-->
+    <char character="&#x1d63b;" string="\mathsfit{z}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A-->
+    <char character="&#x1d63c;" string="\mathsfbfit{A}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B-->
+    <char character="&#x1d63d;" string="\mathsfbfit{B}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C-->
+    <char character="&#x1d63e;" string="\mathsfbfit{C}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL D-->
+    <char character="&#x1d63f;" string="\mathsfbfit{D}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL E-->
+    <char character="&#x1d640;" string="\mathsfbfit{E}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL F-->
+    <char character="&#x1d641;" string="\mathsfbfit{F}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL G-->
+    <char character="&#x1d642;" string="\mathsfbfit{G}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL H-->
+    <char character="&#x1d643;" string="\mathsfbfit{H}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL I-->
+    <char character="&#x1d644;" string="\mathsfbfit{I}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL J-->
+    <char character="&#x1d645;" string="\mathsfbfit{J}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL K-->
+    <char character="&#x1d646;" string="\mathsfbfit{K}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL L-->
+    <char character="&#x1d647;" string="\mathsfbfit{L}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL M-->
+    <char character="&#x1d648;" string="\mathsfbfit{M}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL N-->
+    <char character="&#x1d649;" string="\mathsfbfit{N}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL O-->
+    <char character="&#x1d64a;" string="\mathsfbfit{O}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL P-->
+    <char character="&#x1d64b;" string="\mathsfbfit{P}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Q-->
+    <char character="&#x1d64c;" string="\mathsfbfit{Q}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL R-->
+    <char character="&#x1d64d;" string="\mathsfbfit{R}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL S-->
+    <char character="&#x1d64e;" string="\mathsfbfit{S}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL T-->
+    <char character="&#x1d64f;" string="\mathsfbfit{T}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL U-->
+    <char character="&#x1d650;" string="\mathsfbfit{U}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL V-->
+    <char character="&#x1d651;" string="\mathsfbfit{V}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL W-->
+    <char character="&#x1d652;" string="\mathsfbfit{W}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL X-->
+    <char character="&#x1d653;" string="\mathsfbfit{X}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Y-->
+    <char character="&#x1d654;" string="\mathsfbfit{Y}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Z-->
+    <char character="&#x1d655;" string="\mathsfbfit{Z}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL A-->
+    <char character="&#x1d656;" string="\mathsfbfit{a}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL B-->
+    <char character="&#x1d657;" string="\mathsfbfit{b}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL C-->
+    <char character="&#x1d658;" string="\mathsfbfit{c}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL D-->
+    <char character="&#x1d659;" string="\mathsfbfit{d}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL E-->
+    <char character="&#x1d65a;" string="\mathsfbfit{e}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL F-->
+    <char character="&#x1d65b;" string="\mathsfbfit{f}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL G-->
+    <char character="&#x1d65c;" string="\mathsfbfit{g}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL H-->
+    <char character="&#x1d65d;" string="\mathsfbfit{h}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL I-->
+    <char character="&#x1d65e;" string="\mathsfbfit{i}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL J-->
+    <char character="&#x1d65f;" string="\mathsfbfit{j}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL K-->
+    <char character="&#x1d660;" string="\mathsfbfit{k}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL L-->
+    <char character="&#x1d661;" string="\mathsfbfit{l}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL M-->
+    <char character="&#x1d662;" string="\mathsfbfit{m}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL N-->
+    <char character="&#x1d663;" string="\mathsfbfit{n}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL O-->
+    <char character="&#x1d664;" string="\mathsfbfit{o}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL P-->
+    <char character="&#x1d665;" string="\mathsfbfit{p}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Q-->
+    <char character="&#x1d666;" string="\mathsfbfit{q}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL R-->
+    <char character="&#x1d667;" string="\mathsfbfit{r}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL S-->
+    <char character="&#x1d668;" string="\mathsfbfit{s}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL T-->
+    <char character="&#x1d669;" string="\mathsfbfit{t}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL U-->
+    <char character="&#x1d66a;" string="\mathsfbfit{u}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL V-->
+    <char character="&#x1d66b;" string="\mathsfbfit{v}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL W-->
+    <char character="&#x1d66c;" string="\mathsfbfit{w}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL X-->
+    <char character="&#x1d66d;" string="\mathsfbfit{x}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Y-->
+    <char character="&#x1d66e;" string="\mathsfbfit{y}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z-->
+    <char character="&#x1d66f;" string="\mathsfbfit{z}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL A-->
+    <char character="&#x1d670;" string="\mathtt{A}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL B-->
+    <char character="&#x1d671;" string="\mathtt{B}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL C-->
+    <char character="&#x1d672;" string="\mathtt{C}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL D-->
+    <char character="&#x1d673;" string="\mathtt{D}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL E-->
+    <char character="&#x1d674;" string="\mathtt{E}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL F-->
+    <char character="&#x1d675;" string="\mathtt{F}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL G-->
+    <char character="&#x1d676;" string="\mathtt{G}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL H-->
+    <char character="&#x1d677;" string="\mathtt{H}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL I-->
+    <char character="&#x1d678;" string="\mathtt{I}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL J-->
+    <char character="&#x1d679;" string="\mathtt{J}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL K-->
+    <char character="&#x1d67a;" string="\mathtt{K}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL L-->
+    <char character="&#x1d67b;" string="\mathtt{L}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL M-->
+    <char character="&#x1d67c;" string="\mathtt{M}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL N-->
+    <char character="&#x1d67d;" string="\mathtt{N}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL O-->
+    <char character="&#x1d67e;" string="\mathtt{O}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL P-->
+    <char character="&#x1d67f;" string="\mathtt{P}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL Q-->
+    <char character="&#x1d680;" string="\mathtt{Q}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL R-->
+    <char character="&#x1d681;" string="\mathtt{R}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL S-->
+    <char character="&#x1d682;" string="\mathtt{S}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL T-->
+    <char character="&#x1d683;" string="\mathtt{T}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL U-->
+    <char character="&#x1d684;" string="\mathtt{U}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL V-->
+    <char character="&#x1d685;" string="\mathtt{V}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL W-->
+    <char character="&#x1d686;" string="\mathtt{W}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL X-->
+    <char character="&#x1d687;" string="\mathtt{X}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL Y-->
+    <char character="&#x1d688;" string="\mathtt{Y}"/>
+    <!--MATHEMATICAL MONOSPACE CAPITAL Z-->
+    <char character="&#x1d689;" string="\mathtt{Z}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL A-->
+    <char character="&#x1d68a;" string="\mathtt{a}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL B-->
+    <char character="&#x1d68b;" string="\mathtt{b}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL C-->
+    <char character="&#x1d68c;" string="\mathtt{c}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL D-->
+    <char character="&#x1d68d;" string="\mathtt{d}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL E-->
+    <char character="&#x1d68e;" string="\mathtt{e}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL F-->
+    <char character="&#x1d68f;" string="\mathtt{f}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL G-->
+    <char character="&#x1d690;" string="\mathtt{g}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL H-->
+    <char character="&#x1d691;" string="\mathtt{h}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL I-->
+    <char character="&#x1d692;" string="\mathtt{i}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL J-->
+    <char character="&#x1d693;" string="\mathtt{j}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL K-->
+    <char character="&#x1d694;" string="\mathtt{k}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL L-->
+    <char character="&#x1d695;" string="\mathtt{l}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL M-->
+    <char character="&#x1d696;" string="\mathtt{m}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL N-->
+    <char character="&#x1d697;" string="\mathtt{n}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL O-->
+    <char character="&#x1d698;" string="\mathtt{o}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL P-->
+    <char character="&#x1d699;" string="\mathtt{p}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL Q-->
+    <char character="&#x1d69a;" string="\mathtt{q}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL R-->
+    <char character="&#x1d69b;" string="\mathtt{r}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL S-->
+    <char character="&#x1d69c;" string="\mathtt{s}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL T-->
+    <char character="&#x1d69d;" string="\mathtt{t}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL U-->
+    <char character="&#x1d69e;" string="\mathtt{u}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL V-->
+    <char character="&#x1d69f;" string="\mathtt{v}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL W-->
+    <char character="&#x1d6a0;" string="\mathtt{w}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL X-->
+    <char character="&#x1d6a1;" string="\mathtt{x}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL Y-->
+    <char character="&#x1d6a2;" string="\mathtt{y}"/>
+    <!--MATHEMATICAL MONOSPACE SMALL Z-->
+    <char character="&#x1d6a3;" string="\mathtt{z}"/>
+    <!--MATHEMATICAL ITALIC SMALL DOTLESS I-->
+    <char character="&#x1d6a4;" string="\imath"/>
+    <!--MATHEMATICAL ITALIC SMALL DOTLESS J-->
+    <char character="&#x1d6a5;" string="\jmath"/>
+    <!--MATHEMATICAL BOLD CAPITAL GAMMA-->
+    <char character="&#x1d6aa;" string="\mathbf{Gamma}"/>
+    <!--MATHEMATICAL BOLD CAPITAL DELTA-->
+    <char character="&#x1d6ab;" string="\mathbf{Delta}"/>
+    <!--MATHEMATICAL BOLD CAPITAL THETA-->
+    <char character="&#x1d6af;" string="\mathbf{Theta}"/>
+    <!--mathematical bold capital lambda-->
+    <char character="&#x1d6b2;" string="\mathbf{Lambda}"/>
+    <!--MATHEMATICAL BOLD CAPITAL XI-->
+    <char character="&#x1d6b5;" string="\mathbf{Xi}"/>
+    <!--MATHEMATICAL BOLD CAPITAL PI-->
+    <char character="&#x1d6b7;" string="\mathbf{Pi}"/>
+    <!--MATHEMATICAL BOLD CAPITAL SIGMA-->
+    <char character="&#x1d6ba;" string="\mathbf{Sigma}"/>
+    <!--MATHEMATICAL BOLD CAPITAL UPSILON-->
+    <char character="&#x1d6bc;" string="\mathbf{Upsilon}"/>
+    <!--MATHEMATICAL BOLD CAPITAL PHI-->
+    <char character="&#x1d6bd;" string="\mathbf{Phi}"/>
+    <!--MATHEMATICAL BOLD CAPITAL PSI-->
+    <char character="&#x1d6bf;" string="\mathbf{Psi}"/>
+    <!--MATHEMATICAL BOLD CAPITAL OMEGA-->
+    <char character="&#x1d6c0;" string="\mathbf{Omega}"/>
+    <!--MATHEMATICAL BOLD SMALL ALPHA-->
+    <char character="&#x1d6c2;" string="\mathbf{alpha}"/>
+    <!--MATHEMATICAL BOLD SMALL BETA-->
+    <char character="&#x1d6c3;" string="\mathbf{beta}"/>
+    <!--MATHEMATICAL BOLD SMALL GAMMA-->
+    <char character="&#x1d6c4;" string="\mathbf{gamma}"/>
+    <!--MATHEMATICAL BOLD SMALL DELTA-->
+    <char character="&#x1d6c5;" string="\mathbf{delta}"/>
+    <!--MATHEMATICAL BOLD SMALL EPSILON-->
+    <char character="&#x1d6c6;" string="\mathbf{varepsilon}"/>
+    <!--MATHEMATICAL BOLD SMALL ZETA-->
+    <char character="&#x1d6c7;" string="\mathbf{zeta}"/>
+    <!--MATHEMATICAL BOLD SMALL ETA-->
+    <char character="&#x1d6c8;" string="\mathbf{eta}"/>
+    <!--MATHEMATICAL BOLD SMALL THETA-->
+    <char character="&#x1d6c9;" string="\mathbf{theta}"/>
+    <!--MATHEMATICAL BOLD SMALL IOTA-->
+    <char character="&#x1d6ca;" string="\mathbf{iota}"/>
+    <!--MATHEMATICAL BOLD SMALL KAPPA-->
+    <char character="&#x1d6cb;" string="\mathbf{kappa}"/>
+    <!--mathematical bold small lambda-->
+    <char character="&#x1d6cc;" string="\mathbf{lambda}"/>
+    <!--MATHEMATICAL BOLD SMALL MU-->
+    <char character="&#x1d6cd;" string="\mathbf{mu}"/>
+    <!--MATHEMATICAL BOLD SMALL NU-->
+    <char character="&#x1d6ce;" string="\mathbf{nu}"/>
+    <!--MATHEMATICAL BOLD SMALL XI-->
+    <char character="&#x1d6cf;" string="\mathbf{xi}"/>
+    <!--MATHEMATICAL BOLD SMALL PI-->
+    <char character="&#x1d6d1;" string="\mathbf{pi}"/>
+    <!--MATHEMATICAL BOLD SMALL RHO-->
+    <char character="&#x1d6d2;" string="\mathbf{rho}"/>
+    <!--MATHEMATICAL BOLD SMALL FINAL SIGMA-->
+    <char character="&#x1d6d3;" string="\mathbf{varsigma}"/>
+    <!--MATHEMATICAL BOLD SMALL SIGMA-->
+    <char character="&#x1d6d4;" string="\mathbf{sigma}"/>
+    <!--MATHEMATICAL BOLD SMALL TAU-->
+    <char character="&#x1d6d5;" string="\mathbf{tau}"/>
+    <!--MATHEMATICAL BOLD SMALL UPSILON-->
+    <char character="&#x1d6d6;" string="\mathbf{upsilon}"/>
+    <!--MATHEMATICAL BOLD SMALL PHI-->
+    <char character="&#x1d6d7;" string="\mathbf{varphi}"/>
+    <!--MATHEMATICAL BOLD SMALL CHI-->
+    <char character="&#x1d6d8;" string="\mathbf{chi}"/>
+    <!--MATHEMATICAL BOLD SMALL PSI-->
+    <char character="&#x1d6d9;" string="\mathbf{psi}"/>
+    <!--MATHEMATICAL BOLD SMALL OMEGA-->
+    <char character="&#x1d6da;" string="\mathbf{omega}"/>
+    <!--MATHEMATICAL BOLD EPSILON SYMBOL-->
+    <char character="&#x1d6dc;" string="\mathbf{epsilon}"/>
+    <!--MATHEMATICAL BOLD THETA SYMBOL-->
+    <char character="&#x1d6dd;" string="\mathbf{vartheta}"/>
+    <!--MATHEMATICAL BOLD PHI SYMBOL-->
+    <char character="&#x1d6df;" string="\mathbf{phi}"/>
+    <!--MATHEMATICAL BOLD RHO SYMBOL-->
+    <char character="&#x1d6e0;" string="\mathbf{varrho}"/>
+    <!--MATHEMATICAL BOLD PI SYMBOL-->
+    <char character="&#x1d6e1;" string="\mathbf{varpi}"/>
+    <!--= \mathit{\Gamma} (-fourier), = \varGamma (amsmath fourier), MATHEMATICAL ITALIC CAPITAL GAMMA-->
+    <char character="&#x1d6e4;" string="\Gamma"/>
+    <!--= \mathit{\Delta} (-fourier), = \varDelta (amsmath fourier), MATHEMATICAL ITALIC CAPITAL DELTA-->
+    <char character="&#x1d6e5;" string="\Delta"/>
+    <!--= \mathit{\Theta} (-fourier), = \varTheta (amsmath fourier), MATHEMATICAL ITALIC CAPITAL THETA-->
+    <char character="&#x1d6e9;" string="\Theta"/>
+    <!--= \mathit{\Lambda} (-fourier), = \varLambda (amsmath fourier), mathematical italic capital lambda-->
+    <char character="&#x1d6ec;" string="\Lambda"/>
+    <!--= \mathit{\Xi} (-fourier), = \varXi (amsmath fourier), MATHEMATICAL ITALIC CAPITAL XI-->
+    <char character="&#x1d6ef;" string="\Xi"/>
+    <!--= \mathit{\Pi} (-fourier), = \varPi (amsmath fourier), MATHEMATICAL ITALIC CAPITAL PI-->
+    <char character="&#x1d6f1;" string="\Pi"/>
+    <!--= \mathit{\Sigma} (-fourier), = \varSigma (amsmath fourier), MATHEMATICAL ITALIC CAPITAL SIGMA-->
+    <char character="&#x1d6f4;" string="\Sigma"/>
+    <!--= \mathit{\Upsilon} (-fourier), = \varUpsilon (amsmath fourier), MATHEMATICAL ITALIC CAPITAL UPSILON-->
+    <char character="&#x1d6f6;" string="\Upsilon"/>
+    <!--= \mathit{\Phi} (-fourier), = \varPhi (amsmath fourier), MATHEMATICAL ITALIC CAPITAL PHI-->
+    <char character="&#x1d6f7;" string="\Phi"/>
+    <!--= \mathit{\Psi} (-fourier), = \varPsi (amsmath fourier), MATHEMATICAL ITALIC CAPITAL PSI-->
+    <char character="&#x1d6f9;" string="\Psi"/>
+    <!--= \mathit{\Omega} (-fourier), = \varOmega (amsmath fourier), MATHEMATICAL ITALIC CAPITAL OMEGA-->
+    <char character="&#x1d6fa;" string="\Omega"/>
+    <!--= \mathit{\alpha} (omlmathit), MATHEMATICAL ITALIC SMALL ALPHA-->
+    <char character="&#x1d6fc;" string="\alpha"/>
+    <!--= \mathit{\beta} (omlmathit), MATHEMATICAL ITALIC SMALL BETA-->
+    <char character="&#x1d6fd;" string="\beta"/>
+    <!--= \mathit{\gamma} (omlmathit), MATHEMATICAL ITALIC SMALL GAMMA-->
+    <char character="&#x1d6fe;" string="\gamma"/>
+    <!--= \mathit{\delta} (omlmathit), MATHEMATICAL ITALIC SMALL DELTA-->
+    <char character="&#x1d6ff;" string="\delta"/>
+    <!--= \mathit{\varepsilon} (omlmathit), MATHEMATICAL ITALIC SMALL EPSILON-->
+    <char character="&#x1d700;" string="\varepsilon"/>
+    <!--= \mathit{\zeta} (omlmathit), MATHEMATICAL ITALIC SMALL ZETA-->
+    <char character="&#x1d701;" string="\zeta"/>
+    <!--= \mathit{\eta} (omlmathit), MATHEMATICAL ITALIC SMALL ETA-->
+    <char character="&#x1d702;" string="\eta"/>
+    <!--= \mathit{\theta} (omlmathit), MATHEMATICAL ITALIC SMALL THETA-->
+    <char character="&#x1d703;" string="\theta"/>
+    <!--= \mathit{\iota} (omlmathit), MATHEMATICAL ITALIC SMALL IOTA-->
+    <char character="&#x1d704;" string="\iota"/>
+    <!--= \mathit{\kappa} (omlmathit), MATHEMATICAL ITALIC SMALL KAPPA-->
+    <char character="&#x1d705;" string="\kappa"/>
+    <!--= \mathit{\lambda} (omlmathit), mathematical italic small lambda-->
+    <char character="&#x1d706;" string="\lambda"/>
+    <!--= \mathit{\mu} (omlmathit), MATHEMATICAL ITALIC SMALL MU-->
+    <char character="&#x1d707;" string="\mu"/>
+    <!--= \mathit{\nu} (omlmathit), MATHEMATICAL ITALIC SMALL NU-->
+    <char character="&#x1d708;" string="\nu"/>
+    <!--= \mathit{\xi} (omlmathit), MATHEMATICAL ITALIC SMALL XI-->
+    <char character="&#x1d709;" string="\xi"/>
+    <!--= \mathit{\pi} (omlmathit), MATHEMATICAL ITALIC SMALL PI-->
+    <char character="&#x1d70b;" string="\pi"/>
+    <!--= \mathit{\rho} (omlmathit), MATHEMATICAL ITALIC SMALL RHO-->
+    <char character="&#x1d70c;" string="\rho"/>
+    <!--= \mathit{\varsigma} (omlmathit), MATHEMATICAL ITALIC SMALL FINAL SIGMA-->
+    <char character="&#x1d70d;" string="\varsigma"/>
+    <!--= \mathit{\sigma} (omlmathit), MATHEMATICAL ITALIC SMALL SIGMA-->
+    <char character="&#x1d70e;" string="\sigma"/>
+    <!--= \mathit{\tau} (omlmathit), MATHEMATICAL ITALIC SMALL TAU-->
+    <char character="&#x1d70f;" string="\tau"/>
+    <!--= \mathit{\upsilon} (omlmathit), MATHEMATICAL ITALIC SMALL UPSILON-->
+    <char character="&#x1d710;" string="\upsilon"/>
+    <!--= \mathit{\varphi} (omlmathit), MATHEMATICAL ITALIC SMALL PHI-->
+    <char character="&#x1d711;" string="\varphi"/>
+    <!--= \mathit{\chi} (omlmathit), MATHEMATICAL ITALIC SMALL CHI-->
+    <char character="&#x1d712;" string="\chi"/>
+    <!--= \mathit{\psi} (omlmathit), MATHEMATICAL ITALIC SMALL PSI-->
+    <char character="&#x1d713;" string="\psi"/>
+    <!--= \mathit{\omega} (omlmathit), MATHEMATICAL ITALIC SMALL OMEGA-->
+    <char character="&#x1d714;" string="\omega"/>
+    <!--= \mathit{\partial} (omlmathit), MATHEMATICAL ITALIC PARTIAL DIFFERENTIAL-->
+    <char character="&#x1d715;" string="\partial"/>
+    <!--= \mathit{\epsilon} (omlmathit), MATHEMATICAL ITALIC EPSILON SYMBOL-->
+    <char character="&#x1d716;" string="\epsilon"/>
+    <!--= \mathit{\vartheta} (omlmathit), MATHEMATICAL ITALIC THETA SYMBOL-->
+    <char character="&#x1d717;" string="\vartheta"/>
+    <!--MATHEMATICAL ITALIC KAPPA SYMBOL-->
+    <char character="&#x1d718;" string="\varkappa"/>
+    <!--= \mathit{\phi} (omlmathit), MATHEMATICAL ITALIC PHI SYMBOL-->
+    <char character="&#x1d719;" string="\phi"/>
+    <!--= \mathit{\varrho} (omlmathit), MATHEMATICAL ITALIC RHO SYMBOL-->
+    <char character="&#x1d71a;" string="\varrho"/>
+    <!--= \mathit{\varpi} (omlmathit), MATHEMATICAL ITALIC PI SYMBOL-->
+    <char character="&#x1d71b;" string="\varpi"/>
+    <!--= \mathbold{\Gamma} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL GAMMA-->
+    <char character="&#x1d71e;" string="\mathbfit{Gamma}"/>
+    <!--= \mathbold{\Delta} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL DELTA-->
+    <char character="&#x1d71f;" string="\mathbfit{Delta}"/>
+    <!--= \mathbold{\Theta} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL THETA-->
+    <char character="&#x1d723;" string="\mathbfit{Theta}"/>
+    <!--= \mathbold{\Lambda} (fixmath), mathematical bold italic capital lambda-->
+    <char character="&#x1d726;" string="\mathbfit{Lambda}"/>
+    <!--= \mathbold{\Xi} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL XI-->
+    <char character="&#x1d729;" string="\mathbfit{Xi}"/>
+    <!--= \mathbold{\Pi} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL PI-->
+    <char character="&#x1d72b;" string="\mathbfit{Pi}"/>
+    <!--= \mathbold{\Sigma} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL SIGMA-->
+    <char character="&#x1d72e;" string="\mathbfit{Sigma}"/>
+    <!--= \mathbold{\Upsilon} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL UPSILON-->
+    <char character="&#x1d730;" string="\mathbfit{Upsilon}"/>
+    <!--= \mathbold{\Phi} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL PHI-->
+    <char character="&#x1d731;" string="\mathbfit{Phi}"/>
+    <!--= \mathbold{\Psi} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL PSI-->
+    <char character="&#x1d733;" string="\mathbfit{Psi}"/>
+    <!--= \mathbold{\Omega} (fixmath), MATHEMATICAL BOLD ITALIC CAPITAL OMEGA-->
+    <char character="&#x1d734;" string="\mathbfit{Omega}"/>
+    <!--= \mathbold{\alpha} (fixmath), MATHEMATICAL BOLD ITALIC SMALL ALPHA-->
+    <char character="&#x1d736;" string="\mathbfit{alpha}"/>
+    <!--= \mathbold{\beta} (fixmath), MATHEMATICAL BOLD ITALIC SMALL BETA-->
+    <char character="&#x1d737;" string="\mathbfit{beta}"/>
+    <!--= \mathbold{\gamma} (fixmath), MATHEMATICAL BOLD ITALIC SMALL GAMMA-->
+    <char character="&#x1d738;" string="\mathbfit{gamma}"/>
+    <!--= \mathbold{\delta} (fixmath), MATHEMATICAL BOLD ITALIC SMALL DELTA-->
+    <char character="&#x1d739;" string="\mathbfit{delta}"/>
+    <!--= \mathbold{\varepsilon} (fixmath), MATHEMATICAL BOLD ITALIC SMALL EPSILON-->
+    <char character="&#x1d73a;" string="\mathbfit{varepsilon}"/>
+    <!--= \mathbold{\zeta} (fixmath), MATHEMATICAL BOLD ITALIC SMALL ZETA-->
+    <char character="&#x1d73b;" string="\mathbfit{zeta}"/>
+    <!--= \mathbold{\eta} (fixmath), MATHEMATICAL BOLD ITALIC SMALL ETA-->
+    <char character="&#x1d73c;" string="\mathbfit{eta}"/>
+    <!--= \mathbold{\theta} (fixmath), MATHEMATICAL BOLD ITALIC SMALL THETA-->
+    <char character="&#x1d73d;" string="\mathbfit{theta}"/>
+    <!--= \mathbold{\iota} (fixmath), MATHEMATICAL BOLD ITALIC SMALL IOTA-->
+    <char character="&#x1d73e;" string="\mathbfit{iota}"/>
+    <!--= \mathbold{\kappa} (fixmath), MATHEMATICAL BOLD ITALIC SMALL KAPPA-->
+    <char character="&#x1d73f;" string="\mathbfit{kappa}"/>
+    <!--= \mathbold{\lambda} (fixmath), mathematical bold italic small lambda-->
+    <char character="&#x1d740;" string="\mathbfit{lambda}"/>
+    <!--= \mathbold{\mu} (fixmath), MATHEMATICAL BOLD ITALIC SMALL MU-->
+    <char character="&#x1d741;" string="\mathbfit{mu}"/>
+    <!--= \mathbold{\nu} (fixmath), MATHEMATICAL BOLD ITALIC SMALL NU-->
+    <char character="&#x1d742;" string="\mathbfit{nu}"/>
+    <!--= \mathbold{\xi} (fixmath), MATHEMATICAL BOLD ITALIC SMALL XI-->
+    <char character="&#x1d743;" string="\mathbfit{xi}"/>
+    <!--= \mathbold{\pi} (fixmath), MATHEMATICAL BOLD ITALIC SMALL PI-->
+    <char character="&#x1d745;" string="\mathbfit{pi}"/>
+    <!--= \mathbold{\rho} (fixmath), MATHEMATICAL BOLD ITALIC SMALL RHO-->
+    <char character="&#x1d746;" string="\mathbfit{rho}"/>
+    <!--= \mathbold{\varsigma} (fixmath), MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA-->
+    <char character="&#x1d747;" string="\mathbfit{varsigma}"/>
+    <!--= \mathbold{\sigma} (fixmath), MATHEMATICAL BOLD ITALIC SMALL SIGMA-->
+    <char character="&#x1d748;" string="\mathbfit{sigma}"/>
+    <!--= \mathbold{\tau} (fixmath), MATHEMATICAL BOLD ITALIC SMALL TAU-->
+    <char character="&#x1d749;" string="\mathbfit{tau}"/>
+    <!--= \mathbold{\upsilon} (fixmath), MATHEMATICAL BOLD ITALIC SMALL UPSILON-->
+    <char character="&#x1d74a;" string="\mathbfit{upsilon}"/>
+    <!--= \mathbold{\varphi} (fixmath), MATHEMATICAL BOLD ITALIC SMALL PHI-->
+    <char character="&#x1d74b;" string="\mathbfit{varphi}"/>
+    <!--= \mathbold{\chi} (fixmath), MATHEMATICAL BOLD ITALIC SMALL CHI-->
+    <char character="&#x1d74c;" string="\mathbfit{chi}"/>
+    <!--= \mathbold{\psi} (fixmath), MATHEMATICAL BOLD ITALIC SMALL PSI-->
+    <char character="&#x1d74d;" string="\mathbfit{psi}"/>
+    <!--= \mathbold{\omega} (fixmath), MATHEMATICAL BOLD ITALIC SMALL OMEGA-->
+    <char character="&#x1d74e;" string="\mathbfit{omega}"/>
+    <!--= \mathbold{\epsilon} (fixmath), MATHEMATICAL BOLD ITALIC EPSILON SYMBOL-->
+    <char character="&#x1d750;" string="\mathbfit{epsilon}"/>
+    <!--= \mathbold{\vartheta} (fixmath), MATHEMATICAL BOLD ITALIC THETA SYMBOL-->
+    <char character="&#x1d751;" string="\mathbfit{vartheta}"/>
+    <!--= \mathbold{\phi} (fixmath), MATHEMATICAL BOLD ITALIC PHI SYMBOL-->
+    <char character="&#x1d753;" string="\mathbfit{phi}"/>
+    <!--= \mathbold{\varrho} (fixmath), MATHEMATICAL BOLD ITALIC RHO SYMBOL-->
+    <char character="&#x1d754;" string="\mathbfit{varrho}"/>
+    <!--= \mathbold{\varpi} (fixmath), MATHEMATICAL BOLD ITALIC PI SYMBOL-->
+    <char character="&#x1d755;" string="\mathbfit{varpi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL GAMMA-->
+    <char character="&#x1d758;" string="\mathsfbf{Gamma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL DELTA-->
+    <char character="&#x1d759;" string="\mathsfbf{Delta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA-->
+    <char character="&#x1d75d;" string="\mathsfbf{Theta}"/>
+    <!--mathematical sans-serif bold capital lambda-->
+    <char character="&#x1d760;" string="\mathsfbf{Lambda}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL XI-->
+    <char character="&#x1d763;" string="\mathsfbf{Xi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL PI-->
+    <char character="&#x1d765;" string="\mathsfbf{Pi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL SIGMA-->
+    <char character="&#x1d768;" string="\mathsfbf{Sigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL UPSILON-->
+    <char character="&#x1d76a;" string="\mathsfbf{Upsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL PHI-->
+    <char character="&#x1d76b;" string="\mathsfbf{Phi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL PSI-->
+    <char character="&#x1d76d;" string="\mathsfbf{Psi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA-->
+    <char character="&#x1d76e;" string="\mathsfbf{Omega}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL ALPHA-->
+    <char character="&#x1d770;" string="\mathsfbf{alpha}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL BETA-->
+    <char character="&#x1d771;" string="\mathsfbf{beta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL GAMMA-->
+    <char character="&#x1d772;" string="\mathsfbf{gamma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL DELTA-->
+    <char character="&#x1d773;" string="\mathsfbf{delta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL EPSILON-->
+    <char character="&#x1d774;" string="\mathsfbf{varepsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL ZETA-->
+    <char character="&#x1d775;" string="\mathsfbf{zeta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL ETA-->
+    <char character="&#x1d776;" string="\mathsfbf{eta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL THETA-->
+    <char character="&#x1d777;" string="\mathsfbf{theta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL IOTA-->
+    <char character="&#x1d778;" string="\mathsfbf{iota}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL KAPPA-->
+    <char character="&#x1d779;" string="\mathsfbf{kappa}"/>
+    <!--mathematical sans-serif bold small lambda-->
+    <char character="&#x1d77a;" string="\mathsfbf{lambda}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL MU-->
+    <char character="&#x1d77b;" string="\mathsfbf{mu}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL NU-->
+    <char character="&#x1d77c;" string="\mathsfbf{nu}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL XI-->
+    <char character="&#x1d77d;" string="\mathsfbf{xi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL PI-->
+    <char character="&#x1d77f;" string="\mathsfbf{pi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL RHO-->
+    <char character="&#x1d780;" string="\mathsfbf{rho}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL FINAL SIGMA-->
+    <char character="&#x1d781;" string="\mathsfbf{varsigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL SIGMA-->
+    <char character="&#x1d782;" string="\mathsfbf{sigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL TAU-->
+    <char character="&#x1d783;" string="\mathsfbf{tau}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL UPSILON-->
+    <char character="&#x1d784;" string="\mathsfbf{upsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL PHI-->
+    <char character="&#x1d785;" string="\mathsfbf{varphi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL CHI-->
+    <char character="&#x1d786;" string="\mathsfbf{chi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL PSI-->
+    <char character="&#x1d787;" string="\mathsfbf{psi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD SMALL OMEGA-->
+    <char character="&#x1d788;" string="\mathsfbf{omega}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD EPSILON SYMBOL-->
+    <char character="&#x1d78a;" string="\mathsfbf{epsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD THETA SYMBOL-->
+    <char character="&#x1d78b;" string="\mathsfbf{vartheta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD PHI SYMBOL-->
+    <char character="&#x1d78d;" string="\mathsfbf{phi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD RHO SYMBOL-->
+    <char character="&#x1d78e;" string="\mathsfbf{varrho}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD PI SYMBOL-->
+    <char character="&#x1d78f;" string="\mathsfbf{varpi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL GAMMA-->
+    <char character="&#x1d792;" string="\mathsfbfit{Gamma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL DELTA-->
+    <char character="&#x1d793;" string="\mathsfbfit{Delta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA-->
+    <char character="&#x1d797;" string="\mathsfbfit{Theta}"/>
+    <!--mathematical sans-serif bold italic capital lambda-->
+    <char character="&#x1d79a;" string="\mathsfbfit{Lambda}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL XI-->
+    <char character="&#x1d79d;" string="\mathsfbfit{Xi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PI-->
+    <char character="&#x1d79f;" string="\mathsfbfit{Pi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL SIGMA-->
+    <char character="&#x1d7a2;" string="\mathsfbfit{Sigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL UPSILON-->
+    <char character="&#x1d7a4;" string="\mathsfbfit{Upsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PHI-->
+    <char character="&#x1d7a5;" string="\mathsfbfit{Phi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PSI-->
+    <char character="&#x1d7a7;" string="\mathsfbfit{Psi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA-->
+    <char character="&#x1d7a8;" string="\mathsfbfit{Omega}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ALPHA-->
+    <char character="&#x1d7aa;" string="\mathsfbfit{alpha}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL BETA-->
+    <char character="&#x1d7ab;" string="\mathsfbfit{beta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL GAMMA-->
+    <char character="&#x1d7ac;" string="\mathsfbfit{gamma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL DELTA-->
+    <char character="&#x1d7ad;" string="\mathsfbfit{delta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL EPSILON-->
+    <char character="&#x1d7ae;" string="\mathsfbfit{varepsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ZETA-->
+    <char character="&#x1d7af;" string="\mathsfbfit{zeta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL ETA-->
+    <char character="&#x1d7b0;" string="\mathsfbfit{eta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL THETA-->
+    <char character="&#x1d7b1;" string="\mathsfbfit{theta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL IOTA-->
+    <char character="&#x1d7b2;" string="\mathsfbfit{iota}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL KAPPA-->
+    <char character="&#x1d7b3;" string="\mathsfbfit{kappa}"/>
+    <!--mathematical sans-serif bold italic small lambda-->
+    <char character="&#x1d7b4;" string="\mathsfbfit{lambda}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL MU-->
+    <char character="&#x1d7b5;" string="\mathsfbfit{mu}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL NU-->
+    <char character="&#x1d7b6;" string="\mathsfbfit{nu}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL XI-->
+    <char character="&#x1d7b7;" string="\mathsfbfit{xi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PI-->
+    <char character="&#x1d7b9;" string="\mathsfbfit{pi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL RHO-->
+    <char character="&#x1d7ba;" string="\mathsfbfit{rho}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL FINAL SIGMA-->
+    <char character="&#x1d7bb;" string="\mathsfbfit{varsigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL SIGMA-->
+    <char character="&#x1d7bc;" string="\mathsfbfit{sigma}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL TAU-->
+    <char character="&#x1d7bd;" string="\mathsfbfit{tau}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL UPSILON-->
+    <char character="&#x1d7be;" string="\mathsfbfit{upsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PHI-->
+    <char character="&#x1d7bf;" string="\mathsfbfit{varphi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL CHI-->
+    <char character="&#x1d7c0;" string="\mathsfbfit{chi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL PSI-->
+    <char character="&#x1d7c1;" string="\mathsfbfit{psi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL OMEGA-->
+    <char character="&#x1d7c2;" string="\mathsfbfit{omega}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC EPSILON SYMBOL-->
+    <char character="&#x1d7c4;" string="\mathsfbfit{epsilon}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC THETA SYMBOL-->
+    <char character="&#x1d7c5;" string="\mathsfbfit{vartheta}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC PHI SYMBOL-->
+    <char character="&#x1d7c7;" string="\mathsfbfit{phi}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC RHO SYMBOL-->
+    <char character="&#x1d7c8;" string="\mathsfbfit{varrho}"/>
+    <!--MATHEMATICAL SANS-SERIF BOLD ITALIC PI SYMBOL-->
+    <char character="&#x1d7c9;" string="\mathsfbfit{varpi}"/>
+    <!--mathematical bold digit 0-->
+    <char character="&#x1d7ce;" string="\mathbf{0}"/>
+    <!--mathematical bold digit 1-->
+    <char character="&#x1d7cf;" string="\mathbf{1}"/>
+    <!--mathematical bold digit 2-->
+    <char character="&#x1d7d0;" string="\mathbf{2}"/>
+    <!--mathematical bold digit 3-->
+    <char character="&#x1d7d1;" string="\mathbf{3}"/>
+    <!--mathematical bold digit 4-->
+    <char character="&#x1d7d2;" string="\mathbf{4}"/>
+    <!--mathematical bold digit 5-->
+    <char character="&#x1d7d3;" string="\mathbf{5}"/>
+    <!--mathematical bold digit 6-->
+    <char character="&#x1d7d4;" string="\mathbf{6}"/>
+    <!--mathematical bold digit 7-->
+    <char character="&#x1d7d5;" string="\mathbf{7}"/>
+    <!--mathematical bold digit 8-->
+    <char character="&#x1d7d6;" string="\mathbf{8}"/>
+    <!--mathematical bold digit 9-->
+    <char character="&#x1d7d7;" string="\mathbf{9}"/>
+    <!--mathematical double-struck digit 0-->
+    <char character="&#x1d7d8;" string="\mathbb{0}"/>
+    <!--= \mathds{1} (dsfont), mathematical double-struck digit 1-->
+    <char character="&#x1d7d9;" string="\mathbb{1}"/>
+    <!--mathematical double-struck digit 2-->
+    <char character="&#x1d7da;" string="\mathbb{2}"/>
+    <!--mathematical double-struck digit 3-->
+    <char character="&#x1d7db;" string="\mathbb{3}"/>
+    <!--mathematical double-struck digit 4-->
+    <char character="&#x1d7dc;" string="\mathbb{4}"/>
+    <!--mathematical double-struck digit 5-->
+    <char character="&#x1d7dd;" string="\mathbb{5}"/>
+    <!--mathematical double-struck digit 6-->
+    <char character="&#x1d7de;" string="\mathbb{6}"/>
+    <!--mathematical double-struck digit 7-->
+    <char character="&#x1d7df;" string="\mathbb{7}"/>
+    <!--mathematical double-struck digit 8-->
+    <char character="&#x1d7e0;" string="\mathbb{8}"/>
+    <!--mathematical double-struck digit 9-->
+    <char character="&#x1d7e1;" string="\mathbb{9}"/>
+    <!--mathematical sans-serif digit 0-->
+    <char character="&#x1d7e2;" string="\mathsf{0}"/>
+    <!--mathematical sans-serif digit 1-->
+    <char character="&#x1d7e3;" string="\mathsf{1}"/>
+    <!--mathematical sans-serif digit 2-->
+    <char character="&#x1d7e4;" string="\mathsf{2}"/>
+    <!--mathematical sans-serif digit 3-->
+    <char character="&#x1d7e5;" string="\mathsf{3}"/>
+    <!--mathematical sans-serif digit 4-->
+    <char character="&#x1d7e6;" string="\mathsf{4}"/>
+    <!--mathematical sans-serif digit 5-->
+    <char character="&#x1d7e7;" string="\mathsf{5}"/>
+    <!--mathematical sans-serif digit 6-->
+    <char character="&#x1d7e8;" string="\mathsf{6}"/>
+    <!--mathematical sans-serif digit 7-->
+    <char character="&#x1d7e9;" string="\mathsf{7}"/>
+    <!--mathematical sans-serif digit 8-->
+    <char character="&#x1d7ea;" string="\mathsf{8}"/>
+    <!--mathematical sans-serif digit 9-->
+    <char character="&#x1d7eb;" string="\mathsf{9}"/>
+    <!--mathematical sans-serif bold digit 0-->
+    <char character="&#x1d7ec;" string="\mathsfbf{0}"/>
+    <!--mathematical sans-serif bold digit 1-->
+    <char character="&#x1d7ed;" string="\mathsfbf{1}"/>
+    <!--mathematical sans-serif bold digit 2-->
+    <char character="&#x1d7ee;" string="\mathsfbf{2}"/>
+    <!--mathematical sans-serif bold digit 3-->
+    <char character="&#x1d7ef;" string="\mathsfbf{3}"/>
+    <!--mathematical sans-serif bold digit 4-->
+    <char character="&#x1d7f0;" string="\mathsfbf{4}"/>
+    <!--mathematical sans-serif bold digit 5-->
+    <char character="&#x1d7f1;" string="\mathsfbf{5}"/>
+    <!--mathematical sans-serif bold digit 6-->
+    <char character="&#x1d7f2;" string="\mathsfbf{6}"/>
+    <!--mathematical sans-serif bold digit 7-->
+    <char character="&#x1d7f3;" string="\mathsfbf{7}"/>
+    <!--mathematical sans-serif bold digit 8-->
+    <char character="&#x1d7f4;" string="\mathsfbf{8}"/>
+    <!--mathematical sans-serif bold digit 9-->
+    <char character="&#x1d7f5;" string="\mathsfbf{9}"/>
+    <!--mathematical monospace digit 0-->
+    <char character="&#x1d7f6;" string="\mathtt{0}"/>
+    <!--mathematical monospace digit 1-->
+    <char character="&#x1d7f7;" string="\mathtt{1}"/>
+    <!--mathematical monospace digit 2-->
+    <char character="&#x1d7f8;" string="\mathtt{2}"/>
+    <!--mathematical monospace digit 3-->
+    <char character="&#x1d7f9;" string="\mathtt{3}"/>
+    <!--mathematical monospace digit 4-->
+    <char character="&#x1d7fa;" string="\mathtt{4}"/>
+    <!--mathematical monospace digit 5-->
+    <char character="&#x1d7fb;" string="\mathtt{5}"/>
+    <!--mathematical monospace digit 6-->
+    <char character="&#x1d7fc;" string="\mathtt{6}"/>
+    <!--mathematical monospace digit 7-->
+    <char character="&#x1d7fd;" string="\mathtt{7}"/>
+    <!--mathematical monospace digit 8-->
+    <char character="&#x1d7fe;" string="\mathtt{8}"/>
+    <!--mathematical monospace digit 9-->
+    <char character="&#x1d7ff;" string="\mathtt{9}"/>
+  </charmap>  
+</set>

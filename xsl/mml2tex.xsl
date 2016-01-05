@@ -449,7 +449,7 @@
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
                                                     if(matches($replacement, '\d')) then $replacement else concat($replacement, '&#x20;')
-                                                    )"/>
+                                                    )" as="xs:string"/>
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
                           and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">

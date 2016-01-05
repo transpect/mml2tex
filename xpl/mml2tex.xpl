@@ -8,11 +8,19 @@
   type="mml2tex:convert"
   version="1.0">
 
-  <p:input port="source">
+  <p:input port="source" primary="true">
     <p:documentation>
-      Expects an XML document
+      Expects an XML document.
     </p:documentation>
   </p:input>
+  
+  <p:input port="conf" primary="false">
+    <p:documentation>
+      Expects a character map for mapping from Unicode to TeX.
+    </p:documentation>
+    <p:document href="../texmap/texmap.xml"/>
+  </p:input>
+  
   <p:output port="result">
     <p:documentation>
       Provides the XML document with mml2tex processing instructions.
@@ -33,7 +41,7 @@
   
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
   
-  <tr:store-debug pipeline-step="mml2tex/01.mml2tex-input">
+  <tr:store-debug pipeline-step="mml2tex/01.mml2tex-input" indent="false">
     <p:with-option name="active" select="$debug"/>
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>
@@ -47,13 +55,17 @@
     <p:with-param name="debug-dir-uri" select="''"/>
   </p:xslt>
   
-  <tr:store-debug pipeline-step="mml2tex/02.mml2tex-preprocess">
+  <tr:store-debug pipeline-step="mml2tex/02.mml2tex-preprocess" indent="false">
     <p:with-option name="active" select="$debug"/>
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>
   
   <p:xslt name="invoke">
     <p:documentation>MathML equations are converted to "mml2tex" processing instructions.</p:documentation>    
+    <p:input port="source">
+      <p:pipe port="result" step="preprocess"/>
+      <p:pipe port="conf" step="mml2tex"/>
+    </p:input>
     <p:input port="stylesheet">
       <p:document href="../xsl/invoke-mml2tex.xsl"/>
     </p:input>

@@ -5,15 +5,20 @@
   xmlns:tr="http://transpect.io"
   xmlns:mml="http://www.w3.org/1998/Math/MathML" 
   xmlns:mml2tex="http://transpect.io/mml2tex"
+  xmlns:xml2tex="http://transpect.io/xml2tex"
+  xmlns:functx="http://www.functx.com"
   exclude-result-prefixes="tr mml xs mml2tex" 
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
   version="2.0">
 
+  <xsl:import href="http://transpect.io/xslt-util/functx/Strings/Replacing/escape-for-regex.xsl"/>
+
   <xsl:output method="text" encoding="UTF-8"/>
 
-  <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/node()"/>
-
-  <xsl:variable name="texregex" select="concat('[', string-join($texmap/mml2tex:symbol/mml2tex:hex/text(), ''), ']')"/>
+  <!-- texmap is passed as 2nd collection => ../texmap/texmap.xml -->
+  <xsl:variable name="texmap" select="collection()[2]/xml2tex:set/xml2tex:charmap" as="element(xml2tex:charmap)"/>
+  
+  <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap//xml2tex:char/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="yes" select="'ERROR: unknown element', name()"/>    
@@ -285,7 +290,7 @@
             <xsl:value-of select="$val"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="tr:utf2tex($val)"/>
+            <xsl:value-of select="mml2tex:utf2tex($val, ())"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
@@ -322,7 +327,7 @@
               <xsl:value-of select="'\ '"/>
             </xsl:when>
             <xsl:when test="matches($text, $texregex)">
-              <xsl:value-of select="tr:utf2tex($text)"/>
+              <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
@@ -350,7 +355,7 @@
         <xsl:text>{</xsl:text>
         <xsl:choose>
           <xsl:when test="matches($text, $texregex)">
-            <xsl:value-of select="tr:utf2tex($text)"/>
+            <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$text"/>
@@ -431,35 +436,35 @@
   <xsl:variable name="mml2tex:operator-names" as="xs:string+" 
     select="('arcsin', 'arctan', 'arg', 'cos', 'cosh', 'cot', 'coth', 'csc', 'deg', 'det', 'dim', 'exp', 'gcd', 'hom', 'ker', 
              'lg', 'lim', 'liminf', 'limsup', 'ln', 'log', 'max', 'min', 'Pr', 'sec', 'sinh', 'sup', 'tan', 'tanh')"/>
-  
-  <!-- function to convert utf8 to tex code -->
-  <xsl:function name="tr:utf2tex" as="xs:string">
-    <xsl:param name="text" as="xs:string"/>
-    <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
-  </xsl:function>
-  
-  <xsl:function name="mml2tex:utf2tex" as="xs:string">
-    <xsl:param name="text" as="xs:string"/>
+    
+  <xsl:function name="mml2tex:utf2tex" as="xs:string+">
+    <xsl:param name="string" as="xs:string"/>
     <!-- In order to avoid infinite recursion when mapping % → \% -->
     <xsl:param name="seen" as="xs:string*"/>
-    <xsl:variable name="to-replace" select="replace($text, concat('^.*(', $texregex, ').*'), '$1')"/>
-    <!-- replace text with tex code fragment. escape curly braces -->
-    <xsl:variable name="replace" select="replace($text, 
-      replace($to-replace, '([\{\}\|])', '\\$1'), 
-      concat($texmap/mml2tex:symbol[mml2tex:hex = $to-replace]/mml2tex:tex, ' '))"/>
-    <xsl:choose>
-      <!-- test if replace string matches texregex. condition: shouldn't 
-        match curly braces because this will cause an infinite recursive loop. -->
-      <xsl:when test="matches($replace, $texregex)
-                      and not($to-replace = $seen)
-                      and not(matches($replace, '[\{\}\|%]'))">
-        <xsl:value-of select="mml2tex:utf2tex($replace, ($seen, $to-replace))"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <!-- whitespace prevents undefined control sequences -->
-        <xsl:value-of select="$replace"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    
+    <xsl:analyze-string select="$string" regex="{$texregex}">
+      <xsl:matching-substring>
+        <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
+        <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>        
+        <xsl:variable name="result" select="replace(., 
+                                                    $pattern,
+                                                    if(matches($replacement, '\d')) then $replacement else concat($replacement, '&#x20;')
+                                                    )"/>
+        <xsl:choose>
+          <xsl:when test="matches($result, $texregex)
+                          and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">
+            <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern)), '')"/>
+  
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$result"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:matching-substring>
+      <xsl:non-matching-substring>
+        <xsl:value-of select="."/>
+      </xsl:non-matching-substring>
+    </xsl:analyze-string>
   </xsl:function>
 
 </xsl:stylesheet>

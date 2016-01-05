@@ -8,7 +8,7 @@
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
   exclude-result-prefixes="saxon tr fn mml xs">
   
-  <xsl:import href="http://transpect.io/mml2tex/xsl/mml2tex.xsl"/>
+  <xsl:import href="mml2tex.xsl"/>
   
   <xsl:output method="text" encoding="UTF-8"/>
   

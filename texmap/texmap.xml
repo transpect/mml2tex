@@ -34,8 +34,6 @@
     <char character="&#x5f;" string="\_"/>
     <!--= \lbrace, LEFT CURLY BRACKET-->
     <char character="&#x7b;" string="\{"/>
-    <!--= \vert, vertical bar-->
-    <char character="&#x7c;" string="|"/>
     <!--= \rbrace, RIGHT CURLY BRACKET-->
     <char character="&#x7d;" string="\}"/>
     <!--# \sim, TILDE-->

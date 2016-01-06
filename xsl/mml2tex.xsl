@@ -442,7 +442,7 @@
     <!-- In order to avoid infinite recursion when mapping % → \% -->
     <xsl:param name="seen" as="xs:string*"/>
     
-    <xsl:analyze-string select="$string" regex="{$texregex}">
+    <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
         <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>        

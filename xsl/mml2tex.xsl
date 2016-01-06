@@ -423,13 +423,17 @@
     <xsl:choose>
       <xsl:when test="some $i in $mml-mathvariant-to-tex/var satisfies $mathvariant eq $i/@mml">
         <xsl:value-of select="concat('\', $mml-mathvariant-to-tex/var[@mml eq $mathvariant]/@tex, '{')"/>
-        <xsl:apply-templates mode="#current"/>
+        <xsl:apply-templates select="node()" mode="#current"/>
         <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates mode="#current"/>
+        <xsl:apply-templates select="node()" mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="processing-instruction()[local-name() eq 'latex']" mode="mathml2tex">
+    <xsl:value-of select="."/>
   </xsl:template>
   
   <!-- check operators -->

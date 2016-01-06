@@ -41,7 +41,7 @@
   
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
   
-  <tr:store-debug pipeline-step="mml2tex/01.mml2tex-input" indent="false">
+  <tr:store-debug pipeline-step="mml2tex/01.mml2tex-input">
     <p:with-option name="active" select="$debug"/>
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>
@@ -55,7 +55,7 @@
     <p:with-param name="debug-dir-uri" select="''"/>
   </p:xslt>
   
-  <tr:store-debug pipeline-step="mml2tex/02.mml2tex-preprocess" indent="false">
+  <tr:store-debug pipeline-step="mml2tex/02.mml2tex-preprocess">
     <p:with-option name="active" select="$debug"/>
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>

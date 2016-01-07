@@ -290,7 +290,7 @@
             <xsl:value-of select="$val"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="mml2tex:utf2tex($val, ())"/>
+            <xsl:value-of select="string-join(mml2tex:utf2tex($val, ()), '')"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
@@ -327,7 +327,7 @@
               <xsl:value-of select="'\ '"/>
             </xsl:when>
             <xsl:when test="matches($text, $texregex)">
-              <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
+              <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
@@ -355,7 +355,7 @@
         <xsl:text>{</xsl:text>
         <xsl:choose>
           <xsl:when test="matches($text, $texregex)">
-            <xsl:value-of select="mml2tex:utf2tex($text, ())"/>
+            <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$text"/>
@@ -448,12 +448,14 @@
     
     <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
+        
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
         <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>        
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
-                                                    if(matches($replacement, '\d')) then $replacement else concat($replacement, '&#x20;')
+                                                    if(matches($replacement, '[\d\{{\}}]')) then $replacement else concat($replacement, '&#x20;')
                                                     )" as="xs:string"/>
+        <xsl:message select="concat('----', $replacement, '-', matches($replacement, '[\d\{{\}}]'))"></xsl:message>
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
                           and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">

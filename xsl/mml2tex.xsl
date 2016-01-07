@@ -202,27 +202,30 @@
       <xsl:text> &amp; </xsl:text>
     </xsl:if>
   </xsl:template>
+  
+  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
 
   <xsl:template match="mover|munder" mode="mathml2tex">
-    <!-- diacritical mark overline should be substituted with latex overline -->
-    <xsl:variable name="diacritical-overline-exists" select="matches(., '&#x305;')" as="xs:boolean"/>
-    <xsl:variable name="diacritical-hat-exists" select="matches(., '&#x302;')" as="xs:boolean"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
     </xsl:if>
-    <xsl:value-of select="if (local-name() = 'mover') then 
-      if($diacritical-overline-exists) then '\overline' 
-        else
-          if($diacritical-hat-exists) then '\hat' 
-        else '\overset' 
-      else '\underset'"/>
-    <xsl:if test="not($diacritical-overline-exists or $diacritical-hat-exists)">
-      <xsl:text>{</xsl:text>
-      <xsl:apply-templates select="*[2]" mode="#current"/>
-      <xsl:text>}</xsl:text>
-    </xsl:if>
+    <!-- diacritical mark overline should be substituted with latex overline -->
+    <xsl:variable name="expression" select="*[1]" as="element(*)"/>
+    <xsl:variable name="accent" select="*[2]" as="element(*)"/>
+    <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex)" as="xs:boolean"/>
+    <xsl:choose>
+      <xsl:when test="$is-diacritical-mark">
+        <xsl:apply-templates select="$accent" mode="#current"/>
+      </xsl:when>
+      <xsl:when test="self::mover or self::munder">
+        <xsl:value-of select="if(self::mover ) then '\overset' else '\underset'"/>
+        <xsl:text>{</xsl:text>
+        <xsl:apply-templates select="$accent" mode="#current"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
+    </xsl:choose>
     <xsl:text>{</xsl:text>
-    <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:apply-templates select="$expression" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -317,7 +320,7 @@
       <xsl:when test="../self::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]">
         <xsl:text>\</xsl:text>
         <xsl:value-of select="$text"/>
-        <xsl:text> </xsl:text>
+        <xsl:text>&#x20;</xsl:text>
       </xsl:when>
       <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms')]">
         <xsl:variable name="fonts" as="xs:string?" select="tr:text-atts(..)"/>
@@ -327,7 +330,11 @@
               <xsl:value-of select="'\ '"/>
             </xsl:when>
             <xsl:when test="matches($text, $texregex)">
-              <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
+              <xsl:variable name="insert-whitespace" select="matches($text, string-join(($diacritics-regex, '[0-9]+'), '|'))" as="xs:boolean"/>
+              <xsl:value-of select="concat(
+                                           string-join(mml2tex:utf2tex($text, ()), ''),
+                                           if($insert-whitespace) then '' else '&#x20;'
+                )"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
@@ -453,9 +460,8 @@
         <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>        
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
-                                                    if(matches($replacement, '[\d\{{\}}]')) then $replacement else concat($replacement, '&#x20;')
+                                                    $replacement
                                                     )" as="xs:string"/>
-        <xsl:message select="concat('----', $replacement, '-', matches($replacement, '[\d\{{\}}]'))"></xsl:message>
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
                           and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">

@@ -9,7 +9,7 @@
         * group adjacent mi tags with equivalent attributes
         * -->
   
-  <xsl:template match="mml:*[mml:mi]">
+  <xsl:template match="mml:*[count(mml:mi) gt 1]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       
@@ -34,6 +34,8 @@
       
     </xsl:copy>
   </xsl:template>
+  
+  <xsl:template match="mml:mi/text()[matches(., '^\s+$')][not(parent::mi/preceding-sibling::*[1][local-name() eq 'mi'] or parent::mi/following-sibling::*[1][local-name() eq 'mi'])]"/>
   
   <xsl:template match="*|@*|processing-instruction()">
     <xsl:copy>

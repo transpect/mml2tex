@@ -330,11 +330,7 @@
               <xsl:value-of select="'\ '"/>
             </xsl:when>
             <xsl:when test="matches($text, $texregex)">
-              <xsl:variable name="insert-whitespace" select="matches($text, string-join(($diacritics-regex, '[0-9]+'), '|'))" as="xs:boolean"/>
-              <xsl:value-of select="concat(
-                                           string-join(mml2tex:utf2tex($text, ()), ''),
-                                           if($insert-whitespace) then '' else '&#x20;'
-                )"/>
+              <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
@@ -455,18 +451,19 @@
     
     <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
-        
+        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#]'), '|'))))
+          then '&#x20;' else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-        <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>        
+        <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[@character = $pattern][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
-                                                    $replacement
+                                                    concat($replacement, $insert-whitespace)
                                                     )" as="xs:string"/>
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
                           and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">
+            
             <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern)), '')"/>
-  
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$result"/>

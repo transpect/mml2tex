@@ -11,7 +11,7 @@
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
   version="2.0">
 
-  <xsl:import href="http://transpect.io/xslt-util/functx/Strings/Replacing/escape-for-regex.xsl"/>
+  <xsl:import href="http://transpect.io/xslt-util/functx/xsl/functx.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
 

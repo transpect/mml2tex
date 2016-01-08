@@ -11,12 +11,9 @@
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
   version="2.0">
 
-  <xsl:import href="http://transpect.io/xslt-util/functx/xsl/functx.xsl"/>
-
   <xsl:output method="text" encoding="UTF-8"/>
 
-  <!-- texmap is passed as 2nd collection => ../texmap/texmap.xml -->
-  <xsl:variable name="texmap" select="collection()[2]/xml2tex:set/xml2tex:charmap" as="element(xml2tex:charmap)"/>
+  <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap" as="element(xml2tex:charmap)"/>
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap//xml2tex:char/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
@@ -474,6 +471,17 @@
         <xsl:value-of select="."/>
       </xsl:non-matching-substring>
     </xsl:analyze-string>
+  </xsl:function>
+  
+  <xsl:function name="functx:escape-for-regex" as="xs:string" 
+    xmlns:functx="http://www.functx.com" >
+    <xsl:param name="arg" as="xs:string?"/> 
+    
+    <xsl:sequence select=" 
+      replace($arg,
+      '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
+      "/>
+    
   </xsl:function>
 
 </xsl:stylesheet>

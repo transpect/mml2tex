@@ -596,7 +596,7 @@
     <!--COMPLEMENT sign-->
     <char character="&#x2201;" string="\complement"/>
     <!--# \partial, PARTIAL DIFFERENTIAL-->
-    <char character="&#x2202;" string="\partialup"/>
+    <char character="&#x2202;" string="\partial"/>
     <!--= \exi (oz), at least one exists-->
     <char character="&#x2203;" string="\exists"/>
     <!--= \nexi (oz), negated exists-->

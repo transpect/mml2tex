@@ -633,8 +633,8 @@
     <char character="&#x2217;" string="\ast"/>
     <!--composite function (small circle)-->
     <char character="&#x2218;" string="\circ"/>
-    <!--BULLET OPERATOR-->
-    <char character="&#x2219;" string="\bullet"/>
+    <!--BULLET OPERATOR-->  <!-- authors frequently mix the bullet with the multiplication dot -->
+    <char character="&#x2219;" string="\cdot"/>
     <!--radical-->
     <char character="&#x221a;" string="\sqrt"/>
     <!--CUBE ROOT-->

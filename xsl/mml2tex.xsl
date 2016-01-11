@@ -312,56 +312,21 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="mathml2tex">
-    <xsl:variable name="text" select="normalize-space(.)" as="xs:string"/>
+    <!-- normalize space and remove line breaks -->
+    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;', ' ')" as="xs:string"/>
+    <!-- choose corresponding font suffix for \math -->
+    <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
     <xsl:choose>
+      <!-- operator names such as cos, sin, log -->
       <xsl:when test="../self::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]">
-        <xsl:text>\</xsl:text>
-        <xsl:value-of select="$text"/>
-        <xsl:text>&#x20;</xsl:text>
+        <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
-      <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms')]">
-        <xsl:variable name="fonts" as="xs:string?" select="tr:text-atts(..)"/>
-        <xsl:variable name="text" as="xs:string">
-          <xsl:choose>
-            <xsl:when test=". = ' '">
-              <xsl:value-of select="'\ '"/>
-            </xsl:when>
-            <xsl:when test="matches($text, $texregex)">
-              <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="replace($text, '([{{|}}])', '\\$1')"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="text" select="replace($text, '&#xa;', ' ')" as="xs:string"/>
-        <xsl:choose>
-          <xsl:when test="$fonts">
-            <xsl:text>\math</xsl:text>
-            <xsl:value-of select="$fonts"/>
-            <xsl:text>{</xsl:text>
-            <xsl:value-of select="$text"/>
-            <xsl:text>}</xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$text"/>
-          </xsl:otherwise> 
-        </xsl:choose>
-      </xsl:when>
-      <xsl:when test="parent::mtext">
-        <xsl:variable name="fonts" as="xs:string" select="tr:text-atts(..)"/>
-        <xsl:value-of select="if (string-length($text) gt 1) then '\text' else '\math'"/>
-        <xsl:value-of select="$fonts"/>
-        <xsl:text>{</xsl:text>
-        <xsl:choose>
-          <xsl:when test="matches($text, $texregex)">
-            <xsl:value-of select="string-join(mml2tex:utf2tex($text, ()), '')"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$text"/>
-          </xsl:otherwise>
-        </xsl:choose>        
-        <xsl:text>}</xsl:text>
+      <!-- convert to mathrm, mathit and map unicode to latex -->
+      <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms', 'mtext')]">
+        <xsl:variable name="utf2tex" select="if(. = ' ') then '\ ' 
+                                             else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, ()), '')
+                                             else $text" as="xs:string"/>
+        <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="yes" select="'unexpected text node', parent::*/name()"/>

@@ -316,16 +316,20 @@
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;', ' ')" as="xs:string"/>
     <!-- choose corresponding font suffix for \math -->
     <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
+    <xsl:variable name="utf2tex" select="if(. = ' ') then '\ ' 
+                                         else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, ()), '')
+                                         else $text" as="xs:string"/>
     <xsl:choose>
       <!-- operator names such as cos, sin, log -->
-      <xsl:when test="../self::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]">
+      <xsl:when test="parent::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]
+                      |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:operator-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
+      <xsl:when test="parent::mtext[not(@mathvariant) or @mathvariant = 'normal']">
+        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
+      </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex -->
-      <xsl:when test="parent::*[local-name() = ('mn', 'mi', 'mo', 'ms', 'mtext')]">
-        <xsl:variable name="utf2tex" select="if(. = ' ') then '\ ' 
-                                             else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, ()), '')
-                                             else $text" as="xs:string"/>
+      <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms|parent::mtext">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <xsl:otherwise>
@@ -403,8 +407,38 @@
   
   <!-- check operators -->
   <xsl:variable name="mml2tex:operator-names" as="xs:string+" 
-    select="('arcsin', 'arctan', 'arg', 'cos', 'cosh', 'cot', 'coth', 'csc', 'deg', 'det', 'dim', 'exp', 'gcd', 'hom', 'ker', 
-             'lg', 'lim', 'liminf', 'limsup', 'ln', 'log', 'max', 'min', 'Pr', 'sec', 'sinh', 'sup', 'tan', 'tanh')"/>
+    select="('arccos',
+             'arcsin',
+             'arctan',
+             'arg',
+             'cos',
+             'cosh',
+             'cot',
+             'coth',
+             'csc',
+             'deg',
+             'det',
+             'dim',
+             'exp',
+             'gcd',
+             'hom',
+             'inf',
+             'ker', 
+             'lg',
+             'lim', 
+             'liminf', 
+             'limsup', 
+             'ln', 
+             'log', 
+             'max', 
+             'min', 
+             'Pr', 
+             'sec', 
+             'sin',
+             'sinh', 
+             'sup', 
+             'tan', 
+             'tanh')"/>
     
   <xsl:function name="mml2tex:utf2tex" as="xs:string+">
     <xsl:param name="string" as="xs:string"/>
@@ -438,15 +472,10 @@
     </xsl:analyze-string>
   </xsl:function>
   
-  <xsl:function name="functx:escape-for-regex" as="xs:string" 
-    xmlns:functx="http://www.functx.com" >
+  <xsl:function name="functx:escape-for-regex" as="xs:string">
     <xsl:param name="arg" as="xs:string?"/> 
-    
-    <xsl:sequence select=" 
-      replace($arg,
-      '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
-      "/>
-    
+    <xsl:sequence select="replace($arg,
+                                  '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
   </xsl:function>
 
 </xsl:stylesheet>

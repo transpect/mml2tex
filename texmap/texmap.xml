@@ -6,7 +6,9 @@
          * Unicode characters and corresponding LaTeX math mode commands
          * -->  
     <char character="ß" string="\ss{}"/>
-  
+    <char character="°" string="\circ"/>
+    <char character="&#x25a1;" string="\Box"/>
+    
     <!-- *
          * Basic Latin
          * -->

@@ -7,7 +7,6 @@
          * -->  
     <char character="ß" string="\ss{}"/>
     <char character="°" string="\circ"/>
-    <char character="&#x25a1;" string="\Box"/>
     
     <!-- *
          * Basic Latin
@@ -45,6 +44,17 @@
     <!-- *
          * Latin-1 Supplement
          * -->
+    
+    <char character="&#x192;" string="\mathit{f}"/>
+    
+    <!-- *
+         * Latin Extended-B
+         * -->
+    
+    <!-- LATIN SMALL LETTER F WITH HOOK -->
+    <char character="&#x192;" string="\mathit{f}"/>
+    <!--jmath-->
+    <char character="&#x237;" string="\jmath"/>
   
     <!--nbsp-->
     <char character="&#xa0;" string="~"/>
@@ -202,6 +212,8 @@
     <char character="&#x3bd;" string="\upnu"/>
     <!--= \mathrm{\xi} (omlmathrm), = \xiup (kpfonts mathdesign), = \upxi (upgreek),  xi, greek-->
     <char character="&#x3be;" string="\upxi"/>
+    <!-- omicron, greek -->
+    <char character="&#x3bf;" string="o"/>
     <!--= \mathrm{\pi} (omlmathrm), = \piup (kpfonts mathdesign), = \uppi (upgreek),  pi, greek-->
     <char character="&#x3c0;" string="\uppi"/>
     <!--= \mathrm{\rho} (omlmathrm), = \rhoup (kpfonts mathdesign), = \uprho (upgreek),  rho, greek-->
@@ -1239,7 +1251,7 @@
     <!--= \varheart (arevmath), filled heart (card suit)-->
     <char character="&#x2665;" string="\varheartsuit"/>
     <!--= \vardiamond (arevmath), filled diamond (card suit)-->
-    <char character="&#x2666;" string="\vardiamondsuit"/>
+    <char character="&#x2666;" string="\blacklozenge"/>
     <!--= \varclub (arevmath), club, white (card suit)-->
     <char character="&#x2667;" string="\varclubsuit"/>
     <!--music note (sung text sign)-->
@@ -1609,7 +1621,14 @@
     <char character="&#x2b1b;" string="\blacksquare"/>
     <!--WHITE LARGE SQUARE-->
     <char character="&#x2b1c;" string="\square"/>
-  
+    <!-- BLACK VERY SMALL SQUARE -->
+    <char character="&#x2b1d;" string="\centerdot"/>
+    <!-- BLACK MEDIUM LOZENGE -->
+    <char character="&#x2b27;" string="\blacklozenge"/>
+    <!-- WHITE MEDIUM LOZENGE -->
+    <char character="&#x2b28;" string="\lozenge"/>
+    
+
     <!-- *
          * CJK Symbols and Punctuation
          * -->

@@ -330,6 +330,7 @@
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex -->
       <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms|parent::mtext">
+        
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <xsl:otherwise>
@@ -374,24 +375,26 @@
   </xsl:template>
 
   <xsl:template match="mn|mi|ms|mo" mode="mathml2tex">
-    <xsl:variable name="mml-mathvariant-to-tex">
-      <var mml="bold" tex="mathbf"/>
-      <var mml="italic" tex="mathit"/>
-      <var mml="bold-italic" tex="boldsymbol"/>
-      <var mml="fraktur" tex="mathfrak"/>
-      <var mml="bold-fraktur" tex="mathfrak"/>
-      <var mml="script" tex="mathfrak"/>
-      <var mml="bold-script" tex="mathfrak"/>
-      <var mml="sans-serif" tex="mathsf"/>
-      <var mml="bold-sans-serif" tex="mathfrak"/>
-      <var mml="sans-serif-italic" tex="mathfrak"/>
-      <var mml="sans-serif-bold-italic" tex="mathfrak"/>
-      <var mml="monospace" tex="mathtt"/>
+    <xsl:variable name="mml-mathvariant-to-tex" as="element(mml2tex:styles)">
+      <styles xmlns="http://transpect.io/mml2tex">
+        <var mml="bold" tex="mathbf"/>
+        <var mml="italic" tex="mathit"/>
+        <var mml="bold-italic" tex="boldsymbol"/>
+        <var mml="fraktur" tex="mathfrak"/>
+        <var mml="bold-fraktur" tex="mathfrak"/>
+        <var mml="script" tex="mathfrak"/>
+        <var mml="bold-script" tex="mathfrak"/>
+        <var mml="sans-serif" tex="mathsf"/>
+        <var mml="bold-sans-serif" tex="mathfrak"/>
+        <var mml="sans-serif-italic" tex="mathfrak"/>
+        <var mml="sans-serif-bold-italic" tex="mathfrak"/>
+        <var mml="monospace" tex="mathtt"/>
+      </styles>
     </xsl:variable>
     <xsl:variable name="mathvariant" select="@mathvariant" as="xs:string?"/>
     <xsl:choose>
-      <xsl:when test="some $i in $mml-mathvariant-to-tex/var satisfies $mathvariant eq $i/@mml">
-        <xsl:value-of select="concat('\', $mml-mathvariant-to-tex/var[@mml eq $mathvariant]/@tex, '{')"/>
+      <xsl:when test="some $i in $mml-mathvariant-to-tex/mml2tex:var satisfies $mathvariant eq $i/@mml">
+        <xsl:value-of select="concat('\', $mml-mathvariant-to-tex/mml2tex:var[@mml eq $mathvariant]/@tex, '{')"/>
         <xsl:apply-templates select="node()" mode="#current"/>
         <xsl:text>}</xsl:text>
       </xsl:when>

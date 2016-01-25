@@ -1,6 +1,6 @@
 # mml2tex
 
-mml2tex is an XProc/XSLT-library which converts MathML to LaTeX.
+mml2tex is an XProc/XSLT-library to convert MathML to LaTeX.
 
 You may either invoke mml2tex standalone or include it as library in your XSLT or XProc project. The LaTeX code is wrapped in a processing instruction named `mml2tex`. Consider this XML input file …
 
@@ -176,6 +176,8 @@ The step `mml2tex:convert` facilitates the use of the mml2tex library in your XP
 </p:declare-step>
 ```
 ### Run the pipeline
+
+We provide frontend scripts for XML Calabash which look after the XML catalogs, make some paths suitable for XProc and add some Java libraries to the class path. There is a Bash script for Unix-like operating systems as well as an Batch file for Windows. You can found them in the calabash directory. 
 ```
-$ sh calabash/calabash.sh test.xpl
+$ ./calabash/calabash.sh test.xpl
 ```

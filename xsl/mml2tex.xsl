@@ -481,7 +481,7 @@
                                                     )" as="xs:string"/>
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
-                          and not(($pattern = $seen) or matches($result, '^[a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">
+                          and not(($pattern = $seen) or matches($result, '^[\^a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s]+$'))">
             
             <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern)), '')"/>
           </xsl:when>

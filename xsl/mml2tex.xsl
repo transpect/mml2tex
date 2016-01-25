@@ -210,7 +210,7 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
+  <xsl:variable name="diacritics-regex" select="'^[&#xaf;&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">

@@ -341,7 +341,14 @@
                                          else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, ()), '')
                                          else $text" as="xs:string"/>
     <xsl:choose>
-      <!-- operator names such as cos, sin, log -->
+      <!-- parenthesis, brackets, e.g. -->
+      <xsl:when test="parent::mo and matches(., '[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]')">
+        <xsl:call-template name="fence">
+          <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
+          <xsl:with-param name="val" select="."/>
+        </xsl:call-template>
+      </xsl:when>
+      <!-- function names such as cos, sin, log -->
       <xsl:when test="parent::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]
                       |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:operator-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>

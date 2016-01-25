@@ -24,20 +24,12 @@
     <char character="&#x26;" string="\&amp;"/>
     <!--x :, COLON (not ratio)-->
     <char character="&#x3a;" string="\colon"/>
-    <!--LEFT SQUARE BRACKET-->
-    <char character="&#x5b;" string="\lbrack"/>
     <!--REVERSE SOLIDUS-->
     <char character="&#x5c;" string="\backslash"/>
-    <!--RIGHT SQUARE BRACKET-->
-    <char character="&#x5d;" string="\rbrack"/>
     <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
     <char character="&#x5e;" string="\sphat"/>
     <!--LOW LINE, TeX subscript operator-->
     <char character="&#x5f;" string="\_"/>
-    <!--= \lbrace, LEFT CURLY BRACKET-->
-    <char character="&#x7b;" string="\{"/>
-    <!--= \rbrace, RIGHT CURLY BRACKET-->
-    <char character="&#x7d;" string="\}"/>
     <!--# \sim, TILDE-->
     <char character="&#x7e;" string="\sptilde"/>
   

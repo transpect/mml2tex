@@ -177,7 +177,7 @@ The step `mml2tex:convert` facilitates the use of the mml2tex library in your XP
 ```
 ### Run the pipeline
 
-We provide frontend scripts for XML Calabash which look after the XML catalogs, make some paths suitable for XProc and add some Java libraries to the class path. There is a Bash script for Unix-like operating systems as well as an Batch file for Windows. You can found them in the calabash directory. 
+We provide frontend scripts for XML Calabash which look after the XML catalogs, make some paths suitable for XProc and add some Java libraries to the class path. There is a Bash script for Unix-like operating systems as well as an Batch file for Windows. You can find them in the calabash directory. 
 ```
 $ ./calabash/calabash.sh test.xpl
 ```

@@ -95,7 +95,7 @@
         <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
+        <xsl:message terminate="no" select="name(), 'must include two elements'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -105,7 +105,7 @@
       <xsl:choose>
         <xsl:when test="current-group()[1][local-name() = 'mprescripts']">
           <xsl:if test="not((floor(count(current-group()) - 1) div 2) = ((count(current-group()) - 1) div 2))">
-            <xsl:message terminate="yes" select="'after ', name(), 'must follow 2n + 1 elements'"/>
+            <xsl:message terminate="no" select="'after ', name(), 'must follow 2n + 1 elements'"/>
           </xsl:if>
           <xsl:for-each-group select="current-group()[position() &gt; 1]" group-adjacent="floor(count(preceding-sibling::*[. &gt;&gt; current-group()[1]]) div 2)">
             <xsl:if test="not(current-group()[1][self::none])">
@@ -122,7 +122,7 @@
         </xsl:when>
         <xsl:otherwise>
           <xsl:if test="not((floor(count(current-group()) - 1) div 2) = ((count(current-group()) - 1) div 2))">
-            <xsl:message terminate="yes" select="name(), 'must include 2n +1 elements.'"/>
+            <xsl:message terminate="no" select="name(), 'must include 2n +1 elements.'"/>
           </xsl:if>
           <xsl:apply-templates select="current-group()[1]" mode="#current"/>
           <xsl:for-each-group select="current-group()[position() &gt; 1]" group-adjacent="floor(count(preceding-sibling::*[. &gt;&gt; current-group()[1]]) div 2)">
@@ -150,7 +150,7 @@
 
   <xsl:template match="mroot" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:text>\sqrt[</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -161,7 +161,7 @@
 
   <xsl:template match="msup|msub" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
@@ -172,7 +172,7 @@
 
   <xsl:template match="msubsup" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="yes" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="no" select="name(), 'must include three elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>_{</xsl:text>
@@ -214,7 +214,7 @@
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="yes" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
     </xsl:if>
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
@@ -238,7 +238,7 @@
 
   <xsl:template match="munderover" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="yes" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="no" select="name(), 'must include three elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text> \limits_{</xsl:text>
@@ -355,7 +355,7 @@
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="yes" select="'unexpected text node', parent::*/name()"/>
+        <xsl:message terminate="no" select="'unexpected text node', parent::*/name()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

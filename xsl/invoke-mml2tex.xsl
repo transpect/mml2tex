@@ -10,7 +10,7 @@
   
   <xsl:import href="mml2tex.xsl"/>
   
-  <xsl:output method="text" encoding="UTF-8"/>
+  <xsl:output method="xml" encoding="UTF-8"/>
   
   <xsl:preserve-space elements="mml:mn mml:mi mml:mtext mml:mo mml:ms"/>
   

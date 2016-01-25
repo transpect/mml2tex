@@ -122,7 +122,7 @@ $ svn co https://github.com/transpect/xproc-util/trunk xproc-util
 
 ### Create an XML catalog
 
-As a convention, our calabash frontend looks after an XML catalog file under `xmlcatalog/catalog.xml`.
+As a convention, our calabash frontend looks after an XML catalog file under `xmlcatalog/catalog.xml`. Therefore you have to create the directory and the file. 
 ```
 $ mkdir xmlcatalog
 $ touch xmlcatalog/catalog.xml

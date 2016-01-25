@@ -6,7 +6,6 @@
          * Unicode characters and corresponding LaTeX math mode commands
          * -->  
     <char character="ß" string="\ss{}"/>
-    <char character="°" string="^\circ"/>
     
     <!-- *
          * Basic Latin
@@ -36,9 +35,7 @@
     <!-- *
          * Latin-1 Supplement
          * -->
-    
-    <char character="&#x192;" string="\mathit{f}"/>
-    
+
     <!-- *
          * Latin Extended-B
          * -->
@@ -60,10 +57,16 @@
     <char character="&#xac;" string="\neg"/>
     <!--REGISTERED SIGN-->
     <char character="&#xae;" string="\circledR"/>
+    <!-- MACRON -->
+    <char character="&#xaf;" string="\bar"/>
+    <!-- DEGREE SIGN -->
+    <char character="&#xb0;" string="^\circ"/>
     <!--plus-or-minus sign-->
     <char character="&#xb1;" string="\pm"/>
     <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
     <char character="&#xb5;" string="\Micro"/>
+    <!-- middle dot -->
+    <char character="&#xb7;" string="\cdot"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
     <char character="&#xd7;" string="\times"/>
     <!--eth-->

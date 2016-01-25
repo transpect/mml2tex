@@ -139,7 +139,7 @@ The catalog is necessary to resolve canonical URIs in import statements, such as
 
 ### Include mml2tex in your XProc pipeline
 
-The step `mml2tex:convert` facilitates the use of the mml2tex library in your XProc pipeline. As prerequisites, you must add the namespace  `http://transpect.io/mml2tex` and a `p:import` statement.
+The step `mml2tex:convert` facilitates the use of the mml2tex library in your XProc pipeline. As prerequisites, you must add the namespace  `http://transpect.io/mml2tex` and a `p:import` statement. A sample `test.xpl` may look like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -174,4 +174,8 @@ The step `mml2tex:convert` facilitates the use of the mml2tex library in your XP
   </mml2tex:convert>
   
 </p:declare-step>
+```
+### Run the pipeline
+```
+$ sh calabash/calabash.sh test.xpl
 ```

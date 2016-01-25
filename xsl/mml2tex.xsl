@@ -45,6 +45,8 @@
     <xsl:message select="'WARNING: element', name(), 'ignored!'"/>
   </xsl:template>
   
+  <!-- https://github.com/transpect/mml2tex/issues/3 -->
+  
   <xsl:template match="malignmark" mode="mathml2tex">
     <!-- consider that the stylesheet which imports mm2ltex.xsl must 
          wrap the equation with an align environment -->
@@ -259,6 +261,17 @@
     </xsl:text>
     <xsl:apply-templates select="mrow/*[preceding-sibling::mtable]" mode="#current"/>
   </xsl:template>
+  
+  <!-- https://github.com/transpect/mml2tex/issues/1, requires amsmath -->
+  
+  <xsl:template match="mfenced[count(*) eq 1][count(mrow) eq 1][mrow/mfrac[@linethickness = ('0', '0pt')]][count(mrow/mfrac/mrow) eq 2]" mode="mathml2tex">
+    <xsl:text>\binom{</xsl:text>
+    <xsl:apply-templates select="mrow/mfrac/mrow[1]" mode="#current"/>
+    <xsl:text>}{</xsl:text>
+    <xsl:apply-templates select="mrow/mfrac/mrow[2]" mode="#current"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  
 
   <xsl:template match="mfenced" mode="mathml2tex">
     <xsl:call-template name="fence">

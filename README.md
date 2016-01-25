@@ -2,7 +2,11 @@
 
 mml2tex is an XProc/XSLT-library to convert MathML to LaTeX.
 
+It should currently support MathML 2 and 3 presentation markup. Content markup and some MathML 1 elements are not supported.
+
 You may either invoke mml2tex standalone or include it as library in your XSLT or XProc project. The LaTeX code is wrapped in processing instructions named `mml2tex`.
+
+This library is also used in [docx2tex](https://github.com/transpect/docx2tex) that converts Word docx files with OOMML (= new equation editor) formulas to LaTeX.
 
 Consider this XML input file …
 

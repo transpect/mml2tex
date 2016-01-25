@@ -2,15 +2,99 @@
 
 mml2tex is an XProc/XSLT-library which converts MathML to LaTeX.
 
+You may either invoke mml2tex standalone or include it as library in your XSLT or XProc project. The LaTeX code is wrapped in a processing instruction named `mml2tex`. Consider this XML input file …
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <title>Area enclosed by a circle</title>
+  <equation>
+    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+      <mml:mi>A</mml:mi>
+      <mml:mo>=</mml:mo>
+      <mml:mi>π</mml:mi>
+      <mml:msup>
+        <mml:mrow>
+          <mml:mi>r</mml:mi>
+        </mml:mrow>
+        <mml:mrow>
+          <mml:mn>2</mml:mn>
+        </mml:mrow>
+      </mml:msup>
+    </mml:math>
+  </equation>
+</article>
+
+```
+
+… you should get this output:
+```xml
+<?xml version="1.0" encoding="UTF-8"?><article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <title>Area enclosed by a circle</title>
+  <equation>
+    <?mml2tex A=\pi r^{2}?>
+  </equation>
+</article>
+```
+
+
 ## Invoke standalone
 
-There is a simple frontend XSLT to invoke mml2tex. For example, you can use Saxon to apply the stylesheet to your input XML file.
+There is a simple frontend XSLT to invoke mml2tex. You may use Saxon to apply the stylesheet to your input XML file.
 
 ```
-$ java -jar saxon9he.jar -s:example.xml -xsl:mml2tex/xsl/test-mml.xsl
+$ java -jar saxon9he.jar -s:example.xml -xsl:mml2tex/xsl/invoke-mml2tex.xsl
 ```
 
-## Include mml2tex as XProc library
+
+## Include as XSLT library
+
+You have to import `mml2tex.xsl` in your XSLT stylesheet and create a template that matches on the MathML equations. The MathML markup must be processed within the `mathml2tex` mode. You can take `xsl/mml2tex.xsl` as example:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="2.0" 
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:saxon="http://saxon.sf.net/" 
+  xmlns:tr="http://transpect.io"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  exclude-result-prefixes="saxon tr fn mml xs">
+  
+  <xsl:import href="mml2tex.xsl"/>
+  
+  <xsl:output method="xml" encoding="UTF-8"/>
+  
+  <xsl:preserve-space elements="mml:mn mml:mi mml:mtext mml:mo mml:ms"/>
+  
+  <xsl:param name="debug" select="'no'"/>
+  <xsl:param name="debug-dir-uri" select="'debug'"/>
+  
+  <xsl:template match="mml:math">
+    <xsl:processing-instruction name="mml2tex">
+      <xsl:apply-templates select="." mode="mathml2tex"/>
+    </xsl:processing-instruction>
+  </xsl:template>
+  
+  <xsl:template match="*|@*|processing-instruction()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="/">
+    <xsl:copy>
+      <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
+
+*Note:* You may omit the `xsl:processing-instruction`. Then the LaTeX code will be issued as plain text. This method is not recommended, because subsequent text replacements may break your LaTeX code. It's better to leave the LaTeX code within the processing instruction and resolve it as last step.
+
+## Include as XProc library
 
 ### Get dependencies
 
@@ -53,11 +137,9 @@ The catalog is necessary to resolve canonical URIs in import statements, such as
 </catalog>
 ```
 
-### Invoke mml2tex in your pipeline
+### Include mml2tex in your XProc pipeline
 
-The step `mml2tex:convert` is provided to 
-
-To include mml2tex in your pipeline, we provide the step `mml2tex:convert`. As prerequisites, you must add the namespace  `http://transpect.io/mml2tex` and a `p:import` statement.
+The step `mml2tex:convert` facilitates the use of the mml2tex library in your XProc pipeline. As prerequisites, you must add the namespace  `http://transpect.io/mml2tex` and a `p:import` statement. A sample `test.xpl` may look like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -92,4 +174,8 @@ To include mml2tex in your pipeline, we provide the step `mml2tex:convert`. As p
   </mml2tex:convert>
   
 </p:declare-step>
+```
+### Run the pipeline
+```
+$ sh calabash/calabash.sh test.xpl
 ```

@@ -92,7 +92,7 @@ You have to import `mml2tex.xsl` in your XSLT stylesheet and create a template t
 </xsl:stylesheet>
 ```
 
-*Note:* You may omit the `xsl:processing-instruction`. Then the LaTeX code will be issued as plain text. This method is not recommended, because subsequent text replacements may break your code. It's better to leave the code within the processing instruction and resolve it as final step.
+*Note:* You may omit the `xsl:processing-instruction`. Then the LaTeX code will be issued as plain text. This method is not recommended, because subsequent text replacements may break your LaTeX code. It's better to leave the LaTeX code within the processing instruction and resolve it as last step.
 
 ## Include as XProc library
 

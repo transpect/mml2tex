@@ -145,7 +145,6 @@ The step `mml2tex:convert` facilitates the use of the mml2tex library in your XP
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
   xmlns:c="http://www.w3.org/ns/xproc-step" 
   xmlns:mml2tex="http://transpect.io/mml2tex"

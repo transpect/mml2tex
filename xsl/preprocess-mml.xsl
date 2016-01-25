@@ -33,10 +33,7 @@
       </xsl:for-each-group>
       
     </xsl:copy>
-  </xsl:template>
-  
-  <!-- drop unnecessary whitespace -->
-  <xsl:template match="mml:mi/text()[matches(., '^\s+$')][not(parent::mi/preceding-sibling::*[1][local-name() eq 'mi'] or parent::mi/following-sibling::*[1][local-name() eq 'mi'])]"/>  
+  </xsl:template>  
   
   <xsl:template match="*|@*|processing-instruction()">
     <xsl:copy>

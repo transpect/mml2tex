@@ -41,8 +41,16 @@
     <xsl:message select="'WARNING: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
   </xsl:template>
   
-  <xsl:template match="maligngroup|malignmark|mphantom" mode="mathml2tex">
+  <xsl:template match="maligngroup|mphantom" mode="mathml2tex">
     <xsl:message select="'WARNING: element', name(), 'ignored!'"/>
+  </xsl:template>
+  
+  <xsl:template match="malignmark" mode="mathml2tex">
+    <!-- consider that the stylesheet which imports mm2ltex.xsl must 
+         wrap the equation with an align environment -->
+    <xsl:if test="matches(preceding-sibling::*[1], '^\s+$') or matches(following-sibling::*[1], '^\s+$')">
+      <xsl:text>&#x20;&amp;&#x20;</xsl:text>
+    </xsl:if>
   </xsl:template>
   
   <!-- only process text content -->

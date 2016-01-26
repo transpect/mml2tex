@@ -1,1 +1,0 @@
-saxon -xsl:test-mml.xsl -s:presentational/$1.xml -it:main

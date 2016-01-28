@@ -3,13 +3,14 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
   version="2.0"
-  exclude-result-prefixes="mml xs">
+  exclude-result-prefixes="mml xs" 
+  xpath-default-namespace="http://www.w3.org/1998/Math/MathML">
   
   <!--  *
         * group adjacent mi tags with equivalent attributes
         * -->
   
-  <xsl:template match="mml:*[count(mml:mi) gt 1]">
+  <xsl:template match="*[count(mi) gt 1]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       
@@ -19,10 +20,10 @@
                                string-join(for $i in @* return concat($i/local-name(), $i), '-')
                               )">
           <xsl:choose>
-            <xsl:when test="current-group()/local-name() = 'mi'">
+            <!-- some MathML elements expect a certain order of arguments -->
+            <xsl:when test="current-group()/local-name() = 'mi' and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot)">
               <xsl:copy>
-                <xsl:apply-templates select="current-group()/@*"/>
-                <xsl:apply-templates select="current-group()/node()"/>
+                <xsl:apply-templates select="current-group()/@*, current-group()/node()"/>
                 </xsl:copy>
             </xsl:when>
             <xsl:otherwise>
@@ -33,7 +34,36 @@
       </xsl:for-each-group>
       
     </xsl:copy>
-  </xsl:template>  
+  </xsl:template>
+  
+  <!-- resolve msubsup if superscript and subscript is empty -->
+  
+  <xsl:template match="msubsup[every $i in (*[2], *[3]) satisfies matches($i,'^[&#x2001;-&#x200b;]+$') or not(exists($i/node()))]" priority="10">
+    <xsl:apply-templates select="*[1]"/>
+  </xsl:template>
+  
+  <!-- convert msubsup to msub if superscript is empty -->
+  
+  <xsl:template match="msubsup[exists(*[2]/node()) and (matches(*[3],'^[&#x2001;-&#x200b;]+$') or not(exists(*[3]/node())))]">
+    <msub xmlns="http://www.w3.org/1998/Math/MathML">
+      <xsl:apply-templates select="@*, node() except *[3]"/>
+    </msub>
+  </xsl:template>
+  
+  <!-- convert msubsup to msup if subscript is empty -->
+  
+  <xsl:template match="msubsup[exists(*[3]/node()) and (matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node())))]">
+    <msup xmlns="http://www.w3.org/1998/Math/MathML">
+      <xsl:apply-templates select="@*, node() except *[2]"/>
+    </msup>
+  </xsl:template>
+  
+  <!-- resolve msub/msup with empty argument -->
+  
+  <xsl:template match="msub[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]
+                       |msup[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]">
+    <xsl:apply-templates select="*[1]"/>
+  </xsl:template>
   
   <xsl:template match="*|@*|processing-instruction()">
     <xsl:copy>

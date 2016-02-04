@@ -3,10 +3,9 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:fn="http://www.w3.org/2005/xpath-functions"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:saxon="http://saxon.sf.net/" 
   xmlns:tr="http://transpect.io"
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
-  exclude-result-prefixes="saxon tr fn mml xs">
+  exclude-result-prefixes="tr fn mml xs">
   
   <xsl:import href="mml2tex.xsl"/>
   

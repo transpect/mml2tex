@@ -30,7 +30,7 @@
     <!--LOW LINE, TeX subscript operator-->
     <char character="&#x5f;" string="\_"/>
     <!--# \sim, TILDE-->
-    <char character="&#x7e;" string="\sptilde"/>
+    <char character="&#x7e;" string="\sim"/>
   
     <!-- *
          * Latin-1 Supplement
@@ -289,7 +289,7 @@
     <!--DOUBLE PRIME or second, not superscripted-->
     <char character="&#x2033;" string="\second"/>
     <!--TRIPLE PRIME (not superscripted)-->
-    <char character="&#x2034;" string="\third"/>
+    <char character="&#x2034;" string="'''"/>
     <!--reverse prime, not superscripted-->
     <char character="&#x2035;" string="\backprime"/>
     <!--CHARACTER TIE, z notation sequence concatenation-->

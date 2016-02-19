@@ -73,7 +73,7 @@
   
   <xsl:template match="/" mode="mml2tex-preprocess">
     <xsl:copy>
-      <xsl:apply-templates select="@*|node()" mode="mml2tex-preprocess"/>
+      <xsl:apply-templates mode="mml2tex-preprocess"/>
     </xsl:copy>
   </xsl:template>
   

@@ -7,18 +7,20 @@
   exclude-result-prefixes="tr mml xs">
 
   <xsl:import href="mml2tex.xsl"/>
+  <xsl:import href="preprocess-mml.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
 
   <xsl:strip-space elements="*"/>
 
   <xsl:preserve-space elements="mml:mn mml:mi mml:mtext mml:mo mml:ms"/>
+  
+  <xsl:variable name="mml2tex-preprocess">
+    <xsl:apply-templates select="/" mode="mml2tex-preprocess"/>
+  </xsl:variable>
 
   <xsl:template name="main">
-    <xsl:for-each select="//mml:math">
-      <xsl:variable name="tex">
-        <xsl:apply-templates select="." mode="mathml2tex"/>
-      </xsl:variable>
+    <xsl:for-each select="$mml2tex-preprocess//mml:math">
       <xsl:apply-templates select="." mode="mathml2tex"/>
     </xsl:for-each>
   </xsl:template>

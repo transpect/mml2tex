@@ -10,9 +10,9 @@
         * group adjacent mi tags with equivalent attributes
         * -->
   
-  <xsl:template match="*[count(mi) gt 1]">
+  <xsl:template match="*[count(mi) gt 1]" mode="mml2tex-preprocess">
     <xsl:copy>
-      <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="@*" mode="#current"/>
       
       <xsl:for-each-group select="*" 
         group-adjacent="concat(
@@ -23,11 +23,11 @@
             <!-- some MathML elements expect a certain order of arguments -->
             <xsl:when test="current-group()/local-name() = 'mi' and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot)">
               <xsl:copy>
-                <xsl:apply-templates select="current-group()/@*, current-group()/node()"/>
+                <xsl:apply-templates select="current-group()/@*, current-group()/node()" mode="#current"/>
                 </xsl:copy>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:apply-templates select="current-group()"/>
+              <xsl:apply-templates select="current-group()" mode="#current"/>
             </xsl:otherwise>
           </xsl:choose>
         
@@ -38,42 +38,42 @@
   
   <!-- resolve msubsup if superscript and subscript is empty -->
   
-  <xsl:template match="msubsup[every $i in (*[2], *[3]) satisfies matches($i,'^[&#x2001;-&#x200b;]+$') or not(exists($i/node()))]" priority="10">
-    <xsl:apply-templates select="*[1]"/>
+  <xsl:template match="msubsup[every $i in (*[2], *[3]) satisfies matches($i,'^[&#x2001;-&#x200b;]+$') or not(exists($i/node()))]" priority="10" mode="mml2tex-preprocess">
+    <xsl:apply-templates select="*[1]" mode="#current"/>
   </xsl:template>
   
   <!-- convert msubsup to msub if superscript is empty -->
   
-  <xsl:template match="msubsup[exists(*[2]/node()) and (matches(*[3],'^[&#x2001;-&#x200b;]+$') or not(exists(*[3]/node())))]">
+  <xsl:template match="msubsup[exists(*[2]/node()) and (matches(*[3],'^[&#x2001;-&#x200b;]+$') or not(exists(*[3]/node())))]" mode="mml2tex-preprocess">
     <msub xmlns="http://www.w3.org/1998/Math/MathML">
-      <xsl:apply-templates select="@*, node() except *[3]"/>
+      <xsl:apply-templates select="@*, node() except *[3]" mode="#current"/>
     </msub>
   </xsl:template>
   
   <!-- convert msubsup to msup if subscript is empty -->
   
-  <xsl:template match="msubsup[exists(*[3]/node()) and (matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node())))]">
+  <xsl:template match="msubsup[exists(*[3]/node()) and (matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node())))]" mode="mml2tex-preprocess">
     <msup xmlns="http://www.w3.org/1998/Math/MathML">
-      <xsl:apply-templates select="@*, node() except *[2]"/>
+      <xsl:apply-templates select="@*, node() except *[2]" mode="#current"/>
     </msup>
   </xsl:template>
   
   <!-- resolve msub/msup with empty argument -->
   
   <xsl:template match="msub[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]
-                       |msup[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]">
-    <xsl:apply-templates select="*[1]"/>
+                       |msup[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]" mode="mml2tex-preprocess">
+    <xsl:apply-templates select="*[1]" mode="#current"/>
   </xsl:template>
   
-  <xsl:template match="*|@*|processing-instruction()">
+  <xsl:template match="*|@*|processing-instruction()" mode="mml2tex-preprocess">
     <xsl:copy>
-      <xsl:apply-templates select="@*|node()"/>
+      <xsl:apply-templates select="@*|node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="/">
+  <xsl:template match="/" mode="mml2tex-preprocess">
     <xsl:copy>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()" mode="mml2tex-preprocess"/>
     </xsl:copy>
   </xsl:template>
   

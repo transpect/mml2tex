@@ -46,8 +46,8 @@
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>
   
-  <p:xslt name="preprocess">
-    <p:documentation>Grouping of MathML elements.</p:documentation>    
+  <p:xslt name="preprocess" initial-mode="mml2tex-preprocess">
+    <p:documentation>Grouping of MathML elements.</p:documentation>
     <p:input port="stylesheet">
       <p:document href="../xsl/preprocess-mml.xsl"/>
     </p:input>

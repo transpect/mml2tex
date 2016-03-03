@@ -1086,27 +1086,34 @@
     <!--BOTTOM CURLY BRACKET (mathematical use)-->
     <char character="&#x23df;" string="\underbrace"/>
   
-    <!-- *
+    <!--  *
           * Enclosed Alphanumerics
           * -->
   
   
   
-    <!-- *
+    <!--  *
           * Box Drawing
           * -->
   
+    <!-- BOX DRAWINGS LIGHT VERTICAL -->
+    <char character="&#x2502;" string="{\textbar}"/>
   
-  
-    <!-- *
+    <!--  *
           * Block Elements
           * -->
   
   
   
-    <!-- *
+    <!--  *
           * Geometric Shapes
           * -->
+    <!-- BLACK SQUARE -->
+    <char character="&#x25a0;" string="\blacksquare"/>
+    <!-- WHITE SQUARE -->
+    <char character="&#x25a1;" string="\square"/>
+    <!-- BLACK SMALL SQUARE -->
+    <char character="&#x25aa;" string="\centerdot"/>
   
     <!--= \triangle (amsfonts), # \vartriangle (amssymb), big up triangle, open-->
     <char character="&#x25b3;" string="\bigtriangleup"/>

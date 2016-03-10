@@ -310,6 +310,9 @@
           <xsl:when test="$val = ('[', ']', '(', ')')">
             <xsl:value-of select="$val"/>
           </xsl:when>
+          <xsl:when test="$val = ('{', '}')">
+            <xsl:value-of select="concat('\', $val)"/>
+          </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="string-join(mml2tex:utf2tex($val, ()), '')"/>
           </xsl:otherwise>

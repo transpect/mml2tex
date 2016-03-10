@@ -8,6 +8,11 @@
   type="mml2tex:convert"
   version="1.0">
 
+  <p:documentation>
+    Takes an XML file as input and generates processing
+    instructions from MathML equations.
+  </p:documentation>    
+
   <p:input port="source" primary="true">
     <p:documentation>
       Expects an XML document.

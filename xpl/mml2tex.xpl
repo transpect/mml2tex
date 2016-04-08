@@ -18,7 +18,13 @@
       Expects an XML document.
     </p:documentation>
   </p:input>
-  
+
+  <p:input port="preprocess-mml-xsl">
+    <p:document href="../xsl/preprocess-mml.xsl"/>
+    <p:documentation>Override the default preprocessing by supplying your own XSLT 
+      that may or may not import http://transpect.io/mml2tex/xsl/preprocess-mml.xsl</p:documentation>
+  </p:input>
+
   <p:input port="conf" primary="false">
     <p:documentation>
       Expects a character map for mapping from Unicode to TeX.
@@ -54,7 +60,7 @@
   <p:xslt name="preprocess" initial-mode="mml2tex-preprocess">
     <p:documentation>Grouping of MathML elements.</p:documentation>
     <p:input port="stylesheet">
-      <p:document href="../xsl/preprocess-mml.xsl"/>
+      <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
     </p:input>
     <p:with-param name="debug" select="''"/>
     <p:with-param name="debug-dir-uri" select="''"/>

@@ -35,16 +35,7 @@
     <!-- *
          * Latin-1 Supplement
          * -->
-
-    <!-- *
-         * Latin Extended-B
-         * -->
     
-    <!-- LATIN SMALL LETTER F WITH HOOK -->
-    <char character="&#x192;" string="\mathit{f}"/>
-    <!--jmath-->
-    <char character="&#x237;" string="\jmath"/>
-  
     <!--nbsp-->
     <char character="&#xa0;" string="~"/>
     <!--= \mathcent (txfonts), cent-->
@@ -62,9 +53,13 @@
     <!-- DEGREE SIGN -->
     <char character="&#xb0;" string="^\circ"/>
     <!--plus-or-minus sign-->
-    <char character="&#xb1;" string="\pm"/>
+    <char character="&#xb1;" string="\pm"/>    
+    <!--SUPERSCRIPT TWO -->
+    <char character="&#xb2;" string="^2"/>
+    <!--SUPERSCRIPT THREE -->
+    <char character="&#xb3;" string="^3"/>
     <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
-    <char character="&#xb5;" string="\Micro"/>
+    <char character="&#xb5;" string="\mathrm{\mu}"/>
     <!-- middle dot -->
     <char character="&#xb7;" string="\cdot"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
@@ -73,6 +68,15 @@
     <char character="&#xf0;" string="\eth"/>
     <!--divide sign-->
     <char character="&#xf7;" string="\div"/>
+
+    <!-- *
+         * Latin Extended-B
+         * -->
+    
+    <!-- LATIN SMALL LETTER F WITH HOOK -->
+    <char character="&#x192;" string="\mathit{f}"/>
+    <!--jmath-->
+    <char character="&#x237;" string="\jmath"/>
   
     <!-- *
          * Latin Extended-A

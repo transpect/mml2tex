@@ -61,12 +61,21 @@
   </xsl:template>
 
   <xsl:template match="mspace" mode="mathml2tex">
+    <xsl:variable name="width" select="xs:decimal(replace(@width, '[a-z]+', ''))" as="xs:decimal"/>
+    <xsl:variable name="mu-width" select="$width * 18" as="xs:decimal"/>
+    <!-- 1 mu = 1/18em, MathML authors are encouraged to use em as unit here -->
+    <xsl:variable name="tex-mwidth" select="if($mu-width &gt;= 36)  then '\qquad '  (: twice of \quad (= 36 mu):)
+                                       else if($mu-width &gt;= 18)  then '\quad '   (: 1 mu :)
+                                       else if($mu-width &gt;= 9)   then '\ '       (: equivalent of space in normal text :)
+                                       else if($mu-width &gt;= 5)   then '\; '      (: 5/18 of \quad (= 5 mu) :)
+                                       else if($mu-width &gt;= 4)   then '\: '      (: 4/18 of \quad (= 3 mu) :)
+                                       else if($mu-width &gt;= 3)   then '\, '      (: 3/18 of \quad (= 3 mu) :)
+                                       else ''"/>
     <xsl:choose>
       <xsl:when test="@width">
-        <hspace space="{@width}">
-          <xsl:apply-templates select="@* except (@width, @height, @depth)" mode="#current"/>
-          <xsl:apply-templates mode="#current"/>
-        </hspace>
+        <xsl:apply-templates select="@* except (@width, @height, @depth)" mode="#current"/>
+        <xsl:apply-templates mode="#current"/>
+        <xsl:value-of select="$tex-mwidth"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="@* except (@width, @height, @depth)" mode="#current"/>

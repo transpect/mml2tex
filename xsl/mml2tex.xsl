@@ -428,6 +428,7 @@
         <var mml="bold-sans-serif" tex="mathfrak"/>
         <var mml="sans-serif-italic" tex="mathfrak"/>
         <var mml="sans-serif-bold-italic" tex="mathfrak"/>
+        <var mml="double-struck" tex="mathbb"></var>
         <var mml="monospace" tex="mathtt"/>
       </styles>
     </xsl:variable>

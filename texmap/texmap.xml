@@ -632,10 +632,16 @@
     <char character="&#x2208;" string="\in"/>
     <!--= \nin (wrisym), negated set membership-->
     <char character="&#x2209;" string="\notin"/>
+    <!-- SMALL ELEMENT OF -->
+    <char character="&#x220a;" string="\in"/>
     <!--= \owns, contains, variant-->
     <char character="&#x220b;" string="\ni"/>
     <!--= \notni (txfonts), = \notowner (mathabx), = \notowns (fourier), negated contains, variant-->
-    <char character="&#x220c;" string="\nni"/>
+    <char character="&#x220c;" string="\notni"/>
+    <!-- SMALL CONTAINS AS MEMBER -->
+    <char character="&#x220d;" string="\ni"/>
+    <!-- END OF PROOF -->
+    <char character="&#x220e;" string="\blacksquare"/>
     <!--product operator-->
     <char character="&#x220f;" string="\prod"/>
     <!--coproduct operator-->
@@ -715,7 +721,9 @@
     <!--x \colon, RATIO-->
     <char character="&#x2236;" string=":"/>
     <!--# ::, two colons-->
-    <char character="&#x2237;" string="\Proportion"/>
+    <char character="&#x2237;" string="::"/>
+    <!-- DOT MINUS -->
+    <char character="&#x2238;" string="\dot{-}"/>
     <!--# -: ,EXCESS-->
     <char character="&#x2239;" string="\eqcolon"/>
     <!--similar to, TILDE OPERATOR-->
@@ -759,7 +767,7 @@
     <!--equals, rising dots-->
     <char character="&#x2253;" string="\risingdotseq"/>
     <!--= \coloneqq (txfonts), = \SetDelayed (wrisym), # := colon, equals-->
-    <char character="&#x2254;" string="\coloneq"/>
+    <char character="&#x2254;" string="\coloneqq"/>
     <!--= \eqqcolon (txfonts), # =:, equals, colon-->
     <char character="&#x2255;" string="\eqcolon"/>
     <!--circle on equals sign-->

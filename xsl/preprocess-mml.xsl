@@ -10,8 +10,8 @@
         * remove empty equation objects
         * -->
   
-  <xsl:template match="*:math[every $i in .//mml:* 
-                              satisfies (string-length(normalize-space($i)) eq 0 and not($i/@*))]" mode="mml2tex-preprocess">
+  <xsl:template match="mml:math[every $i in .//mml:* 
+                                satisfies (string-length(normalize-space($i)) eq 0 and not($i/@*))]" mode="mml2tex-preprocess">
     <xsl:message select="'[WARNING] empty equation removed:&#xa;', ."/>
     <xsl:value-of select="'% empty equation removed. See log for details'"/>
   </xsl:template>

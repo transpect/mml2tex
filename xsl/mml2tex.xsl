@@ -219,7 +219,7 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:variable name="diacritics-regex" select="'^[&#xaf;&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
+  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
@@ -228,14 +228,17 @@
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
     <xsl:variable name="accent" select="*[2]" as="element(*)"/>
-    <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex)" as="xs:boolean"/>
+    <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
+                                                     (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
+      <xsl:when test="matches($accent, '&#xaf;')"><!-- macron -->
+        <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
+      </xsl:when>
       <xsl:when test="$is-diacritical-mark">
         <xsl:apply-templates select="$accent" mode="#current"/>
       </xsl:when>
       <xsl:when test="self::mover or self::munder">
-        <xsl:value-of select="if(self::mover ) then '\overset' else '\underset'"/>
-        <xsl:text>{</xsl:text>
+        <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
         <xsl:apply-templates select="$accent" mode="#current"/>
         <xsl:text>}</xsl:text>
       </xsl:when>

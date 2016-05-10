@@ -110,45 +110,46 @@
   </xsl:template>
 
   <xsl:template match="mmultiscripts" mode="mathml2tex">
-    <xsl:for-each-group select="node()" group-starting-with="*[local-name() = 'mprescripts']">
-      <xsl:choose>
-        <xsl:when test="current-group()[1][local-name() = 'mprescripts']">
-          <xsl:if test="not((floor(count(current-group()) - 1) div 2) = ((count(current-group()) - 1) div 2))">
-            <xsl:message terminate="no" select="'after ', name(), 'must follow 2n + 1 elements'"/>
-          </xsl:if>
-          <xsl:for-each-group select="current-group()[position() &gt; 1]" group-adjacent="floor(count(preceding-sibling::*[. &gt;&gt; current-group()[1]]) div 2)">
-            <xsl:if test="not(current-group()[1][self::none])">
-              <inf arrange="compact" location="pre">
-                <xsl:apply-templates select="current-group()[1]" mode="#current"/>
-              </inf>
-            </xsl:if>
-            <xsl:if test="not(current-group()[2][self::none])">
-              <sup arrange="compact" location="pre">
-                <xsl:apply-templates select="current-group()[2]" mode="#current"/>
-              </sup>
-            </xsl:if>
-          </xsl:for-each-group>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:if test="not((floor(count(current-group()) - 1) div 2) = ((count(current-group()) - 1) div 2))">
-            <xsl:message terminate="no" select="name(), 'must include 2n +1 elements.'"/>
-          </xsl:if>
-          <xsl:apply-templates select="current-group()[1]" mode="#current"/>
-          <xsl:for-each-group select="current-group()[position() &gt; 1]" group-adjacent="floor(count(preceding-sibling::*[. &gt;&gt; current-group()[1]]) div 2)">
-            <xsl:if test="not(current-group()[1][self::none])">
-              <inf arrange="compact" location="post">
-                <xsl:apply-templates select="current-group()[1]" mode="#current"/>
-              </inf>
-            </xsl:if>
-            <xsl:if test="not(current-group()[2][self::none])">
-              <sup arrange="compact" location="post">
-                <xsl:apply-templates select="current-group()[2]" mode="#current"/>
-              </sup>
-            </xsl:if>
-          </xsl:for-each-group>
-        </xsl:otherwise>
-      </xsl:choose>
+    <!-- 
+      the tensor command relies on the same-named LaTeX package
+      https://www.ctan.org/pkg/tensor
+    -->
+    <xsl:text>\tensor*</xsl:text>
+    <!-- pre -->
+    <xsl:for-each-group select="node()" group-by="preceding-sibling::mprescripts">
+      <xsl:text>[</xsl:text>  
+      <xsl:for-each select="current-group()">
+        <xsl:call-template name="apply-superscript-or-subscript"/>
+      </xsl:for-each>
+      <xsl:text>]</xsl:text>
     </xsl:for-each-group>
+    <!-- base -->
+    <xsl:text>{</xsl:text>
+    <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:text>}</xsl:text>
+    <!-- post -->
+    <xsl:for-each-group select="node()[not(position() eq 1)]" group-by="following-sibling::mprescripts">
+      <xsl:text>{</xsl:text>  
+      <xsl:for-each select="current-group()">
+        <xsl:call-template name="apply-superscript-or-subscript"/>
+      </xsl:for-each>
+      <xsl:text>}</xsl:text>
+    </xsl:for-each-group>
+  </xsl:template>
+  
+  <xsl:template name="apply-superscript-or-subscript">
+    <xsl:choose>
+      <xsl:when test="position() mod 2 eq 0">
+        <xsl:text>^{</xsl:text>
+        <xsl:apply-templates mode="#current"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
+      <xsl:when test="position() mod 2 eq 1">
+        <xsl:text>_{</xsl:text>
+        <xsl:apply-templates mode="#current"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="msqrt" mode="mathml2tex">

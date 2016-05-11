@@ -75,6 +75,23 @@
     <xsl:apply-templates select="*[1]" mode="#current"/>
   </xsl:template>
   
+  <!-- resolve nested mmultiscripts when authors put tensors in the base of tensors by accident (MS Word equation editor) -->
+  
+  <xsl:template match="mmultiscripts/mrow[mmultiscripts]" mode="mml2tex-preprocess">
+    <xsl:copy>
+      <xsl:apply-templates select="@*, *[1]" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="mmultiscripts[mrow/mmultiscripts]" mode="mml2tex-preprocess">
+    <xsl:copy>
+      <xsl:apply-templates select="@*, node()" mode="#current"/>
+    </xsl:copy>
+    <xsl:apply-templates select="mrow/*[position() gt 1]" mode="#current"/>
+  </xsl:template>
+  
+  <!-- identity template -->
+  
   <xsl:template match="*|@*|processing-instruction()" mode="mml2tex-preprocess">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" mode="#current"/>

@@ -159,9 +159,15 @@
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="no" select="name(), 'must include two elements'"/>
     </xsl:if>
-    <xsl:text>\sqrt[</xsl:text>
-    <xsl:apply-templates select="*[2]" mode="#current"/>
-    <xsl:text>]{</xsl:text>
+    <xsl:text>\sqrt</xsl:text>
+    <!-- index (optional) -->
+    <xsl:if test="*[2]/node()">
+      <xsl:text>[</xsl:text>  
+      <xsl:apply-templates select="*[2]" mode="#current"/>
+      <xsl:text>]</xsl:text>
+    </xsl:if>
+    <!-- radicand -->
+    <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>

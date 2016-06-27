@@ -69,8 +69,8 @@
                                        else if($mu-width &gt;= 9)   then '\ '       (: equivalent of space in normal text :)
                                        else if($mu-width &gt;= 5)   then '\; '      (: 5/18 of \quad (= 5 mu) :)
                                        else if($mu-width &gt;= 4)   then '\: '      (: 4/18 of \quad (= 3 mu) :)
-                                       else if($mu-width &gt;= 3)   then '\, '      (: 3/18 of \quad (= 3 mu) :)
-                                       else ''"/>
+                                       else if($mu-width &lt; 4)    then '\, '      (: 3/18 of \quad (= 3 mu) :)
+                                       else '\ '"/>
     <xsl:choose>
       <xsl:when test="@width">
         <xsl:apply-templates select="@* except (@width, @height, @depth)" mode="#current"/>

@@ -312,16 +312,14 @@
   </xsl:template>
   
   <xsl:template name="fence">
-    <xsl:param name="pos" as="xs:string"><!-- left|right --></xsl:param>
+    <xsl:param name="pos" as="xs:string"/><!-- left|right -->
     <xsl:param name="val" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="not(normalize-space($val))">
         <!-- case: open="" or close="" -->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>\</xsl:text>
-        <xsl:value-of select="$pos"/>
-        <xsl:text> </xsl:text>
+        <xsl:value-of select="concat('\', $pos, '&#x20;')"/>
         <xsl:choose>
           <xsl:when test="$val = ('[', ']', '(', ')')">
             <xsl:value-of select="$val"/>

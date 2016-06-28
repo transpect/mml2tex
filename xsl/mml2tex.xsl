@@ -316,7 +316,7 @@
     <xsl:param name="val" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="not(normalize-space($val))">
-        <!-- case: open="" or close="" -->
+        <xsl:value-of select="concat('\', $pos, '.')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="concat('\', $pos, '&#x20;')"/>

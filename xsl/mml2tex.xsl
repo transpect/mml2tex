@@ -256,11 +256,12 @@
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="no" select="name(), 'must include three elements'"/>
     </xsl:if>
-    <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:text> \limits_{</xsl:text>
-    <xsl:apply-templates select="*[2]" mode="#current"/>
-    <xsl:text>}^{</xsl:text>
+    <xsl:text>\overset{</xsl:text>
     <xsl:apply-templates select="*[3]" mode="#current"/>
+    <xsl:text>}{\underset{</xsl:text>
+    <xsl:apply-templates select="*[2]" mode="#current"/>
+    <xsl:text>}</xsl:text>
+    <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
 

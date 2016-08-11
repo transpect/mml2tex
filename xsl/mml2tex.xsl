@@ -18,11 +18,11 @@
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap//xml2tex:char/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
-    <xsl:message terminate="yes" select="'ERROR: unknown element', name()"/>    
+    <xsl:message terminate="yes" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
 
   <xsl:template match="@*" mode="mathml2tex">
-    <xsl:message terminate="yes" select="'ERROR: unknown attribute', name()"/>
+    <xsl:message terminate="yes" select="'[ERROR]: unknown attribute', name()"/>
   </xsl:template>
 
   <xsl:template match="math" mode="mathml2tex">
@@ -38,11 +38,11 @@
 
   <!-- drop attributes and elements -->
   <xsl:template match="@overflow[parent::math]|@movablelimits[parent::mo]|@mathcolor|@color|@fontsize|@mathsize|@mathbackground|@background|@maxsize|@minsize|@scriptminsize|@fence|@stretchy|@separator|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@columnalign[parent::mtable]|@align[parent::mtable]|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@linebreak|@symmetric[parent::mo]|@columnspacing|@rowspacing|@columnalign|@groupalign|@columnwidth|@rowalign|@displaystyle|@scriptlevel[parent::mstyle]|@linethickness[parent::mstyle]|@columnlines|@rowlines|@equalcolumns|@equalrows|@frame|@framespacing|@rowspan|@class|@side" mode="mathml2tex">
-    <xsl:message select="'WARNING: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
+    <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
   </xsl:template>
   
   <xsl:template match="maligngroup|mphantom" mode="mathml2tex">
-    <xsl:message select="'WARNING: element', name(), 'ignored!'"/>
+    <xsl:message select="'[WARNING]: element', name(), 'ignored!'"/>
   </xsl:template>
   
   <!-- https://github.com/transpect/mml2tex/issues/3 -->
@@ -221,10 +221,24 @@
   </xsl:template>
 
   <xsl:template match="mtr" mode="mathml2tex">
+    <xsl:variable name="position" select="count(preceding-sibling::mtr) + 1" as="xs:integer"/>
+    <xsl:variable name="columnlines" select="tokenize(parent::mtable/@columnlines, '\s')" as="xs:string*"/>
+    <xsl:variable name="rowlines" select="tokenize(parent::mtable/@rowlines, '\s')" as="xs:string*"/>
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">
       <xsl:text>\\</xsl:text>
     </xsl:if>
+    <xsl:choose>
+      <xsl:when test="$rowlines[$position] = 'solid'">
+        <xsl:text>&#xa;\hline&#xa;</xsl:text>  
+      </xsl:when>
+      <xsl:when test="$rowlines[$position] = 'dashed'">
+         <xsl:message select="'[WARNING]: arydshln package is needed to draw dashed lines in array'"/>
+        <xsl:text>&#xa;\hdashline&#xa;</xsl:text>  
+      </xsl:when>
+    </xsl:choose>
+    
+    
     <xsl:text>
 </xsl:text>
   </xsl:template>
@@ -392,7 +406,7 @@
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="no" select="'unexpected text node', parent::*/name()"/>
+        <xsl:message terminate="no" select="'[WARNING]: unexpected text node', parent::*/name()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

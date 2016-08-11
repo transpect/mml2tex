@@ -85,12 +85,25 @@
   </xsl:template>
 
   <xsl:template match="menclose" mode="mathml2tex">
-    <xsl:message select="'WARNING:', name(), 'treated as box!'"/>
-    <box>
-      <xsl:attribute name="style" select="if (@notation = 'box') then 'single' else 'none'"/>
-      <xsl:apply-templates select="@* except @notation, node()" mode="#current"/>
-    </box>
+    <xsl:value-of select="tr:menclose-to-latex(@notation)[1]"/>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:value-of select="tr:menclose-to-latex(@notation)[2]"/>
   </xsl:template>
+  
+  <xsl:function name="tr:menclose-to-latex" as="xs:string+">
+    <xsl:param name="notation" as="attribute(notation)"/>
+    <xsl:sequence select="if($notation = ('box', 'roundedbox'))  then ('\boxed{',      '}')
+                      else if($notation eq 'updiagonalstrike')   then ('\cancel{',     '}')
+                      else if($notation eq 'downdiagonalstrike') then ('\bcancel{',    '}')
+                      else if($notation eq 'updiagonalarrow')    then ('\cancelto{}',  '}')
+                      else if($notation eq 'top')                then ('\overline{',   '}')
+                      else if($notation eq 'underline')          then ('\underline{',  '}')
+                      else if($notation eq 'left')               then ('\left|',       '\right.')
+                      else if($notation eq 'right')              then ('\left.',       '\right|')
+                      else if($notation eq 'radical')            then ('\sqrt{',       '}')
+                      else                                            (concat('\', $notation, '{'), '}')"/>
+  </xsl:function>
+  
 
   <xsl:template match="mfrac" mode="mathml2tex">
     <xsl:text>\frac</xsl:text>

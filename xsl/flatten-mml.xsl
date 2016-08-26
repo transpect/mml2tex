@@ -7,7 +7,7 @@
                 xpath-default-namespace="http://www.w3.org/1998/Math/MathML"
                 version="2.0">
     
-  <!-- This stylesheet is used to convert simple MathML expressions to plain text.
+  <!-- This stylesheet is used to convert simple MathML expressions to plain text,
        e.g. "a+2", "a²", "+3".
        
        This could be useful if you want to reduce the number of equations 

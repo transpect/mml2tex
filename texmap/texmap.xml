@@ -286,6 +286,14 @@
     <char character="&#x2020;" string="\dagger"/>
     <!--DOUBLE DAGGER relation-->
     <char character="&#x2021;" string="\ddagger"/>
+    <!--BULLET cdot -->
+    <char character="&#x2022;" string="\cdot"/>
+    <!--TRIANGULAR BULLET-->
+    <char character="&#x2023;" string="\blacktriangleright"/>
+    <!--ONE DOT LEADER-->
+    <char character="&#x2024;" string="\ldotp"/>
+    <!--TWO DOT LEADER-->
+    <char character="&#x2025;" string="\ldotp\ldotp"/>
     <!--ellipsis (horizontal)-->
     <char character="&#x2026;" string="\ldots"/>
     <!--PRIME or minute, not superscripted-->

@@ -262,7 +262,13 @@
     <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
                                                      (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
-      <xsl:when test="matches($accent, '&#xaf;')"><!-- macron -->
+      <xsl:when test="matches($accent, '^\&#x5e;$') and self::mover"><!-- superscript circumflex/caret -->
+        <xsl:value-of select="if(string-length($expression) gt 1) then '\widehat' else '\hat'"/>
+      </xsl:when>
+      <xsl:when test="matches($accent, '^&#x7e;$') and self::mover"><!-- superscript tilde -->
+        <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
+      </xsl:when>
+      <xsl:when test="matches($accent, '^&#xaf;$')"><!-- macron -->
         <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
       </xsl:when>
       <xsl:when test="$is-diacritical-mark">

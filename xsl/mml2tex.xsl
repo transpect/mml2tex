@@ -393,7 +393,7 @@
                                          else $text" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., '[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]') and not(. = ('(',')'))">
+      <xsl:when test="parent::mo and matches(., '[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]')">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

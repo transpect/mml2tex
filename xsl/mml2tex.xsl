@@ -404,12 +404,11 @@
                       |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:operator-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
-      <!-- convert to mathrm, mathit and map unicode to latex -->
+      <!-- convert to mathrm, mathit and map unicode to latex.
+           currently we convert mtext not to \text{} because mtext
+           often contains regular math symbols and not real text. -->
       <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms|parent::mtext">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
-      </xsl:when>
-      <xsl:when test="parent::mtext[(not(@mathvariant) or @mathvariant = 'normal') and matches(., '^[a-zA-Z0-9\s]+$')]">
-        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="no" select="'[WARNING]: unexpected text node', parent::*/name()"/>

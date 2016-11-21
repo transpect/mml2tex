@@ -20,9 +20,9 @@
   <xsl:strip-space elements="mml:*"/>
   
   <!-- names of elements to be generated for superscript and subscript -->
-  <xsl:param name="superscript-name" select="'Superscript'" as="xs:string"/>
-  <xsl:param name="subscript-name"   select="'Subscript'"   as="xs:string"/>
-  <xsl:param name="namespace"   select="'bogo'"   as="xs:string"/>
+  <xsl:param name="superscript-name" select="'superscript'" as="xs:string"/>
+  <xsl:param name="subscript-name"   select="'subscript'"   as="xs:string"/>
+  <xsl:param name="namespace"   select="'http://docbook.org/ns/docbook'"   as="xs:string"/>
   <!-- if the number of operators exceed this limit, the equation will not be flattened -->
   <xsl:param name="operator-limit"   select="1"             as="xs:integer"/>
 

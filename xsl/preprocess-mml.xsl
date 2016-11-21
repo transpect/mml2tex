@@ -75,6 +75,13 @@
                        |msup[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]" mode="mml2tex-preprocess">
     <xsl:apply-templates select="*[1]" mode="#current"/>
   </xsl:template>
+
+  <!-- resolve msup/msub with more than two child elements -->
+
+  <xsl:template match="msup[count(*) gt 2]
+		       |msub[count(*) gt 2]" mode="mml2tex-preprocess">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
   
   <!-- resolve nested mmultiscripts when authors put tensors in the base of tensors by accident (MS Word equation editor) -->
   

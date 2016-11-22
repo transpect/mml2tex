@@ -41,7 +41,7 @@
   
   <xsl:template match="msub|msup" mode="flatten-mml">
     <xsl:apply-templates select="*[1]" mode="flatten-mml"/>
-    <xsl:element name="{if(local-name() eq 'msub') then $superscript-name else $subscript-name}" namespace="{$namespace}">
+    <xsl:element name="{if(local-name() eq 'msub') then $subscript-name else $superscript-name}" namespace="{$namespace}">
       <xsl:apply-templates select="*[2]" mode="flatten-mml"/>
     </xsl:element>
   </xsl:template>

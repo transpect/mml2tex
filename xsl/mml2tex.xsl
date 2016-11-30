@@ -11,6 +11,8 @@
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
   version="2.0">
 
+  <xsl:import href="function-names.xsl"/>
+
   <xsl:output method="text" encoding="UTF-8"/>
 
   <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap" as="element(xml2tex:charmap)"/>
@@ -400,8 +402,8 @@
         </xsl:call-template>
       </xsl:when>
       <!-- function names such as cos, sin, log -->
-      <xsl:when test="parent::mi[@mathvariant = 'normal'][$text = $mml2tex:operator-names]
-                      |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:operator-names]">
+      <xsl:when test="parent::mi[@mathvariant = 'normal'][$text = $mml2tex:function-names]
+                      |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:function-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex.
@@ -485,41 +487,6 @@
   <xsl:template match="processing-instruction()[local-name() eq 'latex']" mode="mathml2tex">
     <xsl:value-of select="."/>
   </xsl:template>
-  
-  <!-- check operators -->
-  <xsl:variable name="mml2tex:operator-names" as="xs:string+" 
-    select="('arccos',
-             'arcsin',
-             'arctan',
-             'arg',
-             'cos',
-             'cosh',
-             'cot',
-             'coth',
-             'csc',
-             'deg',
-             'det',
-             'dim',
-             'exp',
-             'gcd',
-             'hom',
-             'inf',
-             'ker', 
-             'lg',
-             'lim', 
-             'liminf', 
-             'limsup', 
-             'ln', 
-             'log', 
-             'max', 
-             'min', 
-             'Pr', 
-             'sec', 
-             'sin',
-             'sinh', 
-             'sup', 
-             'tan', 
-             'tanh')"/>
     
   <xsl:function name="mml2tex:utf2tex" as="xs:string+">
     <xsl:param name="string" as="xs:string"/>

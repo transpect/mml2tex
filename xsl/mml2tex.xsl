@@ -406,11 +406,16 @@
                       |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:function-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
-      <!-- convert to mathrm, mathit and map unicode to latex.
-           currently we convert mtext not to \text{} because mtext
-           often contains regular math symbols and not real text. -->
-      <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms|parent::mtext">
+      <!-- convert to mathrm, mathit and map unicode to latex. -->
+      <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
+      </xsl:when>
+      <!-- you need to apply preprocess-mml.xsl previously. this ensures that some wrong mtext 
+           structures are dissolved and more appropriate elements are applied. Otherwise you could 
+           note that functions, variables or numbers are just treated as regular text. This is often caused 
+           by an improper use of Math editors by authors. -->
+      <xsl:when test="parent::mtext">
+        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="no" select="'[WARNING]: unexpected text node', parent::*/name()"/>

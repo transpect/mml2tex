@@ -4,7 +4,8 @@
   
     <!-- *
          * Unicode characters and corresponding LaTeX math mode commands
-         * -->  
+         * -->
+    
     <char character="ß" string="\ss{}"/>
     
     <!-- *
@@ -22,7 +23,7 @@
     <!--# \binampersand (stmaryrd)-->
     <char character="&#x26;" string="\&amp;"/>
     <!--x :, COLON (not ratio)-->
-    <char character="&#x3a;" string="\colon"/>
+    <char character="&#x3a;" string="\colon"/>    
     <!--REVERSE SOLIDUS-->
     <char character="&#x5c;" string="\backslash"/>
     <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
@@ -55,13 +56,15 @@
     <!--plus-or-minus sign-->
     <char character="&#xb1;" string="\pm"/>    
     <!--SUPERSCRIPT TWO -->
-    <char character="&#xb2;" string="^2"/>
+    <char character="&#xb2;" string="^{2}"/>
     <!--SUPERSCRIPT THREE -->
-    <char character="&#xb3;" string="^3"/>
+    <char character="&#xb3;" string="^{3}"/>
     <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
     <char character="&#xb5;" string="\mathrm{\mu}"/>
     <!-- middle dot -->
     <char character="&#xb7;" string="\cdot"/>
+    <!-- SUPERSCRIPT ONE -->
+    <char character="&#xb9;" string="^{1}"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
     <char character="&#xd7;" string="\times"/>
     <!--eth-->
@@ -94,7 +97,7 @@
   
     <!-- *
          * Spacing Modifier Letters
-         * -->
+         * -->    
   
     <!-- *
          * Combining Diacritical Marks
@@ -268,20 +271,32 @@
     <!--GREEK REVERSED LUNATE EPSILON SYMBOL-->
     <char character="&#x3f6;" string="\backepsilon"/>
   
-    <!-- *
+    <!--  *
           * Cyrillic
           * -->
   
-  
-  
     <!-- *
-          * General Punctuation
-          * -->
+         * General Punctuation
+         * -->
   
-    <!--emquad-->
+    <!-- EM QUAD -->
     <char character="&#x2001;" string="\quad"/>
     <!--= \Vert, double vertical bar-->
     <char character="&#x2016;" string="\|"/>
+    <!-- LEFT SINGLE QUOTATION MARK -->
+    <char character="&#x2018;" string="'"/>
+    <!-- RIGHT SINGLE QUOTATION MARK -->
+    <char character="&#x2019;" string="`"/>
+    <!-- SINGLE LOW-9 QUOTATION MARK -->
+    <char character="&#x201a;" string=","/>
+    <!-- SINGLE HIGH-REVERSED-9 QUOTATION MARK -->
+    <char character="&#x201b;" string="`"/>
+    <!-- LEFT DOUBLE QUOTATION MARK -->
+    <char character="&#x201c;" string="``"/>
+    <!-- RIGHT DOUBLE QUOTATION MARK -->
+    <char character="&#x201d;" string="''"/>
+    <!-- DOUBLE LOW-9 QUOTATION MARK -->
+    <char character="&#x201e;" string=",,"/>
     <!--DAGGER relation-->
     <char character="&#x2020;" string="\dagger"/>
     <!--DOUBLE DAGGER relation-->
@@ -324,20 +339,14 @@
     <char character="&#x205f;" string="\:"/>
   
     <!-- *
-          * Superscripts and Subscripts
-          * -->
-  
-  
-  
-    <!-- *
-          * Currency Symbols
-          * -->
-  
-  
+         * Currency Symbols
+         * -->
+    
+    <char character="&#x20ac;" string="\euro{}"/>
   
     <!-- *
-          * Combining Diacritical Marks for Symbols
-          * -->
+         * Combining Diacritical Marks for Symbols
+         * -->
   
     <!--COMBINING LEFT HARPOON ABOVE-->
     <char character="&#x20d0;" string="\lvec"/>

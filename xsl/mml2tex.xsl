@@ -407,7 +407,19 @@
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex. -->
-      <xsl:when test="parent::mn|parent::mi|parent::mo|parent::ms">
+      <xsl:when test="parent::mn
+                     |parent::mi
+                     |parent::mo
+                     |parent::ms
+                     |parent::mtext[not(ancestor::msub
+                                       |ancestor::msup
+                                       |ancestor::msubsup
+                                       |ancestor::mover
+                                       |ancestor::munder
+                                       |ancestor::munderover
+                                       |ancestor::msqrt
+                                       |ancestor::mroot
+                                       |ancestor::mfrac)]">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <!-- you need to apply preprocess-mml.xsl previously. this ensures that some wrong mtext 

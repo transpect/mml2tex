@@ -2,6 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:mml2tex="http://transpect.io/mml2tex"
+  xmlns="http://www.w3.org/1998/Math/MathML"
   version="2.0"
   exclude-result-prefixes="mml xs" 
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML">
@@ -9,6 +11,9 @@
   <!--  *
         * remove empty equation objects
         * -->
+  
+  <xsl:import href="operators.xsl"/>
+  <xsl:import href="function-names.xsl"/>
   
   <xsl:template match="mml:math[every $i in .//mml:* 
                                 satisfies (string-length(normalize-space($i)) eq 0 and not($i/@*))]
@@ -97,6 +102,85 @@
     </xsl:copy>
     <xsl:apply-templates select="mrow/*[position() gt 1]" mode="#current"/>
   </xsl:template>
+  
+  <!-- parse mtext and map to proper mathml elements -->
+  
+  <xsl:variable name="mi-regex" select="concat('(', $mml2tex:functions-names-regex, '|([a-zA-Z&#x391;-&#x3e1;])' ,')')" as="xs:string"/>
+  
+  <xsl:template match="mtext[matches(., concat('^\s*', $mi-regex, '\s*$'))]" mode="mml2tex-preprocess">
+    <xsl:element name="{mml:gen-name(parent::*, 'mi')}">
+      <xsl:if test="not(@font-style eq 'italic')">
+        <xsl:apply-templates select="@font-style" mode="#current"/>
+      </xsl:if>
+      <xsl:apply-templates select="@* except @font-style" mode="#current"/>
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="mtext[matches(., '^\s*[0-9]+\s*$')]" mode="mml2tex-preprocess">
+    <xsl:element name="{mml:gen-name(parent::*, 'mn')}">
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="mtext[matches(., concat('^\s*', $mml2tex:operators-regex, '\s*$'))]" mode="mml2tex-preprocess"> 
+    <xsl:element name="{mml:gen-name(parent::*, 'mo')}">
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="mtext" mode="mml2tex-preprocess">
+    <xsl:variable name="parent" select="parent::*" as="element()"/>
+    <xsl:analyze-string select="." regex="{$mml2tex:operators-regex}">
+      <xsl:matching-substring>
+        <xsl:element name="{mml:gen-name($parent, 'mo')}">
+          <xsl:value-of select="."/>
+        </xsl:element>
+      </xsl:matching-substring>
+      <xsl:non-matching-substring>
+        
+        <xsl:analyze-string select="." regex="{concat('(\s', $mi-regex, '\s)|(^\s?', $mi-regex, '\s?$)')}">
+          
+          <!-- tag identifiers -->
+          <xsl:matching-substring>
+            <xsl:element name="{mml:gen-name($parent, 'mi')}">
+              <xsl:value-of select="."/>
+            </xsl:element>
+          </xsl:matching-substring>
+          <xsl:non-matching-substring>
+            
+            <!-- tag numerical values -->
+            <xsl:analyze-string select="." regex="[0-9]+">
+              <xsl:matching-substring>
+                <xsl:element name="{mml:gen-name($parent, 'mn')}">
+                  <xsl:value-of select="."/>
+                </xsl:element>
+              </xsl:matching-substring>
+              <xsl:non-matching-substring>
+                <xsl:if test="normalize-space(.)">
+                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
+                    <xsl:value-of select="."/>
+                  </xsl:element>
+                </xsl:if>
+              </xsl:non-matching-substring>
+            </xsl:analyze-string>     
+          </xsl:non-matching-substring>
+          
+        </xsl:analyze-string>
+        
+      </xsl:non-matching-substring>
+    </xsl:analyze-string>
+  </xsl:template>
+  
+  <xsl:function name="mml:gen-name" as="xs:string">
+    <xsl:param name="parent" as="element()"/>
+    <xsl:param name="name" as="xs:string"/>
+    <xsl:value-of select="if(matches($parent/name(), ':')) 
+                          then concat(substring-before($parent/name(), ':'), ':', $name) 
+                          else $name"/>
+  </xsl:function>
   
   <!-- identity template -->
   

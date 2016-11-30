@@ -411,15 +411,15 @@
                      |parent::mi
                      |parent::mo
                      |parent::ms
-                     |parent::mtext[not(ancestor::msub
-                                       |ancestor::msup
-                                       |ancestor::msubsup
-                                       |ancestor::mover
-                                       |ancestor::munder
-                                       |ancestor::munderover
-                                       |ancestor::msqrt
-                                       |ancestor::mroot
-                                       |ancestor::mfrac)]">
+                     |parent::mtext[ancestor::msub
+                                   |ancestor::msup
+                                   |ancestor::msubsup
+                                   |ancestor::mover
+                                   |ancestor::munder
+                                   |ancestor::munderover
+                                   |ancestor::msqrt
+                                   |ancestor::mroot
+                                   |ancestor::mfrac]">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <!-- you need to apply preprocess-mml.xsl previously. this ensures that some wrong mtext 

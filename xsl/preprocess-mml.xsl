@@ -109,10 +109,8 @@
   
   <xsl:template match="mtext[matches(., concat('^\s*', $mi-regex, '\s*$'))]" mode="mml2tex-preprocess">
     <xsl:element name="{mml:gen-name(parent::*, 'mi')}">
-      <xsl:if test="not(@font-style eq 'italic')">
-        <xsl:apply-templates select="@font-style" mode="#current"/>
-      </xsl:if>
-      <xsl:apply-templates select="@* except @font-style" mode="#current"/>
+      <xsl:attribute name="mathvariant" select="'normal'"/>
+      <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:value-of select="normalize-space(.)"/>
     </xsl:element>
   </xsl:template>
@@ -146,6 +144,7 @@
           <!-- tag identifiers -->
           <xsl:matching-substring>
             <xsl:element name="{mml:gen-name($parent, 'mi')}">
+              <xsl:attribute name="mathvariant" select="'normal'"/>
               <xsl:value-of select="."/>
             </xsl:element>
           </xsl:matching-substring>

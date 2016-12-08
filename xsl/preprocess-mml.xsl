@@ -131,7 +131,10 @@
   
   <xsl:template match="mtext" mode="mml2tex-preprocess">
     <xsl:variable name="parent" select="parent::*" as="element()"/>
+    
+    <!-- tag operators -->
     <xsl:analyze-string select="." regex="{$mml2tex:operators-regex}">
+      
       <xsl:matching-substring>
         <xsl:element name="{mml:gen-name($parent, 'mo')}">
           <xsl:value-of select="."/>
@@ -152,23 +155,39 @@
             
             <!-- tag numerical values -->
             <xsl:analyze-string select="." regex="[0-9]+">
+              
               <xsl:matching-substring>
                 <xsl:element name="{mml:gen-name($parent, 'mn')}">
                   <xsl:value-of select="."/>
                 </xsl:element>
               </xsl:matching-substring>
               <xsl:non-matching-substring>
-                <xsl:if test="normalize-space(.)">
-                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
-                    <xsl:value-of select="."/>
-                  </xsl:element>
-                </xsl:if>
+                
+                <!-- tag derivates -->
+                <xsl:analyze-string select="." regex="([a-zA-Z])(')+">
+                  
+                  <xsl:matching-substring>
+                    <xsl:element name="{mml:gen-name($parent, 'mi')}">
+                      <xsl:value-of select="regex-group(1)"/>
+                    </xsl:element>
+                    <xsl:element name="{mml:gen-name($parent, 'mo')}">
+                      <xsl:value-of select="regex-group(2)"/>
+                    </xsl:element>
+                  </xsl:matching-substring>
+                  
+                  <xsl:non-matching-substring>
+                    <xsl:if test="normalize-space(.)">
+                      <xsl:element name="{mml:gen-name($parent, 'mtext')}">
+                        <xsl:value-of select="."/>
+                      </xsl:element>
+                    </xsl:if>
+                    
+                  </xsl:non-matching-substring>
+                </xsl:analyze-string>
               </xsl:non-matching-substring>
             </xsl:analyze-string>     
           </xsl:non-matching-substring>
-          
         </xsl:analyze-string>
-        
       </xsl:non-matching-substring>
     </xsl:analyze-string>
   </xsl:template>

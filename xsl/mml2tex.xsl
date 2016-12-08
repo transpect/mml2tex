@@ -427,7 +427,9 @@
            note that functions, variables or numbers are just treated as regular text. This is often caused 
            by an improper use of Math editors by authors. -->
       <xsl:when test="parent::mtext">
-        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
+        <xsl:value-of select="concat('\text{', 
+                                     replace($utf2tex, '(\\[a-zA-Z]+\}?)', '\$$1\$'), 
+                                    '}')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="no" select="'[WARNING]: unexpected text node', parent::*/name()"/>

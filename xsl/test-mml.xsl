@@ -14,9 +14,13 @@
   <xsl:strip-space elements="*"/>
 
   <xsl:preserve-space elements="mml:mn mml:mi mml:mtext mml:mo mml:ms"/>
+
+  <xsl:variable name="mml2tex-grouping">
+    <xsl:apply-templates select="/" mode="mml2tex-grouping"/>
+  </xsl:variable>
   
   <xsl:variable name="mml2tex-preprocess">
-    <xsl:apply-templates select="/" mode="mml2tex-preprocess"/>
+    <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
   </xsl:variable>
 
   <xsl:template name="main">

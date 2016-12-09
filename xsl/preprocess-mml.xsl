@@ -52,6 +52,12 @@
     </xsl:copy>
   </xsl:template>
   
+  <!-- resolve empty mi, mn, mo -->
+  
+  <xsl:template match="mi[not(normalize-space(.))]
+                      |mo[not(normalize-space(.))]
+                      |mn[not(normalize-space(.))]" mode="mml2tex-preprocess"/>
+  
   <!-- resolve msubsup if superscript and subscript is empty -->
   
   <xsl:template match="msubsup[every $i in (*[2], *[3]) satisfies matches($i,'^[&#x2001;-&#x200b;]+$') or not(exists($i/node()))]" priority="10" mode="mml2tex-preprocess">

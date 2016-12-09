@@ -1237,7 +1237,7 @@
     <!-- WHITE SQUARE -->
     <char character="&#x25a1;" string="\square"/>
     <!-- BLACK SMALL SQUARE -->
-    <char character="&#x25aa;" string="\centerdot"/>
+    <char character="&#x25aa;" string="\blacksquare"/>
   
     <!--= \triangle (amsfonts), # \vartriangle (amssymb), big up triangle, open-->
     <char character="&#x25b3;" string="\bigtriangleup"/>
@@ -1760,7 +1760,7 @@
     <!--WHITE LARGE SQUARE-->
     <char character="&#x2b1c;" string="\square"/>
     <!-- BLACK VERY SMALL SQUARE -->
-    <char character="&#x2b1d;" string="\centerdot"/>
+    <char character="&#x2b1d;" string="\blacksquare"/>
     <!-- BLACK MEDIUM LOZENGE -->
     <char character="&#x2b27;" string="\blacklozenge"/>
     <!-- WHITE MEDIUM LOZENGE -->

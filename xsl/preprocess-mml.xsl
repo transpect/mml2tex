@@ -149,7 +149,7 @@
           
           <xsl:matching-substring>
             <xsl:element name="{mml:gen-name($parent, 'mo')}">
-              <xsl:value-of select="."/>
+              <xsl:value-of select="normalize-space(.)"/>
             </xsl:element>
           </xsl:matching-substring>
           <xsl:non-matching-substring>
@@ -158,20 +158,10 @@
               
               <!-- tag identifiers -->
               <xsl:matching-substring>
-                <xsl:if test="starts-with(., ' ')">
-                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
-                    <xsl:value-of select="' '"/>
-                  </xsl:element>
-                </xsl:if>
                 <xsl:element name="{mml:gen-name($parent, 'mi')}">
                   <xsl:attribute name="mathvariant" select="'normal'"/>
-                  <xsl:value-of select="."/>
+                  <xsl:value-of select="normalize-space(.)"/>
                 </xsl:element>
-                <xsl:if test="ends-with(., ' ')">
-                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
-                    <xsl:value-of select="' '"/>
-                  </xsl:element>
-                </xsl:if>
               </xsl:matching-substring>
               <xsl:non-matching-substring>
                 
@@ -180,7 +170,7 @@
                   
                   <xsl:matching-substring>
                     <xsl:element name="{mml:gen-name($parent, 'mn')}">
-                      <xsl:value-of select="."/>
+                      <xsl:value-of select="normalize-space(.)"/>
                     </xsl:element>
                   </xsl:matching-substring>
                   <xsl:non-matching-substring>
@@ -206,7 +196,7 @@
                           <xsl:matching-substring>
                             <xsl:element name="{mml:gen-name($parent, 'mi')}">
                               <xsl:attribute name="mathvariant" select="'normal'"/>
-                              <xsl:value-of select="."/>
+                              <xsl:value-of select="normalize-space(.)"/>
                             </xsl:element>
                           </xsl:matching-substring>
                           <xsl:non-matching-substring>
@@ -215,14 +205,14 @@
                               <xsl:when test="string-length(normalize-space(.)) eq 1">
                                 <xsl:element name="{mml:gen-name($parent, 'mi')}">
                                   <xsl:attribute name="mathvariant" select="'normal'"/>
-                                  <xsl:value-of select="."/>
+                                  <xsl:value-of select="normalize-space(.)"/>
                                 </xsl:element>
                               </xsl:when>
-                              <xsl:otherwise>
+                              <xsl:when test="normalize-space(.)">
                                 <xsl:element name="{mml:gen-name($parent, 'mtext')}">
                                   <xsl:value-of select="."/>
                                 </xsl:element>
-                              </xsl:otherwise>
+                              </xsl:when>
                             </xsl:choose>
                           </xsl:non-matching-substring>
                           

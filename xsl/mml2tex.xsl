@@ -52,9 +52,7 @@
   <xsl:template match="malignmark" mode="mathml2tex">
     <!-- consider that the stylesheet which imports mm2ltex.xsl must 
          wrap the equation with an align environment -->
-    <xsl:if test="matches(preceding-sibling::*[1], '^\s+$') or matches(following-sibling::*[1], '^\s+$')">
-      <xsl:text>&amp;</xsl:text>
-    </xsl:if>
+    <xsl:text>&#x20;&amp;&#x20;</xsl:text>
   </xsl:template>
   
   <!-- only process text content -->

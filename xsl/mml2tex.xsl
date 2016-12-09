@@ -15,9 +15,9 @@
 
   <xsl:output method="text" encoding="UTF-8"/>
 
-  <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap" as="element(xml2tex:charmap)"/>
+  <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
   
-  <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap//xml2tex:char/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
+  <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="yes" select="'[ERROR]: unknown element', name()"/>    
@@ -364,7 +364,7 @@
             <xsl:value-of select="concat('\', $val)"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="string-join(mml2tex:utf2tex($val, ()), '')"/>
+            <xsl:value-of select="string-join(mml2tex:utf2tex($val, (), $texmap), '')"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
@@ -391,11 +391,14 @@
     <!-- choose corresponding font suffix for \math -->
     <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
     <xsl:variable name="utf2tex" select="if(. = ' ') then '\ ' 
-                                         else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, ()), '')
+                                         else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, (), $texmap), '')
                                          else $text" as="xs:string"/>
+    <xsl:variable name="texmap-upgreek" select="document('../texmap/texmap-upgreek.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
+    <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
+    <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., '[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]')">
+      <xsl:when test="parent::mo and matches(., $parenthesis-regex)">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>
@@ -406,20 +409,19 @@
                       |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:function-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
+      <!-- regular greeks are rendered with upgreek package -->
+      <xsl:when test="parent::mi[@mathvariant eq 'normal'][matches(normalize-space(.), $texregex-upgreek)]
+                     |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]">
+        <xsl:variable name="utf2tex-upgreek" select="if(. = ' ') then '\ ' 
+                                                     else if(matches($text, $texregex-upgreek)) then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
+                                                     else $text" as="xs:string"/>
+        <xsl:value-of select="$utf2tex-upgreek"/>
+      </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex. -->
       <xsl:when test="parent::mn
                      |parent::mi
                      |parent::mo
-                     |parent::ms
-                     |parent::mtext[ancestor::msub
-                                   |ancestor::msup
-                                   |ancestor::msubsup
-                                   |ancestor::mover
-                                   |ancestor::munder
-                                   |ancestor::munderover
-                                   |ancestor::msqrt
-                                   |ancestor::mroot
-                                   |ancestor::mfrac]">
+                     |parent::ms">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
       <!-- you need to apply preprocess-mml.xsl previously. this ensures that some wrong mtext 
@@ -427,12 +429,10 @@
            note that functions, variables or numbers are just treated as regular text. This is often caused 
            by an improper use of Math editors by authors. -->
       <xsl:when test="parent::mtext">
-        <xsl:value-of select="concat('\text{', 
-                                     replace($utf2tex, '(\\[a-zA-Z]+\}?)', '\$$1\$'), 
-                                    '}')"/>
+        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="no" select="'[WARNING]: unexpected text node', parent::*/name()"/>
+        <xsl:message terminate="no" select="'[WARNING]: unprocessed or empty text node', ."/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -507,16 +507,18 @@
     <xsl:value-of select="."/>
   </xsl:template>
     
-  <xsl:function name="mml2tex:utf2tex" as="xs:string+">
+  <xsl:function name="mml2tex:utf2tex" as="xs:string*">
     <xsl:param name="string" as="xs:string"/>
     <!-- In order to avoid infinite recursion when mapping % → \% -->
     <xsl:param name="seen" as="xs:string*"/>
+    <xsl:param name="texmap" as="element(xml2tex:char)+"/>
+    <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
     <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
         <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#]'), '|'))))
           then '&#x20;' else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-        <xsl:variable name="replacement" select="replace($texmap/xml2tex:char[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+        <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
                                                     concat($replacement, $insert-whitespace)
@@ -524,7 +526,7 @@
         <xsl:choose>
           <xsl:when test="matches($result, $texregex)
                           and not(($pattern = $seen) or matches($result, '^[\^a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s~]+$'))">
-            <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern)), '')"/>
+            <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern), $texmap), '')"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$result"/>

@@ -387,12 +387,10 @@
 
   <xsl:template match="text()" mode="mathml2tex">
     <!-- normalize space and remove line breaks -->
-    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;', ' ')" as="xs:string"/>
+    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <!-- choose corresponding font suffix for \math -->
     <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
-    <xsl:variable name="utf2tex" select="if(. = ' ') then '\ ' 
-                                         else if(matches($text, $texregex)) then string-join(mml2tex:utf2tex($text, (), $texmap), '')
-                                         else $text" as="xs:string"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
     <xsl:variable name="texmap-upgreek" select="document('../texmap/texmap-upgreek.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
     <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
     <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
@@ -429,7 +427,8 @@
            note that functions, variables or numbers are just treated as regular text. This is often caused 
            by an improper use of Math editors by authors. -->
       <xsl:when test="parent::mtext">
-        <xsl:value-of select="concat('\text{', $utf2tex, '}')"/>
+        <xsl:variable name="utf2tex-text-only" select="string-join(mml2tex:utf2tex(., (), $texmap), '')" as="xs:string"/>
+        <xsl:value-of select="concat('\text{', $utf2tex-text-only, '}')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="no" select="'[WARNING]: unprocessed or empty text node', ."/>

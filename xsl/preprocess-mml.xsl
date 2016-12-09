@@ -23,10 +23,10 @@
   </xsl:template>
   
   <!--  *
-        * group adjacent mi tags with equivalent attributes
+        * group adjacent mi and mtext tags with equivalent attributes
         * -->
   
-  <xsl:template match="*[count(mi) gt 1]" mode="mml2tex-preprocess">
+  <xsl:template match="*[count(mi) gt 1 or count(mtext) gt 1]" mode="mml2tex-grouping">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
       
@@ -37,7 +37,7 @@
                               )">
           <xsl:choose>
             <!-- some MathML elements expect a certain order of arguments -->
-            <xsl:when test="current-group()/local-name() = 'mi' and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot or parent::mmultiscripts)">
+            <xsl:when test="current-group()/local-name() = ('mi', 'mtext') and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot or parent::mmultiscripts)">
               <xsl:copy>
                 <xsl:apply-templates select="current-group()/@*, current-group()/node()" mode="#current"/>
                 </xsl:copy>
@@ -105,7 +105,7 @@
   
   <!-- parse mtext and map to proper mathml elements -->
   
-  <xsl:variable name="mi-regex" select="concat('(', $mml2tex:functions-names-regex, '|([a-zA-Z&#x391;-&#x3e1;])' ,')')" as="xs:string"/>
+  <xsl:variable name="mi-regex" select="concat('((', $mml2tex:functions-names-regex, ')|([\p{L}])' ,')')" as="xs:string"/>
   
   <xsl:template match="mtext[matches(., concat('^\s*', $mi-regex, '\s*$'))]" mode="mml2tex-preprocess">
     <xsl:element name="{mml:gen-name(parent::*, 'mi')}">
@@ -129,63 +129,110 @@
     </xsl:element>
   </xsl:template>
   
+  <!-- to-do group mtext in 1st mode and text heurstics in another mode  or try matching to mtext/text() -->
+  
   <xsl:template match="mtext" mode="mml2tex-preprocess">
     <xsl:variable name="parent" select="parent::*" as="element()"/>
-    
-    <!-- tag operators -->
-    <xsl:analyze-string select="." regex="{$mml2tex:operators-regex}">
-      
+    <xsl:variable name="regular-words-regex" select="'(\p{L}\p{L}+)([-\s]\p{L}\p{L}+)+\s*'" as="xs:string"/>
+    <xsl:analyze-string select="." regex="{$regular-words-regex}">
+
+      <!-- preserve hyphenated words -->
       <xsl:matching-substring>
-        <xsl:element name="{mml:gen-name($parent, 'mo')}">
+        <xsl:element name="{mml:gen-name($parent, 'mtext')}">
           <xsl:value-of select="."/>
         </xsl:element>
       </xsl:matching-substring>
       <xsl:non-matching-substring>
-        
-        <xsl:analyze-string select="." regex="{concat('(\s', $mi-regex, '\s)|(^\s?', $mi-regex, '\s?$)')}">
+    
+        <!-- tag operators -->
+        <xsl:analyze-string select="." regex="{$mml2tex:operators-regex}">
           
-          <!-- tag identifiers -->
           <xsl:matching-substring>
-            <xsl:element name="{mml:gen-name($parent, 'mi')}">
-              <xsl:attribute name="mathvariant" select="'normal'"/>
+            <xsl:element name="{mml:gen-name($parent, 'mo')}">
               <xsl:value-of select="."/>
             </xsl:element>
           </xsl:matching-substring>
           <xsl:non-matching-substring>
             
-            <!-- tag numerical values -->
-            <xsl:analyze-string select="." regex="[0-9]+">
+            <xsl:analyze-string select="." regex="{concat('(\s', $mi-regex, '\s)|(^\s?', $mi-regex, '\s?$)|(\s', $mi-regex, '$)|(^', $mi-regex, '\s)')}">
               
+              <!-- tag identifiers -->
               <xsl:matching-substring>
-                <xsl:element name="{mml:gen-name($parent, 'mn')}">
+                <xsl:if test="starts-with(., ' ')">
+                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
+                    <xsl:value-of select="' '"/>
+                  </xsl:element>
+                </xsl:if>
+                <xsl:element name="{mml:gen-name($parent, 'mi')}">
+                  <xsl:attribute name="mathvariant" select="'normal'"/>
                   <xsl:value-of select="."/>
                 </xsl:element>
+                <xsl:if test="ends-with(., ' ')">
+                  <xsl:element name="{mml:gen-name($parent, 'mtext')}">
+                    <xsl:value-of select="' '"/>
+                  </xsl:element>
+                </xsl:if>
               </xsl:matching-substring>
               <xsl:non-matching-substring>
                 
-                <!-- tag derivates -->
-                <xsl:analyze-string select="." regex="([a-zA-Z])(')+">
+                <!-- tag numerical values -->
+                <xsl:analyze-string select="." regex="[0-9]+">
                   
                   <xsl:matching-substring>
-                    <xsl:element name="{mml:gen-name($parent, 'mi')}">
-                      <xsl:value-of select="regex-group(1)"/>
-                    </xsl:element>
-                    <xsl:element name="{mml:gen-name($parent, 'mo')}">
-                      <xsl:value-of select="regex-group(2)"/>
+                    <xsl:element name="{mml:gen-name($parent, 'mn')}">
+                      <xsl:value-of select="."/>
                     </xsl:element>
                   </xsl:matching-substring>
-                  
                   <xsl:non-matching-substring>
-                    <xsl:if test="normalize-space(.)">
-                      <xsl:element name="{mml:gen-name($parent, 'mtext')}">
-                        <xsl:value-of select="."/>
-                      </xsl:element>
-                    </xsl:if>
                     
+                    <!-- tag derivates -->
+                    <xsl:analyze-string select="." regex="([a-zA-Z])(')+">
+                      
+                      <xsl:matching-substring>
+                        <xsl:element name="{mml:gen-name($parent, 'mi')}">
+                          <xsl:attribute name="mathvariant" select="'normal'"/>
+                          <xsl:value-of select="regex-group(1)"/>
+                        </xsl:element>
+                        <xsl:element name="{mml:gen-name($parent, 'mo')}">
+                          <xsl:value-of select="regex-group(2)"/>
+                        </xsl:element>
+                      </xsl:matching-substring>
+                      
+                      <xsl:non-matching-substring>
+                        
+                        <!-- tag greeks  -->
+                        <xsl:analyze-string select="." regex="[&#x391;-&#x3c9;]">
+                          
+                          <xsl:matching-substring>
+                            <xsl:element name="{mml:gen-name($parent, 'mi')}">
+                              <xsl:attribute name="mathvariant" select="'normal'"/>
+                              <xsl:value-of select="."/>
+                            </xsl:element>
+                          </xsl:matching-substring>
+                          <xsl:non-matching-substring>
+                            <!-- map characters to mi -->
+                            <xsl:choose>
+                              <xsl:when test="string-length(normalize-space(.)) eq 1">
+                                <xsl:element name="{mml:gen-name($parent, 'mi')}">
+                                  <xsl:attribute name="mathvariant" select="'normal'"/>
+                                  <xsl:value-of select="."/>
+                                </xsl:element>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                <xsl:element name="{mml:gen-name($parent, 'mtext')}">
+                                  <xsl:value-of select="."/>
+                                </xsl:element>
+                              </xsl:otherwise>
+                            </xsl:choose>
+                          </xsl:non-matching-substring>
+                          
+                        </xsl:analyze-string>
+                      </xsl:non-matching-substring>
+                    </xsl:analyze-string>
                   </xsl:non-matching-substring>
-                </xsl:analyze-string>
+                </xsl:analyze-string>     
               </xsl:non-matching-substring>
-            </xsl:analyze-string>     
+            </xsl:analyze-string>
           </xsl:non-matching-substring>
         </xsl:analyze-string>
       </xsl:non-matching-substring>
@@ -202,16 +249,16 @@
   
   <!-- identity template -->
   
-  <xsl:template match="*|@*|processing-instruction()" mode="mml2tex-preprocess">
+  <xsl:template match="*|@*|processing-instruction()" mode="#all">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="/" mode="mml2tex-preprocess">
+  <!--<xsl:template match="/" mode="mml2tex-preprocess">
     <xsl:copy>
       <xsl:apply-templates mode="mml2tex-preprocess"/>
     </xsl:copy>
-  </xsl:template>
+  </xsl:template>-->
   
 </xsl:stylesheet>

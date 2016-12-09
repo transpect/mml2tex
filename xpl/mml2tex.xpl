@@ -50,26 +50,40 @@
     </p:documentation>
   </p:option>
   
+  <p:option name="fail-on-error" select="'yes'">
+    <p:documentation>
+      Whether to recover from some errors or not 
+    </p:documentation>
+  </p:option>
+  
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
+  <p:import href="http://transpect.io/xproc-util/xslt-mode/xpl/xslt-mode.xpl"/>
   
-  <tr:store-debug pipeline-step="mml2tex/01.mml2tex-input">
-    <p:with-option name="active" select="$debug"/>
-    <p:with-option name="base-uri" select="$debug-dir-uri"/>
-  </tr:store-debug>
-  
-  <p:xslt name="preprocess" initial-mode="mml2tex-preprocess">
-    <p:documentation>Grouping of MathML elements.</p:documentation>
+  <tr:xslt-mode msg="yes" mode="mml2tex-grouping" name="grouping" prefix="mml2tex/01">
     <p:input port="stylesheet">
       <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
     </p:input>
-    <p:with-param name="debug" select="''"/>
-    <p:with-param name="debug-dir-uri" select="''"/>
-  </p:xslt>
+    <p:input port="parameters">
+      <p:empty/>
+    </p:input>
+    <p:input port="models"><p:empty/></p:input>
+    <p:with-option name="debug" select="$debug"/>
+    <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+    <p:with-option name="fail-on-error" select="$fail-on-error"/>
+  </tr:xslt-mode>
   
-  <tr:store-debug pipeline-step="mml2tex/02.mml2tex-preprocess">
-    <p:with-option name="active" select="$debug"/>
-    <p:with-option name="base-uri" select="$debug-dir-uri"/>
-  </tr:store-debug>
+  <tr:xslt-mode msg="yes" mode="mml2tex-preprocess" name="preprocess" prefix="mml2tex/05">
+    <p:input port="stylesheet">
+      <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+    </p:input>
+    <p:input port="parameters">
+      <p:empty/>
+    </p:input>
+    <p:input port="models"><p:empty/></p:input>
+    <p:with-option name="debug" select="$debug"/>
+    <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+    <p:with-option name="fail-on-error" select="$fail-on-error"/>
+  </tr:xslt-mode>
   
   <p:xslt name="invoke">
     <p:documentation>MathML equations are converted to "mml2tex" processing instructions.</p:documentation>    
@@ -84,7 +98,7 @@
     <p:with-param name="debug-dir-uri" select="''"/>
   </p:xslt>
   
-  <tr:store-debug pipeline-step="mml2tex/03.mml2tex-post">
+  <tr:store-debug pipeline-step="mml2tex/10.mml2tex-main">
     <p:with-option name="active" select="$debug"/>
     <p:with-option name="base-uri" select="$debug-dir-uri"/>
   </tr:store-debug>

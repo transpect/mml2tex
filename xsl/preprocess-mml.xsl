@@ -135,7 +135,7 @@
     </xsl:element>
   </xsl:template>
   
-  <!-- to-do group mtext in 1st mode and text heurstics in another mode  or try matching to mtext/text() -->
+  <!-- to-do group mtext in 1st mode and text heurstics in another mode or try matching to mtext/text() -->
   
   <xsl:template match="mtext" mode="mml2tex-preprocess">
     <xsl:variable name="parent" select="parent::*" as="element()"/>

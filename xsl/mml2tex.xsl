@@ -43,7 +43,7 @@
     <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
   </xsl:template>
   
-  <xsl:template match="mphantom" mode="mathml2tex">
+  <xsl:template match="mphantom|maligngroup" mode="mathml2tex">
     <xsl:message select="'[WARNING]: element', name(), 'ignored!'"/>
   </xsl:template>
   

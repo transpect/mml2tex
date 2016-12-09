@@ -43,13 +43,13 @@
     <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
   </xsl:template>
   
-  <xsl:template match="maligngroup|mphantom" mode="mathml2tex">
+  <xsl:template match="mphantom" mode="mathml2tex">
     <xsl:message select="'[WARNING]: element', name(), 'ignored!'"/>
   </xsl:template>
   
   <!-- https://github.com/transpect/mml2tex/issues/3 -->
   
-  <xsl:template match="malignmark" mode="mathml2tex">
+  <xsl:template match="malignmark|maligngroup[position() ne 1]" mode="mathml2tex">
     <!-- consider that the stylesheet which imports mm2ltex.xsl must 
          wrap the equation with an align environment -->
     <xsl:text>&#x20;&amp;&#x20;</xsl:text>

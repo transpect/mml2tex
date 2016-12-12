@@ -245,7 +245,7 @@
   
   <!-- identity template -->
   
-  <xsl:template match="*|@*|processing-instruction()" mode="#all">
+  <xsl:template match="*|@*|processing-instruction()" mode="mml2tex-grouping mml2tex-preprocess">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()" mode="#current"/>
     </xsl:copy>

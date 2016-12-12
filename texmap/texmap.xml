@@ -52,7 +52,7 @@
     <!-- MACRON -->
     <char character="&#xaf;" string="\bar"/>
     <!-- DEGREE SIGN -->
-    <char character="&#xb0;" string="^\circ"/>
+    <char character="&#xb0;" string="^{\circ}"/>
     <!--plus-or-minus sign-->
     <char character="&#xb1;" string="\pm"/>    
     <!--SUPERSCRIPT TWO -->

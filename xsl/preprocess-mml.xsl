@@ -33,7 +33,7 @@
       <xsl:for-each-group select="*" 
         group-adjacent="concat(
                                name(), 
-                               string-join(for $i in @* return concat($i/local-name(), $i), '-')
+                               string-join(for $i in @* except @xml:space return concat($i/local-name(), $i), '-')
                               )">
           <xsl:choose>
             <!-- some MathML elements expect a certain order of arguments -->
@@ -86,6 +86,10 @@
                        |msup[matches(*[2],'^[&#x2001;-&#x200b;]+$') or not(exists(*[2]/node()))]" mode="mml2tex-preprocess">
     <xsl:apply-templates select="*[1]" mode="#current"/>
   </xsl:template>
+  
+  <!-- resolve mspace less equal than 0.25em -->
+
+  <xsl:template match="mspace[xs:decimal(replace(@width, '[a-z]+$', '')) le 0.25][not(preceding-sibling::*[1]/self::mtext or following-sibling::*[1]/self::mtext)]" mode="mml2tex-preprocess"/>
 
   <!-- resolve msup/msub with more than two child elements -->
 

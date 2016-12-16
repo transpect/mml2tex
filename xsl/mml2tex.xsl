@@ -401,8 +401,7 @@
         </xsl:call-template>
       </xsl:when>
       <!-- function names such as cos, sin, log -->
-      <xsl:when test="parent::mi[@mathvariant = 'normal'][$text = $mml2tex:function-names]
-                      |parent::mtext[not(@mathvariant) or @mathvariant = 'normal'][$text = $mml2tex:function-names]">
+      <xsl:when test="parent::mi[$text = $mml2tex:function-names]|parent::mtext[$text = $mml2tex:function-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- regular greeks are rendered with upgreek package -->
@@ -512,7 +511,7 @@
     <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
     <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
-        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#]'), '|'))))
+        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#ß]'), '|'))))
           then '&#x20;' else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
         <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>

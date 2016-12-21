@@ -87,6 +87,8 @@
     <!--= \mathrm{\varrho} (omlmathrm), = \varrhoup (kpfonts mathdesign), GREEK RHO SYMBOL (round)-->
     <char character="&#x3f1;" string="\upvarrho"/>
     <!--= \mathrm{\epsilon} (omlmathrm), = \epsilonup (kpfonts mathdesign), GREEK LUNATE EPSILON SYMBOL-->
-    <char character="&#x3f5;" string="\upepsilon"/>    
-  </charmap>  
+    <char character="&#x3f5;" string="\upepsilon"/>
+    <!-- APL FUNCTIONAL SYMBOL ALPHA -->
+    <char character="&#x237a;" string="\upalpha"/>
+  </charmap>
 </set>

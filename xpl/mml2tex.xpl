@@ -38,6 +38,12 @@
     </p:documentation>
   </p:output>
   
+  <p:option name="preprocessing" select="'yes'">
+    <p:documentation>
+      Switch XSLT optimizations for MathML on or off.
+    </p:documentation>
+  </p:option>
+  
   <p:option name="debug" select="'yes'">
     <p:documentation>
       Used to switch debug mode on or off. Pass 'yes' to enable debug mode.
@@ -59,36 +65,47 @@
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
   <p:import href="http://transpect.io/xproc-util/xslt-mode/xpl/xslt-mode.xpl"/>
   
-  <tr:xslt-mode msg="yes" mode="mml2tex-grouping" name="grouping" prefix="mml2tex/01">
-    <p:input port="stylesheet">
-      <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
-    </p:input>
-    <p:input port="parameters">
-      <p:empty/>
-    </p:input>
-    <p:input port="models"><p:empty/></p:input>
-    <p:with-option name="debug" select="$debug"/>
-    <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
-    <p:with-option name="fail-on-error" select="$fail-on-error"/>
-  </tr:xslt-mode>
+  <p:choose>
+    <p:when test="$preprocessing eq 'yes'">
+
+      <tr:xslt-mode msg="yes" mode="mml2tex-grouping" name="grouping" prefix="mml2tex/01">
+        <p:input port="stylesheet">
+          <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+        </p:input>
+        <p:input port="parameters">
+          <p:empty/>
+        </p:input>
+        <p:input port="models"><p:empty/></p:input>
+        <p:with-option name="debug" select="$debug"/>
+        <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+        <p:with-option name="fail-on-error" select="$fail-on-error"/>
+      </tr:xslt-mode>
+      
+      <tr:xslt-mode msg="yes" mode="mml2tex-preprocess" name="preprocess" prefix="mml2tex/05">
+        <p:input port="stylesheet">
+          <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+        </p:input>
+        <p:input port="parameters">
+          <p:empty/>
+        </p:input>
+        <p:input port="models"><p:empty/></p:input>
+        <p:with-option name="debug" select="$debug"/>
+        <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+        <p:with-option name="fail-on-error" select="$fail-on-error"/>
+      </tr:xslt-mode>
+
+    </p:when>
+    <p:otherwise>
+      <p:identity/>
+    </p:otherwise>
+  </p:choose>
   
-  <tr:xslt-mode msg="yes" mode="mml2tex-preprocess" name="preprocess" prefix="mml2tex/05">
-    <p:input port="stylesheet">
-      <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
-    </p:input>
-    <p:input port="parameters">
-      <p:empty/>
-    </p:input>
-    <p:input port="models"><p:empty/></p:input>
-    <p:with-option name="debug" select="$debug"/>
-    <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
-    <p:with-option name="fail-on-error" select="$fail-on-error"/>
-  </tr:xslt-mode>
+  <p:identity name="preprocess-output"/>
   
   <p:xslt name="invoke">
     <p:documentation>MathML equations are converted to "mml2tex" processing instructions.</p:documentation>    
     <p:input port="source">
-      <p:pipe port="result" step="preprocess"/>
+      <p:pipe port="result" step="preprocess-output"/>
       <p:pipe port="conf" step="mml2tex"/>
     </p:input>
     <p:input port="stylesheet">

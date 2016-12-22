@@ -15,6 +15,8 @@
 
   <xsl:preserve-space elements="mml:mn mml:mi mml:mtext mml:mo mml:ms"/>
 
+  <xsl:param name="mml-preprocessing" select="mml_preprocessing"/>
+
   <xsl:variable name="mml2tex-grouping">
     <xsl:apply-templates select="/" mode="mml2tex-grouping"/>
   </xsl:variable>
@@ -24,9 +26,20 @@
   </xsl:variable>
 
   <xsl:template name="main">
-    <xsl:for-each select="$mml2tex-preprocess//mml:math">
-      <xsl:apply-templates select="." mode="mathml2tex"/>
-    </xsl:for-each>
+
+    <xsl:choose>
+      <xsl:when test="$mml-preprocessing eq 'mml_preprocessing'">
+	<xsl:for-each select="$mml2tex-preprocess//mml:math">
+	  <xsl:apply-templates select="." mode="mathml2tex"/>
+	</xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:for-each select="//mml:math">
+	  <xsl:apply-templates select="." mode="mathml2tex"/>
+	</xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
+
   </xsl:template>
 
 </xsl:stylesheet>

@@ -91,11 +91,17 @@
 
   <xsl:template match="mspace[xs:decimal(replace(@width, '[a-z]+$', '')) le 0.25][not(preceding-sibling::*[1]/self::mtext or following-sibling::*[1]/self::mtext)]" mode="mml2tex-preprocess"/>
 
-  <!-- resolve msup/msub with more than two child elements -->
+  <!-- repair msup/msub with more than two child elements. We assume the last node was superscripted/subscripted -->
 
   <xsl:template match="msup[count(*) gt 2]
 		       |msub[count(*) gt 2]" mode="mml2tex-preprocess">
-    <xsl:apply-templates mode="#current"/>
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <mrow>
+        <xsl:apply-templates select="*[not(position() eq last())]" mode="#current"/>
+      </mrow>
+      <xsl:apply-templates select="*[position() eq last()]" mode="#current"/>
+    </xsl:copy>
   </xsl:template>
   
   <!-- resolve nested mmultiscripts when authors put tensors in the base of tensors by accident (MS Word equation editor) -->

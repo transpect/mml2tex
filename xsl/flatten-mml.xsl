@@ -50,13 +50,14 @@
     <xsl:variable name="width" select="xs:decimal(replace(@width, '[a-z]+', ''))" as="xs:decimal"/>
     <xsl:variable name="mu-width" select="$width * 18" as="xs:decimal"/>
     <!-- 1 mu = 1/18em, MathML authors are encouraged to use em as unit here -->
-    <xsl:variable name="text-mwidth" select="if($mu-width &gt;= 36)  then '&#x2003;&#x2003;'  (: twice of \quad (= 36 mu):)
-      else if($mu-width &gt;= 18)  then '&#x2003;'   (: 1 mu :)
-      else if($mu-width &gt;= 9)   then '&#x20;'       (: equivalent of space in normal text :)
-      else if($mu-width &gt;= 5)   then '&#x2004;'      (: 5/18 of \quad (= 5 mu) :)
-      else if($mu-width &gt;= 4)   then '&#x2005;'      (: 4/18 of \quad (= 3 mu) :)
-      else if($mu-width &lt; 4)    then '&#x2009;'      (: 3/18 of \quad (= 3 mu) :)
-      else '\ '"/>
+    <xsl:variable name="text-mwidth" 
+                  select="if($mu-width &gt;= 36)  then '&#x2003;&#x2003;' (: twice of \quad (= 36 mu):)
+                          else if($mu-width &gt;= 18)  then '&#x2003;'    (: 1 mu :)
+                          else if($mu-width &gt;= 9)   then '&#x20;'      (: equivalent of space in normal text :)
+                          else if($mu-width &gt;= 5)   then '&#x2004;'    (: 5/18 of \quad (= 5 mu) :)
+                          else if($mu-width &gt;= 4)   then '&#x2005;'    (: 4/18 of \quad (= 3 mu) :)
+                          else if($mu-width &lt; 4)    then '&#x2009;'    (: 3/18 of \quad (= 3 mu) :)
+                                                       else '&#x20;'"/>
     <xsl:value-of select="$text-mwidth"/>
   </xsl:template>
   

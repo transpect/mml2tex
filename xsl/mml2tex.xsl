@@ -401,16 +401,25 @@
         </xsl:call-template>
       </xsl:when>
       <!-- function names such as cos, sin, log -->
-      <xsl:when test="parent::mi[$text = $mml2tex:function-names]|parent::mtext[$text = $mml2tex:function-names]">
+      <xsl:when test="parent::mi[$text = $mml2tex:function-names]
+                     |parent::mtext[$text = $mml2tex:function-names]">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- regular greeks are rendered with upgreek package -->
-      <xsl:when test="parent::mi[@mathvariant eq 'normal'][matches(normalize-space(.), $texregex-upgreek)]
+      <xsl:when test="parent::mi[@mathvariant eq 'normal' or (not(@mathvariant) and string-length(.) gt 1)][matches(normalize-space(.), $texregex-upgreek)]
                      |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]">
         <xsl:variable name="utf2tex-upgreek" select="if(. = ' ') then '\ ' 
                                                      else if(matches($text, $texregex-upgreek)) then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
                                                      else $text" as="xs:string"/>
         <xsl:value-of select="$utf2tex-upgreek"/>
+      </xsl:when>
+      <!-- mi with one character should be rendered italic. -->
+      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) eq 1]">
+        <xsl:value-of select="$utf2tex"/>
+      </xsl:when>
+      <!-- mi with more than one character is rendered regular. -->
+      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) gt 1]">
+        <xsl:value-of select="concat('\mathrm{', $utf2tex, '}')"/>
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex. -->
       <xsl:when test="parent::mn

@@ -37,7 +37,8 @@
                               )">
           <xsl:choose>
             <!-- some MathML elements expect a certain order of arguments -->
-            <xsl:when test="current-group()/local-name() = ('mi', 'mtext') and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot or parent::mmultiscripts)">
+            <xsl:when test="(current-group()/self::mtext or current-group()/self::mi[@mathvariant])  
+                            and not(parent::msup or parent::msub or parent::msubsup or parent::mfrac or parent::mroot or parent::mmultiscripts)">
               <xsl:copy>
                 <xsl:apply-templates select="current-group()/@*, current-group()/node()" mode="#current"/>
                 </xsl:copy>

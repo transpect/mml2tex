@@ -61,6 +61,12 @@
     <xsl:value-of select="$text-mwidth"/>
   </xsl:template>
   
+  <xsl:template match="mo" mode="flatten-mml">
+    <xsl:text>&#x2009;</xsl:text>
+    <xsl:value-of select="translate(., '-/', '&#x2212;&#x2215;')"/>
+    <xsl:text>&#x2009;</xsl:text>
+  </xsl:template>
+  
   <xsl:function name="tr:flatten-mml-boolean" as="xs:boolean">
     <xsl:param name="math" as="element(math)"/>
     <xsl:value-of select="if(count($math//mo) le $operator-limit

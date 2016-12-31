@@ -12,6 +12,7 @@
   version="2.0">
 
   <xsl:import href="function-names.xsl"/>
+  <xsl:import href="operators.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
 
@@ -414,11 +415,11 @@
         <xsl:value-of select="$utf2tex-upgreek"/>
       </xsl:when>
       <!-- mi with one character should be rendered italic. -->
-      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) eq 1]">
+      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) eq 1][not(matches(., concat('[\d+%\$]', '|', $mml2tex:operators-regex)))]">
         <xsl:value-of select="$utf2tex"/>
       </xsl:when>
       <!-- mi with more than one character is rendered regular. -->
-      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) gt 1]">
+      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) gt 1][not(matches(., concat('[\d+%\$]', '|', $mml2tex:operators-regex)))]">
         <xsl:value-of select="concat('\mathrm{', $utf2tex, '}')"/>
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex. -->

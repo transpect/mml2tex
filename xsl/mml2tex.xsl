@@ -196,8 +196,26 @@
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
+  
+  <xsl:variable name="integrals-sums-and-limits" as="xs:string+" 
+                select="'&#x220f;', 
+                        '&#x2210;', 
+                        '&#x2211;', 
+                        '&#x222b;',
+                        '&#x222c;',
+                        '&#x222d;',
+                        '&#x222e;',
+                        '&#x222f;',
+                        '&#x2230;',
+                        '&#x22c0;', 
+                        '&#x22c1;', 
+                        '&#x22c2;', 
+                        '&#x22c3;', 
+                        'lim', 
+                        'max', 
+                        'min'"/>
 
-  <xsl:template match="msubsup" mode="mathml2tex">
+  <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="no" select="name(), 'must include three elements'"/>
     </xsl:if>
@@ -274,7 +292,7 @@
       </xsl:when>
       <xsl:when test="$is-diacritical-mark">
         <xsl:apply-templates select="$accent" mode="#current"/>
-      </xsl:when>
+      </xsl:when>      
       <xsl:when test="self::mover or self::munder">
         <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
         <xsl:apply-templates select="$accent" mode="#current"/>
@@ -296,6 +314,17 @@
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
     <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  
+  <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
+                      |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:if test="count(*) ne 2">
+      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+    </xsl:if>
+    <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
+    <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
 

@@ -359,9 +359,11 @@
       <xsl:with-param name="val" select="(@open, '(')[1]"/>
     </xsl:call-template>
     <xsl:variable name="my-seps" select="replace(@separators, '\s+', '')"/>
-    <xsl:variable name="seps" select="if (normalize-space(@separators)) then
-                                      for $x in (1 to string-length($my-seps)) return substring($my-seps, $x, 1)
-                                      else ','" as="xs:string*"/>
+    <xsl:variable name="seps" select="if(not(@separators))
+                                        then ',' (: mathml spec: comma if @separators didn't exist :)
+                                      else if(normalize-space(@separators)) 
+                                        then for $x in (1 to string-length($my-seps)) return substring($my-seps, $x, 1)
+                                      else '' (: empty @separators is ignored :)" as="xs:string*"/>
     <xsl:variable name="els" select="*"/>
     <xsl:for-each select="1 to count($els)">
       <xsl:if test="current() &gt; 1">

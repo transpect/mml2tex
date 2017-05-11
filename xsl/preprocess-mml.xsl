@@ -120,6 +120,14 @@
     <xsl:apply-templates select="mrow/*[position() gt 1]" mode="#current"/>
   </xsl:template>
   
+  <!-- create msup -->
+  
+  <xsl:template match="mrow[count(*) eq 2][count(mi) eq 2][matches(mi[2], '''')]" mode="mml2tex-preprocess">
+    <msup>
+      <xsl:apply-templates select="@*, node()" mode="#current"/>
+    </msup>
+  </xsl:template>
+  
   <!-- parse mtext and map to proper mathml elements -->
   
   <xsl:variable name="mi-regex" select="concat('((', $mml2tex:functions-names-regex, ')|([\p{L}])' ,')')" as="xs:string"/>

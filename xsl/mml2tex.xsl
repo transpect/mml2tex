@@ -197,6 +197,15 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
   
+  <!-- primes, such as y'' -->
+  
+  <xsl:template match="msup[mi[1] and mi[2] and matches(mi[2], '''')]" mode="mathml2tex">
+    <xsl:if test="count(*) ne 2">
+      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+    </xsl:if>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
   <xsl:variable name="integrals-sums-and-limits" as="xs:string+" 
                 select="'&#x220f;', 
                         '&#x2210;', 

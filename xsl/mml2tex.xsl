@@ -469,7 +469,7 @@
                      |parent::ms">
         <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
       </xsl:when>
-      <!-- you need to apply preprocess-mml.xsl previously. this ensures that some wrong mtext 
+      <!-- you need to apply mml-normalize.xsl previously. this ensures that some wrong mtext 
            structures are dissolved and more appropriate elements are applied. Otherwise you could 
            note that functions, variables or numbers are just treated as regular text. This is often caused 
            by an improper use of Math editors by authors. -->

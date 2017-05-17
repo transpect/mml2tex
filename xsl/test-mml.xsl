@@ -7,7 +7,7 @@
   exclude-result-prefixes="tr mml xs">
 
   <xsl:import href="mml2tex.xsl"/>
-  <xsl:import href="preprocess-mml.xsl"/>
+  <xsl:import href="http://transpect.io/mml-normalize/xsl/mml-normalize.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
 

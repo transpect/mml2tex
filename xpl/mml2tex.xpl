@@ -20,9 +20,9 @@
   </p:input>
 
   <p:input port="preprocess-mml-xsl">
-    <p:document href="../xsl/preprocess-mml.xsl"/>
+    <p:document href="http://transpect.io/mml-normalize/xsl/mml-normalize.xsl"/>
     <p:documentation>Override the default preprocessing by supplying your own XSLT 
-      that may or may not import http://transpect.io/mml2tex/xsl/preprocess-mml.xsl</p:documentation>
+      that may or may not import http://transpect.io/mml-normalize/xsl/mml-normalize.xsl</p:documentation>
   </p:input>
 
   <p:input port="conf" primary="false">

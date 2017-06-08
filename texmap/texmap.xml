@@ -793,7 +793,7 @@
     <!--INFINITY-->
     <char character="&#x221e;" string="\infty"/>
     <!--right (90 degree) angle-->
-    <char character="&#x221f;" string="\rightangle"/>
+    <char character="&#x221f;" string="\llcorner"/>
     <!--ANGLE-->
     <char character="&#x2220;" string="\angle"/>
     <!--MEASURED ANGLE-->

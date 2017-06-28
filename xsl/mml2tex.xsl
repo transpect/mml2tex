@@ -15,17 +15,19 @@
   <xsl:import href="operators.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
+  
+  <xsl:param name="fail-on-error" select="'yes'"/>
 
   <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
-    <xsl:message terminate="yes" select="'[ERROR]: unknown element', name()"/>    
+    <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
 
   <xsl:template match="@*" mode="mathml2tex">
-    <xsl:message terminate="yes" select="'[ERROR]: unknown attribute', name()"/>
+    <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown attribute', name()"/>
   </xsl:template>
 
   <xsl:template match="math" mode="mathml2tex">
@@ -118,7 +120,7 @@
         <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+        <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -171,7 +173,7 @@
 
   <xsl:template match="mroot" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:text>\sqrt</xsl:text>
     <!-- index (optional) -->
@@ -188,7 +190,7 @@
 
   <xsl:template match="msup|msub" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
@@ -201,7 +203,7 @@
   
   <xsl:template match="msup[mi[1] and mi[2] and matches(mi[2], '''')]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -226,7 +228,7 @@
 
   <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="no" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>_{</xsl:text>
@@ -282,7 +284,7 @@
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
     </xsl:if>
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
@@ -315,7 +317,7 @@
 
   <xsl:template match="munderover" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="no" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements'"/>
     </xsl:if>
     <xsl:text>\overset{</xsl:text>
     <xsl:apply-templates select="*[3]" mode="#current"/>
@@ -329,7 +331,7 @@
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="no" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
@@ -478,7 +480,7 @@
         <xsl:value-of select="concat('\text{', $utf2tex-text-only, '}')"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="no" select="'[WARNING]: unprocessed or empty text node', ."/>
+        <xsl:message terminate="{$fail-on-error}" select="'[WARNING]: unprocessed or empty text node', ."/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

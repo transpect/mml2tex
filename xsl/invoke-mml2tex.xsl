@@ -15,6 +15,7 @@
   
   <xsl:param name="debug" select="'no'"/>
   <xsl:param name="debug-dir-uri" select="'debug'"/>
+  <xsl:param name="fail-on-error" select="'no'"/>
   
   <xsl:template match="mml:math">
     <xsl:processing-instruction name="mml2tex">

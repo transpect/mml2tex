@@ -267,10 +267,7 @@
         <xsl:text>&#xa;\hdashline&#xa;</xsl:text>  
       </xsl:when>
     </xsl:choose>
-    
-    
-    <xsl:text>
-</xsl:text>
+    <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 
   <xsl:template match="mtd" mode="mathml2tex">

@@ -22,6 +22,10 @@
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
+  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
+  
+  <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
+
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -276,8 +280,6 @@
       <xsl:text> &amp; </xsl:text>
     </xsl:if>
   </xsl:template>
-  
-  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
@@ -431,7 +433,6 @@
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
     <xsl:variable name="texmap-upgreek" select="document('../texmap/texmap-upgreek.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
     <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
-    <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
       <xsl:when test="parent::mo and matches(., $parenthesis-regex)">

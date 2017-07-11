@@ -291,8 +291,38 @@
          * General Punctuation
          * -->
   
-    <!-- EM QUAD -->
-    <char character="&#x2001;" string="\quad"/>
+    <!--EM QUAD -->   
+    <char character="&#x2001;" string="{\quad}"/>
+    <!-- EN SPACE -->
+    <char character="&#x2002;" string="{\enspace}"/>
+    <!--EM SPACE -->
+    <char character="&#x2003;" string="{\quad}"/>
+    <!--THREE-PER-EM SPACE -->
+    <char character="&#x2004;" string="\,"/>
+    <!--FOUR-PER-EM SPACE -->
+    <char character="&#x2005;" string="\,"/>
+    <!--SIX-PER-EM SPACE -->
+    <char character="&#x2006;" string="\,"/>
+    <!--FIGURE SPACE	 -->
+    <char character="&#x2007;" string="\,"/>
+    <!--PUNCTUATION SPACE -->
+    <char character="&#x2008;" string="\,"/>
+    <!--THIN SPACE -->
+    <char character="&#x2009;" string="\,"/>
+    <!--HAIR SPACE -->
+    <char character="&#x200a;" string="\,"/>
+    <!--ZERO WIDTH SPACE -->
+    <char character="&#x200b;" string="\hspace{0pt}"/>
+    <!--NON-BREAKING HYPHEN -->
+    <char character="&#x2011;" string="\hbox{-}"/>
+    <!--MINUS SIGN -->
+    <char character="&#x2012;" string="-"/>
+    <!--EN DASH -->
+    <char character="&#x2013;" string="\hbox{--}"/>
+    <!--EM DASH -->
+    <char character="&#x2014;" string="\hbox{---}"/>
+    <!--HORIZONTAL BAR -->
+    <char character="&#x2015;" string="\hbox{---}"/>
     <!--= \Vert, double vertical bar-->
     <char character="&#x2016;" string="\|"/>
     <!-- LEFT SINGLE QUOTATION MARK -->

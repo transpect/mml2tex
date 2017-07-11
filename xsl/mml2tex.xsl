@@ -435,7 +435,7 @@
     <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., $parenthesis-regex)">
+      <xsl:when test="parent::mo[@role eq 'mtef'] and matches(., $parenthesis-regex)">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

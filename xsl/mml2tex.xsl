@@ -26,6 +26,8 @@
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
+  <xsl:variable name="whitespace-regex" select="'[\s&#x2000;-&#x200b;]'" as="xs:string"/>
+
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -461,6 +463,9 @@
       <!-- mi with more than one character is rendered regular. -->
       <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) gt 1][not(matches(., concat('[\d+%\$]', '|', $mml2tex:operators-regex)))]">
         <xsl:value-of select="concat('\mathrm{', $utf2tex, '}')"/>
+      </xsl:when>
+      <xsl:when test="matches(., concat('^', $whitespace-regex, '+$'))">
+        <xsl:value-of select="$utf2tex"/>
       </xsl:when>
       <!-- convert to mathrm, mathit and map unicode to latex. -->
       <xsl:when test="parent::mn

@@ -49,7 +49,7 @@
 
   <!-- drop attributes and elements -->
   <xsl:template match="@overflow[parent::math]|@movablelimits[parent::mo]|@mathcolor|@color|@fontsize|@mathsize|@mathbackground|@background|@maxsize|@minsize|@scriptminsize|@fence|@stretchy|@separator|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@columnalign[parent::mtable]|@align[parent::mtable]|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@linebreak|@symmetric[parent::mo]|@columnspacing|@rowspacing|@columnalign|@groupalign|@columnwidth|@rowalign|@displaystyle|@scriptlevel[parent::mstyle]|@linethickness[parent::mstyle]|@columnlines|@rowlines|@equalcolumns|@equalrows|@frame|@framespacing|@rowspan|@class|@side" mode="mathml2tex">
-    <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"></xsl:message>
+    <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"/>
   </xsl:template>
   
   <xsl:template match="mphantom|maligngroup" mode="mathml2tex">
@@ -126,7 +126,7 @@
         <xsl:text>}</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+        <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -179,7 +179,7 @@
 
   <xsl:template match="mroot" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:text>\sqrt</xsl:text>
     <!-- index (optional) -->
@@ -196,7 +196,7 @@
 
   <xsl:template match="msup|msub" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
@@ -209,7 +209,7 @@
   
   <xsl:template match="msup[mi[1] and mi[2] and matches(mi[2], '''')]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -234,7 +234,7 @@
 
   <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>_{</xsl:text>
@@ -269,7 +269,7 @@
         <xsl:text>&#xa;\hline&#xa;</xsl:text>  
       </xsl:when>
       <xsl:when test="$rowlines[$position] = 'dashed'">
-         <xsl:message select="'[WARNING]: arydshln package is needed to draw dashed lines in array'"/>
+         <xsl:message select="'[WARNING]: arydshln package is needed to draw dashed lines in arrays'"/>
         <xsl:text>&#xa;\hdashline&#xa;</xsl:text>  
       </xsl:when>
     </xsl:choose>
@@ -285,7 +285,7 @@
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
@@ -318,7 +318,7 @@
 
   <xsl:template match="munderover" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:text>\overset{</xsl:text>
     <xsl:apply-templates select="*[3]" mode="#current"/>
@@ -332,7 +332,7 @@
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements'"/>
+      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
@@ -483,7 +483,7 @@
         <xsl:value-of select="concat('\text{', $utf2tex-text-only, '}')"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="{$fail-on-error}" select="'[WARNING]: unprocessed or empty text node', ."/>
+        <xsl:message select="'[WARNING]: unprocessed or empty text node', ."/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -517,7 +517,7 @@
   </xsl:function>
 
   <xsl:template match="mglyph" mode="mathml2tex">
-    <xsl:message>Warnung: mglyph (<xsl:copy-of select="."/>)</xsl:message>
+    <xsl:message>[WARNING]: mglyph (<xsl:copy-of select="."/>)</xsl:message>
     <xsl:if test="@alt">
       <xsl:value-of select="@alt"/>
     </xsl:if>

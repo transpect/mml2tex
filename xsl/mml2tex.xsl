@@ -563,13 +563,15 @@
     <!-- In order to avoid infinite recursion when mapping % → \% -->
     <xsl:param name="seen" as="xs:string*"/>
     <xsl:param name="texmap" as="element(xml2tex:char)+"/>
-    <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
+    <xsl:variable name="texregex" select="concat('[', 
+                                                 string-join(for $i in $texmap/@character 
+                                                             return functx:escape-for-regex($i), ''), 
+                                                 ']')" as="xs:string"/>
     <xsl:analyze-string select="$string" regex="{$texregex}">  
       <xsl:matching-substring>
-        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#ß]'), '|'))))
-          then '&#x20;' else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
         <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+        <xsl:variable name="insert-whitespace" select="if(starts-with($replacement, '\')) then '&#x20;' else ()" as="xs:string?"/>
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
                                                     concat($replacement, $insert-whitespace)

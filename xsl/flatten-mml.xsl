@@ -19,7 +19,11 @@
   
   <xsl:strip-space elements="mml:*"/>
   
-  <!-- creeate elements for different styles. You may override this in your 
+  <!-- wrapper element -->
+  <xsl:param name="wrapper" as="element()?">
+    <phrase role="flattened-mml" xmlns="http://docbook.org/ns/docbook"/>
+  </xsl:param>
+  <!-- create elements for different styles. You may override this in your 
        importing stylesheet to satisfy other XML schemas -->
   <xsl:param name="superscript" as="element()">
     <superscript xmlns="http://docbook.org/ns/docbook"/>
@@ -46,7 +50,17 @@
   </xsl:template>
 
   <xsl:template match="math[tr:flatten-mml-boolean(.)]">
-    <xsl:apply-templates mode="flatten-mml"/>
+    <xsl:choose>
+      <xsl:when test="$wrapper">
+        <xsl:element name="{$wrapper/local-name()}" namespace="{$wrapper/namespace-uri()}">
+          <xsl:apply-templates select="$wrapper/@*" mode="#default"/>
+          <xsl:apply-templates mode="flatten-mml"/>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="flatten-mml"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template match="*" mode="flatten-mml">

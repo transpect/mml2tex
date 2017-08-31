@@ -454,8 +454,7 @@
         </xsl:call-template>
       </xsl:when>
       <!-- function names such as cos, sin, log -->
-      <xsl:when test="parent::mi[$text = $mml2tex:function-names]
-                     |parent::mtext[$text = $mml2tex:function-names]">
+      <xsl:when test="$text = $mml2tex:function-names">
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- regular greeks are rendered with upgreek package -->

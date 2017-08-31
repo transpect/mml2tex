@@ -245,16 +245,26 @@
   </xsl:template>
 
   <xsl:template match="mtable" mode="mathml2tex">
+    <xsl:variable name="table" select="." as="element(mtable)"/>
+    <xsl:variable name="col-aligns" select="for $i in mtr[count((mtd, .//malignmark)) &gt;= mml2tex:max-col-count($table)] 
+                                            return ($i/mtd/ancestor-or-self::*[@columnalign]/@columnalign, 
+                                                    $i/mtd/ancestor-or-self::*[@groupalign]/@groupalign, 
+                                                    'left')[1]" as="xs:string*"/>
     <xsl:text>\begin{array}{</xsl:text>
-    <xsl:for-each select="1 to max(for $x in mtr return count(($x/mtd, $x//malignmark)))">
-      <xsl:text>c</xsl:text>
+    <xsl:for-each select="1 to mml2tex:max-col-count($table)">
+      <xsl:variable name="pos" select="position()" as="xs:integer"/>
+      <xsl:value-of select="substring($col-aligns[$pos], 1, 1)"/>
     </xsl:for-each>
-    <xsl:text>}
-</xsl:text>
+    <xsl:text>}</xsl:text>
     <xsl:apply-templates select="@* except @width" mode="#current"/>
     <xsl:apply-templates mode="#current"/>
     <xsl:text>\end{array}</xsl:text>
   </xsl:template>
+  
+  <xsl:function name="mml2tex:max-col-count" as="xs:integer">
+    <xsl:param name="mtable" as="element(mtable)"/>
+    <xsl:value-of select="max(for $i in $mtable/mtr return count(($i/mtd, $i//malignmark)))"/>
+  </xsl:function>
 
   <xsl:template match="mtr" mode="mathml2tex">
     <xsl:variable name="position" select="count(preceding-sibling::mtr) + 1" as="xs:integer"/>

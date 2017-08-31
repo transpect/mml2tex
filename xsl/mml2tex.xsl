@@ -246,7 +246,7 @@
 
   <xsl:template match="mtable" mode="mathml2tex">
     <xsl:text>\begin{array}{</xsl:text>
-    <xsl:for-each select="1 to max(for $x in mtr return count($x/mtd))">
+    <xsl:for-each select="1 to max(for $x in mtr return count(($x/mtd, $x//malignmark)))">
       <xsl:text>c</xsl:text>
     </xsl:for-each>
     <xsl:text>}

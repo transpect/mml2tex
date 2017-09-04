@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" 
   xmlns:c="http://www.w3.org/ns/xproc-step" 
+  xmlns:cx="http://xmlcalabash.com/ns/extensions"
   xmlns:mml="http://www.w3.org/1998/Math/MathML"
   xmlns:mml2tex="http://transpect.io/mml2tex"
   xmlns:tr="http://transpect.io"
@@ -66,6 +67,18 @@
   <p:import href="http://transpect.io/xproc-util/xslt-mode/xpl/xslt-mode.xpl"/>
   
   <p:choose>
+    <p:when test="$preprocessing eq 'yes' and not(/*/local-name() eq 'stylesheet')">
+      <p:xpath-context>
+        <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+      </p:xpath-context>
+
+      <cx:message>
+        <p:with-option name="message" select="'[WARNING] mml2tex: preprocessing is set to ''yes'', but the document at the input port named ''preprocess-mml-xsl'' do not appear to be a XSLT stylesheet. In order, no MathML preprocessing will be applied.'"/>
+      </cx:message>
+      
+      <p:identity/>
+      
+    </p:when>
     <p:when test="$preprocessing eq 'yes'">
 
       <tr:xslt-mode msg="yes" mode="mml2tex-grouping" name="grouping" prefix="mml2tex/01">

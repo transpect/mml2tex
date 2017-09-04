@@ -73,7 +73,7 @@
       </p:xpath-context>
 
       <cx:message>
-        <p:with-option name="message" select="'[WARNING] mml2tex: preprocessing is set to ''yes'', but the document at the input port named ''preprocess-mml-xsl'' do not appear to be a XSLT stylesheet. In order, no MathML preprocessing will be applied.'"/>
+        <p:with-option name="message" select="'[WARNING] mml2tex: preprocessing is set to ''yes'', but the document at the input port named ''preprocess-mml-xsl'' do not appear to be an XSLT stylesheet. In order, no MathML preprocessing will be applied.'"/>
       </cx:message>
       
       <p:identity/>

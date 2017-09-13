@@ -303,10 +303,16 @@
     <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
                                                      (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
-      <xsl:when test="matches($accent, '^\&#x5e;$') and self::mover"><!-- superscript circumflex/caret -->
+      <xsl:when test="$accent = ('&#x23de;', '&#x23df;')">
+        <xsl:value-of select="if(self::mover) then '\overbrace' else '\underbrace'"/>
+      </xsl:when>
+      <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;')">
+        <xsl:value-of select="if(self::mover) then '\overbracket' else '\underbracket'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x5e;' and self::mover"><!-- superscript circumflex/caret -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widehat' else '\hat'"/>
       </xsl:when>
-      <xsl:when test="matches($accent, '^&#x7e;$') and self::mover"><!-- superscript tilde -->
+      <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
       </xsl:when>
       <xsl:when test="matches($accent, '^[&#xaf;&#x304;&#x305;]$')"><!-- macron, combining macron, combining overline -->
@@ -314,7 +320,7 @@
       </xsl:when>
       <xsl:when test="$is-diacritical-mark">
         <xsl:apply-templates select="$accent" mode="#current"/>
-      </xsl:when>      
+      </xsl:when>
       <xsl:when test="self::mover or self::munder">
         <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
         <xsl:apply-templates select="$accent" mode="#current"/>

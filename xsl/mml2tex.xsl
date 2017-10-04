@@ -413,7 +413,7 @@
         <xsl:value-of select="concat('\', $pos, '.')"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="concat('\', $pos, '&#x20;')"/>
+        <xsl:value-of select="concat('\', $pos)"/>
         <xsl:choose>
           <xsl:when test="$val = ('[', ']', '(', ')')">
             <xsl:value-of select="$val"/>

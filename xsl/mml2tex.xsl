@@ -315,7 +315,7 @@
       <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
       </xsl:when>
-      <xsl:when test="matches($accent, '^[&#xaf;&#x304;&#x305;]$')"><!-- macron, combining macron, combining overline -->
+      <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->
         <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
       </xsl:when>
       <xsl:when test="$is-diacritical-mark">

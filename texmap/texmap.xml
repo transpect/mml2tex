@@ -30,6 +30,10 @@
     <char character="&#x5e;" string="\sphat"/>
     <!--LOW LINE, TeX subscript operator-->
     <char character="&#x5f;" string="\_"/>
+    <!-- LEFT CURLY BRACKET -->
+    <char character="&#x7b;" string="\{"/>
+    <!-- RIGHT CURLY BRACKET -->
+    <char character="&#x7d;" string="\}"/>
     <!--# \sim, TILDE-->
     <char character="&#x7e;" string="\sim"/>
   

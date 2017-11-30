@@ -62,7 +62,8 @@
       Whether to recover from some errors or not 
     </p:documentation>
   </p:option>
-  
+
+  <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
   <p:import href="http://transpect.io/xproc-util/xslt-mode/xpl/xslt-mode.xpl"/>
   

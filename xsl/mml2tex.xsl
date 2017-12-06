@@ -236,7 +236,16 @@
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
-    <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:variable name="base">
+      <xsl:apply-templates select="*[1]" mode="#current"/>
+    </xsl:variable>
+    <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
+      <xsl:text>{</xsl:text>
+    </xsl:if>
+    <xsl:sequence select="$base"/>
+    <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
+      <xsl:text>}</xsl:text>
+    </xsl:if>
     <xsl:text>_{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}^{</xsl:text>

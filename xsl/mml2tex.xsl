@@ -18,7 +18,13 @@
   
   <xsl:param name="fail-on-error" select="'yes'"/>
 
-  <xsl:variable name="texmap" select="document('../texmap/texmap.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
+  <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
+  
+  <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
+  
+  <xsl:variable name="texmap" select="document($texmap-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
+  
+  <xsl:variable name="texmap-upgreek" select="document($texmap-upgreek-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
@@ -458,7 +464,6 @@
     <!-- choose corresponding font suffix for \math -->
     <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
-    <xsl:variable name="texmap-upgreek" select="document('../texmap/texmap-upgreek.xml')/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
     <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->

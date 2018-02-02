@@ -62,6 +62,18 @@
       Whether to recover from some errors or not 
     </p:documentation>
   </p:option>
+  
+  <p:option name="texmap-uri" select="'../texmap/texmap.xml'">
+    <p:documentation>
+      uri to texmap
+    </p:documentation>
+  </p:option>
+  
+  <p:option name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'">
+    <p:documentation>
+      uri to texmap for upgreek chars
+    </p:documentation>
+  </p:option>
 
   <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
@@ -125,6 +137,8 @@
     <p:input port="stylesheet">
       <p:document href="../xsl/invoke-mml2tex.xsl"/>
     </p:input>
+    <p:with-param name="texmap-uri" select="$texmap-uri"/>
+    <p:with-param name="texmap-upgreek-uri" select="$texmap-upgreek-uri"/>
     <p:with-param name="debug" select="''"/>
     <p:with-param name="debug-dir-uri" select="''"/>
   </p:xslt>

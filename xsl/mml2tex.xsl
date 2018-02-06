@@ -75,7 +75,7 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
-  <xsl:template match="mspace" mode="mathml2tex">
+  <xsl:template match="mspace[@width]" mode="mathml2tex">
     <xsl:variable name="width" select="xs:decimal(replace(@width, '[a-z]+', ''))" as="xs:decimal"/>
     <xsl:variable name="mu-width" select="$width * 18" as="xs:decimal"/>
     <!-- 1 mu = 1/18em, MathML authors are encouraged to use em as unit here -->
@@ -97,6 +97,12 @@
         <xsl:apply-templates mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="mspace[@linebreak]" mode="mathml2tex">
+    <xsl:if test="@linebreak eq 'newline'">
+      <xsl:text> \\&#xa;</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="menclose" mode="mathml2tex">

@@ -18,6 +18,8 @@
   
   <xsl:param name="fail-on-error" select="'yes'"/>
 
+  <xsl:param name="set-math-style" select="'no'"/>
+
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
@@ -44,9 +46,22 @@
 
   <xsl:template match="math" mode="mathml2tex">
     <xsl:variable name="basic-transformation">
-      <xsl:apply-templates mode="#current"/>
+      <xsl:apply-templates select="@display, node()" mode="#current"/>
     </xsl:variable>
     <xsl:value-of select="$basic-transformation"/>
+  </xsl:template>
+
+  <xsl:template match="math/@display" mode="mathml2tex">
+    <xsl:if test="$set-math-style = 'yes'">
+      <xsl:choose>
+        <xsl:when test=". = 'inline'">\textstyle </xsl:when>
+        <xsl:when test=". = 'block'">\displaystyle </xsl:when>
+        <xsl:otherwise>
+          <xsl:message
+            select="'[WARNING]: attribute', name(), 'in', ../name(), 'must be ''inline'' or ''block''! Was:', ."/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="semantics" mode="mathml2tex">

@@ -74,6 +74,12 @@
       uri to texmap for upgreek chars
     </p:documentation>
   </p:option>
+  
+  <p:option name="set-math-style" select="'no'">
+    <p:documentation>
+      [yes|no] Whether to output \textstyle or \displaystyle when math/@display is set
+    </p:documentation>
+  </p:option>
 
   <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
@@ -141,6 +147,7 @@
     <p:with-param name="texmap-upgreek-uri" select="$texmap-upgreek-uri"/>
     <p:with-param name="debug" select="''"/>
     <p:with-param name="debug-dir-uri" select="''"/>
+    <p:with-param name="set-math-style" select="$set-math-style"/>
   </p:xslt>
   
   <tr:store-debug pipeline-step="mml2tex/10.mml2tex-main">

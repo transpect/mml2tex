@@ -54,8 +54,12 @@
   <xsl:template match="math/@display" mode="mathml2tex">
     <xsl:if test="$set-math-style = 'yes'">
       <xsl:choose>
-        <xsl:when test=". = 'inline'">\textstyle </xsl:when>
-        <xsl:when test=". = 'block'">\displaystyle </xsl:when>
+        <xsl:when test=". = 'inline'">
+          <xsl:text>\textstyle </xsl:text>
+        </xsl:when>
+        <xsl:when test=". = 'block'">
+          <xsl:text>\displaystyle </xsl:text>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:message
             select="'[WARNING]: attribute', name(), 'in', ../name(), 'must be ''inline'' or ''block''! Was:', ."/>

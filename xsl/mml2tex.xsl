@@ -366,11 +366,11 @@
       <xsl:when test="$is-diacritical-mark">
         <xsl:apply-templates select="$accent" mode="#current"/>
       </xsl:when>
-      <xsl:when test="self::mover or self::munder">
+      <xsl:otherwise>
         <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
         <xsl:apply-templates select="$accent" mode="#current"/>
         <xsl:text>}</xsl:text>
-      </xsl:when>
+      </xsl:otherwise>
     </xsl:choose>
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="$expression" mode="#current"/>

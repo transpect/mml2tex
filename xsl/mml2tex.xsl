@@ -357,10 +357,10 @@
       <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
       </xsl:when>
-      <xsl:when test="matches($accent, '^&#x2d9;$') and self::mover"><!-- \dot -->
+      <xsl:when test="$accent eq '&#x2d9;' and self::mover"><!-- \dot -->
         <xsl:value-of select="'\dot'"/>
       </xsl:when>
-      <xsl:when test="matches($accent, '^&#xa8;$') and self::mover"><!-- \ddot -->
+      <xsl:when test="$accent eq '&#xa8;' and self::mover"><!-- \ddot -->
         <xsl:value-of select="'\ddot'"/>
       </xsl:when>
       <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->

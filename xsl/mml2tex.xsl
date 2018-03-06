@@ -360,6 +360,9 @@
       <xsl:when test="matches($accent, '^&#x2d9;$') and self::mover"><!-- \dot -->
         <xsl:value-of select="'\dot'"/>
       </xsl:when>
+      <xsl:when test="matches($accent, '^&#xa8;$') and self::mover"><!-- \ddot -->
+        <xsl:value-of select="'\ddot'"/>
+      </xsl:when>
       <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->
         <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
       </xsl:when>

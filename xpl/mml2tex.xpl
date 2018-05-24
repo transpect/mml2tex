@@ -19,11 +19,11 @@
       Expects an XML document.
     </p:documentation>
   </p:input>
-
-  <p:input port="preprocess-mml-xsl">
-    <p:document href="http://transpect.io/mml-normalize/xsl/mml-normalize.xsl"/>
-    <p:documentation>Override the default preprocessing by supplying your own XSLT 
-      that may or may not import http://transpect.io/mml-normalize/xsl/mml-normalize.xsl</p:documentation>
+  
+  <p:input port="paths" primary="false">
+    <p:inline>
+      <c:param-set/>
+    </p:inline>
   </p:input>
 
   <p:input port="conf" primary="false">
@@ -82,30 +82,34 @@
   </p:option>
 
   <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
+  <p:import href="http://transpect.io/cascade/xpl/load-cascaded.xpl"/>
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
   <p:import href="http://transpect.io/xproc-util/xslt-mode/xpl/xslt-mode.xpl"/>
   
-  <p:choose>
-    <p:when test="$preprocessing eq 'yes' and not(/*/local-name() eq 'stylesheet')">
-      <p:xpath-context>
-        <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
-      </p:xpath-context>
-
-      <cx:message>
-        <p:with-option name="message" select="'[WARNING] mml2tex: preprocessing is set to ''yes'', but the document at the input port named ''preprocess-mml-xsl'' do not appear to be an XSLT stylesheet. In order, no MathML preprocessing will be applied.'"/>
-      </cx:message>
-      
-      <p:identity/>
-      
-    </p:when>
+  <p:choose name="preprocess-output">
     <p:when test="$preprocessing eq 'yes'">
+      <p:output port="result"/>
+      
+      <tr:load-cascaded name="load-preprocess-mml-xsl" filename="mml-normalize/mml-normalize.xsl">
+        <p:with-option name="fallback" select="'http://transpect.io/mml-normalize/xsl/mml-normalize.xsl'"/>
+        <p:input port="paths">
+          <p:pipe port="paths" step="mml2tex"/>
+        </p:input>
+        <p:with-option name="debug" select="$debug"/>
+        <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+      </tr:load-cascaded>
+      
+      <p:sink/>
 
       <tr:xslt-mode msg="yes" mode="mml2tex-grouping" name="grouping" prefix="mml2tex/01">
+        <p:input port="source">
+          <p:pipe port="source" step="mml2tex"/>
+        </p:input>
         <p:input port="stylesheet">
-          <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+          <p:pipe port="result" step="load-preprocess-mml-xsl"/>
         </p:input>
         <p:input port="parameters">
-          <p:empty/>
+          <p:pipe port="paths" step="mml2tex"/>
         </p:input>
         <p:input port="models"><p:empty/></p:input>
         <p:with-option name="debug" select="$debug"/>
@@ -115,7 +119,7 @@
       
       <tr:xslt-mode msg="yes" mode="mml2tex-preprocess" name="preprocess" prefix="mml2tex/05">
         <p:input port="stylesheet">
-          <p:pipe port="preprocess-mml-xsl" step="mml2tex"/>
+          <p:pipe port="result" step="load-preprocess-mml-xsl"/>
         </p:input>
         <p:input port="parameters">
           <p:empty/>
@@ -128,11 +132,23 @@
 
     </p:when>
     <p:otherwise>
+      <p:output port="result"/>
       <p:identity/>
     </p:otherwise>
   </p:choose>
   
-  <p:identity name="preprocess-output"/>
+  <p:sink/>
+  
+  <tr:load-cascaded name="load-mml2tex" filename="mml2tex/load-mml2tex">
+    <p:with-option name="fallback" select="resolve-uri('../xsl/invoke-mml2tex.xsl')"/>
+    <p:input port="paths">
+      <p:pipe port="paths" step="mml2tex"/>
+    </p:input>
+    <p:with-option name="debug" select="$debug"/>
+    <p:with-option name="debug-dir-uri" select="$debug-dir-uri"/>
+  </tr:load-cascaded>
+  
+  <p:sink/>
   
   <p:xslt name="invoke">
     <p:documentation>MathML equations are converted to "mml2tex" processing instructions.</p:documentation>    
@@ -141,7 +157,7 @@
       <p:pipe port="conf" step="mml2tex"/>
     </p:input>
     <p:input port="stylesheet">
-      <p:document href="../xsl/invoke-mml2tex.xsl"/>
+      <p:pipe port="result" step="load-mml2tex"/>
     </p:input>
     <p:with-param name="texmap-uri" select="$texmap-uri"/>
     <p:with-param name="texmap-upgreek-uri" select="$texmap-upgreek-uri"/>

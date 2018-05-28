@@ -345,10 +345,10 @@
     <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
                                                      (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
-      <xsl:when test="$accent = ('&#x23de;', '&#x23df;')">
+      <xsl:when test="$accent = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')">
         <xsl:value-of select="if(self::mover) then '\overbrace' else '\underbrace'"/>
       </xsl:when>
-      <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;')">
+      <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')">
         <xsl:value-of select="if(self::mover) then '\overbracket' else '\underbracket'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#x5e;' and self::mover"><!-- superscript circumflex/caret -->

@@ -139,7 +139,7 @@
   
   <p:sink/>
   
-  <tr:load-cascaded name="load-mml2tex" filename="mml2tex/load-mml2tex">
+  <tr:load-cascaded name="load-mml2tex" filename="mml2tex/load-mml2tex.xsl">
     <p:with-option name="fallback" select="resolve-uri('../xsl/invoke-mml2tex.xsl')"/>
     <p:input port="paths">
       <p:pipe port="paths" step="mml2tex"/>

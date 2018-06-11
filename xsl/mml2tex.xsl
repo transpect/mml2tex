@@ -229,13 +229,13 @@
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
-    <xsl:if test="parent::msub | parent::mrow/parent::msub">{</xsl:if>
+    <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">{</xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
-    <xsl:if test="parent::msub | parent::mrow/parent::msub">}</xsl:if>
+    <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">}</xsl:if>
   </xsl:template>
   
   <!-- primes, such as y'' -->

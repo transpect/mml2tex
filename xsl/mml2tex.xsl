@@ -287,14 +287,14 @@
   </xsl:template>
 
   <xsl:template match="mtable" mode="mathml2tex">
-    <xsl:variable name="table" select="." as="element(mtable)"/>
-    <xsl:variable name="col-aligns" select="for $i in mtr[count((mtd, .//malignmark)) &gt;= mml2tex:max-col-count($table)] 
+    <xsl:variable name="mcc" select="mml2tex:max-col-count(.)" as="xs:integer"/>
+    <xsl:variable name="col-aligns" select="for $i in mtr[count((mtd, .//malignmark)) &gt;= $mcc]
                                             return ($i/mtd/ancestor-or-self::*[@columnalign]/@columnalign, 
                                                     $i/mtd/ancestor-or-self::*[@groupalign]/@groupalign, 
                                                     'center')[1]" as="xs:string*"/>
     <xsl:text>\begin{array}{</xsl:text>
-    <xsl:for-each select="1 to mml2tex:max-col-count($table)">
-      <xsl:variable name="pos" select="position()" as="xs:integer"/>
+    <xsl:for-each select="1 to $mcc">
+      <xsl:variable name="pos" select="min((count($col-aligns), position()))" as="xs:integer"/>
       <xsl:value-of select="substring($col-aligns[$pos], 1, 1)"/>
     </xsl:for-each>
     <xsl:text>}&#xa;</xsl:text>

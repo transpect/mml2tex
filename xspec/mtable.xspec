@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  stylesheet="../xsl/mml2tex.xsl">
+  <x:scenario label="a 2x3 matrix">
+    <x:context mode="mathml2tex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mtable>
+          <mtr>
+            <mtd>
+              <mi>11</mi>
+            </mtd>
+            <mtd>
+              <mi>=</mi>
+            </mtd>
+            <mtd>
+              <mi>13</mi>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+              <mi>21</mi>
+            </mtd>
+            <mtd>
+              <mi>=</mi>
+            </mtd>
+            <mtd>
+              <mi>23</mi>
+            </mtd>
+          </mtr>
+        </mtable>
+      </math>
+    </x:context>
+    <x:expect label="has 3 column definitions">\begin{array}{ccc}
+11 &amp; = &amp; 13\\
+21 &amp; = &amp; 23
+\end{array}</x:expect>
+  </x:scenario>
+</x:description>

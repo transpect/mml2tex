@@ -620,7 +620,7 @@
       </styles>
     </xsl:variable>
     <xsl:choose>
-      <xsl:when test="matches($elt, concat('^[', $whitespace-regex, ']$')) 
+      <xsl:when test="matches($elt, concat('^[', $whitespace-regex, ']+$')) 
                       or ($elt[not(node())])">
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:when>

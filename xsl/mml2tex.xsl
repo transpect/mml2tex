@@ -677,7 +677,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[local-name() = ('mn', 'mi', 'ms', 'mo', 'mtext', 'mstyle')]" mode="mathml2tex">
+  <xsl:template match="mn|mi|ms|mo|mtext|mstyle" mode="mathml2tex">
     <xsl:sequence select="mml2tex:style-to-tex(.)"/>
   </xsl:template>
   

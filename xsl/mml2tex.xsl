@@ -30,6 +30,8 @@
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
+  <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
+
   <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
@@ -73,7 +75,54 @@
   </xsl:template>
 
   <!-- drop attributes and elements -->
-  <xsl:template match="@overflow[parent::math]|@movablelimits[parent::mo]|@mathcolor|@color|@fontsize|@mathsize|@mathbackground|@background|@maxsize|@minsize|@scriptminsize|@fence|@stretchy|@separator|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@columnalign[parent::mtable]|@align[parent::mtable]|@accent|@accentunder|@form|@largeop|@lspace|@rspace|@linebreak|@symmetric[parent::mo]|@columnspacing|@rowspacing|@columnalign|@groupalign|@columnwidth|@rowalign|@displaystyle|@scriptlevel[parent::mstyle]|@linethickness[parent::mstyle]|@columnlines|@rowlines|@equalcolumns|@equalrows|@frame|@framespacing|@rowspan|@class|@side" mode="mathml2tex">
+  <xsl:template match="@overflow[parent::math]
+                      |@movablelimits[parent::mo]
+                      |@mathcolor
+                      |@color
+                      |@fontsize
+                      |@mathsize
+                      |@mathbackground
+                      |@background
+                      |@maxsize
+                      |@minsize
+                      |@scriptminsize
+                      |@fence
+                      |@stretchy
+                      |@separator
+                      |@accent
+                      |@accentunder
+                      |@form
+                      |@largeop
+                      |@lspace
+                      |@rspace
+                      |@columnalign[parent::mtable]
+                      |@align[parent::mtable]
+                      |@accent
+                      |@accentunder
+                      |@form
+                      |@largeop
+                      |@lspace
+                      |@rspace
+                      |@linebreak
+                      |@symmetric[parent::mo]
+                      |@columnspacing
+                      |@rowspacing
+                      |@columnalign
+                      |@groupalign
+                      |@columnwidth
+                      |@rowalign
+                      |@displaystyle
+                      |@scriptlevel[parent::mstyle]
+                      |@linethickness[parent::mstyle]
+                      |@columnlines
+                      |@rowlines
+                      |@equalcolumns
+                      |@equalrows
+                      |@frame
+                      |@framespacing
+                      |@rowspan
+                      |@class
+                      |@side" mode="mathml2tex">
     <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"/>
   </xsl:template>
   
@@ -89,8 +138,9 @@
     <xsl:text>&#x20;&amp;&#x20;</xsl:text>
   </xsl:template>
   
-  <!-- only process text content -->
-  <xsl:template match="mtext|mlabeledtr|maction|mrow|merror|mpadded" mode="mathml2tex">
+  <!-- resolve elements -->
+  
+  <xsl:template match="mlabeledtr|maction|mrow|merror|mpadded" mode="mathml2tex">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
@@ -483,27 +533,10 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="*[local-name() = ('mstyle')]" mode="mathml2tex">
-    <xsl:apply-templates select="@*[not(local-name() = ('mathvariant', 'fontweight', 'fontstyle', 'fontfamily', 'mathcolor'))]" mode="#current"/>
-    <xsl:choose>
-      <xsl:when test="@*[local-name() = ('mathvariant')] = 'bold'">
-        <xsl:text>\mathbf{</xsl:text>
-        <xsl:apply-templates mode="#current"/>
-        <xsl:text>}</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates mode="#current"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <xsl:template match="text()" mode="mathml2tex">
     <!-- normalize space and remove line breaks -->
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
-    <!-- choose corresponding font suffix for \math -->
-    <xsl:variable name="fonts" select="tr:text-atts(..)" as="xs:string?"/>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
-    <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
       <xsl:when test="parent::mo[@role eq 'mtef'] and matches(., $parenthesis-regex)">
@@ -524,31 +557,18 @@
                                                      else $text" as="xs:string"/>
         <xsl:value-of select="$utf2tex-upgreek"/>
       </xsl:when>
-      <!-- mi with one character should be rendered italic. -->
-      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) eq 1][not(matches(., concat('[\d+%\$]', '|', $mml2tex:operators-regex)))]">
-        <xsl:value-of select="$utf2tex"/>
-      </xsl:when>
-      <!-- mi with more than one character is rendered regular. -->
-      <xsl:when test="parent::mi[not(@mathvariant) and string-length(.) gt 1][not(matches(., concat('[\d+%\$]', '|', $mml2tex:operators-regex)))]">
-        <xsl:value-of select="concat('\mathrm{', $utf2tex, '}')"/>
-      </xsl:when>
-      <xsl:when test="matches(., concat('^[', $whitespace-regex, ']+$'))">
-        <xsl:value-of select="$utf2tex"/>
-      </xsl:when>
-      <!-- convert to mathrm, mathit and map unicode to latex. -->
       <xsl:when test="parent::mn
                      |parent::mi
                      |parent::mo
                      |parent::ms">
-        <xsl:value-of select="if($fonts) then concat('\math', $fonts, '{', $utf2tex, '}') else $utf2tex"/>
+        <xsl:value-of select="$utf2tex"/>
       </xsl:when>
       <!-- you need to apply mml-normalize.xsl previously. this ensures that some wrong mtext 
            structures are dissolved and more appropriate elements are applied. Otherwise you could 
            note that functions, variables or numbers are just treated as regular text. This is often caused 
            by an improper use of Math editors by authors. -->
       <xsl:when test="parent::mtext">
-        <xsl:variable name="utf2tex-text-only" select="string-join(mml2tex:utf2tex(., (), $texmap), '')" as="xs:string"/>
-        <xsl:value-of select="concat('\text{', $utf2tex-text-only, '}')"/>
+        <xsl:value-of select="string-join(mml2tex:utf2tex(., (), $texmap), '')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message select="'[WARNING]: unprocessed or empty text node', ."/>
@@ -556,32 +576,94 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:function name="tr:text-atts" as="xs:string?">
-    <xsl:param name="elt" as="element(*)"/><!-- e.g., mtext -->
+  <xsl:function name="mml2tex:text-atts" as="xs:string?">
+    <xsl:param name="elt" as="element(*)"/>
+    <xsl:param name="target" as="xs:string"/>
+    <xsl:variable name="fontweight" select="$elt/@fontweight" as="attribute(fontweight)?"/>
+    <xsl:variable name="fontstyle" select="$elt/@fontstyle" as="attribute(fontstyle)?"/>
+    <xsl:variable name="mathvariant" select="$elt/@mathvariant" as="attribute(mathvariant)?"/>
     <xsl:choose>
-      <xsl:when test="$elt/@fontweight = 'bold'">
-        <xsl:choose>
-          <xsl:when test="$elt/@fontstyle = 'italic'">
-            <xsl:value-of select="'bi'"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="'bf'"/>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:when test="$fontweight = 'bold' and $fontstyle = 'italic' and not(matches($mathvariant, 'bold|normal'))">
+        <xsl:sequence select="concat('\', $target, 'bi', '{')"/>
+      </xsl:when>
+      <xsl:when test="$fontweight = 'bold' and not(matches($mathvariant, 'bold|normal'))">
+        <xsl:sequence select="concat('\', $target, 'bf', '{')"/>
+      </xsl:when>
+      <xsl:when test="$fontstyle = 'italic' and not(matches($mathvariant, 'italic|normal'))">
+        <xsl:sequence select="concat('\', $target, 'it', '{')"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="mml2tex:style-to-tex" as="item()*">
+    <xsl:param name="elt" as="element()"/>
+    <xsl:variable name="mathvariant" select="$elt/@mathvariant" as="attribute(mathvariant)?"/>
+    <xsl:variable name="fontstyle"   select="$elt/@fontstyle"   as="attribute(fontstyle)?"/>
+    <xsl:variable name="fontweight"  select="$elt/@fontweight"  as="attribute(fontweight)?"/>
+    <xsl:variable name="style-map" as="element(mml2tex:styles)">
+      <styles xmlns="http://transpect.io/mml2tex">
+        <var mml="normal"                 tex="rm"        targets="math"/>
+        <var mml="bold"                   tex="bf"        targets="math text"/>
+        <var mml="italic"                 tex="it"        targets="math text"/>
+        <var mml="bold-italic"            tex="boldsymbol it" targets="math text"/>
+        <var mml="mml2tex_bold-italic"    tex="boldsymbol" targets="math"/>
+        <var mml="fraktur"                tex="frak"      targets="math text"/>
+        <var mml="bold-fraktur"           tex="mathfrak"  targets="math text"/>
+        <var mml="script"                 tex="cal"       targets="math text"/>
+        <var mml="bold-script"            tex="boldsymbol cal"    targets="math text"/>
+        <var mml="sans-serif"             tex="boldsymbol sf"     targets="math text"/>
+        <var mml="bold-sans-serif"        tex="boldsymbol sf"     targets="math text"/>
+        <var mml="sans-serif-italic"      tex="boldsymbol it sf"  targets="math text"/>
+        <var mml="sans-serif-bold-italic" tex="boldsymbol it sf"  targets="math text"/>
+        <var mml="double-struck"          tex="bb"        targets="math"/>
+        <var mml="monospace"              tex="tt"        targets="math text"/>
+      </styles>
+    </xsl:variable>
+    <xsl:choose>
+      <xsl:when test="(($elt/self::mtext and not($mathvariant))
+                        or ($elt/self::mi and $mathvariant eq 'normal'))
+                      and matches($elt, $texregex-upgreek)">
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
+      </xsl:when>
+      <xsl:when test="$elt/self::mtext 
+                      and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 
+                      and not($mathvariant = 'normal')
+                      and not(matches($elt, $texregex-upgreek))">
+        <xsl:sequence select="mml2tex:style-to-tex-insert($elt, $mathvariant, $style-map, 'text')"/>
+      </xsl:when>
+      <xsl:when test="$elt/self::mtext">
+        <xsl:text>\text{</xsl:text>
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
+      <xsl:when test="($elt/self::mi or $elt/self::mn or $elt/self::ms or $elt/self::mo or $elt/self::mstyle) 
+                      and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 
+                      and not($elt/self::mi[not(@mathvariant or @mathvariant eq 'italic')] and string-length($elt) = 1)">
+        <xsl:sequence select="if($elt/self::mi[matches(@mathvariant, 'italic') and string-length(.) = 1])
+                              then mml2tex:style-to-tex-insert($elt, 'mml2tex_bold-italic', $style-map, 'math')
+                              else mml2tex:style-to-tex-insert($elt, $mathvariant, $style-map, 'math')"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:choose>
-          <xsl:when test="$elt/@fontstyle = 'italic'">
-            <xsl:value-of select="'it'"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:if test="$elt/self::mtext or $elt/@mathvariant = 'normal'">
-              <xsl:value-of select="'rm'"/>
-            </xsl:if>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="mml2tex:style-to-tex-insert" as="item()*">
+    <xsl:param name="elt" as="element()"/>
+    <xsl:param name="mathvariant" as="xs:string?"/>
+    <xsl:param name="style-map" as="element(mml2tex:styles)"/>
+    <xsl:param name="target" as="xs:string"/>
+    <xsl:value-of select="string-join((mml2tex:text-atts($elt, $target),
+                                       for $i in tokenize($style-map/mml2tex:var[@mml eq $mathvariant]/@tex, '\s') 
+                                       return ('\', 
+                                               if($i = ('bm', 'boldsymbol')) then () else $target, $i, '{')
+                                       ), '')"/>
+    <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
+    <xsl:value-of select="string-join((for $i in tokenize($style-map/mml2tex:var[@mml eq $mathvariant]/@tex, '\s') 
+                                       return '}', 
+                                       if(mml2tex:text-atts($elt, $target)) then '}' else ()), 
+                                       '')"/>
   </xsl:function>
 
   <xsl:template match="mglyph" mode="mathml2tex">
@@ -591,35 +673,13 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="mn|mi|ms|mo" mode="mathml2tex">
-    <xsl:variable name="mml-mathvariant-to-tex" as="element(mml2tex:styles)">
-      <styles xmlns="http://transpect.io/mml2tex">
-        <var mml="bold" tex="mathbf"/>
-        <var mml="italic" tex="mathit"/>
-        <var mml="bold-italic" tex="boldsymbol"/>
-        <var mml="fraktur" tex="mathfrak"/>
-        <var mml="bold-fraktur" tex="mathfrak"/>
-        <var mml="script" tex="mathfrak"/>
-        <var mml="bold-script" tex="mathfrak"/>
-        <var mml="sans-serif" tex="mathsf"/>
-        <var mml="bold-sans-serif" tex="mathfrak"/>
-        <var mml="sans-serif-italic" tex="mathfrak"/>
-        <var mml="sans-serif-bold-italic" tex="mathfrak"/>
-        <var mml="double-struck" tex="mathbb"></var>
-        <var mml="monospace" tex="mathtt"/>
-      </styles>
-    </xsl:variable>
-    <xsl:variable name="mathvariant" select="@mathvariant" as="xs:string?"/>
-    <xsl:choose>
-      <xsl:when test="some $i in $mml-mathvariant-to-tex/mml2tex:var satisfies $mathvariant eq $i/@mml">
-        <xsl:value-of select="concat('\', $mml-mathvariant-to-tex/mml2tex:var[@mml eq $mathvariant]/@tex, '{')"/>
-        <xsl:apply-templates select="node()" mode="#current"/>
-        <xsl:text>}</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="node()" mode="#current"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="mn
+                      |mi
+                      |ms
+                      |mo
+                      |mtext
+                      |mstyle" mode="mathml2tex">
+    <xsl:sequence select="mml2tex:style-to-tex(.)"/>
   </xsl:template>
   
   <xsl:template match="processing-instruction()[local-name() eq 'latex']" mode="mathml2tex">

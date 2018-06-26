@@ -36,7 +36,7 @@
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
-  <xsl:variable name="whitespace-regex" select="'\s&#x2000;-&#x200b;'" as="xs:string"/>
+  <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
 
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
@@ -620,6 +620,10 @@
       </styles>
     </xsl:variable>
     <xsl:choose>
+      <xsl:when test="matches($elt, concat('^[', $whitespace-regex, ']$')) 
+                      or ($elt[not(node())])">
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
+      </xsl:when>
       <xsl:when test="(($elt/self::mtext and not($mathvariant))
                         or ($elt/self::mi and $mathvariant eq 'normal'))
                       and matches($elt, $texregex-upgreek)">
@@ -673,12 +677,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="mn
-                      |mi
-                      |ms
-                      |mo
-                      |mtext
-                      |mstyle" mode="mathml2tex">
+  <xsl:template match="*[local-name() = ('mn', 'mi', 'ms', 'mo', 'mtext', 'mstyle')]" mode="mathml2tex">
     <xsl:sequence select="mml2tex:style-to-tex(.)"/>
   </xsl:template>
   

@@ -290,7 +290,7 @@
   
   <!-- primes, such as y'' -->
   
-  <xsl:template match="msup[mi[1] and mi[2] and matches(mi[2], '''')]" mode="mathml2tex">
+  <xsl:template match="msup[mi[1] and *[2] and matches(*[2], '^[''&#x2032;&#x2033;&#x2034;]$')]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
@@ -696,7 +696,7 @@
                                                  ']')" as="xs:string"/>
     <xsl:analyze-string select="$string" regex="{$texregex}">
       <xsl:matching-substring>
-        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[!\|\{\}#ßäöü]'), '|'), 'i')))
+        <xsl:variable name="insert-whitespace" select="if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[\|\{\}#ßäöü\p{P}]'), '|'), 'i')))
                                                        then '&#x20;' 
                                                        else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>

@@ -362,11 +362,11 @@
     <!-- PER MILLE SIGN -->
     <char character="&#x2030;" string="\permil"/>
     <!--PRIME or minute, not superscripted-->
-    <char character="&#x2032;" string="\prime"/>
+    <char character="&#x2032;" string="'"/>
     <!--DOUBLE PRIME or second, not superscripted-->
-    <char character="&#x2033;" string="\dprime"/>
+    <char character="&#x2033;" string="''"/>
     <!--TRIPLE PRIME (not superscripted)-->
-    <char character="&#x2034;" string="\trprime"/>
+    <char character="&#x2034;" string="'''"/>
     <!--reverse prime, not superscripted-->
     <char character="&#x2035;" string="\backprime"/>
     <!-- DOUBLE REVERSE PRIME, not superscripted -->

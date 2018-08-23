@@ -570,6 +570,10 @@
       <xsl:when test="parent::mtext">
         <xsl:value-of select="string-join(mml2tex:utf2tex(., (), $texmap), '')"/>
       </xsl:when>
+      <!-- render whitespace as single space -->
+      <xsl:when test="matches(., '^\s*$')">
+        <xsl:text>&#x20;</xsl:text>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:message select="'[WARNING]: unprocessed or empty text node', ."/>
       </xsl:otherwise>

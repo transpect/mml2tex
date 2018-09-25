@@ -488,7 +488,7 @@
   <xsl:template match="mfenced" mode="mathml2tex">
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="'left'"/>
-      <xsl:with-param name="val" select="(concat(@open, ' '), '(')[1]"/>
+      <xsl:with-param name="val" select="concat((@open, '(')[1], ' ')"/>
     </xsl:call-template>
     <xsl:variable name="my-seps" select="replace(@separators, '\s+', '')"/>
     <xsl:variable name="seps" select="if(not(@separators))
@@ -505,7 +505,7 @@
     </xsl:for-each>
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="'right'"/>
-      <xsl:with-param name="val" select="(concat(@close, ' '), ')')[1]"/>
+      <xsl:with-param name="val" select="concat((@close, ')')[1], ' ')"/>
     </xsl:call-template>
   </xsl:template>
   

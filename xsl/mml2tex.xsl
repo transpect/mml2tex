@@ -488,7 +488,7 @@
   <xsl:template match="mfenced" mode="mathml2tex">
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="'left'"/>
-      <xsl:with-param name="val" select="concat((@open, '(')[1], ' ')"/>
+      <xsl:with-param name="val" select="(@open, '(')[1]"/>
     </xsl:call-template>
     <xsl:variable name="my-seps" select="replace(@separators, '\s+', '')"/>
     <xsl:variable name="seps" select="if(not(@separators))
@@ -505,30 +505,26 @@
     </xsl:for-each>
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="'right'"/>
-      <xsl:with-param name="val" select="concat((@close, ')')[1], ' ')"/>
+      <xsl:with-param name="val" select="(@close, ')')[1]"/>
     </xsl:call-template>
   </xsl:template>
   
   <xsl:template name="fence">
     <xsl:param name="pos" as="xs:string"/><!-- left|right -->
     <xsl:param name="val" as="xs:string"/>
+    <xsl:message select="'------',  $pos, ' ', $val "></xsl:message>
     <xsl:choose>
       <xsl:when test="not(normalize-space($val))">
         <xsl:value-of select="concat('\', $pos, '.')"/>
       </xsl:when>
+      <xsl:when test="$val = ('[', ']', '(', ')')">
+        <xsl:value-of select="concat('\', $pos, $val)"/>
+      </xsl:when>
+      <xsl:when test="$val = ('{', '}')">
+        <xsl:value-of select="concat('\', $pos, '\', $val)"/>
+      </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="concat('\', $pos)"/>
-        <xsl:choose>
-          <xsl:when test="$val = ('[', ']', '(', ')')">
-            <xsl:value-of select="$val"/>
-          </xsl:when>
-          <xsl:when test="$val = ('{', '}')">
-            <xsl:value-of select="concat('\', $val)"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="string-join(mml2tex:utf2tex($val, (), $texmap), '')"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), $texmap), ''), '&#x20;')"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -539,7 +535,7 @@
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo[@role eq 'mtef'] and matches(., $parenthesis-regex)">
+      <xsl:when test="parent::mo and matches(., $parenthesis-regex)">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

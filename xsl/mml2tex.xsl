@@ -697,7 +697,7 @@
     <xsl:analyze-string select="$string" regex="{$texregex}">
 
       <xsl:matching-substring>
-        <xsl:variable name="insert-whitespace" select="if(matches(., ':')) 
+        <xsl:variable name="insert-whitespace" select="if(matches(., '[&#x3a;|&#x2026;]')) 
 						       then '&#x20;' 
 						       else if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[\|\{\}#ßäöü\p{P}]'), '|'), 'i')))
                                                        then '&#x20;' 

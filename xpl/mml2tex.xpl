@@ -81,6 +81,12 @@
     </p:documentation>
   </p:option>
 
+  <p:option name="always-use-left-right" select="'yes'">
+    <p:documentation>
+      [yes|no] Whether to always use \left and \right for ([{}]) etc.
+    </p:documentation>
+  </p:option>
+
   <p:import href="http://xmlcalabash.com/extension/steps/library-1.0.xpl"/>
   <p:import href="http://transpect.io/cascade/xpl/load-cascaded.xpl"/>
   <p:import href="http://transpect.io/xproc-util/store-debug/xpl/store-debug.xpl"/>
@@ -164,6 +170,7 @@
     <p:with-param name="debug" select="''"/>
     <p:with-param name="debug-dir-uri" select="''"/>
     <p:with-param name="set-math-style" select="$set-math-style"/>
+    <p:with-param name="always-use-left-right" select="$always-use-left-right"/>
   </p:xslt>
   
   <tr:store-debug pipeline-step="mml2tex/10.mml2tex-main">

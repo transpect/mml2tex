@@ -20,6 +20,8 @@
 
   <xsl:param name="set-math-style" select="'no'"/>
 
+  <xsl:param name="always-use-left-right" select="'yes'"/>
+
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
@@ -535,7 +537,7 @@
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., $parenthesis-regex)">
+      <xsl:when test="parent::mo and matches(., $parenthesis-regex) and $always-use-left-right = 'yes'">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

@@ -514,7 +514,6 @@
   <xsl:template name="fence">
     <xsl:param name="pos" as="xs:string"/><!-- left|right -->
     <xsl:param name="val" as="xs:string"/>
-    <xsl:message select="'------',  $pos, ' ', $val "></xsl:message>
     <xsl:choose>
       <xsl:when test="not(normalize-space($val))">
         <xsl:value-of select="concat('\', $pos, '.')"/>

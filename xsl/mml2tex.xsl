@@ -698,13 +698,11 @@
     <xsl:analyze-string select="$string" regex="{$texregex}">
 
       <xsl:matching-substring>
-        <xsl:variable name="insert-whitespace" select="if(matches(., '[&#x3a;|&#x2026;|&#xb7;]')) 
-						       then '&#x20;' 
-						       else if(not(matches(., string-join(($diacritics-regex, '[0-9]+', '[\|\{\}#ßäöü\p{P}]'), '|'), 'i')))
-                                                       then '&#x20;' 
-                                                       else ''" as="xs:string?"/>
         <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
         <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+        <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[\(\)\[\]\{\},;\.&quot;''\?!]$')) 
+                                                       then ()
+                                                       else '&#x20;'" as="xs:string?"/>
         <xsl:variable name="result" select="replace(., 
                                                     $pattern,
                                                     concat($replacement, $insert-whitespace)

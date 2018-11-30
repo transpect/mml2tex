@@ -8,7 +8,9 @@
       <mml:mi>π</mml:mi>
       <mml:msup>
         <mml:mrow>
+          <mml:mo>(</mml:mo>
           <mml:mi>r</mml:mi>
+          <mml:mo>)</mml:mo>
         </mml:mrow>
         <mml:mrow>
           <mml:mn>2</mml:mn>

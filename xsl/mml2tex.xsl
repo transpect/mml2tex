@@ -16,11 +16,11 @@
 
   <xsl:output method="text" encoding="UTF-8"/>
   
-  <xsl:param name="fail-on-error" select="'yes'"/>
+  <xsl:param name="fail-on-error" select="'yes'"/><!-- yes|no -->
 
-  <xsl:param name="set-math-style" select="'no'"/>
+  <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
 
-  <xsl:param name="always-use-left-right" select="'yes'"/>
+  <xsl:param name="always-use-left-right" select="'auto'"/><!-- yes|no|auto -->
 
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
@@ -536,7 +536,9 @@
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., $parenthesis-regex) and $always-use-left-right = 'yes'">
+      <xsl:when test="parent::mo and matches(., $parenthesis-regex) 
+                      and ($always-use-left-right = 'yes' 
+                           or ($always-use-left-right = 'auto' and ancestor::math[@display eq 'block']))">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

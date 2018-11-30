@@ -81,7 +81,7 @@
     </p:documentation>
   </p:option>
 
-  <p:option name="always-use-left-right" select="'yes'">
+  <p:option name="always-use-left-right" select="'auto'">
     <p:documentation>
       [yes|no] Whether to always use \left and \right for ([{}]) etc.
     </p:documentation>

@@ -549,7 +549,14 @@
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- regular greeks are rendered with upgreek package -->
-      <xsl:when test="parent::mi[@mathvariant eq 'normal' or (not(@mathvariant) and string-length(.) gt 1)][matches(normalize-space(.), $texregex-upgreek)]
+      <xsl:when test="parent::mi[@mathvariant eq 'normal' 
+                                 or 
+                                 (
+                                   empty(@mathvariant) 
+                                   and 
+                                   string-length(.) gt 1
+                                 )]
+                                 [matches(normalize-space(.), $texregex-upgreek)]
                      |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]">
         <xsl:variable name="utf2tex-upgreek" select="if(. = ' ') then '\ ' 
                                                      else if(matches($text, $texregex-upgreek)) then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
@@ -642,6 +649,9 @@
         <xsl:text>\text{</xsl:text>
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
         <xsl:text>}</xsl:text>
+      </xsl:when>
+      <xsl:when test="$elt/self::mi[. = $mml2tex:function-names][$mathvariant = 'normal']">
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:when>
       <xsl:when test="($elt/self::mi or $elt/self::mn or $elt/self::ms or $elt/self::mo or $elt/self::mstyle) 
                       and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 

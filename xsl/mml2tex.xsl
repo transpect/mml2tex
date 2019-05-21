@@ -340,6 +340,7 @@
 
   <xsl:template match="mtable" mode="mathml2tex">
     <xsl:variable name="mcc" select="mml2tex:max-col-count(.)" as="xs:integer"/>
+    <xsl:variable name="columnlines" select="tokenize(@columnlines, '\s')" as="xs:string*"/>
     <xsl:variable name="col-aligns" select="for $i in mtr[count((mtd, .//malignmark)) &gt;= $mcc]
                                             return ($i/mtd/ancestor-or-self::*[@columnalign]/@columnalign, 
                                                     $i/mtd/ancestor-or-self::*[@groupalign]/@groupalign, 
@@ -348,6 +349,15 @@
     <xsl:for-each select="1 to $mcc">
       <xsl:variable name="pos" select="min((count($col-aligns), position()))" as="xs:integer"/>
       <xsl:value-of select="substring($col-aligns[$pos], 1, 1)"/>
+      <xsl:choose>
+        <xsl:when test="$columnlines[$pos] eq 'dashed'">
+          <xsl:text>:</xsl:text>
+        </xsl:when>
+        <xsl:when test="$columnlines[$pos] eq 'solid'">
+          <xsl:text>|</xsl:text>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
     </xsl:for-each>
     <xsl:text>}&#xa;</xsl:text>
     <xsl:apply-templates select="@* except @width" mode="#current"/>
@@ -362,7 +372,6 @@
 
   <xsl:template match="mtr" mode="mathml2tex">
     <xsl:variable name="position" select="count(preceding-sibling::mtr) + 1" as="xs:integer"/>
-    <xsl:variable name="columnlines" select="tokenize(parent::mtable/@columnlines, '\s')" as="xs:string*"/>
     <xsl:variable name="rowlines" select="tokenize(parent::mtable/@rowlines, '\s')" as="xs:string*"/>
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">

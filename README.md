@@ -109,19 +109,23 @@ Running mml2tex requires an XProc processor, the libary store-debug.xpl and of c
 #### Git
 
 ```
-$ git clone https://github.com/transpect/calabash-frontend calabash
-$ git clone https://github.com/transpect/calabash-distro calabash/distro
+$ git clone https://github.com/transpect/calabash-frontend calabash --recursive
+$ git clone https://github.com/transpect/cascade
+$ git clone https://github.com/transpect/mml-normalize
 $ git clone https://github.com/transpect/mml2tex
 $ git clone https://github.com/transpect/xproc-util
+$ git clone https://github.com/transpect/xslt-util
 ```
 
 #### SVN
 
 ```
 $ svn co https://github.com/transpect/calabash-frontend/trunk calabash
-$ svn co https://github.com/transpect/calabash-distro/trunk calabash/distro
+$ svn co https://github.com/transpect/cascade/trunk cascade
+$ svn co https://github.com/transpect/mml-normalize/trunk mml-normalize
 $ svn co https://github.com/transpect/mml2tex/trunk mml2tex
 $ svn co https://github.com/transpect/xproc-util/trunk xproc-util
+$ svn co https://github.com/transpect/xslt-util-util/trunk xslt-util
 ```
 
 ### Create an XML catalog
@@ -136,9 +140,12 @@ The catalog is necessary to resolve canonical URIs in import statements, such as
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  
-  <nextCatalog catalog="../mml2tex/xmlcatalog/catalog.xml"/>  
+
+  <nextCatalog catalog="../cascade/xmlcatalog/catalog.xml"/>
+  <nextCatalog catalog="../mml-normalize/xmlcatalog/catalog.xml"/>
+  <nextCatalog catalog="../mml2tex/xmlcatalog/catalog.xml"/>
   <nextCatalog catalog="../xproc-util/xmlcatalog/catalog.xml"/>
+  <nextCatalog catalog="../xslt-util/xmlcatalog/catalog.xml"/>
   
 </catalog>
 ```

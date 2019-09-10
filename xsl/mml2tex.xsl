@@ -611,6 +611,9 @@
       <xsl:when test="$fontstyle = 'italic' and not(matches($mathvariant, 'italic|normal'))">
         <xsl:sequence select="concat('\', $target, 'it', '{')"/>
       </xsl:when>
+      <xsl:when test="$mathvariant = 'normal'">
+        <xsl:sequence select="concat('\', $target, 'rm', '{')"/>
+      </xsl:when>
     </xsl:choose>
   </xsl:function>
   

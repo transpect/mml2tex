@@ -32,7 +32,7 @@
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
-  <xsl:variable name="texregex-upgreek" select="concat('^[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+$')" as="xs:string"/>
+  <xsl:variable name="texregex-upgreek" select="concat('[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+')" as="xs:string"/>
 
   <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
   
@@ -668,6 +668,12 @@
         <xsl:sequence select="if($elt/self::mi[matches(@mathvariant, 'italic') and string-length(.) = 1])
                               then mml2tex:style-to-tex-insert($elt, 'mml2tex_bold-italic', $style-map, 'math')
                               else mml2tex:style-to-tex-insert($elt, $mathvariant, $style-map, 'math')"/>
+      </xsl:when>
+      <xsl:when test="$elt/self::mi[$mathvariant = ('normal') or not($mathvariant)]
+                                   [string-length($elt) gt 1]
+                                   [not(matches($elt, $mml2tex:functions-names-regex))]
+                                   [not(matches($elt, concat('^', $texregex-upgreek, '$')))]">
+        <xsl:sequence select="mml2tex:style-to-tex-insert($elt, 'normal', $style-map, 'math')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>

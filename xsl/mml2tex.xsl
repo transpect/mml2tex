@@ -172,7 +172,7 @@
   
   <xsl:template match="mspace[@linebreak]" mode="mathml2tex">
     <xsl:if test="@linebreak eq 'newline'">
-      <xsl:text> \\&#xa;</xsl:text>
+      <xsl:text>\newline{}</xsl:text>
     </xsl:if>
   </xsl:template>
 

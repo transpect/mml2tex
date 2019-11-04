@@ -624,8 +624,7 @@
         <var mml="normal"                 tex="rm"        targets="math"/>
         <var mml="bold"                   tex="bf"        targets="math text"/>
         <var mml="italic"                 tex="it"        targets="math text"/>
-        <var mml="bold-italic"            tex="boldsymbol it" targets="math text"/>
-        <var mml="mml2tex_bold-italic"    tex="boldsymbol" targets="math"/>
+        <var mml="bold-italic"            tex="boldsymbol" targets="math text"/>
         <var mml="fraktur"                tex="frak"      targets="math text"/>
         <var mml="bold-fraktur"           tex="mathfrak"  targets="math text"/>
         <var mml="script"                 tex="cal"       targets="math text"/>
@@ -665,9 +664,7 @@
       <xsl:when test="($elt/self::mi or $elt/self::mn or $elt/self::ms or $elt/self::mo or $elt/self::mstyle) 
                       and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 
                       and not($elt/self::mi[not(@mathvariant or @mathvariant eq 'italic')] and string-length($elt) = 1)">
-        <xsl:sequence select="if($elt/self::mi[matches(@mathvariant, 'italic') and string-length(.) = 1])
-                              then mml2tex:style-to-tex-insert($elt, 'mml2tex_bold-italic', $style-map, 'math')
-                              else mml2tex:style-to-tex-insert($elt, $mathvariant, $style-map, 'math')"/>
+        <xsl:sequence select="mml2tex:style-to-tex-insert($elt, $mathvariant, $style-map, 'math')"/>
       </xsl:when>
       <xsl:when test="$elt/self::mi[$mathvariant = ('normal') or not($mathvariant)]
                                    [string-length($elt) gt 1]

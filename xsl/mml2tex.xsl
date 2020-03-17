@@ -198,7 +198,9 @@
   
 
   <xsl:template match="mfrac" mode="mathml2tex">
-    <xsl:text>\frac</xsl:text>
+    <xsl:value-of select="if(@linethickness eq '0pt')
+                          then '\genfrac{}{}{0pt}{}' 
+                          else '\frac'"/>
     <xsl:apply-templates select="@*[not(local-name() = ('linethickness', 'bevelled'))]" mode="#current"/>
     <xsl:choose>
       <xsl:when test="count(*) eq 2">
@@ -487,14 +489,14 @@
   
   <!-- https://github.com/transpect/mml2tex/issues/1, requires amsmath -->
   
-  <xsl:template match="mfenced[count(*) eq 1][count(mrow) eq 1][mrow/mfrac[@linethickness = ('0', '0pt')]][count(mrow/mfrac/mrow) eq 2]" mode="mathml2tex">
+  <xsl:template match="mfenced[count(*) eq 1][count(mrow) eq 1][mrow/mfrac[@linethickness = ('0', '0pt')]][count(mrow/mfrac/*) eq 2]
+                      |mfenced[count(*) eq 1][count(mfrac) eq 1][mfrac[@linethickness = ('0', '0pt')]][count(mfrac/*) eq 2]" mode="mathml2tex">
     <xsl:text>\binom{</xsl:text>
-    <xsl:apply-templates select="mrow/mfrac/mrow[1]" mode="#current"/>
+    <xsl:apply-templates select="(mrow/mfrac/*, mfrac/*)[1]" mode="#current"/>
     <xsl:text>}{</xsl:text>
-    <xsl:apply-templates select="mrow/mfrac/mrow[2]" mode="#current"/>
+    <xsl:apply-templates select="(mrow/mfrac/*, mfrac/*)[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
-  
 
   <xsl:template match="mfenced" mode="mathml2tex">
     <xsl:call-template name="fence">

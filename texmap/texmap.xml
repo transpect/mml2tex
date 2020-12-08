@@ -1299,6 +1299,8 @@
     <char character="&#x2394;" string="\hexagon"/>
     <!-- APL FUNCTIONAL SYMBOL ALPHA -->    
     <char character="&#x237a;" string="\upalpha"/>
+    <!-- VERTICAL LINE EXTENSION -->
+    <char character="&#x23d0;" string="|"/>
     <!--= \wideparen (yhmath mathabx fourier), TOP PARENTHESIS (mathematical use)-->
     <char character="&#x23dc;" string="\overparen"/>
     <!--BOTTOM PARENTHESIS (mathematical use)-->

@@ -77,27 +77,20 @@
     <char character="&#xf7;" string="\div"/>
 
     <!-- *
+         * Latin Extended-A
+         * -->
+  
+    <!--imath-->
+    <char character="&#x131;" string="\imath"/>
+    
+    <!-- *
          * Latin Extended-B
          * -->
     
     <!-- LATIN SMALL LETTER F WITH HOOK -->
     <char character="&#x192;" string="\mathit{f}"/>
     <!--jmath-->
-    <char character="&#x237;" string="\jmath"/>
-  
-    <!-- *
-         * Latin Extended-A
-         * -->
-  
-    <!--imath-->
-    <char character="&#x131;" string="\imath"/>
-  
-    <!-- *
-         * Latin Extended-B
-         * -->
-  
-    <!--jmath-->
-    <char character="&#x237;" string="\jmath"/>
+    <char character="&#x237;" string="\jmath"/>  
   
     <!-- *
          * Spacing Modifier Letters

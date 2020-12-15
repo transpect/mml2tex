@@ -79,8 +79,10 @@
     <!-- *
          * Latin Extended-A
          * -->
-  
-    <!--imath-->
+
+    <!--LATIN SMALL LETTER H WITH STROKE-->
+    <char character="&#x127;" string="\hbar"/>
+    <!--LATIN SMALL LETTER DOTLESS I, imath-->
     <char character="&#x131;" string="\imath"/>
     
     <!-- *

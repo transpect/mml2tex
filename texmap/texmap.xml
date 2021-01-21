@@ -31,9 +31,9 @@
     
     <char character="&#xE612;" string="\mathrel{\bcancel{\=}}"/>
     <char character="&#xE613;" string="\mathrel{\bcancel{&#x2261;}"/>
-    <char character="&#xE651;" string="\&nedot;"/>
-    <char character="&#xE659;" string="\&notindot;"/>
-    <char character="&#xE65A;" string="\&notinE;"/>
+    <char character="&#xE651;" string="\dot{\neq}"/>
+    <char character="&#xE659;" string="\dot{\notin}"/>
+    <char character="&#xE65A;" string="\mathrel{\bcancel{\mathrel{&#x22F9;\vphantom{A}}}}"/>
     <char character="&#xE662;" string="\mathrel{\bcancel &#x2AFD;}"/>
     <char character="&#xE663;" string="{\not\partial}"/>
     

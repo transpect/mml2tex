@@ -8,6 +8,35 @@
     
     <char character="ß" string="\ss"/>
     
+    <!--PUA MAPPINGS tr3k2sts -->
+    <char character="&#xEA48;" string="\&nrarrc;"/>
+    <char character="&#xEA49;" string="\&nrarrw;"/>
+    
+    <char character="&#xEB02;" string="\&acE;"/>
+    
+    <char character="&#xE714;" string="\&nGg;"/>
+    <char character="&#xE71C;" string="\&nLl;"/>
+    <char character="&#xE746;" string="\&nvsim;"/>
+    
+    <char character="&#xE831;" string="\&nang;"/>
+    
+    <char character="&#xE90B;" string="\&bsolhsub;"/>
+    <char character="&#xE93A;" string="\&gesl;"/>
+    <char character="&#xE94E;" string="\&lates;"/>
+    <char character="&#xE957;" string="\&lesg;"/>
+    <char character="&#xE988;" string="\&smtes;"/>
+    <char character="&#xE99C;" string="\&suphsol;"/>
+    
+    <char character="&#xE540;" string="\&fjlig;"/>
+    
+    <char character="&#xE612;" string="\&bne;"/>
+    <char character="&#xE613;" string="\&bnequiv;"/>
+    <char character="&#xE651;" string="\&nedot;"/>
+    <char character="&#xE659;" string="\&notindot;"/>
+    <char character="&#xE65A;" string="\&notinE;"/>
+    <char character="&#xE662;" string="\&nparsl;"/>
+    <char character="&#xE663;" string="\&npart;"/>
+    
     <!-- *
          * Basic Latin
          * -->

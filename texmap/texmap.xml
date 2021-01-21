@@ -9,33 +9,33 @@
     <char character="ß" string="\ss"/>
     
     <!--PUA MAPPINGS tr3k2sts -->
-    <char character="&#xEA48;" string="\&nrarrc;"/>
-    <char character="&#xEA49;" string="\&nrarrw;"/>
+    <char character="&#xEA48;" string="\mathrel{\not &#x2933;}"/>
+    <char character="&#xEA49;" string="\mathrel{\not &#x219D;}"/>
     
-    <char character="&#xEB02;" string="\&acE;"/>
+    <char character="&#xEB02;" string="\mathbin{\underset{\=}{&#x223E;}}"/>
     
-    <char character="&#xE714;" string="\&nGg;"/>
-    <char character="&#xE71C;" string="\&nLl;"/>
-    <char character="&#xE746;" string="\&nvsim;"/>
+    <char character="&#xE714;" string="\mathrel{\not &#x22D9;}"/>
+    <char character="&#xE71C;" string="\mathrel{\not &#x22D8;}"/>
+    <char character="&#xE746;" string="\nsim"/>
     
-    <char character="&#xE831;" string="\&nang;"/>
+    <char character="&#xE831;" string="{\not &#x2220;}"/>
     
-    <char character="&#xE90B;" string="\&bsolhsub;"/>
-    <char character="&#xE93A;" string="\&gesl;"/>
-    <char character="&#xE94E;" string="\&lates;"/>
-    <char character="&#xE957;" string="\&lesg;"/>
-    <char character="&#xE988;" string="\&smtes;"/>
-    <char character="&#xE99C;" string="\&suphsol;"/>
+    <char character="&#xE90B;" string="\mathrel{\backslash\subset}"/>
+    <char character="&#xE93A;" string="\mathrel{&#x22DB;\vphantom{A}}"/>
+    <char character="&#xE94E;" string="\mathrel{&#x2AAD;\vphantom{A}}"/>
+    <char character="&#xE957;" string="\mathrel{&#x22DA;\vphantom{A}}"/>
+    <char character="&#xE988;" string="\mathrel{&#x2AAC;\vphantom{A}}"/>
+    <char character="&#xE99C;" string="&#x27c9;"/>
     
-    <char character="&#xE540;" string="\&fjlig;"/>
+    <char character="&#xE540;" string="{fj}"/>
     
-    <char character="&#xE612;" string="\&bne;"/>
-    <char character="&#xE613;" string="\&bnequiv;"/>
+    <char character="&#xE612;" string="\mathrel{\bcancel{\=}}"/>
+    <char character="&#xE613;" string="\mathrel{\bcancel{&#x2261;}"/>
     <char character="&#xE651;" string="\&nedot;"/>
     <char character="&#xE659;" string="\&notindot;"/>
     <char character="&#xE65A;" string="\&notinE;"/>
-    <char character="&#xE662;" string="\&nparsl;"/>
-    <char character="&#xE663;" string="\&npart;"/>
+    <char character="&#xE662;" string="\mathrel{\bcancel &#x2AFD;}"/>
+    <char character="&#xE663;" string="{\not\partial}"/>
     
     <!-- *
          * Basic Latin

@@ -754,5 +754,21 @@
     <xsl:sequence select="replace($arg,
                                   '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
   </xsl:function>
-
+  
+  <!-- called by html-renderers-->
+  
+  <xsl:template name="mml:katexify">
+    <xsl:variable name="mml2tex-grouping" as="element(mml:math)">
+      <xsl:apply-templates select="." mode="mml2tex-grouping"/>
+    </xsl:variable>
+    <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
+      <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
+    </xsl:variable>
+    <xsl:variable name="element-name" select="if(name(..) = 'disp-formula') then 'div' else 'span'" as="xs:string"/>
+    <xsl:element name="{$element-name}">
+      <xsl:attribute name="class" select="'tr--katex'"/>
+      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
+    </xsl:element>
+  </xsl:template>
+  
 </xsl:stylesheet>

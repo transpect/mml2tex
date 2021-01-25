@@ -34,7 +34,7 @@
 
   <xsl:variable name="texregex-upgreek" select="concat('[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+')" as="xs:string"/>
 
-  <xsl:variable name="diacritics-regex" select="'^[&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
+  <xsl:variable name="diacritics-regex" select="'^[&#x2c7;&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
@@ -408,6 +408,9 @@
     <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
                                                      (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
+      <xsl:when test="$accent eq '&#x2c7;' and self::mover">
+        <xsl:value-of select="'\check'"/>
+      </xsl:when>
       <xsl:when test="$accent = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')">
         <xsl:value-of select="if(self::mover) then '\overbrace' else '\underbrace'"/>
       </xsl:when>

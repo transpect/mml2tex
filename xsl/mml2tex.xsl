@@ -34,7 +34,7 @@
 
   <xsl:variable name="texregex-upgreek" select="concat('[', string-join(for $i in $texmap-upgreek/@character return functx:escape-for-regex($i), ''), ']+')" as="xs:string"/>
 
-  <xsl:variable name="diacritics-regex" select="'^[&#x2c7;&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
+  <xsl:variable name="diacritics-regex" select="'^[&#x60;&#xb8;&#x2c6;&#x2c7;&#x2da;&#x2dd;&#x300;-&#x338;&#x20d0;-&#x20ef;]$'" as="xs:string"/>
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
@@ -408,6 +408,12 @@
     <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
                                                      (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
     <xsl:choose>
+      <xsl:when test="$accent eq '&#xb8;' and self::munder">
+        <xsl:value-of select="'\text{\c{'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x2c6;' and self::mover">
+        <xsl:value-of select="'\hat'"/>
+      </xsl:when>
       <xsl:when test="$accent eq '&#x2c7;' and self::mover">
         <xsl:value-of select="'\check'"/>
       </xsl:when>
@@ -417,23 +423,38 @@
       <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')">
         <xsl:value-of select="if(self::mover) then '\overbracket' else '\underbracket'"/>
       </xsl:when>
+      <xsl:when test="$accent eq '&#x2dd;' and self::mover">
+        <xsl:value-of select="'\text{\H{'"/>
+      </xsl:when>
       <xsl:when test="$accent eq '&#x5e;' and self::mover"><!-- superscript circumflex/caret -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widehat' else '\hat'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
         <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
       </xsl:when>
-      <xsl:when test="$accent eq '&#x2d9;' and self::mover"><!-- \dot -->
+      <xsl:when test="$accent = ('&#x2d9;') and self::mover"><!-- \dot -->
         <xsl:value-of select="'\dot'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#xa8;' and self::mover"><!-- \ddot -->
         <xsl:value-of select="'\ddot'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x20db;' and self::mover"><!-- \dddot -->
+        <xsl:value-of select="'\dddot'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x20dc;' and self::mover"><!-- \ddddot -->
+        <xsl:value-of select="'\ddddot'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x60;' and self::mover"><!-- \ddot -->
+        <xsl:value-of select="'\greve'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#xb4;' and self::mover"><!-- acute accent -->
         <xsl:value-of select="'\acute'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#x2d8;' and self::mover"><!-- breve accent -->
         <xsl:value-of select="'\breve'"/>
+      </xsl:when>
+      <xsl:when test="$accent eq '&#x2da;' and self::mover">
+        <xsl:value-of select="'\mathring'"/>
       </xsl:when>
       <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->
         <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
@@ -450,6 +471,9 @@
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="$expression" mode="#current"/>
     <xsl:text>}</xsl:text>
+    <xsl:if test="$accent = ('&#x2dd;', '&#xb8;')">
+      <xsl:text>}</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="munderover" mode="mathml2tex">

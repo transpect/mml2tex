@@ -623,6 +623,10 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  
+  <!-- remove whitespace -->
+  
+  <xsl:template match="*[not(local-name() = ('mi', 'mo', 'mn', 'ms', 'mtext'))]/text()[not(normalize-space(.))]" mode="mathml2tex"/>
 
   <xsl:function name="mml2tex:text-atts" as="xs:string?">
     <xsl:param name="elt" as="element(*)"/>

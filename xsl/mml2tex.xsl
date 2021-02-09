@@ -20,7 +20,7 @@
 
   <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
 
-  <xsl:param name="always-use-left-right" select="'auto'"/><!-- yes|no|auto -->
+  <xsl:param name="always-use-left-right" select="'no'"/><!-- yes|no -->
 
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
@@ -575,8 +575,7 @@
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
       <xsl:when test="parent::mo and matches(., $parenthesis-regex) 
-                      and ($always-use-left-right = 'yes' 
-                           or ($always-use-left-right = 'auto' and ancestor::math[@display eq 'block']))">
+                      and $always-use-left-right = 'yes'">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

@@ -575,7 +575,9 @@
     <xsl:choose>
       <!-- parenthesis, brackets, e.g. -->
       <xsl:when test="parent::mo and matches(., $parenthesis-regex) 
-                      and $always-use-left-right = 'yes'">
+                      and (    $always-use-left-right = 'yes'
+                           or  ancestor::*[2]//*/local-name() = ('mfrac', 'mover', 'mroot', 'msqrt', 'mtable', 'munder', 'munderover')
+                           )">
         <xsl:call-template name="fence">
           <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
           <xsl:with-param name="val" select="."/>

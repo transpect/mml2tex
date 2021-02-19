@@ -447,7 +447,7 @@
         <xsl:value-of select="'\ddddot'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#x60;' and self::mover"><!-- \ddot -->
-        <xsl:value-of select="'\greve'"/>
+        <xsl:value-of select="'\grave'"/>
       </xsl:when>
       <xsl:when test="$accent eq '&#xb4;' and self::mover"><!-- acute accent -->
         <xsl:value-of select="'\acute'"/>

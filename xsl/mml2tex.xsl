@@ -569,66 +569,65 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
-  <xsl:template match="text()" mode="mathml2tex">
-    <!-- normalize space and remove line breaks -->
+  
+  <xsl:template match="mo/text()[    matches(., $parenthesis-regex) 
+                                 and ($always-use-left-right = 'yes'
+                                 or  parent::*//*/local-name() = ('mfrac', 
+                                                                  'mover', 
+                                                                  'mroot', 
+                                                                  'msqrt', 
+                                                                  'mtable', 
+                                                                  'munder', 
+                                                                  'munderover'))]" 
+                mode="mathml2tex" priority="10">
+    <xsl:call-template name="fence">
+      <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) 
+                                         then 'left' 
+                                         else 'right'"/>
+      <xsl:with-param name="val" select="."/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template match="text()[. = $mml2tex:function-names]" mode="mathml2tex" priority="10">
+    <xsl:value-of select="concat('\', replace(normalize-space(.), '&#xa;+', ' '), '&#x20;')"/>
+  </xsl:template>
+  
+  <xsl:template match="text()[$use-upgreek-map] 
+                             [exists(   parent::mi[    @mathvariant eq 'normal' 
+                                                   or (    empty(@mathvariant) 
+                                                       and string-length(.) gt 1)]
+                                                  [matches(normalize-space(.), $texregex-upgreek)]
+                             |parent::mtext[matches(normalize-space(.), $texregex-upgreek)])]"
+     mode="mathml2tex" priority="8">
+    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
+    <xsl:variable name="utf2tex-upgreek" 
+                  select="if(. = ' ') then '\ ' else if(matches($text, $texregex-upgreek)) 
+                                                     then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
+                                                     else $text" as="xs:string"/>
+      <xsl:value-of select="$utf2tex-upgreek"/>
+  </xsl:template>
+  
+  <xsl:template match="mn/text()
+                      |mi/text()
+                      |mo/text()
+                      |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
-    <xsl:choose>
-      <!-- parenthesis, brackets, e.g. -->
-      <xsl:when test="parent::mo and matches(., $parenthesis-regex) 
-                      and (    $always-use-left-right = 'yes'
-                           or  ancestor::*[2]//*/local-name() = ('mfrac', 'mover', 'mroot', 'msqrt', 'mtable', 'munder', 'munderover')
-                           )">
-        <xsl:call-template name="fence">
-          <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) then 'left' else 'right'"/>
-          <xsl:with-param name="val" select="."/>
-        </xsl:call-template>
-      </xsl:when>
-      <!-- function names such as cos, sin, log -->
-      <xsl:when test="$text = $mml2tex:function-names">
-        <xsl:value-of select="concat('\', $text, '&#x20;')"/>
-      </xsl:when>
-      <!-- regular greeks are rendered with upgreek package -->
-      <xsl:when test="$use-upgreek-map 
-                      and
-                      exists(
-                        parent::mi[@mathvariant eq 'normal' 
-                                   or 
-                                   (
-                                     empty(@mathvariant) 
-                                     and 
-                                     string-length(.) gt 1
-                                   )]
-                                   [matches(normalize-space(.), $texregex-upgreek)]
-                       |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]
-                     )">
-        <xsl:variable name="utf2tex-upgreek" select="if(. = ' ') then '\ ' 
-                                                     else if(matches($text, $texregex-upgreek)) then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
-                                                     else $text" as="xs:string"/>
-        <xsl:value-of select="$utf2tex-upgreek"/>
-      </xsl:when>
-      <xsl:when test="parent::mn
-                     |parent::mi
-                     |parent::mo
-                     |parent::ms">
-        <xsl:value-of select="$utf2tex"/>
-      </xsl:when>
-      <!-- you need to apply mml-normalize.xsl previously. this ensures that some wrong mtext 
-           structures are dissolved and more appropriate elements are applied. Otherwise you could 
-           note that functions, variables or numbers are just treated as regular text. This is often caused 
-           by an improper use of Math editors by authors. -->
-      <xsl:when test="parent::mtext">
-        <xsl:value-of select="string-join(mml2tex:utf2tex(., (), $texmap), '')"/>
-      </xsl:when>
-      <!-- render whitespace as single space -->
-      <xsl:when test="matches(., '^\s*$')">
-        <xsl:text>&#x20;</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:message select="'[WARNING]: unprocessed or empty text node', ."/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:value-of select="$utf2tex"/>
+  </xsl:template>
+  
+  <xsl:template match="mtext/text()" mode="mathml2tex" priority="5">
+    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), $texmap), '')" as="xs:string"/>
+    <xsl:value-of select="string-join(mml2tex:utf2tex(., (), $texmap), '')"/>
+  </xsl:template>
+  
+  <xsl:template match="text()[matches(., concat('^(', $whitespace-regex, ')*$'))]" mode="mathml2tex">
+    <xsl:text>&#x20;</xsl:text>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="mathml2tex">
+    <xsl:message select="'[WARNING]: unprocessed or empty text node', ."/>
   </xsl:template>
   
   <!-- remove whitespace -->

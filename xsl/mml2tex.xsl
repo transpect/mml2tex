@@ -21,6 +21,8 @@
   <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
 
   <xsl:param name="always-use-left-right" select="'no'"/><!-- yes|no -->
+  
+  <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
 
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
@@ -28,7 +30,7 @@
   
   <xsl:variable name="texmap" select="document($texmap-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
   
-  <xsl:variable name="texmap-upgreek" select="document($texmap-upgreek-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)+"/>
+  <xsl:variable name="texmap-upgreek" select="document($texmap-upgreek-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)*"/>
   
   <xsl:variable name="texregex" select="concat('[', string-join(for $i in $texmap/@character return functx:escape-for-regex($i), ''), ']')" as="xs:string"/>
 
@@ -588,15 +590,19 @@
         <xsl:value-of select="concat('\', $text, '&#x20;')"/>
       </xsl:when>
       <!-- regular greeks are rendered with upgreek package -->
-      <xsl:when test="parent::mi[@mathvariant eq 'normal' 
-                                 or 
-                                 (
-                                   empty(@mathvariant) 
-                                   and 
-                                   string-length(.) gt 1
-                                 )]
-                                 [matches(normalize-space(.), $texregex-upgreek)]
-                     |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]">
+      <xsl:when test="$use-upgreek-map 
+                      and
+                      exists(
+                        parent::mi[@mathvariant eq 'normal' 
+                                   or 
+                                   (
+                                     empty(@mathvariant) 
+                                     and 
+                                     string-length(.) gt 1
+                                   )]
+                                   [matches(normalize-space(.), $texregex-upgreek)]
+                       |parent::mtext[matches(normalize-space(.), $texregex-upgreek)]
+                     )">
         <xsl:variable name="utf2tex-upgreek" select="if(. = ' ') then '\ ' 
                                                      else if(matches($text, $texregex-upgreek)) then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek), '')
                                                      else $text" as="xs:string"/>

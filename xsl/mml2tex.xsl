@@ -723,7 +723,7 @@
     <xsl:param name="elt" as="element()"/>
     <xsl:param name="mathvariant" as="xs:string?"/>
     <xsl:param name="target" as="xs:string"/>
-    <xsl:variable name="tex-instructions" as="xs:string+"
+    <xsl:variable name="tex-instructions" as="xs:string*"
                   select="tokenize($style-map/mml2tex:var[@mml eq $mathvariant]/@tex, '\s')"/>
     <xsl:value-of select="string-join((mml2tex:text-atts($elt, $target),
                                        for $i in $tex-instructions

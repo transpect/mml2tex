@@ -769,7 +769,7 @@
   
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-          <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+          <xsl:variable name="replacement" select="replace($texmap[@character eq $char][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
           <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
                                                          then ()
                                                          else '&#x20;'" as="xs:string?"/>

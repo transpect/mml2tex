@@ -758,34 +758,40 @@
     <xsl:param name="seen" as="xs:string*"/>
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
+    <xsl:variable name="chars" as="xs:string+" 
+                  select="for $char in string-to-codepoints($string) 
+                          return codepoints-to-string($char)"/>
     <xsl:variable name="texregex" select="($texregex-override, $texregex)[1]" as="xs:string"/>
-    <xsl:variable name="texmap" select="if($texmap-override) then $texmap-override else $texmap" as="element(xml2tex:char)*"/>
-    <xsl:analyze-string select="$string" regex="{$texregex}">
-
-      <xsl:matching-substring>
-        <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-        <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
-        <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
-                                                       then ()
-                                                       else '&#x20;'" as="xs:string?"/>
-        <xsl:variable name="result" select="replace(., 
-                                                    $pattern,
-                                                    concat($replacement, $insert-whitespace)
-                                                    )" as="xs:string"/>
-        <xsl:choose>
-          <xsl:when test="matches($result, $texregex)
-                          and not(($pattern = $seen) or matches($result, '^[-,\.\^a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s~&quot;]+$'))">
-            <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern), $texmap, $texregex), '')"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$result"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:matching-substring>
-      <xsl:non-matching-substring>
-        <xsl:value-of select="."/>
-      </xsl:non-matching-substring>
-    </xsl:analyze-string>
+    <xsl:variable name="texmap" select="($texmap-override, $texmap)" as="element(xml2tex:char)*"/>
+    <xsl:for-each select="$chars">
+      <xsl:variable name="char" select="." as="xs:string"/>
+      <xsl:analyze-string select="." regex="{$texregex}">
+  
+        <xsl:matching-substring>
+          <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
+          <xsl:variable name="replacement" select="replace($texmap[matches(@character, $pattern)][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+          <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
+                                                         then ()
+                                                         else '&#x20;'" as="xs:string?"/>
+          <xsl:variable name="result" select="replace(., 
+                                                      $pattern,
+                                                      concat($replacement, $insert-whitespace)
+                                                      )" as="xs:string"/>
+          <xsl:choose>
+            <xsl:when test="matches($result, $texregex)
+                            and not(($pattern = $seen) or matches($result, '^[-,\.\^a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s~&quot;]+$'))">
+              <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern), $texmap, $texregex), '')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$result"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:matching-substring>
+        <xsl:non-matching-substring>
+          <xsl:value-of select="."/>
+        </xsl:non-matching-substring>
+      </xsl:analyze-string>
+    </xsl:for-each>
   </xsl:function>
   
   <xsl:function name="functx:escape-for-regex" as="xs:string">

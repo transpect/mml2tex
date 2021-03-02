@@ -23,7 +23,8 @@
   
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
 
-  <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
+  <!--<xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>-->
+  <xsl:param name="texmap-uri" select="'../../katex-properties/consolidated.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
   
@@ -566,7 +567,7 @@
         <xsl:value-of select="concat('\', $pos, '\', $val)"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), (), ()), ''), '&#x20;')"/>
+        <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), ()), ''), '&#x20;')"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -603,7 +604,7 @@
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:variable name="utf2tex-upgreek" 
                   select="if(. = ' ') then '\ ' else if(matches($text, $texregex-upgreek)) 
-                                                     then string-join(mml2tex:utf2tex($text, (), $texmap-upgreek, $texregex-upgreek), '')
+                                                     then string-join(mml2tex:utf2tex($text, $texmap-upgreek, $texregex-upgreek), '')
                                                      else $text" as="xs:string"/>
       <xsl:value-of select="$utf2tex-upgreek"/>
   </xsl:template>
@@ -613,14 +614,14 @@
                       |mo/text()
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
-    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ()), '')" as="xs:string"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), ()), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>
   
   <xsl:template match="mtext/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
-    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ()), '')" as="xs:string"/>
-    <xsl:value-of select="string-join(mml2tex:utf2tex(., (), (), ()), '')"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), ()), '')" as="xs:string"/>
+    <xsl:value-of select="$utf2tex"/>
   </xsl:template>
   
   <xsl:template match="text()[matches(., concat('^(', $whitespace-regex, ')*$'))]" mode="mathml2tex">
@@ -754,8 +755,6 @@
     
   <xsl:function name="mml2tex:utf2tex" as="xs:string*">
     <xsl:param name="string" as="xs:string"/>
-    <!-- In order to avoid infinite recursion when mapping % → \% -->
-    <xsl:param name="seen" as="xs:string*"/>
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
     <xsl:variable name="chars" as="xs:string+" 
@@ -777,15 +776,7 @@
                                                       $pattern,
                                                       concat($replacement, $insert-whitespace)
                                                       )" as="xs:string"/>
-          <xsl:choose>
-            <xsl:when test="matches($result, $texregex)
-                            and not(($pattern = $seen) or matches($result, '^[-,\.\^a-z0-9A-Z\$\\%_&amp;\{{\}}\[\]#\|\s~&quot;]+$'))">
-              <xsl:value-of select="string-join(mml2tex:utf2tex($result, ($seen, $pattern), $texmap, $texregex), '')"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="$result"/>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:value-of select="$result"/>
         </xsl:matching-substring>
         <xsl:non-matching-substring>
           <xsl:value-of select="."/>

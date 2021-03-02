@@ -23,8 +23,7 @@
   
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
 
-  <!--<xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>-->
-  <xsl:param name="texmap-uri" select="'../../katex-properties/consolidated.xml'" as="xs:string"/>
+  <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
   

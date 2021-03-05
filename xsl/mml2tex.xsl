@@ -6,6 +6,7 @@
   xmlns:mml="http://www.w3.org/1998/Math/MathML" 
   xmlns:mml2tex="http://transpect.io/mml2tex"
   xmlns:xml2tex="http://transpect.io/xml2tex"
+  xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:functx="http://www.functx.com"
   exclude-result-prefixes="tr mml xs mml2tex" 
   xpath-default-namespace="http://www.w3.org/1998/Math/MathML" 
@@ -800,7 +801,7 @@
       <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
     </xsl:variable>
     <xsl:variable name="element-name" select="if(name(..) = 'disp-formula') then 'div' else 'span'" as="xs:string"/>
-    <xsl:element name="{$element-name}">
+    <xsl:element name="{$element-name}" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="class" select="'tr--katex'"/>
       <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
     </xsl:element>

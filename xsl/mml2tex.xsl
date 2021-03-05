@@ -619,7 +619,7 @@
   </xsl:template>
   
   <xsl:template match="mtext/text()" mode="mathml2tex" priority="5">
-    <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
+    <xsl:variable name="text" select="replace(., '&#xa;+', ' ')" as="xs:string"/>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), ()), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>

@@ -777,8 +777,8 @@
           <xsl:variable name="result" select="replace(., 
                                                       $pattern,
                                                       concat($replacement, 
-                                                             $insert-whitespace,
-                                                             if($katex eq 'yes') then '{}' else ())
+                                                             if($katex eq 'yes') then '{}' else (),
+                                                             $insert-whitespace)
                                                       )" as="xs:string"/>
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>

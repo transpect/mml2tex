@@ -23,6 +23,8 @@
   <xsl:param name="always-use-left-right" select="'no'"/><!-- yes|no -->
   
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
+  
+  <xsl:param name="katex" select="'no'" as="xs:string"/>
 
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
@@ -774,7 +776,9 @@
                                                          else '&#x20;'" as="xs:string?"/>
           <xsl:variable name="result" select="replace(., 
                                                       $pattern,
-                                                      concat($replacement, $insert-whitespace)
+                                                      concat($replacement, 
+                                                             $insert-whitespace,
+                                                             if($katex eq 'yes') then '{}' else ())
                                                       )" as="xs:string"/>
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>

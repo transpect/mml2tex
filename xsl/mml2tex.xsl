@@ -25,7 +25,8 @@
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
   
   <xsl:param name="katex" select="'no'" as="xs:string"/>
-
+  <xsl:param name="katex-class" as="xs:string" select="'tr--katex'"/>
+  
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
@@ -806,7 +807,7 @@
     </xsl:variable>
     <xsl:variable name="element-name" select="if(name(..) = 'disp-formula') then 'div' else 'span'" as="xs:string"/>
     <xsl:element name="{$element-name}" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="class" select="'tr--katex'"/>
+      <xsl:attribute name="class" select="$katex-class"/>
       <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
     </xsl:element>
   </xsl:template>

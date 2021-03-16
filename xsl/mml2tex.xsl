@@ -205,9 +205,9 @@
   
 
   <xsl:template match="mfrac" mode="mathml2tex">
-    <xsl:value-of select="if(@linethickness eq '0pt')
-                          then '\genfrac{}{}{0pt}{}' 
-                          else '\frac'"/>
+    <xsl:value-of select="if(@linethickness eq '0pt')   then '\genfrac{}{}{0pt}{}'
+                          else if (@bevelled eq 'true') then '\sfrac'
+                          else                               '\frac'"/>
     <xsl:apply-templates select="@*[not(local-name() = ('linethickness', 'bevelled'))]" mode="#current"/>
     <xsl:choose>
       <xsl:when test="count(*) eq 2">

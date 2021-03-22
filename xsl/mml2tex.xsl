@@ -796,17 +796,20 @@
                                   '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
   </xsl:function>
   
-  <!-- called by html-renderers-->
+  <!-- called by html renderers-->
+  
+  <xsl:variable name="display-formula-local-names" as="xs:string+" select="('disp-formula', 'equation', 'dformula')"/>
   
   <xsl:template name="mml:katexify">
+    <xsl:param name="wrapper" as="xs:string" select="if(local-name(..) = $display-formula-local-names) 
+                                                     then 'div' else 'span'"/>
     <xsl:variable name="mml2tex-grouping" as="element(mml:math)">
       <xsl:apply-templates select="." mode="mml2tex-grouping"/>
     </xsl:variable>
     <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
       <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
     </xsl:variable>
-    <xsl:variable name="element-name" select="if(local-name(..) = ('disp-formula', 'equation')) then 'div' else 'span'" as="xs:string"/>
-    <xsl:element name="{$element-name}" namespace="http://www.w3.org/1999/xhtml">
+    <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="class" select="$katex-class"/>
       <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
     </xsl:element>

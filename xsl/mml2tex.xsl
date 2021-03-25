@@ -760,7 +760,7 @@
     <xsl:param name="string" as="xs:string"/>
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
-    <xsl:variable name="chars" as="xs:string+" 
+    <xsl:variable name="chars" as="xs:string*" 
                   select="for $char in string-to-codepoints($string) 
                           return codepoints-to-string($char)"/>
     <xsl:variable name="texregex" select="($texregex-override, $texregex)[1]" as="xs:string"/>

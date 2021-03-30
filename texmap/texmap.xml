@@ -73,7 +73,8 @@
     <!--nbsp-->
     <char character="&#xa0;" string="~"/>
     <!--= \mathcent (txfonts), cent-->
-    <char character="&#xa2;" string="\cent"/>
+    <!-- <char character="&#xa2;" string="¢"/> -->
+    <char character="&#xa2;" string="&#x00A2;"/>
     <!--= \mathsterling (txfonts), POUND SIGN, fourier prints a dollar sign-->
     <char character="&#xa3;" string="\pounds"/>
     <!--YEN SIGN-->
@@ -821,7 +822,7 @@
     <!--circle, slash-->
     <char character="&#x2205;" string="\varnothing"/>
     <!-- INCREMENT, laplace operator -->
-    <char character="&#x2206;" string="\Updelta"/>
+    <char character="&#x2206;" string="\Delta"/>
     <!--NABLA, del, hamilton operator-->
     <char character="&#x2207;" string="\nabla"/>
     <!--set membership, variant-->

@@ -9,7 +9,7 @@
     <!--= \Gamma (-slantedGreek), = \mathrm{\Gamma}, capital gamma, greek-->   
     <char character="&#x393;" string="\Upgamma"/>
     <!--= \Delta (-slantedGreek), = \mathrm{\Delta}, capital delta, greek-->
-    <char character="&#x394;" string="\Updelta"/>
+    <char character="&#x394;" string="\Delta"/>
     <!--= \Theta (-slantedGreek), = \mathrm{\Theta}, capital theta, greek-->
     <char character="&#x398;" string="\Uptheta"/>
     <!--= \Lambda (-slantedGreek), = \mathrm{\Lambda}, capital lambda, greek-->
@@ -35,7 +35,7 @@
     <!--= \mathrm{\gamma} (omlmathrm), = \gammaup (kpfonts mathdesign), = \upgamma (upgreek),  gamma, greek-->
     <char character="&#x3b3;" string="\upgamma"/>
     <!--= \mathrm{\delta} (omlmathrm), = \deltaup (kpfonts mathdesign), = \updelta (upgreek),  delta, greek-->
-    <char character="&#x3b4;" string="\updelta"/>
+    <char character="&#x3b4;" string="\delta"/>
     <!--= \mathrm{\varepsilon} (omlmathrm), = \varepsilonup (kpfonts mathdesign), rounded = \upepsilon (upgreek),  epsilon, greek-->
     <char character="&#x3b5;" string="\upvarepsilon"/>
     <!--= \mathrm{\zeta} (omlmathrm), = \zetaup (kpfonts mathdesign), = \upzeta (upgreek),  zeta, greek-->

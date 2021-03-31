@@ -1573,10 +1573,10 @@
     <char character="&#x27d0;" string="\Diamonddot"/>
     <!--LEFT MULTIMAP-->
     <char character="&#x27dc;" string="\multimapinv"/>
-    <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
-    <char character="&#x27e6;" string="\llbracket"/>
-    <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
-    <char character="&#x27e7;" string="\rrbracket"/>
+    <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET \\llbracket-->
+    <char character="&#x27e6;" string="[\!\!\left["/>
+    <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET \\rrbracket-->
+    <char character="&#x27e7;" string="]\!\!\right]"/>
     <!--MATHEMATICAL LEFT ANGLE BRACKET-->
     <char character="&#x27e8;" string="\langle"/>
     <!--MATHEMATICAL RIGHT ANGLE BRACKET-->

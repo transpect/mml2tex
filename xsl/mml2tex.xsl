@@ -227,7 +227,7 @@
       the tensor command relies on the same-named LaTeX package
       https://www.ctan.org/pkg/tensor
     -->
-    <xsl:text>\tensor*[</xsl:text>
+    <!-- <xsl:text>\sideset{</xsl:text> -->
     <!-- pre -->
     <xsl:for-each-group select="node()" group-by="preceding-sibling::mprescripts">
       <xsl:for-each select="current-group()">
@@ -235,16 +235,16 @@
       </xsl:for-each>
     </xsl:for-each-group>
     <!-- base -->
-    <xsl:text>]{</xsl:text>
+    <!-- <xsl:text>}{</xsl:text> -->
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:text>}{</xsl:text>
+    <!-- <xsl:text>}{</xsl:text> -->
     <!-- post -->
     <xsl:for-each-group select="node()[not(position() eq 1)]" group-by="following-sibling::mprescripts">  
       <xsl:for-each select="current-group()">
         <xsl:call-template name="apply-superscript-or-subscript"/>
       </xsl:for-each>
     </xsl:for-each-group>
-    <xsl:text>}</xsl:text>
+    <!-- <xsl:text>}</xsl:text> -->
   </xsl:template>
   
   <xsl:template name="apply-superscript-or-subscript">

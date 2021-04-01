@@ -1044,7 +1044,8 @@
     <!--superset or implies-->
     <char character="&#x2283;" string="\supset"/>
     <!--not subset, variant [slash negation]-->
-    <char character="&#x2284;" string="\nsubset"/>
+    <char character="&#x2284;" string="&#x2284;"/>
+    <!-- <char character="&#x2284;" string="\nsubset"/> -->
     <!--not superset, variant [slash negation]-->
     <char character="&#x2285;" string="\nsupset"/>
     <!--subset, equals-->
@@ -1346,7 +1347,8 @@
           * -->
   
     <!-- BOX DRAWINGS LIGHT VERTICAL -->
-    <char character="&#x2502;" string="\textbar"/>
+    <char character="&#x2502;" string="|"/>
+    <!-- <char character="&#x2502;" string="\textbar"/> -->
   
     <!--  *
           * Block Elements

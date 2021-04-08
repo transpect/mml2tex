@@ -389,7 +389,7 @@
     <!-- CARET (insertion mark) -->
     <char character="&#x2038;" string="\caretinsert"/>
     <!-- DOUBLE EXCLAMATION MARK -->
-    <char character="&#x203c;" string="\Exclam"/>
+    <char character="&#x203c;" string="!!"/>
     <!--CHARACTER TIE, z notation sequence concatenation-->
     <char character="&#x2040;" string="\cat"/>
     <!-- HYPHEN BULLET -->

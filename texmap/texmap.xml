@@ -115,19 +115,26 @@
     <char character="&#xBB;" string="&#34;&gt;" mode="text"/>
     <!-- INVERTED QUESTION MARK -->
     <char character="&#xBF;" string="{\textquestiondown}" mode="text"/>
+    <!-- LATIN CAPITAL LETTER A WITH DIAERESIS -->
+    <char character="&#xC4;" string="\text{\&quot;A}"/>
     <!--LATIN CAPITAL LETTER A WITH RING ABOVE -->
     <char character="&#xC5;" string="\AA{}" mode="text"/>
     <!--Latin Capital letter AE -->
     <char character="&#xC6;" string="\AE{}" mode="text"/>
+    <!-- LATIN CAPITAL LETTER O WITH DIAERESIS -->
+    <char character="&#xD6;" string="\text{\&quot;O}"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
     <char character="&#xD7;" string="\times"/>
-    <!--MULTIPLICATION SIGN, z notation Cartesian product-->
     <char character="&#xD7;" string="${\times}$" mode="text"/>
     <!--LATIN CAPITAL LETTER O WITH STROKE -->
     <char character="&#xD8;" string="\O{}" mode="text"/>
+    <!-- LATIN CAPITAL LETTER U WITH DIAERESIS -->
+    <char character="&#xDC;" string="\text{\&quot;U}"/>
     <!-- LATIN SMALL LETTER SHARP S -->
     <char character="&#xDF;" string="\ss"/>
     <char character="&#xDF;" string="&#34;z" mode="text"/>
+    <!--LATIN SMALL LETTER A WITH DIAERESIS -->
+    <char character="&#xE4;" string="\text{\&quot;a}"/>
     <!--LATIN SMALL LETTER A WITH RING ABOVE -->
     <char character="&#xE5;" string="\aa{}" mode="text"/>
     <!--Latin Small Letter AE -->
@@ -136,12 +143,16 @@
     <char character="&#xF0;" string="\eth"/>
     <!--eth-->
     <char character="&#xF0;" string="${\eth}$" mode="text"/>
+    <!-- LATIN SMALL LETTER O WITH DIAERESIS -->
+    <char character="&#xF6;" string="\text{\&quot;o}"/>
     <!--divide sign-->
     <char character="&#xF7;" string="\div"/>
     <!--divide sign-->
     <char character="&#xF7;" string="${\div}$" mode="text"/>
     <!--LATIN SMALL LETTER O WITH STROKE -->
     <char character="&#xF8;" string="\o{}" mode="text"/>
+    <!-- LATIN SMALL LETTER U WITH DIAERESIS -->
+    <char character="&#xFC;" string="\text{\&quot;u}"/>
     
     <!-- *
          * Latin Extended-A

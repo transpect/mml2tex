@@ -629,7 +629,7 @@
                                                                        'mtable', 
                                                                        'munder', 
                                                                        'munderover'))]" 
-                mode="mathml2tex" priority="10">
+                mode="mathml2tex" priority="10"> 
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) 
                                          then 'left' 
@@ -818,22 +818,24 @@
   
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-          <xsl:variable name="unmapped-char" select="$texmap[@character eq $char][1]" as="element(xml2tex:char)?"/>
-          <xsl:variable name="is-text" select="$context/local-name() = 'mtext' and $unmapped-char/@character[matches(.,'\p{L}')]"/>
-          <xsl:variable name="replacement" select="if ($is-text) 
-                                                    then $unmapped-char/@character 
-                                                    else replace($unmapped-char/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+          <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
+          <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
+                        select="if($is-text)
+                                then $texmap[@character eq $char][@mode eq 'text'][1]
+                                else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
+          <xsl:variable name="replacement" select="if ($is-text)
+                                                   then $unmapped-char/@character 
+                                                   else replace($unmapped-char/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
           <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
                                                          then ()
                                                          else '&#x20;'" as="xs:string?"/>
           <xsl:variable name="result" select="replace(., 
                                                       $pattern, 
                                                       if (not($is-text)) 
-                                                        then 
-                                                          concat($replacement, 
-                                                             if($katex eq 'yes') then '{}' else (),
-                                                             $insert-whitespace) 
-                                                        else $replacement
+                                                      then concat($replacement, 
+                                                                    if($katex eq 'yes') then '{}' else (),
+                                                                    $insert-whitespace) 
+                                                      else $replacement
                                                       )" as="xs:string"/>
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>

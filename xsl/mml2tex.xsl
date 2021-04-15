@@ -821,11 +821,9 @@
           <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
           <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
                         select="if($is-text)
-                                then $texmap[@character eq $char][@mode eq 'text'][1]
+                                then ($texmap[@character eq $char][@mode eq 'text'], $texmap[@character eq $char])[1]
                                 else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
-          <xsl:variable name="replacement" select="if ($is-text)
-                                                   then $unmapped-char/@character 
-                                                   else replace($unmapped-char/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+          <xsl:variable name="replacement" select="replace($unmapped-char/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
           <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
                                                          then ()
                                                          else '&#x20;'" as="xs:string?"/>

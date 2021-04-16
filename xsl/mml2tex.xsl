@@ -614,6 +614,9 @@
       <xsl:when test="$val = ('{', '}')">
         <xsl:value-of select="concat('\', $pos, '\', $val)"/>
       </xsl:when>
+      <xsl:when test="$val eq '&#x2016;'">
+        <xsl:value-of select="concat('\', $pos, '|', '\', $pos, '|')"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), (), ancestor-or-self::*[1]), ''), '&#x20;')"/>
       </xsl:otherwise>

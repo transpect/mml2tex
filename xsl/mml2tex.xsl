@@ -624,6 +624,7 @@
   </xsl:template>
   
   <xsl:template match="mo/text()[    matches(., $parenthesis-regex) 
+                                 and not($katex = 'yes')
                                  and ($always-use-left-right = 'yes'
                                  or  ancestor::*[2]//*/local-name() = ('mfrac', 
                                                                        'mover', 

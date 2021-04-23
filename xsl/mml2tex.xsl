@@ -825,7 +825,7 @@
           <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
           <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
                         select="if($is-text)
-                                then ($texmap[@character eq $char][@mode eq 'text'], $texmap[@character eq $char])[1]
+                        then ($texmap[@character eq $char][@mode eq 'text'], $texmap[@character eq $char][not(@mode)],$texmap[@character eq $char][@mode])[1]
                                 else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
           <xsl:variable name="replacement" as="xs:string"
                         select="if(exists($unmapped-char)) 
@@ -838,10 +838,12 @@
                                                       $pattern, 
                                                       if (not($is-text)) 
                                                       then concat($replacement, 
-                                                                    if($katex eq 'yes') then '{}' else (),
                                                                     $insert-whitespace) 
                                                       else $replacement
                                                       )" as="xs:string"/>
+          <!--<xsl:if test="matches($replacement, 'ddot')">
+              <xsl:message select=".,'-\-\-', $result"></xsl:message>
+          </xsl:if>-->
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>
         <xsl:non-matching-substring>

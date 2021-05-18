@@ -61,6 +61,12 @@
     </xsl:variable>
     <xsl:value-of select="$basic-transformation"/>
   </xsl:template>
+  <!-- Switch to “always create \limits after integral signs etc.” in an importing stylesheet:
+  <xsl:template match="mml:math" mode="mathml2tex">
+    <xsl:next-match>
+      <xsl:with-param name="create-limits" as="xs:boolean" select="true()" tunnel="yes"/>
+    </xsl:next-match>
+  </xsl:template> -->
 
   <xsl:template match="math/@display" mode="mathml2tex">
     <xsl:if test="$set-math-style = 'yes'">
@@ -372,6 +378,7 @@
                         'min'"/>
 
   <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
@@ -384,6 +391,9 @@
     <xsl:sequence select="$base"/>
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
+    </xsl:if>
+    <xsl:if test="$create-limits and *[1] = $integrals-sums-and-limits">
+      <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -543,10 +553,14 @@
   
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:if test="$create-limits">
+      <xsl:text>\limits</xsl:text>
+    </xsl:if>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
@@ -883,7 +897,16 @@
     </xsl:if>-->
     <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="class" select="$katex-class"/>
-      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
+<!--      <grouping>
+        <xsl:sequence select="$mml2tex-grouping"/>
+      </grouping>
+      <preprocess>
+        <xsl:sequence select="$mml2tex-preprocess"/>
+      </preprocess>
+      <xsl:text>&#xa;&#xa;&#xa;</xsl:text>-->
+      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex">
+        <xsl:with-param name="katexify-context" as="element(*)?" select=".." tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
   

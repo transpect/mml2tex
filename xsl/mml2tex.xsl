@@ -549,6 +549,8 @@
   </xsl:template>
   <xsl:template match="mover/*" mode="mathml2tex-accent-pre" priority="0.3">
     <xsl:text>\overset{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
   </xsl:template>
   <xsl:template match="munder/*" mode="mathml2tex-accent-pre" priority="0.3">
     <xsl:text>\underset{</xsl:text>

@@ -467,75 +467,100 @@
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
     <xsl:variable name="accent" select="*[2]" as="element(*)"/>
-    <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
-                                                     (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
-    <xsl:choose>
-      <xsl:when test="$accent eq '&#xb8;' and self::munder">
-        <xsl:value-of select="'\text{\c{'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2c6;' and self::mover">
-        <xsl:value-of select="'\hat'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2c7;' and self::mover">
-        <xsl:value-of select="'\check'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')">
-        <xsl:value-of select="if(self::mover) then '\overbrace' else '\underbrace'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')">
-        <xsl:value-of select="if(self::mover) then '\overbracket' else '\underbracket'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2dd;' and self::mover">
-        <xsl:value-of select="'\text{\H{'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x5e;' and self::mover"><!-- superscript circumflex/caret -->
-        <xsl:value-of select="if(string-length($expression) gt 1) then '\widehat' else '\hat'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
-        <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x2d9;') and self::mover"><!-- \dot -->
-        <xsl:value-of select="'\dot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#xa8;' and self::mover"><!-- \ddot -->
-        <xsl:value-of select="'\ddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x20db;' and self::mover"><!-- \dddot -->
-        <xsl:value-of select="'\dddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x20dc;' and self::mover"><!-- \ddddot -->
-        <xsl:value-of select="'\ddddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x60;' and self::mover"><!-- \ddot -->
-        <xsl:value-of select="'\grave'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#xb4;' and self::mover"><!-- acute accent -->
-        <xsl:value-of select="'\acute'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2d8;' and self::mover"><!-- breve accent -->
-        <xsl:value-of select="'\breve'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2da;' and self::mover">
-        <xsl:value-of select="'\mathring'"/>
-      </xsl:when>
-      <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->
-        <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
-      </xsl:when>
-      <xsl:when test="$is-diacritical-mark">
-        <xsl:apply-templates select="$accent" mode="#current"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
-        <xsl:apply-templates select="$accent" mode="#current"/>
-        <xsl:text>}</xsl:text>
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:text>{</xsl:text>
-    <xsl:apply-templates select="$expression" mode="#current"/>
+    <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-pre"/>
+    <xsl:apply-templates select="*[1]" mode="mathml2tex-accent-expression"/>
+    <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-post"/>
+  </xsl:template>
+
+  <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\text{\c{</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-post">
     <xsl:text>}</xsl:text>
-    <xsl:if test="$accent = ('&#x2dd;', '&#xb8;')">
-      <xsl:text>}</xsl:text>
-    </xsl:if>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2c6;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\hat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2c7;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\check</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overbrace</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underbrace</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overbracket</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underbracket</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\text{\H{</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-post">
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover[string-length(*[1]) gt 1]/*[. eq '&#x5e;']" mode="mathml2tex-accent-pre" priority="1">
+    <xsl:text>\widehat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x5e;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\hat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover[string-length(*[1]) gt 1]/*[. eq '&#x7e;']" mode="mathml2tex-accent-pre" priority="1">
+    <xsl:text>\widetilde</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x7e;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\tilde</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2d9;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\dot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#xa8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\ddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x20db;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\dddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x20dc;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\ddddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x60;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\grave</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#xb4;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\acute</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2d8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\breve</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2da;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\mathring</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overline</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underline</xsl:text>
+  </xsl:template>
+  <xsl:template match="*[self::mover | self::munder]/*[matches(., $diacritics-regex)]" mode="mathml2tex-accent-pre" priority="0.4">
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+  </xsl:template>
+  <xsl:template match="mover/*" mode="mathml2tex-accent-pre" priority="0.3">
+    <xsl:text>\overset{</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*" mode="mathml2tex-accent-pre" priority="0.3">
+    <xsl:text>\underset{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="*" mode="mathml2tex-accent-pre"/>
+  <xsl:template match="*" mode="mathml2tex-accent-post"/>
+  <xsl:template match="*" mode="mathml2tex-accent-expression">
+    <xsl:text>{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
   </xsl:template>
 
   <xsl:template match="munderover" mode="mathml2tex">
@@ -872,42 +897,5 @@
     <xsl:sequence select="replace($arg,
                                   '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
   </xsl:function>
-  
-  <!-- called by html renderers-->
-  
-  <xsl:variable name="display-formula-local-names" as="xs:string+" select="('disp-formula', 'equation', 'dformula')"/>
-  
-  <xsl:template name="mml:katexify">
-    <xsl:param name="wrapper" as="xs:string" select="if(local-name(..) = $display-formula-local-names) 
-                                                     then 'div' else 'span'"/>
-    <xsl:variable name="mml2tex-grouping" as="element(mml:math)">
-      <xsl:apply-templates select="." mode="mml2tex-grouping"/>
-    </xsl:variable>
-<!--    <xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'IIIIIIIIIIII ', ."/>
-    </xsl:if>
-    <xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'GGGGGGGGGGGG ', $mml2tex-grouping"/>
-    </xsl:if>-->
-    <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
-      <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
-    </xsl:variable>
-    <!--<xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'PPPPPPPPPPPPP ', $mml2tex-preprocess"/>
-    </xsl:if>-->
-    <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="class" select="$katex-class"/>
-<!--      <grouping>
-        <xsl:sequence select="$mml2tex-grouping"/>
-      </grouping>
-      <preprocess>
-        <xsl:sequence select="$mml2tex-preprocess"/>
-      </preprocess>
-      <xsl:text>&#xa;&#xa;&#xa;</xsl:text>-->
-      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex">
-        <xsl:with-param name="katexify-context" as="element(*)?" select=".." tunnel="yes"/>
-      </xsl:apply-templates>
-    </xsl:element>
-  </xsl:template>
   
 </xsl:stylesheet>

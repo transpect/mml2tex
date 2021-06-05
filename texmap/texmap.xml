@@ -523,7 +523,7 @@
     <!--= \Phi (-slantedGreek), = \mathrm{\Phi}, capital phi, greek-->
     <char character="&#x3A6;" string="${\Phi}$" mode="text" context="*[@css:font-style eq 'italic']"/>
     <!--= \Phi (-slantedGreek), = \mathrm{\Phi}, capital phi, greek-->
-    <char character="&#x3A6;" string="$\boldsymbol{\upzeta}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
+    <char character="&#x396;" string="$\boldsymbol{\upzeta}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
     <!-- GREEK CAPITAL LETTER CHI -->
     <char character="&#x3A7;" string="X"/>
     <!-- GREEK CAPITAL LETTER CHI -->

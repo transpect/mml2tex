@@ -46,7 +46,7 @@
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
-
+  
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -473,7 +473,7 @@
   </xsl:template>
 
   <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-pre">
-    <xsl:text>\text{\c{</xsl:text>
+    <xsl:text>\text{\c</xsl:text>
   </xsl:template>
   <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-post">
     <xsl:text>}</xsl:text>
@@ -497,7 +497,7 @@
     <xsl:text>\underbracket</xsl:text>
   </xsl:template>
   <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-pre">
-    <xsl:text>\text{\H{</xsl:text>
+    <xsl:text>\text{\H</xsl:text>
   </xsl:template>
   <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-post">
     <xsl:text>}</xsl:text>

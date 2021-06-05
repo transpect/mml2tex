@@ -20,8 +20,28 @@
   <xsl:param name="unwrap-mml" as="xs:string" select="'no'"/>
   <xsl:param name="katex" select="'yes'"/>
   <xsl:param name="debug-katex" select="'no'"/>
+  <xsl:param name="texmap-uri" select="'http://transpect.io/mml2tex/texmap/katexmap.xml'" as="xs:string"/>
+  
+  <!--<xsl:variable name="mi-regex" as="xs:string" 
+                select="concat('((', 
+                               $mml2tex:functions-names-regex, 
+                               ')|([a-zA-Z&#x391;-&#x3f6;])'
+                               ,')')"/>-->
 
-  <xsl:variable name="mi-regex" as="xs:string" select="$mml2tex:functions-names-regex"/>
+  <xsl:variable name="mml2tex:text-char-regex" as="xs:string" 
+                select="concat('[',
+                               '\p{L}', 
+                               '&#x2013;-&#x2014;',
+                               '&#x201c;-&#x201f;',
+                               '&#xc0;-&#xd6;', 
+                               '&#xd9;-&#xf6;',
+                               '&#xf9;-&#x1fd;',
+                               ']')">
+    <!-- added: any letter (\p{L})
+      In order not to convert <mml:mtext>mit</mml:mtext> to
+      <mml:mi mathvariant="normal">mit</mml:mi> 
+      in 18599.5/20111200.x1ca73b2, eq. (28) -->
+  </xsl:variable>
 
   <xsl:variable name="katex-css-link" as="element(html:link)">
     <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" 
@@ -67,16 +87,17 @@
     </xsl:element>
   </xsl:template>
   
-    <xsl:template match="mml:mtext[not(matches(.,concat('^[', $whitespace-regex, ']+$')))]
+    <!--<xsl:template match="mml:mtext[not(matches(.,concat('^[', $whitespace-regex, ']+$')))]
                                 [not(matches(., concat('^', $mml2tex:functions-names-regex, '$')))]
+                                [not(matches(., '^\p{No}+$'))](: vulgar fractions, superscripts, etc.:)
                                 [empty(processing-instruction())]" 
-                mode="mml2tex-preprocess">
-    <!-- Too much magic in the original template. It converts <mml:mtext>mit</mml:mtext> to
-      <mml:mi mathvariant="normal">mit</mml:mi> in 18599.5/20111200.x1ca73b2, eq. (28) -->
+                mode="mml2tex-preprocess_">
+    <!-\- Too much magic in the original template. It converts <mml:mtext>mit</mml:mtext> to
+      <mml:mi mathvariant="normal">mit</mml:mi> in 18599.5/20111200.x1ca73b2, eq. (28) -\->
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="#current"/>
     </xsl:copy>
-  </xsl:template>
+  </xsl:template>-->
   
   <xsl:template match="mml:mi[empty(@mathvariant | @style | parent::mml:mstyle/(@mathvariant | @style))]
                              [matches(., '^\p{L}{3}$')]

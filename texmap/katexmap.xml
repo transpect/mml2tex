@@ -66,6 +66,8 @@
       <char character=" " string="\," origin="same-in-katex"/>
       <char character=" " string="\," mode="text" origin="same-in-katex"/>
       <char character="‖" string="\|" origin="same-in-katex"/>
+      <char character="‘" string="\text{`}" origin="same-in-katex"/>
+      <char character="’" string="\text{'}" origin="same-in-katex"/>
       <char character="†" string="\dagger" origin="same-in-katex"/>
       <char character="‡" string="\ddagger" origin="same-in-katex"/>
       <char character="‥" string="\ldotp\ldotp" origin="same-in-katex"/>
@@ -2252,12 +2254,14 @@
             mode="text"/>
       <char character="‘"
             string="`"
+            mode="text"
             origin="different-in-katex"
             won="mml2tex"
             dismissed-alternative="\text{`}"
             comment="Anführungszeichenproblematik"/>
       <char character="’"
             string="'"
+            mode="text"
             origin="different-in-katex"
             won="mml2tex"
             dismissed-alternative="’ \text{'} \text{`}"

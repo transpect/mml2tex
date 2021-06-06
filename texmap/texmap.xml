@@ -924,9 +924,9 @@
     <!--= \Vert, double vertical bar-->
     <char character="&#x2016;" string="${\|}$" mode="text"/>
     <!-- LEFT SINGLE QUOTATION MARK -->
-    <char character="&#x2018;" string="'"/>
+    <char character="&#x2018;" string="`"/>
     <!-- RIGHT SINGLE QUOTATION MARK -->
-    <char character="&#x2019;" string="`"/>
+    <char character="&#x2019;" string="'"/>
     <!-- SINGLE LOW-9 QUOTATION MARK -->
     <char character="&#x201A;" string=","/>
     <!-- SINGLE LOW-9 QUOTATION MARK -->

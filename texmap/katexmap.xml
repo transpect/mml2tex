@@ -542,7 +542,7 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="¡"
-            string="\text{!`}"
+            string="{¡\vphantom{q}}"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="{\textexclamdown}"
@@ -751,7 +751,7 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="¿"
-            string="\text{?`}"
+            string="{¿\vphantom{q}}"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="{\textquestiondown}"
@@ -1308,13 +1308,6 @@
             origin="different-in-katex"
             won="mml2tex-for-text"
             mode="text"/>
-      <char character="Φ"
-            string="Φ"
-            mode="text"
-            context="*[@css:font-weight eq 'bold']"
-            won="unicode"
-            origin="different-in-katex"
-            dismissed-alternative="$\boldsymbol{\upzeta}$"/>
       <char character="Ψ"
             string="\Psi"
             origin="different-in-katex"
@@ -2258,16 +2251,16 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="‘"
-            string="'"
+            string="`"
             origin="different-in-katex"
             won="mml2tex"
             dismissed-alternative="\text{`}"
             comment="Anführungszeichenproblematik"/>
       <char character="’"
-            string="`"
+            string="'"
             origin="different-in-katex"
             won="mml2tex"
-            dismissed-alternative="\text{'} \text{`}"
+            dismissed-alternative="’ \text{'} \text{`}"
             comment="Anführungszeichenproblematik"/>
       <char character="‚"
             string=","
@@ -2517,7 +2510,7 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="ℋ"
-            string="{ℋ\vphantom{A}}"
+            string="\mathscr{H}"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="${\mathcal{H}}$"
@@ -4409,7 +4402,7 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="∼"
-            string="\mathrel{\bf \sim}"
+            string="\mathrel{\sim}"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="${\sim}$"
@@ -4541,7 +4534,7 @@
             won="mml2tex-for-text"
             mode="text"/>
       <char character="≈"
-            string="\mathrel{\bf \approx}"
+            string="\approx"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="${\approx}$"
@@ -9138,6 +9131,13 @@
             mode="text"
             context="*[@css:font-style eq 'italic']"
             origin="only-in-mml2tex"/>
+      <char character="Ζ"
+            string="Ζ"
+            mode="text"
+            context="*[@css:font-weight eq 'bold']"
+            won="unicode"
+            origin="only-in-mml2tex"
+            dismissed-alternative="$\boldsymbol{\upzeta}$"/>
       <char character="Χ" string="X" origin="only-in-mml2tex"/>
       <char character="Χ" string="X" mode="text" origin="only-in-mml2tex"/>
       <char character="Χ"
@@ -15594,6 +15594,12 @@
             string="${\downarrow}$"
             mode="text"
             origin="only-in-mml2tex"/>
+      <char character="[Aacgr   ]"
+            string="{Ά\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[aacgr   ]"
+            string="{ά\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="Á" string="\acute{A}" origin="only-in-katex"/>
       <char character="á" string="\acute{a}" origin="only-in-katex"/>
       <char character="Ă" string="\breve{A}" origin="only-in-katex"/>
@@ -15645,7 +15651,7 @@
       <char character="≋"
             string="\mathrel{≋\vphantom{A}}"
             origin="only-in-katex"/>
-      <char character="'" string="\text{'{}}" origin="only-in-katex"/>
+      <char character="'" string="\text{'\vphantom{A}}" origin="only-in-katex"/>
       <char character="*" string="\ast" origin="only-in-katex"/>
       <char character="Ã" string="\tilde{A}" origin="only-in-katex"/>
       <char character="ã" string="\tilde{a}" origin="only-in-katex"/>
@@ -15663,7 +15669,7 @@
       <char character="⎵" string="{⎵\vphantom{A}}" origin="only-in-katex"/>
       <char character="⎶" string="{⎶\vphantom{A}}" origin="only-in-katex"/>
       <char character="≌"
-            string="\mathrel{≌\vphantom{A}}"
+            string="\mathbin{\overset{∽}{\=}}"
             origin="only-in-katex"/>
       <char character="Б" string="{Б\vphantom{A}}" origin="only-in-katex"/>
       <char character="б" string="{б\vphantom{A}}" origin="only-in-katex"/>
@@ -15803,16 +15809,40 @@
       <char character="⋲"
             string="\mathrel{⋲\vphantom{A}}"
             origin="only-in-katex"/>
+      <char character="[DJcy    ]"
+            string="{Ђ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[djcy    ]"
+            string="{ђ\vphantom{A}}"
+            origin="only-in-katex"/>
       <char character="⌍" string="{⌍\vphantom{A}}" origin="only-in-katex"/>
       <char character="¨" string="\ddot{}" origin="only-in-katex"/>
       <char character="˙" string="\dot{}" origin="only-in-katex"/>
       <char character="⌌" string="{⌌\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[DScy    ]"
+            string="{Ѕ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[dscy    ]"
+            string="{ѕ\vphantom{a}}"
+            origin="only-in-katex"/>
       <char character="⧶" string="\bar{/}" origin="only-in-katex"/>
       <char character="Đ" string="{Đ\vphantom{A}}" origin="only-in-katex"/>
       <char character="đ" string="{đ\vphantom{A}}" origin="only-in-katex"/>
       <char character="⦦" string="{⦦\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[DZcy    ]"
+            string="{Џ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[dzcy    ]"
+            string="{џ\vphantom{a}}"
+            origin="only-in-katex"/>
       <char character="⟿"
             string="\mathrel{⟿\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[Eacgr   ]"
+            string="{Έ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[eacgr   ]"
+            string="{έ\vphantom{\bar{A}}}"
             origin="only-in-katex"/>
       <char character="É" string="\acute{E}" origin="only-in-katex"/>
       <char character="é" string="\acute{e}" origin="only-in-katex"/>
@@ -15830,6 +15860,12 @@
             origin="only-in-katex"/>
       <char character="Ė" string="\dot{E}" origin="only-in-katex"/>
       <char character="ė" string="\dot{e}" origin="only-in-katex"/>
+      <char character="[EEacgr  ]"
+            string="{Ή\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[eeacgr  ]"
+            string="{ή\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="⪚"
             string="\mathrel{⪚\vphantom{A}}"
             origin="only-in-katex"/>
@@ -15939,6 +15975,12 @@
       <char character="⪔"
             string="\mathrel{⪔\vphantom{A}}"
             origin="only-in-katex"/>
+      <char character="[GJcy    ]"
+            string="{Ѓ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[gjcy    ]"
+            string="{ѓ\vphantom{i}}"
+            origin="only-in-katex"/>
       <char character="⪥"
             string="\mathrel{⪥\vphantom{A}}"
             origin="only-in-katex"/>
@@ -15983,12 +16025,27 @@
             origin="only-in-katex"/>
       <char character="Ħ" string="{Ħ\vphantom{A}}" origin="only-in-katex"/>
       <char character="‐" string="\text{-}" origin="only-in-katex"/>
+      <char character="[Iacgr   ]"
+            string="{Ί\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[iacgr   ]"
+            string="{ί\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="Í" string="\acute{I}" origin="only-in-katex"/>
       <char character="í" string="\acute{\imath}" origin="only-in-katex"/>
       <char character="Î" string="\hat{I}" origin="only-in-katex"/>
       <char character="î" string="\hat{\imath}" origin="only-in-katex"/>
       <char character="И" string="{И\vphantom{A}}" origin="only-in-katex"/>
       <char character="и" string="{и\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[idiagr  ]"
+            string="{ΐ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[Idigr   ]"
+            string="{Ϊ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[idigr   ]"
+            string="{ϊ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="İ" string="\dot{I}" origin="only-in-katex"/>
       <char character="Е" string="{Е\vphantom{A}}" origin="only-in-katex"/>
       <char character="е" string="{е\vphantom{A}}" origin="only-in-katex"/>
@@ -16027,6 +16084,12 @@
             origin="only-in-katex"/>
       <char character="Ĩ" string="\tilde{I}" origin="only-in-katex"/>
       <char character="ĩ" string="\tilde{\imath}" origin="only-in-katex"/>
+      <char character="[Iukcy   ]"
+            string="{І\vphantom{I}}"
+            origin="only-in-katex"/>
+      <char character="[iukcy   ]"
+            string="{і\vphantom{i}}"
+            origin="only-in-katex"/>
       <char character="Ï"
             string="\ddot{I}"
             mode="math"
@@ -16036,6 +16099,18 @@
       <char character="ĵ" string="\hat{\jmath}" origin="only-in-katex"/>
       <char character="Й" string="{Й\vphantom{A}}" origin="only-in-katex"/>
       <char character="й" string="{й\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[Jsercy  ]"
+            string="{Ј\vphantom{J}}"
+            origin="only-in-katex"/>
+      <char character="[jsercy  ]"
+            string="{ј\vphantom{j}}"
+            origin="only-in-katex"/>
+      <char character="[Jukcy   ]"
+            string="{Є\vphantom{E}}"
+            origin="only-in-katex"/>
+      <char character="[jukcy   ]"
+            string="{є\vphantom{a}}"
+            origin="only-in-katex"/>
       <char character="ϰ" string="\varkappa" origin="only-in-katex"/>
       <char character="Ķ" string="{Ķ\vphantom{A}}" origin="only-in-katex"/>
       <char character="ķ" string="{ķ\vphantom{A}}" origin="only-in-katex"/>
@@ -16044,6 +16119,12 @@
       <char character="ĸ" string="{ĸ\vphantom{A}}" origin="only-in-katex"/>
       <char character="Х" string="{Х\vphantom{A}}" origin="only-in-katex"/>
       <char character="х" string="{х\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[KJcy    ]"
+            string="{Ќ\vphantom{K}}"
+            origin="only-in-katex"/>
+      <char character="[kjcy    ]"
+            string="{ќ\vphantom{A}}"
+            origin="only-in-katex"/>
       <char character="Ĺ" string="\acute{L}" origin="only-in-katex"/>
       <char character="ĺ" string="\acute{l}" origin="only-in-katex"/>
       <char character="⦴" string="{⦴\vphantom{A}}" origin="only-in-katex"/>
@@ -16124,6 +16205,12 @@
             string="\mathrel{⪑\vphantom{A}}"
             origin="only-in-katex"/>
       <char character="▄" string="{▄\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[LJcy    ]"
+            string="{Љ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[ljcy    ]"
+            string="{љ\vphantom{A}}"
+            origin="only-in-katex"/>
       <char character="◺" string="{◺\vphantom{A}}" origin="only-in-katex"/>
       <char character="Ŀ" string="{L\cdot}" origin="only-in-katex"/>
       <char character="ŀ" string="{l\cdot}" origin="only-in-katex"/>
@@ -16221,6 +16308,12 @@
       <char character="⋺"
             string="\mathrel{⋺\vphantom{A}}"
             origin="only-in-katex"/>
+      <char character="[NJcy    ]"
+            string="{Њ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[njcy    ]"
+            string="{њ\vphantom{a}}"
+            origin="only-in-katex"/>
       <char character="⫬" string="{⫬\vphantom{A}}" origin="only-in-katex"/>
       <char character="⋷" string="\mathrel{\bar{\in}}" origin="only-in-katex"/>
       <char character="⋾"
@@ -16254,6 +16347,12 @@
       <char character="⤧"
             string="\mathrel{⤧\vphantom{A}}"
             origin="only-in-katex"/>
+      <char character="[Oacgr   ]"
+            string="{Ό\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[oacgr   ]"
+            string="{ό\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="Ó" string="\acute{O}" origin="only-in-katex"/>
       <char character="ó" string="\acute{o}" origin="only-in-katex"/>
       <char character="Ô" string="\hat{O}" origin="only-in-katex"/>
@@ -16273,6 +16372,12 @@
             origin="only-in-katex"/>
       <char character="Ò" string="\grave{O}" origin="only-in-katex"/>
       <char character="ò" string="\grave{o}" origin="only-in-katex"/>
+      <char character="[OHacgr  ]"
+            string="{Ώ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[ohacgr  ]"
+            string="{ώ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="⦵"
             string="\mathbin{⦵\vphantom{A}}"
             origin="only-in-katex"/>
@@ -16581,6 +16686,7 @@
       <char character="Т" string="{Т\vphantom{A}}" origin="only-in-katex"/>
       <char character="т" string="{т\vphantom{A}}" origin="only-in-katex"/>
       <char character="⌕" string="{⌕\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="\hskip0.167em" origin="only-in-katex"/>
       <char character="Þ" string="{Þ\vphantom{A}}" origin="only-in-katex"/>
       <char character="þ" string="{þ\vphantom{A}}" origin="only-in-katex"/>
       <char character="˜" string="\tilde{}" origin="only-in-katex"/>
@@ -16612,8 +16718,20 @@
       <char character="⏢" string="{⏢\vphantom{A}}" origin="only-in-katex"/>
       <char character="Ц" string="{Ц\vphantom{A}}" origin="only-in-katex"/>
       <char character="ц" string="{ц\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[TSHcy   ]"
+            string="{Ћ\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[tshcy   ]"
+            string="{ћ\vphantom{A}}"
+            origin="only-in-katex"/>
       <char character="Ŧ" string="{Ŧ\vphantom{A}}" origin="only-in-katex"/>
       <char character="ŧ" string="{ŧ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[Uacgr   ]"
+            string="{Ύ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[uacgr   ]"
+            string="{ύ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="Ú" string="\acute{U}" origin="only-in-katex"/>
       <char character="ú" string="\acute{u}" origin="only-in-katex"/>
       <char character="↟"
@@ -16621,6 +16739,12 @@
             origin="only-in-katex"/>
       <char character="⥉"
             string="\mathrel{⥉\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[Ubrcy   ]"
+            string="{Ў\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[ubrcy   ]"
+            string="{ў\vphantom{j}}"
             origin="only-in-katex"/>
       <char character="Ŭ" string="\breve{U}" origin="only-in-katex"/>
       <char character="ŭ" string="\breve{u}" origin="only-in-katex"/>
@@ -16630,6 +16754,15 @@
       <char character="у" string="{у\vphantom{A}}" origin="only-in-katex"/>
       <char character="Ű" string="\text{\H U}" origin="only-in-katex"/>
       <char character="ű" string="\text{\H u}" origin="only-in-katex"/>
+      <char character="[udiagr  ]"
+            string="{ΰ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[Udigr   ]"
+            string="{Ϋ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
+      <char character="[udigr   ]"
+            string="{ϋ\vphantom{\bar{A}}}"
+            origin="only-in-katex"/>
       <char character="⥾"
             string="\mathrel{⥾\vphantom{A}}"
             origin="only-in-katex"/>
@@ -16651,6 +16784,46 @@
       <char character="Ũ" string="\tilde{U}" origin="only-in-katex"/>
       <char character="ũ" string="\tilde{u}" origin="only-in-katex"/>
       <char character="⦧" string="{⦧\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѐ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѝ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѐ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѝ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѡ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѡ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѣ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѣ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѥ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѥ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѧ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѧ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѩ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѩ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѫ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѫ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѭ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѭ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѯ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѯ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѱ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѱ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѵ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѵ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ѹ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ѹ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ґ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ґ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ө\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ө\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ⸯ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ꙉ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ꙉ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ꙓ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ꙓ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ꙗ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ꙗ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{Ꙛ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ꙛ\vphantom{A}}" origin="only-in-katex"/>
+      <char character="" string="{ꙿ\vphantom{A}}" origin="only-in-katex"/>
       <char character="⦜" string="{⦜\vphantom{A}}" origin="only-in-katex"/>
       <char character="⫨"
             string="\mathrel{⫨\vphantom{A}}"
@@ -16680,6 +16853,12 @@
       <char character="ŷ" string="\hat{y}" origin="only-in-katex"/>
       <char character="Ы" string="{Ы\vphantom{A}}" origin="only-in-katex"/>
       <char character="ы" string="{ы\vphantom{A}}" origin="only-in-katex"/>
+      <char character="[YIcy    ]"
+            string="{Ї\vphantom{A}}"
+            origin="only-in-katex"/>
+      <char character="[yicy    ]"
+            string="{ї\vphantom{i}}"
+            origin="only-in-katex"/>
       <char character="Ю" string="{Ю\vphantom{A}}" origin="only-in-katex"/>
       <char character="ю" string="{ю\vphantom{A}}" origin="only-in-katex"/>
       <char character="Ÿ"

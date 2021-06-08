@@ -19,8 +19,6 @@
   <xsl:param name="fail-on-error" select="'yes'"/><!-- yes|no -->
 
   <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
-
-  <xsl:param name="always-use-left-right" select="'no'"/><!-- yes|no -->
   
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
   

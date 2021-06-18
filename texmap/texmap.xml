@@ -55,8 +55,8 @@
     <char character="&#x3a;" string="\colon"/>    
     <!--REVERSE SOLIDUS-->
     <char character="&#x5c;" string="\backslash"/>
-    <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
-    <char character="&#x5e;" string="\sphat"/>
+    <!--CIRCUMFLEX ACCENT, TeX superscript operator sphat--> 
+    <char character="&#x5e;" string="\hat{}"/>
     <!--LOW LINE, TeX subscript operator-->
     <char character="&#x5f;" string="\_"/>
     <!-- LEFT CURLY BRACKET -->

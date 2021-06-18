@@ -56,7 +56,7 @@
     <!--REVERSE SOLIDUS-->
     <char character="&#x5c;" string="\backslash"/>
     <!--CIRCUMFLEX ACCENT, TeX superscript operator sphat--> 
-    <char character="&#x5e;" string="\hat{}"/>
+    <char character="&#x5e;" string="^{^\wedge}"/>
     <!--LOW LINE, TeX subscript operator-->
     <char character="&#x5f;" string="\_"/>
     <!-- LEFT CURLY BRACKET -->

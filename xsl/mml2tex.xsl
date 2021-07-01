@@ -19,8 +19,6 @@
   <xsl:param name="fail-on-error" select="'yes'"/><!-- yes|no -->
 
   <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
-
-  <xsl:param name="always-use-left-right" select="'no'"/><!-- yes|no -->
   
   <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
   
@@ -46,7 +44,7 @@
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
-
+  
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -61,6 +59,12 @@
     </xsl:variable>
     <xsl:value-of select="$basic-transformation"/>
   </xsl:template>
+  <!-- Switch to “always create \limits after integral signs etc.” in an importing stylesheet:
+  <xsl:template match="mml:math" mode="mathml2tex">
+    <xsl:next-match>
+      <xsl:with-param name="create-limits" as="xs:boolean" select="true()" tunnel="yes"/>
+    </xsl:next-match>
+  </xsl:template> -->
 
   <xsl:template match="math/@display" mode="mathml2tex">
     <xsl:if test="$set-math-style = 'yes'">
@@ -205,27 +209,71 @@
   
 
   <xsl:template match="mfrac" mode="mathml2tex">
-    <xsl:value-of select="if(@linethickness eq '0pt')   then '\genfrac{}{}{0pt}{}'
-                          else                               '\frac'"/>
-    <xsl:apply-templates select="@*[not(local-name() = ('linethickness', 'bevelled'))]" mode="#current"/>
     <xsl:choose>
-      <xsl:when test="count(*) eq 2">
-        <xsl:text>{</xsl:text>
-        <xsl:apply-templates select="*[1]" mode="#current"/>
-        <xsl:text>}{</xsl:text>
-        <xsl:apply-templates select="*[2]" mode="#current"/>
-        <xsl:text>}</xsl:text>
+      <xsl:when test="@bevelled eq 'true' and $katex eq 'yes'">
+        <xsl:choose>
+          <xsl:when test="count(*) eq 2">
+            <xsl:apply-templates select="*[1]" mode="#current"/>
+            <xsl:text>/</xsl:text>
+            <xsl:apply-templates select="*[2]" mode="#current"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
+        <xsl:value-of select="if(@linethickness eq '0pt')   then '\genfrac{}{}{0pt}{}'
+          else if (@bevelled eq 'true') then '\sfrac'
+          else                               '\frac'"/>
+        <xsl:apply-templates select="@*[not(local-name() = ('linethickness', 'bevelled'))]" mode="#current"/>
+        <xsl:choose>
+          <xsl:when test="count(*) eq 2">
+            <xsl:text>{</xsl:text>
+            <xsl:apply-templates select="*[1]" mode="#current"/>
+            <xsl:text>}{</xsl:text>
+            <xsl:apply-templates select="*[2]" mode="#current"/>
+            <xsl:text>}</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="mmultiscripts" mode="mathml2tex">
-    <!-- 
+    <xsl:choose>
+      <xsl:when test="$katex = 'yes'">
+        <xsl:variable name="base" select="./node()[1]"/>
+        <xsl:variable name="pre"  select=".//(*:mn|*:mrow)[preceding-sibling::*:mprescripts]"/>
+        <xsl:variable name="post" select=".//(*:mn|*:mrow)[following-sibling::*:mprescripts] except $base"/>
+        
+        <xsl:text>{}^{</xsl:text>
+        <!-- pre -->
+        <xsl:apply-templates select="$pre[2]" mode="#current"/>
+        <xsl:text>}_{</xsl:text>
+        <xsl:apply-templates select="$pre[1]" mode="#current"/>
+        <xsl:text>}{</xsl:text>
+        
+        <!-- base -->
+        <xsl:text>}{</xsl:text>
+        <xsl:apply-templates select="$base" mode="#current"/>
+        <xsl:text>}^{</xsl:text>
+        
+        <!-- post -->
+        <xsl:apply-templates select="$post[2]" mode="#current"/>
+        <xsl:text>}_{</xsl:text>
+        <xsl:apply-templates select="$post[1]" mode="#current"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        
+      <!-- 
       the tensor command relies on the same-named LaTeX package
       https://www.ctan.org/pkg/tensor
+<<<<<<< HEAD
     -->
     <!-- <xsl:text>\sideset{</xsl:text> -->
     <!-- pre -->
@@ -245,6 +293,30 @@
       </xsl:for-each>
     </xsl:for-each-group>
     <!-- <xsl:text>}</xsl:text> -->
+=======
+      -->
+        
+        <xsl:text>\tensor*[</xsl:text>
+        <!-- pre -->
+        <xsl:for-each-group select="node()" group-by="preceding-sibling::mprescripts">
+          <xsl:for-each select="current-group()">
+            <xsl:call-template name="apply-superscript-or-subscript"/>
+          </xsl:for-each>
+        </xsl:for-each-group>
+        <!-- base -->
+        <xsl:text>]{</xsl:text>
+        <xsl:apply-templates select="*[1]" mode="#current"/>
+        <xsl:text>}{</xsl:text>
+        <!-- post -->
+        <xsl:for-each-group select="node()[not(position() eq 1)]" group-by="following-sibling::mprescripts">
+          <xsl:for-each select="current-group()">
+            <xsl:call-template name="apply-superscript-or-subscript"/>
+          </xsl:for-each>
+        </xsl:for-each-group>
+        <xsl:text>}</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+>>>>>>> 4a555974a5c8de824ece92b3d878fd54065faa4a
   </xsl:template>
   
   <xsl:template name="apply-superscript-or-subscript">
@@ -326,6 +398,7 @@
                         'min'"/>
 
   <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
@@ -338,6 +411,9 @@
     <xsl:sequence select="$base"/>
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
+    </xsl:if>
+    <xsl:if test="$create-limits and *[1] = $integrals-sums-and-limits">
+      <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -411,75 +487,102 @@
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
     <xsl:variable name="accent" select="*[2]" as="element(*)"/>
-    <xsl:variable name="is-diacritical-mark" select="matches($accent, $diacritics-regex) 
-                                                     (:and (not(matches($accent, '&#xaf;') and self::munder))  :)" as="xs:boolean"/>
-    <xsl:choose>
-      <xsl:when test="$accent eq '&#xb8;' and self::munder">
-        <xsl:value-of select="'\text{\c{'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2c6;' and self::mover">
-        <xsl:value-of select="'\hat'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2c7;' and self::mover">
-        <xsl:value-of select="'\check'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')">
-        <xsl:value-of select="if(self::mover) then '\overbrace' else '\underbrace'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')">
-        <xsl:value-of select="if(self::mover) then '\overbracket' else '\underbracket'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2dd;' and self::mover">
-        <xsl:value-of select="'\text{\H{'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x5e;' and self::mover"><!-- superscript circumflex/caret -->
-        <xsl:value-of select="if(string-length($expression) gt 1) then '\widehat' else '\hat'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x7e;' and self::mover"><!-- superscript tilde -->
-        <xsl:value-of select="if(string-length($expression) gt 1) then '\widetilde' else '\tilde'"/>
-      </xsl:when>
-      <xsl:when test="$accent = ('&#x2d9;') and self::mover"><!-- \dot -->
-        <xsl:value-of select="'\dot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#xa8;' and self::mover"><!-- \ddot -->
-        <xsl:value-of select="'\ddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x20db;' and self::mover"><!-- \dddot -->
-        <xsl:value-of select="'\dddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x20dc;' and self::mover"><!-- \ddddot -->
-        <xsl:value-of select="'\ddddot'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x60;' and self::mover"><!-- \ddot -->
-        <xsl:value-of select="'\grave'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#xb4;' and self::mover"><!-- acute accent -->
-        <xsl:value-of select="'\acute'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2d8;' and self::mover"><!-- breve accent -->
-        <xsl:value-of select="'\breve'"/>
-      </xsl:when>
-      <xsl:when test="$accent eq '&#x2da;' and self::mover">
-        <xsl:value-of select="'\mathring'"/>
-      </xsl:when>
-      <xsl:when test="matches($accent, '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')"><!-- macron, combining macron, combining overline -->
-        <xsl:value-of select="if(self::mover ) then '\overline' else '\underline'"/>
-      </xsl:when>
-      <xsl:when test="$is-diacritical-mark">
-        <xsl:apply-templates select="$accent" mode="#current"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="if(self::mover ) then '\overset{' else '\underset{'"/>
-        <xsl:apply-templates select="$accent" mode="#current"/>
-        <xsl:text>}</xsl:text>
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:text>{</xsl:text>
-    <xsl:apply-templates select="$expression" mode="#current"/>
+    <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-pre"/>
+    <xsl:apply-templates select="*[1]" mode="mathml2tex-accent-expression"/>
+    <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-post"/>
+  </xsl:template>
+
+  <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\text{\c</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-post">
     <xsl:text>}</xsl:text>
-    <xsl:if test="$accent = ('&#x2dd;', '&#xb8;')">
-      <xsl:text>}</xsl:text>
-    </xsl:if>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2c6;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\hat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2c7;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\check</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overbrace</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. = ('&#x23de;', '&#x23df;', '&#xfe37;', '&#xfe38;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underbrace</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overbracket</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[. = ('&#x23b4;', '&#x23b5;', '&#xfe47;', '&#xfe48;')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underbracket</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\text{\H</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2dd;']" mode="mathml2tex-accent-post">
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover[string-length(*[1]) gt 1]/*[. eq '&#x5e;']" mode="mathml2tex-accent-pre" priority="1">
+    <xsl:text>\widehat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x5e;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\hat</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover[string-length(*[1]) gt 1]/*[. eq '&#x7e;']" mode="mathml2tex-accent-pre" priority="1">
+    <xsl:text>\widetilde</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x7e;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\tilde</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2d9;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\dot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#xa8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\ddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x20db;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\dddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x20dc;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\ddddot</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x60;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\grave</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#xb4;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\acute</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2d8;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\breve</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x2da;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\mathring</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\overline</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
+    <xsl:text>\underline</xsl:text>
+  </xsl:template>
+  <xsl:template match="*[self::mover | self::munder]/*[matches(., $diacritics-regex)]" mode="mathml2tex-accent-pre" priority="0.4">
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+  </xsl:template>
+  <xsl:template match="mover/*" mode="mathml2tex-accent-pre" priority="0.3">
+    <xsl:text>\overset{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder/*" mode="mathml2tex-accent-pre" priority="0.3">
+    <xsl:text>\underset{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+  <xsl:template match="*" mode="mathml2tex-accent-pre"/>
+  <xsl:template match="*" mode="mathml2tex-accent-post"/>
+  <xsl:template match="*" mode="mathml2tex-accent-expression">
+    <xsl:text>{</xsl:text>
+    <xsl:apply-templates select="." mode="mathml2tex"/>
+    <xsl:text>}</xsl:text>
   </xsl:template>
 
   <xsl:template match="munderover" mode="mathml2tex">
@@ -497,10 +600,14 @@
   
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
+    <xsl:if test="$create-limits">
+      <xsl:text>\limits</xsl:text>
+    </xsl:if>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
@@ -568,21 +675,24 @@
       <xsl:when test="$val = ('{', '}')">
         <xsl:value-of select="concat('\', $pos, '\', $val)"/>
       </xsl:when>
+      <xsl:when test="$val eq '&#x2016;'">
+        <xsl:value-of select="concat('\', $pos, '|', '\', $pos, '|')"/>
+      </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), ()), ''), '&#x20;')"/>
+        <xsl:value-of select="concat('\', $pos, string-join(mml2tex:utf2tex($val, (), (), ancestor-or-self::*[1]), ''), '&#x20;')"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   
   <xsl:template match="mo/text()[    matches(., $parenthesis-regex) 
-                                 and ($always-use-left-right = 'yes'
-                                 or  ancestor::*[2]//*/local-name() = ('mfrac', 
-                                                                       'mover', 
-                                                                       'mroot', 
-                                                                       'msqrt', 
-                                                                       'mtable', 
-                                                                       'munder', 
-                                                                       'munderover'))]" 
+                                 and not($katex = 'yes')
+                                 and ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
+                                                                                        'mover', 
+                                                                                        'mroot', 
+                                                                                        'msqrt', 
+                                                                                        'mtable', 
+                                                                                        'munder', 
+                                                                                        'munderover')]" 
                 mode="mathml2tex" priority="10">
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) 
@@ -606,7 +716,7 @@
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:variable name="utf2tex-upgreek" 
                   select="if(. = ' ') then '\ ' else if(matches($text, $texregex-upgreek)) 
-                                                     then string-join(mml2tex:utf2tex($text, $texmap-upgreek, $texregex-upgreek), '')
+                                                     then string-join(mml2tex:utf2tex($text, $texmap-upgreek, $texregex-upgreek, ..), '')
                                                      else $text" as="xs:string"/>
       <xsl:value-of select="$utf2tex-upgreek"/>
   </xsl:template>
@@ -616,13 +726,13 @@
                       |mo/text()
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
-    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), ()), '')" as="xs:string"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>
   
   <xsl:template match="mtext/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(., '&#xa;+', ' ')" as="xs:string"/>
-    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), ()), '')" as="xs:string"/>
+    <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>
   
@@ -759,6 +869,8 @@
     <xsl:param name="string" as="xs:string"/>
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
+    <xsl:param name="context" as="element()?"/>
+    
     <xsl:variable name="chars" as="xs:string*" 
                   select="for $char in string-to-codepoints($string) 
                           return codepoints-to-string($char)"/>
@@ -770,16 +882,28 @@
   
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-          <xsl:variable name="replacement" select="replace($texmap[@character eq $char][1]/@string, '(\$|\\)', '\\$1')" as="xs:string"/>
+          <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
+          <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
+                        select="if($is-text)
+                        then ($texmap[@character eq $char][@mode eq 'text'], $texmap[@character eq $char][not(@mode)],$texmap[@character eq $char][@mode])[1]
+                                else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
+          <xsl:variable name="replacement" as="xs:string"
+                        select="if(exists($unmapped-char)) 
+                                then replace($unmapped-char/@string, '(\$|\\)', '\\$1')
+                                else ."/>
           <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
                                                          then ()
                                                          else '&#x20;'" as="xs:string?"/>
           <xsl:variable name="result" select="replace(., 
-                                                      $pattern,
-                                                      concat($replacement, 
-                                                             if($katex eq 'yes') then '{}' else (),
-                                                             $insert-whitespace)
+                                                      $pattern, 
+                                                      if (not($is-text)) 
+                                                      then concat($replacement, 
+                                                                    $insert-whitespace) 
+                                                      else $replacement
                                                       )" as="xs:string"/>
+          <!--<xsl:if test="matches($replacement, 'ddot')">
+              <xsl:message select=".,'-\-\-', $result"></xsl:message>
+          </xsl:if>-->
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>
         <xsl:non-matching-substring>
@@ -794,33 +918,5 @@
     <xsl:sequence select="replace($arg,
                                   '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
   </xsl:function>
-  
-  <!-- called by html renderers-->
-  
-  <xsl:variable name="display-formula-local-names" as="xs:string+" select="('disp-formula', 'equation', 'dformula')"/>
-  
-  <xsl:template name="mml:katexify">
-    <xsl:param name="wrapper" as="xs:string" select="if(local-name(..) = $display-formula-local-names) 
-                                                     then 'div' else 'span'"/>
-    <xsl:variable name="mml2tex-grouping" as="element(mml:math)">
-      <xsl:apply-templates select="." mode="mml2tex-grouping"/>
-    </xsl:variable>
-<!--    <xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'IIIIIIIIIIII ', ."/>
-    </xsl:if>
-    <xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'GGGGGGGGGGGG ', $mml2tex-grouping"/>
-    </xsl:if>-->
-    <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
-      <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
-    </xsl:variable>
-    <!--<xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'PPPPPPPPPPPPP ', $mml2tex-preprocess"/>
-    </xsl:if>-->
-    <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="class" select="$katex-class"/>
-      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex"/>
-    </xsl:element>
-  </xsl:template>
   
 </xsl:stylesheet>

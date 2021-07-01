@@ -24,8 +24,8 @@
     <char character="&#x3E;" string="{\textgreater}" mode="text"/>
     <!--REVERSE SOLIDUS-->
     <char character="&#x5C;" string="\backslash"/>
-    <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
-    <char character="&#x5E;" string="\sphat"/>
+    <!--CIRCUMFLEX ACCENT, TeX superscript operator sphat-->
+    <char character="&#x5E;" string="^{\wedge}"/>
     <!--CIRCUMFLEX ACCENT, TeX superscript operator-->
     <char character="&#x5E;" string="\textasciicircum{}" mode="text"/>
     <!--LOW LINE, TeX subscript operator-->
@@ -51,8 +51,9 @@
     <char character="&#xA0;" string="~" mode="text"/>
     <!--INVERTED EXCLAMATION MARK -->
     <char character="&#xA1;" string="{\textexclamdown}" mode="text"/>
-    <!--= \mathcent (txfonts), cent-->
-    <char character="&#xA2;" string="\cent"/>
+    <!--= \mathcent (txfonts), cent-->
+    <!-- <char character="&#xa2;" string="¢"/> -->
+    <char character="&#xa2;" string="&#x00A2;"/>
     <!--= \mathcent (txfonts), cent-->
     <char character="&#xA2;" string="{\cent}" mode="text"/>
     <!--= \mathsterling (txfonts), POUND SIGN, fourier prints a dollar sign-->
@@ -1022,7 +1023,8 @@
     <!-- SINGLE RIGHT-POINTING ANGLE QUOTATION MARK -->
     <char character="&#x203A;" string="{\frq}" mode="text"/>
     <!-- DOUBLE EXCLAMATION MARK -->
-    <char character="&#x203C;" string="\Exclam"/>
+    <!-- <char character="&#x203C;" string="\Exclam"/> -->
+    <char character="&#x203C;" string="!!"/>
     <!-- DOUBLE EXCLAMATION MARK -->
     <char character="&#x203C;" string="${\Exclam}$" mode="text"/>
     <!--CHARACTER TIE, z notation sequence concatenation-->
@@ -1882,7 +1884,7 @@
     <!--circle, slash-->
     <char character="&#x2205;" string="${\varnothing}$" mode="text"/>
     <!-- INCREMENT, laplace operator -->
-    <char character="&#x2206;" string="\Updelta"/>
+    <char character="&#x2206;" string="\Delta"/>
     <!-- INCREMENT, laplace operator -->
     <char character="&#x2206;" string="${\Updelta}$" mode="text"/>
     <!--NABLA, del, hamilton operator-->
@@ -2326,7 +2328,8 @@
     <!--superset or implies-->
     <char character="&#x2283;" string="${\supset}$" mode="text"/>
     <!--not subset, variant [slash negation]-->
-    <char character="&#x2284;" string="\nsubset"/>
+    <!-- <char character="&#x2284;" string="\nsubset"/> -->
+    <char character="&#x2284;" string="&#x2284;"/>
     <!--not subset, variant [slash negation]-->
     <char character="&#x2284;" string="${\nsubset}$" mode="text"/>
     <!--not superset, variant [slash negation]-->
@@ -3238,7 +3241,8 @@
           * -->
     
     <!-- BOX DRAWINGS LIGHT VERTICAL -->
-    <char character="&#x2502;" string="\textbar"/>
+    <!-- <char character="&#x2502;" string="\textbar"/> -->
+    <char character="&#x2502;" string="|"/>
     <!-- BOX DRAWINGS LIGHT VERTICAL -->
     <char character="&#x2502;" string="{\textbar}" mode="text"/>
     
@@ -4028,13 +4032,17 @@
     <!--LEFT MULTIMAP-->
     <char character="&#x27DC;" string="${\multimapinv}$" mode="text"/>
     <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
-    <char character="&#x27E6;" string="\llbracket"/>
+    <!-- <char character="&#x27E6;" string="\llbracket"/> -->
     <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET-->
-    <char character="&#x27E6;" string="${\llbracket}$" mode="text"/>
+    <!-- <char character="&#x27E6;" string="${\llbracket}$" mode="text"/> -->
     <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
-    <char character="&#x27E7;" string="\rrbracket"/>
+    <!-- <char character="&#x27E7;" string="\rrbracket"/> -->
     <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET-->
-    <char character="&#x27E7;" string="${\rrbracket}$" mode="text"/>
+    <!-- <char character="&#x27E7;" string="${\rrbracket}$" mode="text"/> -->
+    <!--= \Lbrack (mathbbol), = \lbag (oz -stmaryrd), MATHEMATICAL LEFT WHITE SQUARE BRACKET \\llbracket-->
+    <char character="&#x27e6;" string="[\!\!\left["/>
+    <!--= \Rbrack (mathbbol), = \rbag (oz -stmaryrd), MATHEMATICAL RIGHT WHITE SQUARE BRACKET \\rrbracket-->
+    <char character="&#x27e7;" string="]\!\!\right]"/>
     <!--MATHEMATICAL LEFT ANGLE BRACKET-->
     <char character="&#x27E8;" string="\langle"/>
     <!--MATHEMATICAL LEFT ANGLE BRACKET-->

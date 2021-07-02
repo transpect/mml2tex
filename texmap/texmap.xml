@@ -542,9 +542,9 @@
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
     <char character="&#x3A9;" string="\Omega"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
-    <char character="&#x3A9;" string="${\Upomega}$" mode="text"/>
+    <char character="&#x3A9;" string="${\Omega}$" mode="text"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
-    <char character="&#x3A9;" string="$\boldsymbol{\Upomega}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
+    <char character="&#x3A9;" string="$\boldsymbol{\Omega}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
     <char character="&#x3A9;" string="${\Omega}$" mode="text" context="*[@css:font-style eq 'italic']"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->

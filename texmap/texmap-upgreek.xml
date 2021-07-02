@@ -27,7 +27,7 @@
     <!--= \Psi (-slantedGreek), = \mathrm{\Psi}, capital psi, greek-->
     <char character="&#x3a8;" string="\Uppsi"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
-    <char character="&#x3a9;" string="\Upomega"/>
+    <char character="&#x3a9;" string="\Omega"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
     <char character="&#x3b1;" string="\upalpha"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->

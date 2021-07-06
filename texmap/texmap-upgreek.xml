@@ -7,89 +7,89 @@
          * -->
   
     <!--= \Gamma (-slantedGreek), = \mathrm{\Gamma}, capital gamma, greek-->   
-    <char character="&#x393;" string="\Upgamma"/>
+    <char character="&#x393;" string="\Gamma"/>
     <!--= \Delta (-slantedGreek), = \mathrm{\Delta}, capital delta, greek-->
     <char character="&#x394;" string="\Delta"/>
     <!--= \Theta (-slantedGreek), = \mathrm{\Theta}, capital theta, greek-->
-    <char character="&#x398;" string="\Uptheta"/>
+    <char character="&#x398;" string="\Theta"/>
     <!--= \Lambda (-slantedGreek), = \mathrm{\Lambda}, capital lambda, greek-->
-    <char character="&#x39b;" string="\Uplambda"/>
+    <char character="&#x39b;" string="\Lambda"/>
     <!--= \Xi (-slantedGreek), = \mathrm{\Xi}, capital xi, greek-->
-    <char character="&#x39e;" string="\Upxi"/>
+    <char character="&#x39e;" string="\Xi"/>
     <!--= \Pi (-slantedGreek), = \mathrm{\Pi}, capital pi, greek-->
     <char character="&#x3a0;" string="\Pi"/>
     <!--= \Sigma (-slantedGreek), = \mathrm{\Sigma}, capital sigma, greek-->
-    <char character="&#x3a3;" string="\Upsigma"/>
+    <char character="&#x3a3;" string="\Sigma"/>
     <!--= \Upsilon (-slantedGreek), = \mathrm{\Upsilon}, capital upsilon, greek-->
-    <char character="&#x3a5;" string="\Upupsilon"/>
+    <char character="&#x3a5;" string="\Upsilon"/>
     <!--= \Phi (-slantedGreek), = \mathrm{\Phi}, capital phi, greek-->
-    <char character="&#x3a6;" string="\Upphi"/>
+    <char character="&#x3a6;" string="\Phi"/>
     <!--= \Psi (-slantedGreek), = \mathrm{\Psi}, capital psi, greek-->
-    <char character="&#x3a8;" string="\Uppsi"/>
+    <char character="&#x3a8;" string="\Psi"/>
     <!--= \Omega (-slantedGreek), = \mathrm{\Omega}, capital omega, greek-->
     <char character="&#x3a9;" string="\Omega"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
-    <char character="&#x3b1;" string="\upalpha"/>
+    <char character="&#x3b1;" string="\alpha"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
-    <char character="&#x3b2;" string="\upbeta"/>
+    <char character="&#x3b2;" string="\beta"/>
     <!--= \mathrm{\gamma} (omlmathrm), = \gammaup (kpfonts mathdesign), = \upgamma (upgreek),  gamma, greek-->
-    <char character="&#x3b3;" string="\upgamma"/>
+    <char character="&#x3b3;" string="\gamma"/>
     <!--= \mathrm{\delta} (omlmathrm), = \deltaup (kpfonts mathdesign), = \updelta (upgreek),  delta, greek-->
     <char character="&#x3b4;" string="\delta"/>
     <!--= \mathrm{\varepsilon} (omlmathrm), = \varepsilonup (kpfonts mathdesign), rounded = \upepsilon (upgreek),  epsilon, greek-->
-    <char character="&#x3b5;" string="\upvarepsilon"/>
+    <char character="&#x3b5;" string="\varepsilon"/>
     <!--= \mathrm{\zeta} (omlmathrm), = \zetaup (kpfonts mathdesign), = \upzeta (upgreek),  zeta, greek-->
-    <char character="&#x3b6;" string="\upzeta"/>
+    <char character="&#x3b6;" string="\zeta"/>
     <!--= \mathrm{\eta} (omlmathrm), = \etaup (kpfonts mathdesign), = \upeta (upgreek),  eta, greek-->
-    <char character="&#x3b7;" string="\upeta"/>
+    <char character="&#x3b7;" string="\eta"/>
     <!--= \mathrm{\theta} (omlmathrm), = \thetaup (kpfonts mathdesign), straight theta, = \uptheta (upgreek),  theta, greek-->
-    <char character="&#x3b8;" string="\uptheta"/>
+    <char character="&#x3b8;" string="\theta"/>
     <!--= \mathrm{\iota} (omlmathrm), = \iotaup (kpfonts mathdesign), = \upiota (upgreek),  iota, greek-->
-    <char character="&#x3b9;" string="\upiota"/>
+    <char character="&#x3b9;" string="\iota"/>
     <!--= \mathrm{\kappa} (omlmathrm), = \kappaup (kpfonts mathdesign), = \upkappa (upgreek),  kappa, greek-->
-    <char character="&#x3ba;" string="\upkappa"/>
+    <char character="&#x3ba;" string="\kappa"/>
     <!--= \mathrm{\lambda} (omlmathrm), = \lambdaup (kpfonts mathdesign), = \uplambda (upgreek),  lambda, greek-->
-    <char character="&#x3bb;" string="\uplambda"/>
+    <char character="&#x3bb;" string="\lambda"/>
     <!--= \mathrm{\mu} (omlmathrm), = \muup (kpfonts mathdesign), = \upmu (upgreek),  mu, greek-->
-    <char character="&#xb5;" string="\upmu"/>
-    <char character="&#x3bc;" string="\upmu"/>
+    <char character="&#xb5;" string="\mu"/>
+    <char character="&#x3bc;" string="\mu"/>
     <!--= \mathrm{\nu} (omlmathrm), = \nuup (kpfonts mathdesign), = \upnu (upgreek),  nu, greek-->
-    <char character="&#x3bd;" string="\upnu"/>
+    <char character="&#x3bd;" string="\nu"/>
     <!--= \mathrm{\xi} (omlmathrm), = \xiup (kpfonts mathdesign), = \upxi (upgreek),  xi, greek-->
-    <char character="&#x3be;" string="\upxi"/>
+    <char character="&#x3be;" string="\xi"/>
     <!--= \mathrm{\pi} (omlmathrm), = \piup (kpfonts mathdesign), = \uppi (upgreek),  pi, greek-->
     <char character="&#x3c0;" string="\pi"/>
     <!--= \mathrm{\rho} (omlmathrm), = \rhoup (kpfonts mathdesign), = \uprho (upgreek),  rho, greek-->
-    <char character="&#x3c1;" string="\uprho"/>
+    <char character="&#x3c1;" string="\rho"/>
     <!--= \mathrm{\varsigma} (omlmathrm), = \varsigmaup (kpfonts mathdesign), terminal sigma, greek-->
-    <char character="&#x3c2;" string="\upvarsigma"/>
+    <char character="&#x3c2;" string="\varsigma"/>
     <!--= \mathrm{\sigma} (omlmathrm), = \sigmaup (kpfonts mathdesign), = \upsigma (upgreek),  sigma, greek-->
-    <char character="&#x3c3;" string="\upsigma"/>
+    <char character="&#x3c3;" string="\sigma"/>
     <!--= \mathrm{\tau} (omlmathrm), = \tauup (kpfonts mathdesign), = \uptau (upgreek),  tau, greek-->
-    <char character="&#x3c4;" string="\uptau"/>
+    <char character="&#x3c4;" string="\tau"/>
     <!--= \mathrm{\upsilon} (omlmathrm), = \upsilonup (kpfonts mathdesign), = \upupsilon (upgreek),  upsilon, greek-->
-    <char character="&#x3c5;" string="\upupsilon"/>
+    <char character="&#x3c5;" string="\upsilon"/>
     <!--= \mathrm{\varphi} (omlmathrm), = \varphiup (kpfonts mathdesign), curly or open = \upvarphi (upgreek),  phi, greek-->
-    <char character="&#x3c6;" string="\upvarphi"/>
+    <char character="&#x3c6;" string="\varphi"/>
     <!--= \mathrm{\chi} (omlmathrm), = \chiup (kpfonts mathdesign), = \upchi (upgreek),  chi, greek-->
-    <char character="&#x3c7;" string="\upchi"/>
+    <char character="&#x3c7;" string="\chi"/>
     <!--= \mathrm{\psi} (omlmathrm), = \psiup (kpfonts mathdesign), = \uppsi (upgreek),  psi, greek-->
-    <char character="&#x3c8;" string="\uppsi"/>
+    <char character="&#x3c8;" string="\psi"/>
     <!--= \mathrm{\omega} (omlmathrm), = \omegaup (kpfonts mathdesign), = \upomega (upgreek),  omega, greek-->
-    <char character="&#x3c9;" string="\upomega"/>
+    <char character="&#x3c9;" string="\omega"/>
     <!--rounded = \upvarbeta (upgreek),  beta, greek-->
-    <char character="&#x3d0;" string="\upvarbeta"/>
+    <char character="&#x3d0;" string="\varbeta"/>
     <!--= \mathrm{\vartheta} (omlmathrm), = \varthetaup (kpfonts mathdesign), curly or open theta-->
-    <char character="&#x3d1;" string="\upvartheta"/>
+    <char character="&#x3d1;" string="\vartheta"/>
     <!--= \mathrm{\phi} (omlmathrm), = \phiup (kpfonts mathdesign), GREEK PHI SYMBOL (straight)-->
-    <char character="&#x3d5;" string="\upphi"/>
+    <char character="&#x3d5;" string="\phi"/>
     <!--= \mathrm{\varpi} (omlmathrm), = \varpiup (kpfonts mathdesign), GREEK PI SYMBOL (pomega)-->
-    <char character="&#x3d6;" string="\upvarpi"/>
+    <char character="&#x3d6;" string="\varpi"/>
     <!--= \mathrm{\varrho} (omlmathrm), = \varrhoup (kpfonts mathdesign), GREEK RHO SYMBOL (round)-->
-    <char character="&#x3f1;" string="\upvarrho"/>
+    <char character="&#x3f1;" string="\varrho"/>
     <!--= \mathrm{\epsilon} (omlmathrm), = \epsilonup (kpfonts mathdesign), GREEK LUNATE EPSILON SYMBOL-->
-    <char character="&#x3f5;" string="\upepsilon"/>
+    <char character="&#x3f5;" string="\epsilon"/>
     <!-- APL FUNCTIONAL SYMBOL ALPHA -->
-    <char character="&#x237a;" string="\upalpha"/>
+    <char character="&#x237a;" string="\alpha"/>
   </charmap>
 </set>

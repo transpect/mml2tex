@@ -550,7 +550,7 @@
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
     <char character="&#x3B1;" string="\alpha"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
-    <char character="&#x3B1;" string="${\upalpha}$" mode="text"/>
+    <char character="&#x3B1;" string="\alpha" mode="text"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
     <char character="&#x3B1;" string="$\boldsymbol{\upalpha}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
     <!--= \mathrm{\alpha} (omlmathrm), = \alphaup (kpfonts mathdesign), = \upalpha (upgreek),  alpha, greek-->
@@ -558,7 +558,7 @@
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
     <char character="&#x3B2;" string="\beta"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
-    <char character="&#x3B2;" string="${\upbeta}$" mode="text"/>
+    <char character="&#x3B2;" string="\beta" mode="text"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
     <char character="&#x3B2;" string="$\boldsymbol{\upbeta}$" mode="text" context="*[@css:font-weight eq 'bold']"/>
     <!--= \mathrm{\beta} (omlmathrm), = \betaup (kpfonts mathdesign), = \upbeta (upgreek),  beta, greek-->
@@ -1402,9 +1402,11 @@
     <!--= \mathds{Z} (dsfont), open face Z-->
     <char character="&#x2124;" string="${\mathbb{Z}}$" mode="text"/>
     <!--# \mathrm{\Omega}, ohm (deprecated in math, use greek letter)-->
-    <char character="&#x2126;" string="\tcohm"/>
+    <!-- <char character="&#x2126;" string="\ohm"/> -->
+    <char character="&#x2126;" string="\Omega"/>
     <!--# \mathrm{\Omega}, ohm (deprecated in math, use greek letter)-->
-    <char character="&#x2126;" string="${\tcohm}$" mode="text"/>
+    <!-- <char character="&#x2126;" string="${\ohm}$" mode="text"/> -->
+    <char character="&#x2126;" string="${\Omega}$" mode="text"/>
     <!--= \Mho (wrisym), t \agemO (wasysym), conductance-->
     <char character="&#x2127;" string="\mho"/>
     <!--= \Mho (wrisym), t \agemO (wasysym), conductance-->

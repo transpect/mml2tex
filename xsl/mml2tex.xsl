@@ -664,7 +664,8 @@
   
   <xsl:template match="mo/text()[    matches(., $parenthesis-regex) 
                                  and not($katex = 'yes')
-                                 and ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
+                                 and ancestor::*[position() = (2,3)]//*/local-name() = ('mrow',
+                                                                                        'mfrac', 
                                                                                         'mover', 
                                                                                         'mroot', 
                                                                                         'msqrt', 

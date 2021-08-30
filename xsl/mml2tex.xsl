@@ -662,16 +662,17 @@
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template match="mo/text()[    matches(., $parenthesis-regex) 
-                                 and not($katex = 'yes')
-                                 and ancestor::*[position() = (2,3)]//*/local-name() = ('mrow',
-                                                                                        'mfrac', 
-                                                                                        'mover', 
-                                                                                        'mroot', 
-                                                                                        'msqrt', 
-                                                                                        'mtable', 
-                                                                                        'munder', 
-                                                                                        'munderover')]" 
+  <xsl:template match="mo/text()[    matches(., $parenthesis-regex)]
+                                [not($katex = 'yes')]
+                                [ancestor::*[position() = (2 to 4)]//*/local-name() = ('mfrac', 
+                                                                                       'mover', 
+                                                                                       'mroot', 
+                                                                                       'msqrt',
+                                                                                       'msup',
+                                                                                       'msub',
+                                                                                       'mtable', 
+                                                                                       'munder', 
+                                                                                       'munderover')]" 
                 mode="mathml2tex" priority="10">
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3009;]')) 

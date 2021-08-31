@@ -597,13 +597,15 @@
                               [@open = '{']
                               [@close = '']"
                 mode="mathml2tex">
-    <xsl:apply-templates select="mrow/*[following-sibling::mtable]" mode="#current"/>
+    <xsl:apply-templates select="(mrow/*[following-sibling::mtable],
+                                  *[following-sibling::mtable])[1]" mode="#current"/>
     <xsl:text>\begin{cases}
     </xsl:text>
-    <xsl:apply-templates select="mrow/mtable/mtr" mode="#current"/>
+    <xsl:apply-templates select="(mrow/mtable/mtr, mtable/mtr)[1]" mode="#current"/>
     <xsl:text>\end{cases}
     </xsl:text>
-    <xsl:apply-templates select="mrow/*[preceding-sibling::mtable]" mode="#current"/>
+    <xsl:apply-templates select="(mrow/*[preceding-sibling::mtable],
+                                  *[preceding-sibling::mtable])[1]" mode="#current"/>
   </xsl:template>
   
   <!-- https://github.com/transpect/mml2tex/issues/1, requires amsmath -->

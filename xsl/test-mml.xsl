@@ -28,15 +28,15 @@
   <xsl:template name="main">
 
     <xsl:choose>
-      <xsl:when test="$mml-preprocessing eq 'mml_preprocessing'">
-	<xsl:for-each select="$mml2tex-preprocess//mml:math">
-	  <xsl:apply-templates select="." mode="mathml2tex"/>
-	</xsl:for-each>
+      <xsl:when test="true()">
+     	<xsl:for-each select="$mml2tex-preprocess//mml:math">
+     	  <xsl:apply-templates select="." mode="mathml2tex"/>
+     	</xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:for-each select="//mml:math">
-	  <xsl:apply-templates select="." mode="mathml2tex"/>
-	</xsl:for-each>
+     	<xsl:for-each select="//mml:math">
+     	  <xsl:apply-templates select="." mode="mathml2tex"/>
+     	</xsl:for-each>
       </xsl:otherwise>
     </xsl:choose>
 

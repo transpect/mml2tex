@@ -591,7 +591,8 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
 
-  <xsl:template match="mfenced[count(mrow/mtable[every $r in mtr satisfies count($r/mtd) le 2]) = 1]
+  <xsl:template match="mfenced[   count(mrow/mtable[every $r in mtr satisfies count($r/mtd) le 2]) = 1
+                               or count(mtable[every $r in mtr satisfies count($r/mtd) le 2]) = 1]
                               [count(*) = 1]
                               [@open = '{']
                               [@close = '']"

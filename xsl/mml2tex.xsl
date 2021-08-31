@@ -597,15 +597,20 @@
                               [@open = '{']
                               [@close = '']"
                 mode="mathml2tex">
-    <xsl:apply-templates select="(mrow/*[following-sibling::mtable],
-                                  *[following-sibling::mtable])[1]" mode="#current"/>
+    <xsl:message select="'--',    count(mtable[every $r in mtr satisfies count($r/mtd) le 2]) = 1"></xsl:message>
+    <xsl:apply-templates select="if(mrow[mtable]) 
+                                 then mrow/*[following-sibling::mtable]
+                                 else *[following-sibling::mtable]" mode="#current"/>
     <xsl:text>\begin{cases}
     </xsl:text>
-    <xsl:apply-templates select="(mrow/mtable/mtr, mtable/mtr)[1]" mode="#current"/>
+    <xsl:apply-templates select="if(mrow[mtable])
+                                 then mrow/mtable/mtr 
+                                 else mtable/mtr" mode="#current"/>
     <xsl:text>\end{cases}
     </xsl:text>
-    <xsl:apply-templates select="(mrow/*[preceding-sibling::mtable],
-                                  *[preceding-sibling::mtable])[1]" mode="#current"/>
+    <xsl:apply-templates select="if(mrow[mtable])
+                                 then mrow/*[preceding-sibling::mtable]
+                                 else *[preceding-sibling::mtable]" mode="#current"/>
   </xsl:template>
   
   <!-- https://github.com/transpect/mml2tex/issues/1, requires amsmath -->

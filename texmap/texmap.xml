@@ -5424,9 +5424,9 @@
     <!--MATHEMATICAL SCRIPT SMALL K-->
     <char character="&#x1D4C0;" string="${\mathcal{k}}$" mode="text"/>
     <!--MATHEMATICAL SCRIPT SMALL L-->
-    <char character="&#x1D4C1;" string="\mathcal{l}"/>
+    <char character="&#x1D4C1;" string="\ell"/>
     <!--MATHEMATICAL SCRIPT SMALL L-->
-    <char character="&#x1D4C1;" string="${\mathcal{l}}$" mode="text"/>
+    <char character="&#x1D4C1;" string="${\ell}$" mode="text"/>
     <!--MATHEMATICAL SCRIPT SMALL M-->
     <char character="&#x1D4C2;" string="\mathcal{m}"/>
     <!--MATHEMATICAL SCRIPT SMALL M-->

@@ -786,6 +786,19 @@
                       and matches($elt, $texregex-upgreek)">
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:when>
+      <!-- lowercase letters are not supported by \matcal, map regular letter to 
+           unicode mathematical script -->
+      <xsl:when test="$mathvariant = 'script' and matches($elt, '^[a-z]$')">
+        <xsl:value-of select="($texmap[  mml2tex:dec-to-hex(string-to-codepoints(@character))
+                                       = mml2tex:dec-to-hex(119893 + string-to-codepoints($elt))][not(@mode eq 'text')]/@string,
+                               concat('&#x20;', $elt/node()))[1]"/>
+      </xsl:when>
+      <!-- the same for bold script -->
+      <xsl:when test="$mathvariant = 'bold-script' and matches($elt, '^[a-z]$')">
+        <xsl:value-of select="($texmap[  mml2tex:dec-to-hex(string-to-codepoints(@character))
+                                       = mml2tex:dec-to-hex(119945 + string-to-codepoints($elt))][not(@mode eq 'text')]/@string,
+                               concat('&#x20;', $elt/node()))[1]"/>
+      </xsl:when>
       <xsl:when test="$elt/self::mtext 
                       and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 
                       and not($mathvariant = 'normal')
@@ -896,6 +909,18 @@
         </xsl:non-matching-substring>
       </xsl:analyze-string>
     </xsl:for-each>
+  </xsl:function>
+  
+  <xsl:function name="mml2tex:dec-to-hex" as="xs:string">
+    <xsl:param name="in" as="xs:integer?"/>
+    <xsl:sequence select="if (not($in) or ($in eq 0)) 
+                          then '0' 
+                          else concat(
+                                      if ($in gt 15) 
+                                      then mml2tex:dec-to-hex($in idiv 16) 
+                                      else '',
+                                      substring('0123456789ABCDEF', ($in mod 16) + 1, 1)
+                                      )"/>
   </xsl:function>
   
   <xsl:function name="functx:escape-for-regex" as="xs:string">

@@ -193,3 +193,43 @@ We provide frontend scripts for XML Calabash which look after the XML catalogs, 
 ```
 $ ./calabash/calabash.sh test.xpl
 ```
+
+### Alternative XSLT-only invocation for KaTeX-compatible output
+
+```
+$ saxon/saxon.sh -xsl:mml2tex/xsl/katexify.xsl -s:mml2tex/example/katexify-example.xml -im:mathml2tex
+```
+Assumptions: A Saxon front-end script is present in the current (project) directory, for example by
+
+```
+$ svn co https://subversion.le-tex.de/common/saxon-pe98/ saxon
+```
+
+And the additional transpect libraries xslt-util, xproc-util, cascade, and normalize-mml are present
+(all from https://github.com/transpect/[library]) in the project directory, see above.
+
+And there is an xmlcatalog/catalog.xml that imports the library catalogs using `nextCatalog` instructions.
+
+The Saxon front-end script will look for and use this catalog by default.
+
+Input:
+
+```xml
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <mml:mi>Γ</mml:mi>
+  <mml:mo>=</mml:mo>
+  <mml:mi>π</mml:mi>
+  <mml:msup>
+    <mml:mrow>
+      <mml:mi>r</mml:mi>
+    </mml:mrow>
+    <mml:mrow>
+      <mml:mn>2</mml:mn>
+    </mml:mrow>
+  </mml:msup>
+</mml:math>
+```
+
+Output:
+
+`\Gamma = \pi r ^{2}`

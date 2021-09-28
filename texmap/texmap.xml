@@ -869,40 +869,22 @@
     <char character="&#x2003;" string="{\quad}" mode="text"/>
     <!--THREE-PER-EM SPACE -->
     <char character="&#x2004;" string="\,"/>
-    <!--THREE-PER-EM SPACE -->
-    <char character="&#x2004;" string="\," mode="text"/>
     <!--FOUR-PER-EM SPACE -->
     <char character="&#x2005;" string="\,"/>
-    <!--FOUR-PER-EM SPACE -->
-    <char character="&#x2005;" string="\," mode="text"/>
     <!--SIX-PER-EM SPACE -->
     <char character="&#x2006;" string="\,"/>
-    <!--SIX-PER-EM SPACE -->
-    <char character="&#x2006;" string="\," mode="text"/>
-    <!--FIGURE SPACE	 -->
+    <!--FIGURE SPACE -->
     <char character="&#x2007;" string="\,"/>
-    <!--FIGURE SPACE	 -->
-    <char character="&#x2007;" string="\," mode="text"/>
     <!--PUNCTUATION SPACE -->
     <char character="&#x2008;" string="\,"/>
-    <!--PUNCTUATION SPACE -->
-    <char character="&#x2008;" string="\," mode="text"/>
     <!--THIN SPACE -->
     <char character="&#x2009;" string="\,"/>
-    <!--THIN SPACE -->
-    <char character="&#x2009;" string="\," mode="text"/>
     <!--HAIR SPACE -->
     <char character="&#x200A;" string="\,"/>
-    <!--HAIR SPACE -->
-    <char character="&#x200A;" string="\," mode="text"/>
     <!--ZERO WIDTH SPACE -->
     <char character="&#x200B;" string="\hspace{0pt}"/>
-    <!--ZERO WIDTH SPACE -->
-    <char character="&#x200B;" string="\hspace{0pt}" mode="text"/>
     <!--NON-BREAKING HYPHEN -->
     <char character="&#x2011;" string="\hbox{-}"/>
-    <!--NON-BREAKING HYPHEN -->
-    <char character="&#x2011;" string="\hbox{-}" mode="text"/>
     <!--MINUS SIGN -->
     <char character="&#x2012;" string="-"/>
     <!--MINUS SIGN -->
@@ -982,7 +964,7 @@
     <!-- HYPHENATION POINT -->
     <char character="&#x2027;" string="{\textbullet}" mode="text"/>
     <!-- NARROW NO-BREAK SPACE -->
-    <char character="&#x202F;" string="\," mode="text"/>
+    <char character="&#x202F;" string="\,"/>
     <!-- PER MILLE SIGN -->
     <char character="&#x2030;" string="\permil"/>
     <!-- PER MILLE SIGN -->

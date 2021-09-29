@@ -197,6 +197,7 @@
     <xsl:param name="notation" as="attribute(notation)"/>
     <xsl:sequence select="if($notation = ('box', 'roundedbox'))  then ('\boxed{',      '}')
                       else if($notation eq 'updiagonalstrike')   then ('\cancel{',     '}')
+                      else if($notation eq 'horizontalstrike')   then ('\text{\sout{$',     '$}}')
                       else if($notation eq 'downdiagonalstrike') then ('\bcancel{',    '}')
                       else if($notation eq 'updiagonalarrow')    then ('\cancelto{}',  '}')
                       else if($notation eq 'top')                then ('\overline{',   '}')

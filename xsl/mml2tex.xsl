@@ -758,7 +758,8 @@
       <var mml="normal"                 tex="rm"        targets="math"/>
       <var mml="bold"                   tex="bf"        targets="math text"/>
       <var mml="italic"                 tex="it"        targets="math text"/>
-      <var mml="bold-italic"            tex="boldsymbol" targets="math text"/>
+      <var mml="bold-italic"            tex="boldsymbol" targets="math"/>
+      <var mml="bold-italic"            tex="it bf" targets="text"/>
       <var mml="fraktur"                tex="frak"      targets="math text"/>
       <var mml="bold-fraktur"           tex="mathfrak"  targets="math text"/>
       <var mml="script"                 tex="cal"       targets="math text"/>
@@ -836,7 +837,7 @@
     <xsl:param name="mathvariant" as="xs:string?"/>
     <xsl:param name="target" as="xs:string"/>
     <xsl:variable name="tex-instructions" as="xs:string*"
-                  select="tokenize($style-map/mml2tex:var[@mml eq $mathvariant]/@tex, '\s')"/>
+                  select="tokenize($style-map/mml2tex:var[@mml eq $mathvariant][tokenize(@targets, '\s+') = $target]/@tex, '\s+')"/>
     <xsl:value-of select="string-join((mml2tex:text-atts($elt, $target),
                                        for $i in $tex-instructions
                                        return ('\', 

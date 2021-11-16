@@ -12743,9 +12743,9 @@
             string="${\mathcal{k}}$"
             mode="text"
             origin="only-in-mml2tex"/>
-      <char character="𝓁" string="\mathcal{l}" origin="only-in-mml2tex"/>
+      <char character="𝓁" string="\ell" origin="only-in-mml2tex"/>
       <char character="𝓁"
-            string="${\mathcal{l}}$"
+            string="${\ell}$"
             mode="text"
             origin="only-in-mml2tex"/>
       <char character="𝓂" string="\mathcal{m}" origin="only-in-mml2tex"/>

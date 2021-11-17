@@ -430,7 +430,9 @@
   
   <xsl:function name="mml2tex:max-col-count" as="xs:integer">
     <xsl:param name="mtable" as="element(mtable)"/>
-    <xsl:sequence select="max(for $i in $mtable/mtr return count(($i/mtd, $i//malignmark)))"/>
+    <xsl:sequence select="max(for $i in $mtable/mtr 
+                              return xs:integer(sum($i/mtd/@colunnspan)) + count(($i/mtd[empty(@colunnspan)], $i//malignmark))
+                             )"/>
   </xsl:function>
 
   <xsl:template match="mtr" mode="mathml2tex">
@@ -454,6 +456,19 @@
 
   <xsl:template match="mtd" mode="mathml2tex">
     <xsl:apply-templates select="@*, node()" mode="#current"/>
+    <xsl:if test="following-sibling::mtd">
+      <xsl:text> &amp; </xsl:text>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="mtd[number(@columnspan) &gt; 1]" mode="mathml2tex">
+    <xsl:text>\multicolumn{</xsl:text>
+    <xsl:value-of select="@columnspan"/>
+    <xsl:text>}{</xsl:text>
+    <xsl:value-of select="(substring(@columnalign, 1, 1)[normalize-space()], 'l')[1]"/>
+    <xsl:text>}{</xsl:text>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:text>}</xsl:text>
     <xsl:if test="following-sibling::mtd">
       <xsl:text> &amp; </xsl:text>
     </xsl:if>

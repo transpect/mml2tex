@@ -555,6 +555,12 @@
   <xsl:template match="mover/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
     <xsl:text>\overline</xsl:text>
   </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x33f;']" mode="mathml2tex-accent-pre">
+    <xsl:text>\overline{\overline</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover/*[. eq '&#x33f;']" mode="mathml2tex-accent-post">
+    <xsl:text>}</xsl:text>
+  </xsl:template>
   <xsl:template match="munder/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
     <xsl:text>\underline</xsl:text>
   </xsl:template>

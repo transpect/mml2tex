@@ -247,7 +247,7 @@
   <xsl:template match="mmultiscripts" mode="mathml2tex">
     <xsl:choose>
       <xsl:when test="$katex = 'yes'">
-        <xsl:variable name="base" select="./node()[1]"/>
+        <xsl:variable name="base" select="./*[1]"/>
         <xsl:variable name="pre"  select=".//(*:mn|*:mrow)[preceding-sibling::*:mprescripts]"/>
         <xsl:variable name="post" select=".//(*:mn|*:mrow)[following-sibling::*:mprescripts] except $base"/>
         
@@ -278,7 +278,7 @@
         
         <xsl:text>\tensor*[</xsl:text>
         <!-- pre -->
-        <xsl:for-each-group select="node()" group-by="preceding-sibling::mprescripts">
+        <xsl:for-each-group select="*" group-by="preceding-sibling::mprescripts">
           <xsl:for-each select="current-group()">
             <xsl:call-template name="apply-superscript-or-subscript"/>
           </xsl:for-each>
@@ -288,7 +288,7 @@
         <xsl:apply-templates select="*[1]" mode="#current"/>
         <xsl:text>}{</xsl:text>
         <!-- post -->
-        <xsl:for-each-group select="node()[not(position() eq 1)]" group-by="following-sibling::mprescripts">
+        <xsl:for-each-group select="*[not(position() eq 1)]" group-by="following-sibling::mprescripts">
           <xsl:for-each select="current-group()">
             <xsl:call-template name="apply-superscript-or-subscript"/>
           </xsl:for-each>

@@ -382,7 +382,9 @@
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:variable name="base">
+      <xsl:text>{</xsl:text>
       <xsl:apply-templates select="*[1]" mode="#current"/>
+      <xsl:text>}</xsl:text>
     </xsl:variable>
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>{</xsl:text>

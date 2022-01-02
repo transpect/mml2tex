@@ -1302,6 +1302,9 @@
     <char character="&#x2102;" string="\mathbb{C}"/>
     <!--= \mathds{C} (dsfont), open face C-->
     <char character="&#x2102;" string="${\mathbb{C}}$" mode="text"/>
+    <!--DEGREE CELSIUS-->
+    <char character="&#x2103;" string="\text{&#x2103;}"/>
+    <char character="&#x2103;" string="&#x2103;" mode="text"/>
     <!--EULER CONSTANT-->
     <char character="&#x2107;" string="\Euler"/>
     <!--EULER CONSTANT-->

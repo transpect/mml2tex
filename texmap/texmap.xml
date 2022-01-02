@@ -64,6 +64,7 @@
     <!--YEN SIGN-->
     <char character="&#xA5;" string="{\yen}" mode="text"/>
     <!--paragraph sign, european SECTION SIGN european paragraph sign -->
+    <char character="&#xA7;" string="\text{\S}"/>
     <char character="&#xA7;" string="{\S}" mode="text"/>
     <!--COPYRIGHT -->
     <char character="&#xA9;" string="{\textcopyright}" mode="text"/>

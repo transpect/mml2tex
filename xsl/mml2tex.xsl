@@ -880,7 +880,7 @@
 
   <xsl:template match="*[   @mathcolor[starts-with(., '#')]
                          or @color[starts-with(., '#')]]" mode="mathml2tex" priority="5">
-    <xsl:value-of select="concat('\textcolor{color-', substring-after((@mathcolor, @color)[1], '#'), '}{')"/>
+    <xsl:value-of select="concat('\textcolor{color-', upper-case(substring-after((@mathcolor, @color)[1], '#')), '}{')"/>
     <xsl:next-match/>
     <xsl:text>}</xsl:text>
   </xsl:template>

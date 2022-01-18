@@ -13,6 +13,7 @@
   version="2.0">
 
   <xsl:import href="function-names.xsl"/>
+  <xsl:import href="http://transpect.io/xslt-util/colors/xsl/colors.xsl"/>
 
   <xsl:output method="text" encoding="UTF-8"/>
   
@@ -881,7 +882,13 @@
   <xsl:template match="*[(@mathcolor,@color)[1][starts-with(., '#')]
                                                [not(ends-with(., '000000'))]]" 
                 mode="mathml2tex" priority="5">
-    <xsl:value-of select="concat('\textcolor{color-', upper-case(substring-after((@mathcolor, @color)[1], '#')), '}{')"/>
+    <xsl:variable name="color" select="(@mathcolor, @color)[1]" as="attribute()"/>
+    <xsl:value-of select="string-join(('\textcolor{',
+                                       if(exists(tr:color-hex-rgb-to-keyword($color)))
+                                       then tr:color-hex-rgb-to-keyword($color)[1]
+                                       else ('color-', upper-case(substring-after((@mathcolor, @color)[1], '#'))), 
+                                       '}{'),
+                                      '')"/>
     <xsl:next-match/>
     <xsl:text>}</xsl:text>
   </xsl:template>

@@ -878,8 +878,9 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[   @mathcolor[starts-with(., '#')]
-                         or @color[starts-with(., '#')]]" mode="mathml2tex" priority="5">
+  <xsl:template match="*[(@mathcolor,@color)[1][starts-with(., '#')]
+                                               [not(ends-with(., '000000'))]]" 
+                mode="mathml2tex" priority="5">
     <xsl:value-of select="concat('\textcolor{color-', upper-case(substring-after((@mathcolor, @color)[1], '#')), '}{')"/>
     <xsl:next-match/>
     <xsl:text>}</xsl:text>

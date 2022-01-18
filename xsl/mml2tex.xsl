@@ -90,8 +90,6 @@
   <!-- drop attributes and elements -->
   <xsl:template match="@overflow[parent::math]
                       |@movablelimits[parent::mo]
-                      |@mathcolor
-                      |@color
                       |@fontsize
                       |@mathsize
                       |@mathbackground
@@ -878,6 +876,13 @@
     <xsl:if test="@alt">
       <xsl:value-of select="@alt"/>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="*[   @mathcolor[starts-with(., '#')]
+                         or @color[starts-with(., '#')]]" mode="mathml2tex" priority="5">
+    <xsl:value-of select="concat('\textcolor{color-', substring-after((@mathcolor, @color)[1], '#'), '}{')"/>
+    <xsl:next-match/>
+    <xsl:text>}</xsl:text>
   </xsl:template>
 
   <xsl:template match="mn|mi|ms|mo|mtext|mstyle" mode="mathml2tex">

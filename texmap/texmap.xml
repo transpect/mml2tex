@@ -83,7 +83,7 @@
     <!-- MACRON -->
     <char character="&#xAF;" string="\bar"/>
     <!-- DEGREE SIGN -->
-    <char character="&#xB0;" string="^{\circ}"/>
+    <char character="&#xB0;" string="{^{\circ}}"/>
     <!-- DEGREE SIGN -->
     <char character="&#xB0;" string="$^{\circ}$" mode="text"/>
     <!--plus-or-minus sign-->
@@ -91,11 +91,11 @@
     <!--plus-or-minus sign-->
     <char character="&#xB1;" string="${\pm}$" mode="text"/>
     <!--SUPERSCRIPT TWO -->
-    <char character="&#xB2;" string="^{2}"/>
+    <char character="&#xB2;" string="{^{2}}"/>
     <!--SUPERSCRIPT TWO -->
     <char character="&#xB2;" string="$^{2}$" mode="text"/>
     <!--SUPERSCRIPT THREE -->
-    <char character="&#xB3;" string="^{3}"/>
+    <char character="&#xB3;" string="{^{3}}"/>
     <!--SUPERSCRIPT THREE -->
     <char character="&#xB3;" string="$^{3}$" mode="text"/>
     <!--= \tcmu (mathcomp), t \textmu (textcomp), # \mathrm{\mu} (omlmathrm), # \muup (kpfonts mathdesign), MICRO SIGN-->
@@ -107,7 +107,7 @@
     <!-- middle dot -->
     <char character="&#xB7;" string="\cdot"/>
     <!-- SUPERSCRIPT ONE -->
-    <char character="&#xB9;" string="^{1}"/>
+    <char character="&#xB9;" string="{^{1}}"/>
     <!-- SUPERSCRIPT ONE -->
     <char character="&#xB9;" string="$^{1}$" mode="text"/>
     <!-- MASCULINE ORDINAL INDICATOR  ^{\circ} -->
@@ -1050,55 +1050,55 @@
           * -->
     
     <!-- SUPERSCRIPT FOUR -->
-    <char character="&#x2074;" string="$^{4}$"/>
+    <char character="&#x2074;" string="{^{4}}"/>
     <!-- SUPERSCRIPT FOUR -->
     <char character="&#x2074;" string="$^{4}$" mode="text"/>
     <!-- SUPERSCRIPT FIVE -->
-    <char character="&#x2075;" string="$^{5}$"/>
+    <char character="&#x2075;" string="{^{5}}"/>
     <!-- SUPERSCRIPT FIVE -->
     <char character="&#x2075;" string="$^{5}$" mode="text"/>
     <!-- SUPERSCRIPT SIX -->
-    <char character="&#x2076;" string="$^{6}$"/>
+    <char character="&#x2076;" string="{^{6}}"/>
     <!-- SUPERSCRIPT SIX -->
     <char character="&#x2076;" string="$^{6}$" mode="text"/>
     <!-- SUPERSCRIPT SEVEN -->
-    <char character="&#x2077;" string="$^{7}$"/>
+    <char character="&#x2077;" string="{^{7}}"/>
     <!-- SUPERSCRIPT SEVEN -->
     <char character="&#x2077;" string="$^{7}$" mode="text"/>
     <!-- SUPERSCRIPT EIGHT -->
-    <char character="&#x2078;" string="$^{8}$"/>
+    <char character="&#x2078;" string="{^{8}}"/>
     <!-- SUPERSCRIPT EIGHT -->
     <char character="&#x2078;" string="$^{8}$" mode="text"/>
     <!-- SUPERSCRIPT NINE -->
-    <char character="&#x2079;" string="$^{9}$"/>
+    <char character="&#x2079;" string="{^{9}}"/>
     <!-- SUPERSCRIPT NINE -->
     <char character="&#x2079;" string="$^{9}$" mode="text"/>
     <!-- SUPERSCRIPT PLUS SIGN -->
-    <char character="&#x207A;" string="$^{+}$"/>
+    <char character="&#x207A;" string="{^{+}}"/>
     <!-- SUPERSCRIPT PLUS SIGN -->
     <char character="&#x207A;" string="$^{+}$" mode="text"/>
     <!-- SUPERSCRIPT MINUS SIGN -->
-    <char character="&#x207B;" string="$^{-}$"/>
+    <char character="&#x207B;" string="{^{-}}"/>
     <!-- SUPERSCRIPT MINUS SIGN -->
     <char character="&#x207B;" string="$^{-}$" mode="text"/>
     <!-- SUPERSCRIPT EQUALS SIGN -->
-    <char character="&#x207C;" string="$^{=}$"/>
+    <char character="&#x207C;" string="{^{=}}"/>
     <!-- SUPERSCRIPT EQUALS SIGN -->
     <char character="&#x207C;" string="$^{=}$" mode="text"/>
     <!-- SUPERSCRIPT LEFT PARENTHESIS -->
-    <char character="&#x207D;" string="$^{(}$"/>
+    <char character="&#x207D;" string="{^{(}}"/>
     <!-- SUPERSCRIPT LEFT PARENTHESIS -->
     <char character="&#x207D;" string="$^{(}$" mode="text"/>
     <!-- SUPERSCRIPT RIGHT PARENTHESIS  -->
-    <char character="&#x207E;" string="$^{)}$"/>
+    <char character="&#x207E;" string="{^{)}}"/>
     <!-- SUPERSCRIPT RIGHT PARENTHESIS  -->
     <char character="&#x207E;" string="$^{)}$" mode="text"/>
     <!-- SUPERSCRIPT LATIN SMALL LETTER N -->
-    <char character="&#x207F;" string="$^{n}$"/>
+    <char character="&#x207F;" string="{^{n}}"/>
     <!-- SUPERSCRIPT LATIN SMALL LETTER N -->
     <char character="&#x207F;" string="$^{n}$" mode="text"/>
     <!-- SUBSCRIPT ZERO -->
-    <char character="&#x2080;" string="$_{0}$"/>
+    <char character="&#x2080;" string="{_{0}}"/>
     <!-- SUBSCRIPT ZERO -->
     <char character="&#x2080;" string="$_{0}$" mode="text"/>
     <!-- SUBSCRIPT ONE -->
@@ -1106,43 +1106,43 @@
     <!-- SUBSCRIPT ONE -->
     <char character="&#x2081;" string="$_{1}$" mode="text"/>
     <!-- SUBSCRIPT TWO -->
-    <char character="&#x2082;" string="$_{2}$"/>
+    <char character="&#x2082;" string="{_{2}}"/>
     <!-- SUBSCRIPT TWO -->
     <char character="&#x2082;" string="$_{2}$" mode="text"/>
     <!-- SUBSCRIPT THREE -->
-    <char character="&#x2083;" string="$_{3}$"/>
+    <char character="&#x2083;" string="{_{3}}"/>
     <!-- SUBSCRIPT THREE -->
     <char character="&#x2083;" string="$_{3}$" mode="text"/>
     <!-- SUBSCRIPT FOUR -->
-    <char character="&#x2084;" string="$_{4}$"/>
+    <char character="&#x2084;" string="{_{4}}"/>
     <!-- SUBSCRIPT FOUR -->
     <char character="&#x2084;" string="$_{4}$" mode="text"/>
     <!-- SUBSCRIPT FIVE -->
-    <char character="&#x2085;" string="$_{5}$"/>
+    <char character="&#x2085;" string="{_{5}}"/>
     <!-- SUBSCRIPT FIVE -->
     <char character="&#x2085;" string="$_{5}$" mode="text"/>
     <!-- SUBSCRIPT SIX -->
-    <char character="&#x2086;" string="$_{6}$"/>
+    <char character="&#x2086;" string="{_{6}}"/>
     <!-- SUBSCRIPT SIX -->
     <char character="&#x2086;" string="$_{6}$" mode="text"/>
     <!-- SUBSCRIPT SEVEN -->
-    <char character="&#x2087;" string="$_{7}$"/>
+    <char character="&#x2087;" string="{_{7}}"/>
     <!-- SUBSCRIPT SEVEN -->
     <char character="&#x2087;" string="$_{7}$" mode="text"/>
     <!-- SUBSCRIPT EIGHT -->
-    <char character="&#x2088;" string="$_{8}$"/>
+    <char character="&#x2088;" string="{_{8}}"/>
     <!-- SUBSCRIPT EIGHT -->
     <char character="&#x2088;" string="$_{8}$" mode="text"/>
     <!-- SUBSCRIPT NINE -->
-    <char character="&#x2089;" string="$_{9}$"/>
+    <char character="&#x2089;" string="{_{9}}"/>
     <!-- SUBSCRIPT NINE -->
     <char character="&#x2089;" string="$_{9}$" mode="text"/>
     <!-- SUBSCRIPT PLUS SIGN -->
-    <char character="&#x208A;" string="$_{+}$"/>
+    <char character="&#x208A;" string="{_{+}}"/>
     <!-- SUBSCRIPT PLUS SIGN -->
     <char character="&#x208A;" string="$_{+}$" mode="text"/>
     <!-- SUBSCRIPT MINUS SIGN -->
-    <char character="&#x208B;" string="$_{-}$"/>
+    <char character="&#x208B;" string="{_{-}}"/>
     <!-- SUBSCRIPT MINUS SIGN -->
     <char character="&#x208B;" string="$_{-}$" mode="text"/>
     <!-- SUBSCRIPT EQUALS SIGN -->
@@ -1158,55 +1158,55 @@
     <!-- SUBSCRIPT RIGHT PARENTHESIS  -->
     <char character="&#x208E;" string="$_{)}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER A -->
-    <char character="&#x2090;" string="$_{a}$"/>
+    <char character="&#x2090;" string="{_{a}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER A -->
     <char character="&#x2090;" string="$_{a}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER E -->
-    <char character="&#x2091;" string="$_{e}$"/>
+    <char character="&#x2091;" string="{_{e}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER E -->
     <char character="&#x2091;" string="$_{e}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER O -->
-    <char character="&#x2092;" string="$_{o}$"/>
+    <char character="&#x2092;" string="{_{o}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER O -->
     <char character="&#x2092;" string="$_{o}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER X -->
-    <char character="&#x2093;" string="$_{x}$"/>
+    <char character="&#x2093;" string="{_{x}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER X -->
     <char character="&#x2093;" string="$_{x}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER SCHWA -->
-    <char character="&#x2094;" string="$_{\text{\textschwa}}$"/>
+    <char character="&#x2094;" string="{_{\text{\textschwa}}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER SCHWA -->
     <char character="&#x2094;" string="$_{\text{\textschwa}}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER H -->
-    <char character="&#x2095;" string="$_{h}$"/>
+    <char character="&#x2095;" string="{_{h}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER H -->
     <char character="&#x2095;" string="$_{h}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER K -->
-    <char character="&#x2096;" string="$_{k}$"/>
+    <char character="&#x2096;" string="{_{k}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER K -->
     <char character="&#x2096;" string="$_{k}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER L -->
-    <char character="&#x2097;" string="$_{l}$"/>
+    <char character="&#x2097;" string="{_{l}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER L -->
     <char character="&#x2097;" string="$_{l}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER M -->
-    <char character="&#x2098;" string="$_{m}$"/>
+    <char character="&#x2098;" string="{_{m}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER M -->
     <char character="&#x2098;" string="$_{m}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER N -->
-    <char character="&#x2099;" string="$_{n}$"/>
+    <char character="&#x2099;" string="{_{n}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER N -->
     <char character="&#x2099;" string="$_{n}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER p -->
-    <char character="&#x209A;" string="$_{p}$"/>
+    <char character="&#x209A;" string="{_{p}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER p -->
     <char character="&#x209A;" string="$_{p}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER S -->
-    <char character="&#x209B;" string="$_{s}$"/>
+    <char character="&#x209B;" string="{_{s}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER S -->
     <char character="&#x209B;" string="$_{s}$" mode="text"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER T -->
-    <char character="&#x209C;" string="$_{t}$"/>
+    <char character="&#x209C;" string="{_{t}}"/>
     <!-- LATIN SUBSCRIPT SMALL LETTER T -->
     <char character="&#x209C;" string="$_{t}$" mode="text"/>
     

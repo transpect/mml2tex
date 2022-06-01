@@ -693,6 +693,28 @@
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template match="mfenced[count(*) eq 1 and mtable[count(mtr) gt 1]
+                                                       [not(@rowlines)]
+                                                       [every $row in mtr satisfies count($row/*) gt 1]
+                                                       [every $cell in mtr/mtd satisfies count($cell/*) eq 1]]
+                              [not(@open or @close) or (@open = ('(', '[', '{', '|', '‖') and @close = (')', ']', '}', '|', '‖'))]" 
+                mode="mathml2tex" priority="5">
+    <xsl:variable name="matrix-type" select="(translate(@open, '([{|‖', 'pbBvV'), 'p')[normalize-space()][1]" as="xs:string"/>
+    <xsl:value-of select="concat('\begin{', $matrix-type, 'matrix}&#xa;')"/>
+    <xsl:apply-templates select="mtable/*" mode="#current"/>
+    <xsl:value-of select="concat('\end{', $matrix-type, 'matrix}')"/>
+  </xsl:template>
+  
+  <xsl:template match="mtable[count(mtr) gt 1]
+                             [not(@rowlines)]
+                             [every $row in mtr satisfies count($row/*) gt 1]
+                             [every $cell in mtr/mtd satisfies count($cell/*) eq 1]
+                             [not(parent::mfenced)]" mode="mathml2tex" priority="5">
+    <xsl:text>\begin{matrix}&#xa;</xsl:text>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:text>\end{matrix}&#xa;</xsl:text>
+  </xsl:template>
+  
   <xsl:template match="mo/text()[    matches(., $parenthesis-regex)]
                                 [not($katex = 'yes')]
                                 [ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 

@@ -438,7 +438,8 @@
 
   <xsl:template match="mtr" mode="mathml2tex">
     <xsl:variable name="position" select="count(preceding-sibling::mtr) + 1" as="xs:integer"/>
-    <xsl:variable name="rowlines" select="tokenize(parent::mtable/@rowlines, '\s')" as="xs:string*"/>
+    <xsl:variable name="rowlines" as="xs:string*"
+                  select="tokenize((parent::mtable/@mml2tex:rowlines, parent::mtable/@rowlines)[1], '\s')" />
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">
       <xsl:text>\\</xsl:text>
@@ -450,6 +451,10 @@
       <xsl:when test="$rowlines[$position] = 'dashed'">
          <xsl:message select="'[WARNING]: arydshln package is needed to draw dashed lines in arrays'"/>
         <xsl:text>&#xa;\hdashline&#xa;</xsl:text>  
+      </xsl:when>
+      <xsl:when test="$rowlines[$position] = 'dotted'">
+        <xsl:message select="'[WARNING]: arydshln package is needed to draw dotted lines in arrays'"/>
+        <xsl:text>&#xa;\hdashline[.4pt/1pt]&#xa;</xsl:text>  
       </xsl:when>
     </xsl:choose>
     <xsl:text>&#xa;</xsl:text>

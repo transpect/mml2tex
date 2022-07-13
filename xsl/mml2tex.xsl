@@ -45,7 +45,7 @@
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
-  
+   
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -371,7 +371,6 @@
                         '&#x22c1;', 
                         '&#x22c2;', 
                         '&#x22c3;', 
-                        'lim', 
                         'max', 
                         'min'"/>
 
@@ -381,9 +380,13 @@
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:variable name="base">
-      <xsl:text>{</xsl:text>
+      <xsl:if test="not($create-limits)">
+        <xsl:text>{</xsl:text>
+      </xsl:if>
       <xsl:apply-templates select="*[1]" mode="#current"/>
-      <xsl:text>}</xsl:text>
+      <xsl:if test="not($create-limits)">
+        <xsl:text>}</xsl:text>
+      </xsl:if>
     </xsl:variable>
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>{</xsl:text>
@@ -828,6 +831,11 @@
     <xsl:variable name="fontstyle"   select="$elt/@fontstyle"   as="attribute(fontstyle)?"/>
     <xsl:variable name="fontweight"  select="$elt/@fontweight"  as="attribute(fontweight)?"/>
     <xsl:choose>
+      <xsl:when test="$elt/self::mstyle and $elt/@displaystyle='true'">
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex">
+          <xsl:with-param name="create-limits" as="xs:boolean" select="true()" tunnel="yes"/>
+        </xsl:apply-templates>
+      </xsl:when>
       <xsl:when test="matches($elt, concat('^[', $whitespace-regex, ']+$')) 
                       or ($elt[not(node())])">
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>

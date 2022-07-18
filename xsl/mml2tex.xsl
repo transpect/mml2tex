@@ -604,6 +604,24 @@
   <xsl:template match="*[local-name() = ('mover', 'munder')]/*[. eq '&#x2190;']" mode="mathml2tex-accent-pre">
     <xsl:text>\xleftarrow</xsl:text>
   </xsl:template>
+  <xsl:template match="mover[@accent='true']/*[. eq '&#x2192;']" mode="mathml2tex-accent-pre"  priority="2">
+    <xsl:text>\overrightarrow</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder[@accentunder='true']/*[. eq '&#x2192;']" mode="mathml2tex-accent-pre"  priority="2">
+    <xsl:text>\underrightarrow</xsl:text>
+  </xsl:template>
+  <xsl:template match="mover[@accent='true']/*[. eq '&#x2190;']" mode="mathml2tex-accent-pre" priority="2">
+    <xsl:text>\overleftarrow</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder[@accentunder='true']/*[. eq '&#x2190;']" mode="mathml2tex-accent-pre"  priority="2">
+    <xsl:text>\underleftarrow</xsl:text>
+  </xsl:template>
+    <xsl:template match="mover[@accent='true']/*[. eq '&#x2194;']" mode="mathml2tex-accent-pre" priority="2">
+    <xsl:text>\overleftrightarrow</xsl:text>
+  </xsl:template>
+  <xsl:template match="munder[@accentunder='true']/*[. eq '&#x2194;']" mode="mathml2tex-accent-pre"  priority="2">
+    <xsl:text>\underleftrightarrow</xsl:text>
+  </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')]/*[. eq '&#x2192;']" mode="mathml2tex-accent-pre">
     <xsl:text>\xrightarrow</xsl:text>
   </xsl:template>
@@ -624,9 +642,9 @@
   <xsl:template match="*" mode="mathml2tex-accent-post"/>
   <xsl:template match="*" mode="mathml2tex-accent-expression">
     <xsl:param name="brackets" as="xs:boolean" select="false()" tunnel="yes"/>
-    <xsl:sequence select="if($brackets) then '[' else '{'"/>
+    <xsl:sequence select="if ($brackets) then '[' else '{'"/>
     <xsl:apply-templates select="." mode="mathml2tex"/>
-    <xsl:sequence select="if($brackets) then ']{}' else '}'"/>
+    <xsl:sequence select="if ($brackets) then ']{}' else '}'"/>
   </xsl:template>
 
   <xsl:template match="munderover" mode="mathml2tex">
@@ -809,7 +827,7 @@
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>
   
-  <xsl:template match="text()[matches(., concat('^(', $whitespace-regex, ')*$'))]" mode="mathml2tex">
+  <xsl:template match="text()[matches(., concat('^(', $whitespace-regex, ')*$'))]" mode="mathml2tex" priority="2">
     <xsl:text>&#x20;</xsl:text>
   </xsl:template>
   
@@ -971,7 +989,6 @@
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
     <xsl:param name="context" as="element()?"/>
-    
     <xsl:variable name="chars" as="xs:string*" 
                   select="for $char in string-to-codepoints($string) 
                           return codepoints-to-string($char)"/>

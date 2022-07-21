@@ -893,11 +893,11 @@
     <!--EN DASH -->
     <char character="&#x2013;" string="\hbox{--}"/>
     <!--EN DASH -->
-    <char character="&#x2013;" string="\textendash{}" mode="text"/>
+    <char character="&#x2013;" string="\unicode{x2013}" mode="text"/>
     <!--EM DASH -->
     <char character="&#x2014;" string="\hbox{---}"/>
     <!--EM DASH -->
-    <char character="&#x2014;" string="\textemdash{}" mode="text"/>
+    <char character="&#x2014;" string="\unicode{x2014}" mode="text"/>
     <!--HORIZONTAL BAR -->
     <char character="&#x2015;" string="\hbox{---}"/>
     <!--HORIZONTAL BAR -->

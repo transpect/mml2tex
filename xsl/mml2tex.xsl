@@ -610,6 +610,9 @@
   <xsl:template match="*[local-name() = ('mover', 'munder')][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xleftarrow</xsl:text>
   </xsl:template>
+  <xsl:template match="*[self::mover][string-length(*[1]) eq 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+    <xsl:text>\vec</xsl:text>
+  </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')]
                         [string-length(*[1]) gt 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xrightarrow</xsl:text>

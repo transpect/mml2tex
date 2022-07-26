@@ -1242,13 +1242,13 @@
           * -->
     
     <!--COMBINING LEFT HARPOON ABOVE-->
-    <char character="&#x20D0;" string="\lvec"/>
+    <char character="&#x20D0;" string="\leftharpoonup"/>
     <!--COMBINING LEFT HARPOON ABOVE-->
-    <char character="&#x20D0;" string="${\lvec}$" mode="text"/>
+        <char character="&#x20D0;" string="${\leftharpoonup}$" mode="text"/>
     <!--COMBINING RIGHT HARPOON ABOVE-->
-    <char character="&#x20D1;" string="\vec"/>
+    <char character="&#x20D1;" string="\rightharpoonup"/>
     <!--COMBINING RIGHT HARPOON ABOVE-->
-    <char character="&#x20D1;" string="${\vec}$" mode="text"/>
+    <char character="&#x20D1;" string="${\rightharpoonup}$" mode="text"/>
     <!--# \overleftarrow, COMBINING LEFT ARROW ABOVE-->
     <char character="&#x20D6;" string="\LVec"/>
     <!--# \overleftarrow, COMBINING LEFT ARROW ABOVE-->

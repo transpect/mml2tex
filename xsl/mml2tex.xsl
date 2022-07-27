@@ -510,8 +510,7 @@
         <xsl:with-param name="brackets" as="xs:boolean"
                         select="$accent = $mml2tex:math-arrows 
                                 and self::mover[not(@accent eq 'true')]
-                                and not(string-length(*[1]) eq 1 
-                                        and *[2] = ('&#x2192;', '&#x20d7;'))" tunnel="yes"/>
+                                and not(*[2] = ('&#x2192;', '&#x20d7;'))" tunnel="yes"/>
       </xsl:apply-templates>
       <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-post"/>
   </xsl:template>
@@ -607,7 +606,7 @@
     <xsl:apply-templates select="." mode="mathml2tex"/>
     <xsl:text>}</xsl:text>
   </xsl:template>
-  <xsl:template match="*[not(@accent eq 'true')][local-name() = ('mover', 'munder')][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xleftarrow</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
@@ -616,20 +615,20 @@
   <xsl:template match="munder[@accentunder eq 'true'][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\underleftarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="mover[string-length(*[1]) eq 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\vec</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]
-                        [string-length(*[1]) gt 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]
+                        [*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xrightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="mover[@accent eq 'true'][string-length(*[1]) gt 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\overrightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="munder[@accentunder eq 'true'][string-length(*[1]) gt 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="munder[@accentunder eq 'true'][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\underrightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')][*[2][. = ('&#x2194;', '&#x20e1;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][*[2][. = ('&#x2194;', '&#x20e1;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xleftrightarrow</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2194;', '&#x20e1;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
@@ -638,25 +637,25 @@
   <xsl:template match="munder[@accentunder eq 'true'][*[2][. = ('&#x2194;', '&#x20e1;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\underleftrightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')][*[2][. eq '&#x21d0;']]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][*[2][. eq '&#x21d0;']]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xLeftarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')][*[2][. eq '&#x21d2;']]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][*[2][. eq '&#x21d2;']]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xRightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]/*[2][. eq '&#x21d4;']" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]/*[2][. eq '&#x21d4;']" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xLeftrightarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]/*[2][. eq '&#x20d0;']" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]/*[2][. eq '&#x20d0;']" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xleftharpoonup</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]/*[2][. eq '&#x20d1;']" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]/*[2][. eq '&#x20d1;']" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xrightharpoonup</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]/*[2][. eq '&#x21cb;']" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]/*[2][. eq '&#x21cb;']" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xleftrightharpons</xsl:text>
   </xsl:template>
-  <xsl:template match="*[local-name() = ('mover', 'munder')][not(@accent eq 'true')]/*[2][. eq '&#x21cc;']" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]/*[2][. eq '&#x21cc;']" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xrightleftharpoons</xsl:text>
   </xsl:template>
   

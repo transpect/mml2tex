@@ -581,7 +581,7 @@
   <xsl:template match="mover/*[. eq '&#x2da;']" mode="mathml2tex-accent-pre">
     <xsl:text>\mathring</xsl:text>
   </xsl:template>
-  <xsl:template match="mover/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre">
+  <xsl:template match="mover/*[matches(., '^[&#xaf;&#x5f;&#x304;&#x305;&#x203e;]$')]" mode="mathml2tex-accent-pre" priority="500">
     <xsl:text>\overline</xsl:text>
   </xsl:template>
   <xsl:template match="mover/*[. eq '&#x33f;']" mode="mathml2tex-accent-pre">
@@ -615,7 +615,7 @@
   <xsl:template match="munder[@accentunder eq 'true'][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\underleftarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+  <xsl:template match="mover[@accent eq 'true'][string-length() eq 1][*[2][. = ('&#x2192;', '&#x20d7;')]]/*" mode="mathml2tex-accent-pre" priority="0.7">
     <xsl:text>\vec</xsl:text>
   </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]

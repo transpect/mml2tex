@@ -505,14 +505,15 @@
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
     <xsl:variable name="accent" select="*[2]" as="element(*)"/>
-      <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-pre"/>
-      <xsl:apply-templates select="*[1]" mode="mathml2tex-accent-expression">
+      <xsl:apply-templates select="$accent" mode="mathml2tex-accent-pre"/>
+      <xsl:apply-templates select="$expression" mode="mathml2tex-accent-expression">
         <xsl:with-param name="brackets" as="xs:boolean"
                         select="$accent = $mml2tex:math-arrows 
                                 and self::mover[not(@accent eq 'true')]
-                                and not(*[2] = ('&#x2192;', '&#x20d7;'))" tunnel="yes"/>
+                                and not(string-length(*[1]) eq 1 
+                                        and $accent = ('&#x2192;', '&#x20d7;'))" tunnel="yes"/>
       </xsl:apply-templates>
-      <xsl:apply-templates select="*[2]" mode="mathml2tex-accent-post"/>
+      <xsl:apply-templates select="$accent" mode="mathml2tex-accent-post"/>
   </xsl:template>
 
   <xsl:template match="munder/*[. eq '&#xb8;']" mode="mathml2tex-accent-pre">

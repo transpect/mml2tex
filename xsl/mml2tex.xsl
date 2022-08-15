@@ -625,7 +625,7 @@
   <xsl:template match="munder[@accentunder eq 'true'][*[2][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\underleftarrow</xsl:text>
   </xsl:template>
-  <xsl:template match="mover[@accent eq 'true'][string-length() eq 1][* = ('&#x2192;', '&#x20d7;')]/*" mode="mathml2tex-accent-pre" priority="0.7">
+  <xsl:template match="mover[@accent eq 'true'][string-length(*[1]) eq 1][* = ('&#x2192;', '&#x20d7;')]/*" mode="mathml2tex-accent-pre" priority="0.7">
     <xsl:text>\vec</xsl:text>
   </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')]

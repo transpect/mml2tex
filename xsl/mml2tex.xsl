@@ -436,7 +436,7 @@
   <xsl:function name="mml2tex:max-col-count" as="xs:integer">
     <xsl:param name="mtable" as="element(mtable)"/>
     <xsl:sequence select="max(for $i in $mtable/mtr 
-                              return xs:integer(sum($i/mtd/@columnspan)) + count(($i/mtd[empty(@colunnspan)], $i//malignmark))
+                              return xs:integer(sum($i/mtd/@columnspan)) + count(($i/mtd[empty(@columnspan)], $i//malignmark))
                              )"/>
   </xsl:function>
 

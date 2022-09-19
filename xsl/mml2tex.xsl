@@ -409,11 +409,13 @@
   <xsl:template match="mtable" mode="mathml2tex">
     <xsl:variable name="mcc" select="mml2tex:max-col-count(.)" as="xs:integer"/>
     <xsl:variable name="columnlines" select="tokenize(@columnlines, '\s')" as="xs:string*"/>
-    <xsl:variable name="col-aligns" 
-                  select="for $i in mtr[1]/mtd
+    <xsl:variable name="max-col-count" as="xs:integer"
+                  select="max(for $i in //mtr return count($i/mtd))"/>
+    <xsl:variable name="col-aligns" as="xs:string*"
+                  select="for $i in mtr[count(mtd) eq $max-col-count][1]/mtd
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 
                                   $i/ancestor-or-self::*[@groupalign][1]/@groupalign,
-                                  'center')[1]" as="xs:string*"/>
+                                  'center')[1]"/>
     <xsl:text>\begin{array}{</xsl:text>
     <xsl:for-each select="1 to $mcc">
       <xsl:variable name="pos" select="min((count($col-aligns), position()))" as="xs:integer"/>

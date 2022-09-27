@@ -410,7 +410,7 @@
     <xsl:variable name="mcc" select="mml2tex:max-col-count(.)" as="xs:integer"/>
     <xsl:variable name="columnlines" select="tokenize(@columnlines, '\s')" as="xs:string*"/>
     <xsl:variable name="max-col-count" as="xs:integer"
-                  select="max(for $i in //mtr return count($i/mtd))"/>
+                  select="max(for $i in .//mtr return count($i/mtd))"/>
     <xsl:variable name="col-aligns" as="xs:string*"
                   select="for $i in mtr[count(mtd) eq $max-col-count][1]/mtd
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 

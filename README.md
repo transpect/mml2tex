@@ -51,8 +51,8 @@ mml2tex is a library rather than a standalone stylesheet. If you intend to run m
 ```
 mkdir myProjectDir
 cd myProjectDir
-git@github.com:transpect/mml2tex.git
-git@github.com:transpect/xslt-util.git
+git clone git@github.com:transpect/mml2tex.git
+git clone git@github.com:transpect/xslt-util.git
 mkdir xmlcatalog
 touch xmlcatalog/catalog.xml
 ```

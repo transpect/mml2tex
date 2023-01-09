@@ -46,10 +46,35 @@ Consider this XML input file …
 
 ## Invoke standalone
 
-There is a simple frontend XSLT to invoke mml2tex. You may use Saxon to apply the stylesheet to your input XML file.
+mml2tex is not a library rather than a standalone stylesheet. If you intend to run mml2tex standalone, you need to include the dependencies, add a proper XML catalog and invoke Saxon with XML resolver support.
 
 ```
-$ java -jar saxon9he.jar -s:example.xml -xsl:mml2tex/xsl/invoke-mml2tex.xsl
+mkdir myProjectDir
+cd myProjectDir
+git@github.com:transpect/mml2tex.git
+git@github.com:transpect/xslt-util.git
+mkdir xmlcatalog
+touch xmlcatalog/catalog.xml
+```
+
+Then edit `xmlcatalog/catalog.xml` with your text editor of choice:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <nextCatalog catalog="../xslt-util/xmlcatalog/catalog.xml"/>
+</catalog>
+```
+
+Download [Apache XML Commons Resolver](https://xerces.apache.org/mirrors.cgi) and invoke Saxon:
+
+```
+java -cp "C:/cygwin64/home/kraetke/xmltools/saxon/saxon9he.jar;C:/cygwin64/home/kraetke/xmltools/xml-commons-resolver/resolver.jar" \
+-Dxml.catalog.files=C:/cygwin64/home/kraetke/myProjectDir/xmlcatalog/catalog.xml \
+net.sf.saxon.Transform \
+-catalog:xmlcatalog/catalog.xml \
+-xsl:mml2tex/xsl/invoke-mml2tex.xsl \
+-s:mml2tex/example/example.xml
 ```
 
 

@@ -69,8 +69,8 @@ Then edit `xmlcatalog/catalog.xml` with your text editor of choice:
 Download [Apache XML Commons Resolver](https://xerces.apache.org/mirrors.cgi) and invoke Saxon:
 
 ```
-java -cp "C:/cygwin64/home/kraetke/xmltools/saxon/saxon9he.jar;C:/cygwin64/home/kraetke/xmltools/xml-commons-resolver/resolver.jar" \
--Dxml.catalog.files=C:/cygwin64/home/kraetke/myProjectDir/xmlcatalog/catalog.xml \
+java -cp "C:/home/myUsername/xmltools/saxon/saxon9he.jar;C:/home/myUsername/xmltools/xml-commons-resolver/resolver.jar" \
+-Dxml.catalog.files=C:/home/myUsername/myProjectDir/xmlcatalog/catalog.xml \
 net.sf.saxon.Transform \
 -catalog:xmlcatalog/catalog.xml \
 -xsl:mml2tex/xsl/invoke-mml2tex.xsl \

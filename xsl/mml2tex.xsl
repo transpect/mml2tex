@@ -831,6 +831,11 @@
     <xsl:value-of select="concat('\', replace(normalize-space(.), '&#xa;+', ' '), '&#x20;')"/>
   </xsl:template>
   
+  <xsl:template match="text()[. = $mml2tex:function-names]
+                             [. = 'min' and ancestor::*[2]/local-name() = ('msup', 'msubsup', 'mmultiscripts')]" mode="mathml2tex" priority="11">
+    <xsl:value-of select="concat('\text{', replace(normalize-space(.), '&#xa;+', ' '), '}')"/>
+  </xsl:template>
+  
   <xsl:template match="text()[$use-upgreek-map] 
                              [exists(   parent::mi[    @mathvariant eq 'normal' 
                                                    or (    empty(@mathvariant) 

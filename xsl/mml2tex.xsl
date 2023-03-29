@@ -832,7 +832,7 @@
   </xsl:template>
   
   <xsl:template match="text()[. = $mml2tex:function-names]
-                             [. = 'min' and ancestor::*[2]/local-name() = ('msup', 'msubsup', 'mmultiscripts')]" mode="mathml2tex" priority="11">
+                             [. = 'min' and ancestor::*[2]/local-name() = ('msup')]" mode="mathml2tex" priority="11">
     <xsl:value-of select="concat('\text{', replace(normalize-space(.), '&#xa;+', ' '), '}')"/>
   </xsl:template>
   

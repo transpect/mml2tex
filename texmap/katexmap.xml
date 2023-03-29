@@ -47,7 +47,8 @@
       <char character="ξ" string="\xi" origin="same-in-katex"/>
       <char character="π" string="\pi" origin="same-in-katex"/>
       <char character="ρ" string="\rho" origin="same-in-katex"/>
-      <char character="ς" string="\varsigma" origin="same-in-katex"/>
+      <char character="ς" string="\varsigma" origin="same-in-katex" mode="math"/>
+      <char character="ς" string="ς" origin="same-in-katex" mode="text"/>
       <char character="σ" string="\sigma" origin="same-in-katex"/>
       <char character="τ" string="\tau" origin="same-in-katex"/>
       <char character="υ" string="\upsilon" origin="same-in-katex"/>

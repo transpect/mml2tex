@@ -1,0 +1,27 @@
+/* KaTeX font overrides */
+
+.katex .override-text .mathnormal {
+  font-family: serif;
+  font-style: normal;
+}
+
+.katex .override-textbf .mathnormal {
+  font-family: serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.katex .override-textsf .mathnormal {
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+.katex .override-textsf .mathnormal {
+  font-variant: small-caps;
+  font-style: normal;
+}
+
+.katex .override-texttt .mathnormal {
+  font-family: monospace;
+  font-style: normal;
+}

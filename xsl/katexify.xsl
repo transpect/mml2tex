@@ -49,6 +49,16 @@
       integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" 
       crossorigin="anonymous"/>
   </xsl:variable>
+  
+  <xsl:param name="katex-css-overrides" as="xs:string" select="'http://transpect.io/mml2tex/css/katex-overrides.css'"/>
+  <xsl:variable name="katex-css-overrides-link" as="element(html:link)?">
+    <!-- Needs to be resolved by a catalog resolver or made relative. 
+         The retrieved text file content may be embedded into the HTML page in a style element. 
+         Therefore you need to avoid &lt; in this CSS file. -->
+    <xsl:if test="normalize-space($katex-css-overrides)">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="{$katex-css-overrides}"/>  
+    </xsl:if>
+  </xsl:variable>
 
   <xsl:variable name="display-formula-local-names" as="xs:string+" select="('disp-formula', 'equation', 'dformula')"/>
   

@@ -68,10 +68,10 @@
     <xsl:variable name="mml2tex-grouping" as="element(mml:math)">
       <xsl:apply-templates select="." mode="mml2tex-grouping"/>
     </xsl:variable>
-<!--    <xsl:if test="matches(., '^\s*3\s*$')">
+<!--    <xsl:if test="matches(., 'προ')">
       <xsl:message select="'IIIIIIIIIIII ', ."/>
     </xsl:if>
-    <xsl:if test="matches(., '^\s*3\s*$')">
+    <xsl:if test="matches(., 'προ')">
       <xsl:message select="'GGGGGGGGGGGG ', $mml2tex-grouping"/>
     </xsl:if>-->
     <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
@@ -97,6 +97,13 @@
     </xsl:element>
   </xsl:template>
   
+   <xsl:template match="mml:mtext[matches(., '.[&#x300;-&#x36f;&#x2d9;]')]" mode="mml2tex-grouping">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+
+  
     <!--<xsl:template match="mml:mtext[not(matches(.,concat('^[', $whitespace-regex, ']+$')))]
                                 [not(matches(., concat('^', $mml2tex:functions-names-regex, '$')))]
                                 [not(matches(., '^\p{No}+$'))](: vulgar fractions, superscripts, etc.:)
@@ -119,12 +126,64 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="mml:mstyle[@mathvariant = 'sans-serif'][count(*) = 1][mml:mtext]" mode="mathml2tex">
-    <xsl:text>\textsf{</xsl:text>
-    <xsl:apply-templates select="*/node()"/>
-    <xsl:text>}</xsl:text>
+  <xsl:function name="mml:text-mathvariant-map" as="xs:string">
+    <xsl:param name="mtext" as="element(mml:mtext)"/>
+    <xsl:choose>
+      <xsl:when test="empty($mtext/(@style | @mathvariant))">
+        <xsl:sequence select="'text'"/>
+      </xsl:when>
+      <xsl:when test="$mtext/@mathvariant = 'sans-serif'">
+        <xsl:sequence select="'textsf'"/>
+      </xsl:when>
+      <xsl:when test="$mtext/@mathvariant = 'italic'">
+        <xsl:sequence select="'textit'"/>
+      </xsl:when>
+      <xsl:when test="$mtext/@mathvariant = 'bold'">
+        <xsl:sequence select="'textbf'"/>
+      </xsl:when>
+      <xsl:when test="$mtext/@mathvariant = 'monospace'">
+        <xsl:sequence select="'texttt'"/>
+      </xsl:when>
+      <xsl:when test="normalize-space($mtext/@style) = 'font-variant:small-caps'">
+        <xsl:sequence select="'text'"/><!-- textsc not supported yet, https://github.com/KaTeX/KaTeX/pull/3085 -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="'text'"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:template match="mml:mstyle[@mathvariant | @style][count(*) = 1][mml:mtext]" mode="mml2tex-grouping">
+    <mtext xmlns="http://www.w3.org/1998/Math/MathML">
+      <xsl:apply-templates select="@*, mml:mtext/(@* | node())" mode="#current"/>
+    </mtext>
   </xsl:template>
-
+  
+  <xsl:template match="mml:mtext[mml:text-mathvariant-map(.)]
+                                [not(matches(., concat('^\s*', $mi-regex, '\s*$')))]" mode="mml2tex-preprocess">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="mml:mtext[mml:text-mathvariant-map(.)]" mode="mathml2tex">
+    <xsl:text>\htmlClass{override-</xsl:text>
+    <xsl:value-of select="mml:text-mathvariant-map(.)"/>
+    <xsl:text>}{\text{</xsl:text>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:text>}}</xsl:text>
+  </xsl:template>
+  
+  <!--<xsl:template match="mml:msubsup|mml:munderover[*[1] = $integrals-sums-and-limits]/mml:mtext[matches(., '^\p{L}{2,}$')]
+                                                                                              [. is ../*[1]]
+                                                                                              [empty(@mathvariant | @style)]" 
+                mode="mml2tex-preprocess">
+    <!-\- treat text as multi-letter math operator because otherwise \htmlClass{…}{\lim}\limits won’t work in -\-> 
+    <mi xmlns="http://www.w3.org/1998/Math/MathML">
+      <xsl:apply-templates select="@* | node()" mode="#current"/>
+    </mi>
+  </xsl:template>-->
+  
   <xsl:template match="mml:math/node()[last()]" mode="mathml2tex" priority="2">
     <xsl:param name="katexify-context" as="element(*)?" tunnel="yes"/>
     <xsl:next-match/>

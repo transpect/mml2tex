@@ -1087,9 +1087,9 @@
             dismissed-alternative="${\Updelta}$"
             will-use-dismissed-alternative-for-text="true"/>
       <char character="Δ"
-            string="${\Updelta}$"
+            string="Δ"
             origin="different-in-katex"
-            won="mml2tex-for-text"
+            won="manual"
             mode="text"/>
       <char character="Δ"
             string="\Delta"
@@ -9093,21 +9093,36 @@
             string="\texttctclig{}"
             mode="text"
             origin="only-in-mml2tex"/>
-      <char character="̀" string="\grave" origin="only-in-mml2tex"/>
-      <char character="́" string="\acute" origin="only-in-mml2tex"/>
-      <char character="̂" string="\hat" origin="only-in-mml2tex"/>
-      <char character="̃" string="\tilde" origin="only-in-mml2tex"/>
-      <char character="̄" string="\bar" origin="only-in-mml2tex"/>
-      <char character="̅" string="\overline" origin="only-in-mml2tex"/>
-      <char character="̆" string="\breve" origin="only-in-mml2tex"/>
-      <char character="̇" string="\dot" origin="only-in-mml2tex"/>
-      <char character="̈" string="\ddot" origin="only-in-mml2tex"/>
-      <char character="̊" string="\mathring" origin="only-in-mml2tex"/>
-      <char character="̌" string="\check" origin="only-in-mml2tex"/>
-      <char character="̰" string="\utilde" origin="only-in-mml2tex"/>
-      <char character="̱" string="\underbar" origin="only-in-mml2tex"/>
-      <char character="̲" string="\underline" origin="only-in-mml2tex"/>
-      <char character="̸" string="\not" origin="only-in-mml2tex"/>
+      <char character="̀" string="\grave" origin="only-in-mml2tex" mode="math"/>
+      <char character="̀" string="̀" origin="only-in-mml2tex" mode="text"/>
+      <char character="́" string="\acute" origin="only-in-mml2tex" mode="math"/>
+      <char character="́" string="́" origin="only-in-mml2tex" mode="text"/>
+      <char character="̂" string="\hat" origin="only-in-mml2tex" mode="math"/>
+      <char character="̂" string="̂" origin="only-in-mml2tex" mode="text"/>
+      <char character="̃" string="\tilde" origin="only-in-mml2tex" mode="math"/>
+      <char character="̃" string="̃" origin="only-in-mml2tex" mode="text"/>
+      <char character="̄" string="\bar" origin="only-in-mml2tex" mode="math"/>
+      <char character="̄" string="̄" origin="only-in-mml2tex" mode="text"/>
+      <char character="̅" string="\overline" origin="only-in-mml2tex" mode="math"/>
+      <char character="̅" string="̅" origin="only-in-mml2tex" mode="text"/>
+      <char character="̆" string="\breve" origin="only-in-mml2tex" mode="math"/>
+      <char character="̆" string="̆" origin="only-in-mml2tex" mode="text"/>
+      <char character="̇" string="\dot" origin="only-in-mml2tex" mode="math"/>
+      <char character="̇" string="̇" origin="only-in-mml2tex" mode="text"/>
+      <char character="̈" string="\ddot" origin="only-in-mml2tex" mode="math"/>
+      <char character="̈" string="̈" origin="only-in-mml2tex" mode="text"/>
+      <char character="̊" string="\mathring" origin="only-in-mml2tex" mode="math"/>
+      <char character="̊" string="̊" origin="only-in-mml2tex" mode="text"/>
+      <char character="̌" string="\check" origin="only-in-mml2tex" mode="math"/>
+      <char character="̌" string="̌" origin="only-in-mml2tex" mode="text"/>
+      <char character="̰" string="\utilde" origin="only-in-mml2tex" mode="math"/>
+      <char character="̰" string="̰" origin="only-in-mml2tex" mode="text"/>
+      <char character="̱" string="\underbar" origin="only-in-mml2tex" mode="math"/>
+      <char character="̱" string="̱" origin="only-in-mml2tex" mode="text"/>
+      <char character="̲" string="\underline" origin="only-in-mml2tex" mode="math"/>
+      <char character="̲" string="̲" origin="only-in-mml2tex" mode="text"/>
+      <char character="̸" string="\not" origin="only-in-mml2tex" mode="math"/>
+      <char character="̸" string="̸" origin="only-in-mml2tex" mode="text"/>
       <char character="Α" string="A" origin="only-in-mml2tex"/>
       <char character="Α" string="A" mode="text" origin="only-in-mml2tex"/>
       <char character="Β" string="B" origin="only-in-mml2tex"/>

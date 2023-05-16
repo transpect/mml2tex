@@ -43,6 +43,8 @@
   <xsl:variable name="diacritics-regex" select="'^[&#x60;&#xA8;&#xB4;&#xb8;&#x2c6;&#x2c7;&#x2d8;-&#x2dd;&#x300;-&#x338;&#x20d3;-&#x20ef;]$'" as="xs:string"/>
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e8;&#x27e9;&#x3008;&#x3009;]'" as="xs:string"/>
+  
+  <xsl:variable name="left-parenthesis-regex" select="'[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
    
@@ -856,6 +858,9 @@
                       |mo/text()
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
+    <xsl:if test="parent::mo[@stretchy eq 'true'] and matches(., $parenthesis-regex)">
+      <xsl:value-of select="if(matches(., $left-parenthesis-regex)) then '\left' else '\right'"/>
+    </xsl:if>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>
   </xsl:template>

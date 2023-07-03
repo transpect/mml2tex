@@ -363,6 +363,15 @@
     <char character="&#x2A7;" string="\textteshlig{}" mode="text"/>
     <!-- LATIN SMALL LETTER TC DIGRAPH WITH CURL -->
     <char character="&#x2A8;" string="\texttctclig{}" mode="text"/>
+
+    <!-- *
+         * Spacing Modifier Letters
+         * -->
+
+    <!-- SMALL TILDE -->
+    <char character="&#x2DC;∼" string="\sim"/>
+    <!-- SMALL TILDE -->
+    <char character="&#x2DC;∼" string="\textasciitilde" mode="text"/>
     
     <!-- *
          * Combining Diacritical Marks
@@ -6665,7 +6674,7 @@
     <char character="&#x1D66F;" string="\mathsfbfit{z}"/>
     <!--MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z-->
     <char character="&#x1D66F;" string="${\mathsfbfit{z}}$" mode="text"/>
-    <!--MATHEMATICAL MONOSPACE CAPITAL A-->
+    <!--MATHEMATICAL MONOSPACE APITAL A-->
     <char character="&#x1D670;" string="\mathtt{A}"/>
     <!--MATHEMATICAL MONOSPACE CAPITAL A-->
     <char character="&#x1D670;" string="${\mathtt{A}}$" mode="text"/>

@@ -369,9 +369,9 @@
          * -->
 
     <!-- SMALL TILDE -->
-    <char character="&#x2DC;∼" string="\sim"/>
+    <char character="&#x2DC;" string="\sim"/>
     <!-- SMALL TILDE -->
-    <char character="&#x2DC;∼" string="\textasciitilde" mode="text"/>
+    <char character="&#x2DC;" string="\textasciitilde" mode="text"/>
     
     <!-- *
          * Combining Diacritical Marks

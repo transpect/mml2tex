@@ -45,8 +45,8 @@
 
   <xsl:variable name="katex-css-link" as="element(html:link)">
     <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
-      integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" 
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" 
+      integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" 
       crossorigin="anonymous"/>
   </xsl:variable>
   

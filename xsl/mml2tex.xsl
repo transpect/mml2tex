@@ -829,6 +829,23 @@
     </xsl:call-template>
   </xsl:template>
   
+  <xsl:template match="mo[not(node())]
+                                [not($katex = 'yes')]
+                                [ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
+                                                                                    'mover', 
+                                                                                    'mroot', 
+                                                                                    'msqrt',                                                                                    
+                                                                                    'mtable', 
+                                                                                    'munder', 
+                                                                                    'munderover')]" 
+                mode="mathml2tex" priority="20">
+    <xsl:next-match/>
+    <xsl:call-template name="fence">
+      <xsl:with-param name="pos" select="if (following-sibling::mo) then 'left' else 'right'"/>
+      <xsl:with-param name="val" select="."/>
+    </xsl:call-template>
+  </xsl:template>
+  
   <xsl:template match="text()[. = $mml2tex:function-names]" mode="mathml2tex" priority="10">
     <xsl:value-of select="concat('\', replace(normalize-space(.), '&#xa;+', ' '), '&#x20;')"/>
   </xsl:template>

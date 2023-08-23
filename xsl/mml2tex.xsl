@@ -120,7 +120,6 @@
                       |@linebreak
                       |@symmetric[parent::mo]
                       |@columnspacing
-                      |@rowspacing
                       |@columnalign
                       |@groupalign
                       |@columnwidth
@@ -452,6 +451,9 @@
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">
       <xsl:text>\\</xsl:text>
+      <xsl:if test="parent::mtable/@rowspacing ">
+        <xsl:value-of select="concat('[', parent::mtable/@rowspacing,']')"/>
+      </xsl:if>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$rowlines[$position] = 'solid'">

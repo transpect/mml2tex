@@ -381,6 +381,7 @@
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
+    <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">{</xsl:if>
     <xsl:variable name="base">
       <xsl:if test="not($create-limits)">
         <xsl:text>{</xsl:text>
@@ -405,6 +406,7 @@
     <xsl:text>}^{</xsl:text>
     <xsl:apply-templates select="*[3]" mode="#current"/>
     <xsl:text>}</xsl:text>
+    <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">}</xsl:if>
   </xsl:template>
 
   <xsl:template match="mtable" mode="mathml2tex">

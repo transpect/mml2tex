@@ -880,7 +880,8 @@
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:if test="parent::mo[@stretchy eq 'true'] and matches(., $parenthesis-regex)">
-      <xsl:value-of select="if(matches(., $left-parenthesis-regex)) then '\left' else '\right'"/>
+      <xsl:value-of select="if(matches(., $left-parenthesis-regex)  or (matches(.,'&#x7c;') and not(parent::mo/preceding-sibling::mo[@stretchy='true'][matches(.,'&#x7c;')])))
+                            then '\left' else '\right'"/>
     </xsl:if>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>
     <xsl:value-of select="$utf2tex"/>

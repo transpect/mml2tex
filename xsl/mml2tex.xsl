@@ -413,7 +413,7 @@
     <xsl:variable name="mcc" select="mml2tex:max-col-count(.)" as="xs:integer"/>
     <xsl:variable name="columnlines" select="tokenize(@columnlines, '\s')" as="xs:string*"/>
     <xsl:variable name="max-col-count" as="xs:integer"
-                  select="max(for $i in .//mtr return count($i/mtd))"/>
+                  select="max(for $i in mtr return count($i/mtd))"/>
     <xsl:variable name="col-aligns" as="xs:string*"
                   select="for $i in mtr[count(mtd) eq $max-col-count][1]/mtd
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 
@@ -453,7 +453,7 @@
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">
       <xsl:text>\\</xsl:text>
-      <xsl:if test="parent::mtable/@rowspacing ">
+      <xsl:if test="parent::mtable/@rowspacing[not(matches(.,'%'))] ">
         <xsl:value-of select="concat('[', parent::mtable/@rowspacing,']')"/>
       </xsl:if>
     </xsl:if>
@@ -840,7 +840,8 @@
                                                                                     'mroot', 
                                                                                     'msqrt',                                                                                    
                                                                                     'mtable', 
-                                                                                    'munder', 
+                                                                                    'munder',
+                                                                                    'mrow',
                                                                                     'munderover')]" 
                 mode="mathml2tex" priority="20">
     <xsl:next-match/>
@@ -871,7 +872,8 @@
                   select="if(. = ' ') then '\ ' else if(matches($text, $texregex-upgreek)) 
                                                      then string-join(mml2tex:utf2tex($text, $texmap-upgreek, $texregex-upgreek, ..), '')
                                                      else $text" as="xs:string"/>
-      <xsl:value-of select="$utf2tex-upgreek"/>
+    <xsl:value-of select="if (parent::mtext) 
+        then concat('\text{',$utf2tex-upgreek,'}') else $utf2tex-upgreek"/>
   </xsl:template>
   
   <xsl:template match="mn/text()

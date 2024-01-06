@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <mml:mi>Γ</mml:mi>
+  <mml:mo>=</mml:mo>
+  <mml:mi>π</mml:mi>
+  <mml:msup>
+    <mml:mrow>
+      <mml:mi>r</mml:mi>
+    </mml:mrow>
+    <mml:mrow>
+      <mml:mn>2</mml:mn>
+    </mml:mrow>
+  </mml:msup>
+</mml:math>

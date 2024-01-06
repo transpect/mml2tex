@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  stylesheet="../xsl/mml2tex.xsl"> 
+  <x:scenario label="Given nested msubs">
+    <x:context mode="mathml2tex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <msub>
+          <mrow>
+            <msub>
+              <mrow>
+                <mi>t</mi>
+              </mrow>
+              <mrow>
+                <mi>r</mi>
+                <mi>m</mi>
+              </mrow>
+            </msub>
+          </mrow>
+          <mrow>
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </math>
+    </x:context>
+    <x:expect label="the base should be wrapped in curly braces">{t_{rm}}_{2}</x:expect>
+  </x:scenario>
+  <x:scenario label="Given nested msups">
+    <x:context mode="mathml2tex">
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <msup>
+          <mrow>
+            <msub>
+              <mrow>
+                <mi>t</mi>
+              </mrow>
+              <mrow>
+                <mi>r</mi>
+                <mi>m</mi>
+              </mrow>
+            </msub>
+          </mrow>
+          <mrow>
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </math>
+    </x:context>
+    <x:expect label="the base should be wrapped in curly braces">{t_{rm}}^{2}</x:expect>
+  </x:scenario>
+</x:description>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <title>Area enclosed by a circle</title>
+  <equation>
+    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+      <?tr M2M_210 MathML equation source:ole?>
+      <mml:mfenced separators="">
+        <mml:mtable columnalign="left">
+          <mml:mtr>
+            <mml:mtd>
+              <mml:mn>1</mml:mn>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mo>⋯</mml:mo>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mn>0</mml:mn>
+            </mml:mtd>
+          </mml:mtr>
+          <mml:mtr>
+            <mml:mtd>
+              <mml:mo>⋮</mml:mo>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mo>⋱</mml:mo>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mo>⋮</mml:mo>
+            </mml:mtd>
+          </mml:mtr>
+          <mml:mtr>
+            <mml:mtd>
+              <mml:mn>0</mml:mn>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mo>⋯</mml:mo>
+            </mml:mtd>
+            <mml:mtd>
+              <mml:mn>1</mml:mn>
+            </mml:mtd>
+          </mml:mtr>
+        </mml:mtable>
+      </mml:mfenced>
+    </mml:math>
+  </equation>
+</article>

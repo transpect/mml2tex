@@ -160,7 +160,7 @@
   </xsl:template>
   
   <xsl:template match="mml:mtext[mml:text-mathvariant-map(.)]
-                                [not(matches(., concat('^\s*', $mi-regex, '\s*$')))]" mode="mml2tex-preprocess">
+                                [not(matches(., concat('^\s*', $mi-regex, '\s*$')))]" mode="mml2tex-preprocess" priority="1">
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="#current"/>
     </xsl:copy>

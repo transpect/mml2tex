@@ -26,12 +26,29 @@
   </xsl:variable>
 
   <xsl:template name="main">
+    <xsl:text>
+\documentclass{scrbook}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{wasysym}
+\usepackage{isomath}
+\usepackage{mathtools}
+\usepackage{txfonts}
+\usepackage[ngerman]{babel}
+\begin{document}
+    </xsl:text>
 
     <xsl:choose>
       <xsl:when test="true()">
+        <xsl:text>$</xsl:text>
      	<xsl:for-each select="$mml2tex-preprocess//mml:math">
      	  <xsl:apply-templates select="." mode="mathml2tex"/>
      	</xsl:for-each>
+        <xsl:text>$</xsl:text>
       </xsl:when>
       <xsl:otherwise>
      	<xsl:for-each select="//mml:math">
@@ -39,7 +56,9 @@
      	</xsl:for-each>
       </xsl:otherwise>
     </xsl:choose>
-
+<xsl:text>
+\end{document}
+</xsl:text>
   </xsl:template>
 
 </xsl:stylesheet>

@@ -688,7 +688,7 @@
     <xsl:text>\xrightharpoonup</xsl:text>
   </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][* = '&#x21cb;']/*" mode="mathml2tex-accent-pre" priority="0.5">
-    <xsl:text>\xleftrightharpons</xsl:text>
+    <xsl:text>\xleftrightharpoons</xsl:text>
   </xsl:template>
   <xsl:template match="*[local-name() = ('mover', 'munder')][not((@accent, @accentunder) = 'true')][* = '&#x21cc;']/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\xrightleftharpoons</xsl:text>

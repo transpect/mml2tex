@@ -26,6 +26,9 @@
   <xsl:param name="katex" select="'no'" as="xs:string"/>
   <xsl:param name="katex-class" as="xs:string" select="'tr--katex'"/>
   
+  <!-- param avoid-packages: whitespace separated list of tex packages not to use -->
+  <xsl:param name="avoid-packages" select="''" as="xs:string?"/>
+  
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
   <xsl:param name="texmap-upgreek-uri" select="'../texmap/texmap-upgreek.xml'" as="xs:string"/>
@@ -246,7 +249,7 @@
 
   <xsl:template match="mmultiscripts" mode="mathml2tex">
     <xsl:choose>
-      <xsl:when test="$katex = 'yes'">
+      <xsl:when test="$katex = 'yes' or tokenize($avoid-packages, '\s+') = 'tensor'">
         <xsl:variable name="base" select="./*[1]"/>
         <xsl:variable name="pre"  select=".//(*:mn|*:mrow)[preceding-sibling::*:mprescripts]"/>
         <xsl:variable name="post" select=".//(*:mn|*:mrow)[following-sibling::*:mprescripts] except $base"/>

@@ -714,9 +714,9 @@
     <xsl:apply-templates select="*[3]" mode="#current"/>
     <xsl:text>}{\underset{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
-    <xsl:text>}</xsl:text>
+    <xsl:text>}{</xsl:text>
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:text>}</xsl:text>
+    <xsl:text>}}</xsl:text>
   </xsl:template>
   
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]

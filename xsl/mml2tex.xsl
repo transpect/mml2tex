@@ -45,7 +45,7 @@
 
   <xsl:variable name="diacritics-regex" select="'^[&#x60;&#xA8;&#xB4;&#xb8;&#x2c6;&#x2c7;&#x2d8;-&#x2dd;&#x300;-&#x338;&#x20d3;-&#x20ef;]$'" as="xs:string"/>
   
-  <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e6;-&#x27ef;&#x3008;-&#x3011;&#x3014;-&#x301b;&#x7c;]'" as="xs:string"/>
+  <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e6;-&#x27ef;&#x3008;-&#x3011;&#x3014;-&#x301b;\&#x7c;]'" as="xs:string"/>
   
   <xsl:variable name="left-parenthesis-regex" select="'[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
 
@@ -847,10 +847,14 @@
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" 
                       select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
-                                then 'left'
-                              else if(matches(., '&#x7c;') and parent::mo/parent::mfenced)
-                                then 'middle'
-                              else   'right'"/>
+                              then 'left'
+                              else 
+                                if (matches(., '\&#x7c;') 
+                                     and (parent::mo/parent::*[self::mfenced or self::mrow] 
+                                           or parent::mo[preceding::mo[matches(.,$parenthesis-regex)]
+                                                         and following::mo[matches(.,$parenthesis-regex)] ]))
+                                  then 'middle'
+                                  else 'right'"/>
       <xsl:with-param name="val" select="."/>
     </xsl:call-template>
   </xsl:template>
@@ -904,7 +908,7 @@
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:if test="parent::mo[@stretchy eq 'true'] and matches(., $parenthesis-regex)">
-      <xsl:value-of select="if(matches(., $left-parenthesis-regex)  or (matches(.,'&#x7c;') and not(parent::mo/preceding-sibling::mo[@stretchy='true'][matches(.,'&#x7c;')])))
+      <xsl:value-of select="if(matches(., $left-parenthesis-regex)  or (matches(.,'\&#x7c;') and not(parent::mo/preceding-sibling::mo[@stretchy='true'][matches(.,'\&#x7c;')])))
                             then '\left' else '\right'"/>
     </xsl:if>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>

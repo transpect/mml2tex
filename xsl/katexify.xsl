@@ -74,27 +74,34 @@
     <xsl:if test="matches(., 'προ')">
       <xsl:message select="'GGGGGGGGGGGG ', $mml2tex-grouping"/>
     </xsl:if>-->
-    <xsl:variable name="mml2tex-preprocess" as="element(mml:math)">
+    <xsl:variable name="mml2tex-preprocess" as="element(mml:math)?">
       <xsl:apply-templates select="$mml2tex-grouping" mode="mml2tex-preprocess"/>
     </xsl:variable>
-    <!--<xsl:if test="matches(., '^\s*3\s*$')">
-      <xsl:message select="'PPPPPPPPPPPPP ', $mml2tex-preprocess"/>
-    </xsl:if>-->
-    <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="class" select="$katex-class"/>
-      <xsl:if test="$debug-katex = 'yes'">
-        <grouping xmlns="http://www.w3.org/1999/xhtml">
-          <xsl:sequence select="$mml2tex-grouping"/>
-        </grouping>
-        <preprocess xmlns="http://www.w3.org/1999/xhtml">
-          <xsl:sequence select="$mml2tex-preprocess"/>
-        </preprocess>
-        <xsl:text>&#xa;&#xa;&#xa;</xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex">
-        <xsl:with-param name="katexify-context" as="element(*)?" select=".." tunnel="yes"/>
-      </xsl:apply-templates>
-    </xsl:element>
+    <xsl:choose>
+      <xsl:when test="empty($mml2tex-preprocess)">
+        <xsl:message select="'empty $mml2tex-preprocess from ' || path(.) "/>
+      </xsl:when>
+      <xsl:otherwise>
+        <!--<xsl:if test="matches(., '^\s*3\s*$')">
+          <xsl:message select="'PPPPPPPPPPPPP ', $mml2tex-preprocess"/>
+        </xsl:if>-->
+        <xsl:element name="{$wrapper}" namespace="http://www.w3.org/1999/xhtml">
+          <xsl:attribute name="class" select="$katex-class"/>
+          <xsl:if test="$debug-katex = 'yes'">
+            <grouping xmlns="http://www.w3.org/1999/xhtml">
+              <xsl:sequence select="$mml2tex-grouping"/>
+            </grouping>
+            <preprocess xmlns="http://www.w3.org/1999/xhtml">
+              <xsl:sequence select="$mml2tex-preprocess"/>
+            </preprocess>
+            <xsl:text>&#xa;&#xa;&#xa;</xsl:text>
+          </xsl:if>
+          <xsl:apply-templates select="$mml2tex-preprocess" mode="mathml2tex">
+            <xsl:with-param name="katexify-context" as="element(*)?" select=".." tunnel="yes"/>
+          </xsl:apply-templates>
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
    <xsl:template match="mml:mtext[matches(., '.[&#x300;-&#x36f;&#x2d9;]')]" mode="mml2tex-grouping">

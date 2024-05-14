@@ -250,9 +250,9 @@
   <xsl:template match="mmultiscripts" mode="mathml2tex">
     <xsl:choose>
       <xsl:when test="$katex = 'yes' or tokenize($avoid-packages, '\s+') = 'tensor'">
-        <xsl:variable name="base" select="./*[1]"/>
-        <xsl:variable name="pre"  select=".//(*:mn|*:mrow)[preceding-sibling::*:mprescripts]"/>
-        <xsl:variable name="post" select=".//(*:mn|*:mrow)[following-sibling::*:mprescripts] except $base"/>
+        <xsl:variable name="base" select="*[1]"/>
+        <xsl:variable name="pre"  select="*[preceding-sibling::*:mprescripts]"/>
+        <xsl:variable name="post" select="*[following-sibling::*:mprescripts] except $base"/>
         
         <xsl:text>{}^{</xsl:text>
         <!-- pre -->

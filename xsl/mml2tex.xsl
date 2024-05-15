@@ -845,19 +845,35 @@
                                                                                     'munderover')]" 
                 mode="mathml2tex" priority="10">
     <xsl:call-template name="fence">
-      <xsl:with-param name="pos" 
-                      select="if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
-                              then 'left'
-                              else 
-                                if (matches(., '\&#x7c;') 
-                                     and (parent::mo/parent::*[self::mfenced or self::mrow] 
-                                           or parent::mo[preceding::mo[matches(.,$parenthesis-regex)]
-                                                         and following::mo[matches(.,$parenthesis-regex)] ]))
-                                  then 'middle'
-                                  else 'right'"/>
+      <xsl:with-param name="pos" select="
+                      if (matches(., '\&#x7c;')) 
+                      then tr:determine-bar-orientation(parent::mo)
+                      else 
+                          if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
+                          then 'left'
+                          else  'right'"/>
       <xsl:with-param name="val" select="."/>
     </xsl:call-template>
   </xsl:template>
+  
+  <xsl:function name="tr:determine-bar-orientation">
+    <xsl:param name="mo" as="element()"/>
+    <xsl:choose>
+      <xsl:when test="($mo/parent::*[self::mfenced or self::mrow] 
+                       or $mo[preceding::mo[matches(.,$parenthesis-regex)]
+                              and $mo/following::mo[matches(.,$parenthesis-regex)]])
+                       and not($mo/preceding::mo[matches(.,'\&#x7c;')]
+                               or $mo/following::mo[matches(.,'\&#x7c;')])">
+        <xsl:sequence select="'middle'"/>
+      </xsl:when>
+      <xsl:when test="$mo/preceding::mo[matches(.,'\&#x7c;')]">
+        <xsl:sequence select="'right'"/>
+      </xsl:when>
+      <xsl:when test="$mo/following::mo[matches(.,'\&#x7c;')]">
+        <xsl:sequence select="'left'"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:function>
   
   <xsl:template match="mo[not(node())]
                                 [not($katex = 'yes')]

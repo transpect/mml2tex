@@ -792,7 +792,7 @@
   </xsl:template>
   
   <xsl:template name="fence">
-    <xsl:param name="pos" as="xs:string"/><!-- left|right -->
+    <xsl:param name="pos" as="xs:string"/><!-- left|right|middle -->
     <xsl:param name="val" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="not(normalize-space($val))">
@@ -840,20 +840,28 @@
                                 [ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
                                                                                     'mover', 
                                                                                     'mroot', 
-                                                                                    'msqrt',                                                                                    'mtable', 
+                                                                                    'msqrt',                                                                                    
+                                                                                    'mtable', 
                                                                                     'munder', 
                                                                                     'munderover')]" 
                 mode="mathml2tex" priority="10">
-    <xsl:call-template name="fence">
-      <xsl:with-param name="pos" select="
-                      if (matches(., '\&#x7c;')) 
-                      then tr:determine-bar-orientation(parent::mo)
-                      else 
-                          if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
-                          then 'left'
-                          else  'right'"/>
-      <xsl:with-param name="val" select="."/>
+   <xsl:choose>
+     <xsl:when test="matches(., '\&#x7c;') and not(tr:determine-bar-orientation(parent::mo))">
+       <xsl:value-of select="."/>
+     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="fence">
+        <xsl:with-param name="pos" select="
+                        if (matches(., '\&#x7c;')) 
+                        then tr:determine-bar-orientation(parent::mo)
+                        else 
+                            if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
+                            then 'left'
+                            else 'right'"/>
+        <xsl:with-param name="val" select="."/>
     </xsl:call-template>
+    </xsl:otherwise>
+   </xsl:choose>
   </xsl:template>
   
   <xsl:function name="tr:determine-bar-orientation">
@@ -866,10 +874,10 @@
                                or $mo/following::mo[matches(.,'\&#x7c;')])">
         <xsl:sequence select="'middle'"/>
       </xsl:when>
-      <xsl:when test="$mo/preceding::mo[matches(.,'\&#x7c;')]">
+      <xsl:when test="$mo/preceding-sibling::mo[matches(.,'\&#x7c;')]">
         <xsl:sequence select="'right'"/>
       </xsl:when>
-      <xsl:when test="$mo/following::mo[matches(.,'\&#x7c;')]">
+      <xsl:when test="$mo/following-sibling::mo[matches(.,'\&#x7c;')]">
         <xsl:sequence select="'left'"/>
       </xsl:when>
     </xsl:choose>

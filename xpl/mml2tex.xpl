@@ -165,6 +165,9 @@
     <p:input port="stylesheet">
       <p:pipe port="result" step="load-mml2tex"/>
     </p:input>
+    <p:input port="parameters">
+      <p:pipe port="paths" step="mml2tex"/>
+    </p:input>
     <p:with-param name="texmap-uri" select="$texmap-uri"/>
     <p:with-param name="texmap-upgreek-uri" select="$texmap-upgreek-uri"/>
     <p:with-param name="debug" select="''"/>

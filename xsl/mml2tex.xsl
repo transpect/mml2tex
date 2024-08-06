@@ -870,14 +870,14 @@
       <xsl:when test="($mo/parent::*[self::mfenced or self::mrow] 
                        or $mo[preceding::mo[matches(.,$parenthesis-regex)]
                               and $mo/following::mo[matches(.,$parenthesis-regex)]])
-                       and not($mo/preceding::mo[matches(.,'\&#x7c;')]
-                               or $mo/following::mo[matches(.,'\&#x7c;')])">
+                       and not($mo/preceding::mo[matches(.,'\&#x7c;') or not(node())]
+                               or $mo/following::mo[matches(.,'\&#x7c;') or not(node())])">
         <xsl:sequence select="'middle'"/>
       </xsl:when>
-      <xsl:when test="$mo/preceding-sibling::mo[matches(.,'\&#x7c;')]">
+      <xsl:when test="$mo/preceding-sibling::mo[matches(.,'\&#x7c;') or not(node())]">
         <xsl:sequence select="'right'"/>
       </xsl:when>
-      <xsl:when test="$mo/following-sibling::mo[matches(.,'\&#x7c;')]">
+      <xsl:when test="$mo/following-sibling::mo[matches(.,'\&#x7c;') or not(node())]">
         <xsl:sequence select="'left'"/>
       </xsl:when>
     </xsl:choose>

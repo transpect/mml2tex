@@ -132,6 +132,7 @@
                       |@linethickness[parent::mstyle]
                       |@columnlines
                       |@rowlines
+                      |@mml2tex:rowlines
                       |@equalcolumns
                       |@equalrows
                       |@frame

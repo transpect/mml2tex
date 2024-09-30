@@ -162,7 +162,7 @@
   </xsl:template>
 
   <xsl:template match="mspace[@width]" mode="mathml2tex">
-    <xsl:variable name="width" select="xs:decimal(replace(@width, '[a-z]+', ''))" as="xs:decimal"/>
+    <xsl:variable name="width" select="xs:decimal(replace(tr:replace-width-constants(xs:string(@width)), '[a-z]+', ''))" as="xs:decimal"/>
     <xsl:variable name="mu-width" select="$width * 18" as="xs:decimal"/>
     <!-- 1 mu = 1/18em, MathML authors are encouraged to use em as unit here -->
     <xsl:variable name="tex-mwidth" select="if($mu-width &gt;= 36)  then '\qquad '  (: twice of \quad (= 36 mu):)
@@ -184,6 +184,36 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  
+  <xsl:function name="tr:replace-width-constants" as="xs:string">
+    <xsl:param name="width" as="xs:string"/>
+    <xsl:choose>
+      <xsl:when test="$width eq 'veryverythinmathspace'">
+        <xsl:sequence select="'0.05555555555555555em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'verythinmathspace'">
+        <xsl:sequence select="'0.1111111111111111em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'thinmathspace'">
+        <xsl:sequence select="'0.16666666666666666em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'mediummathspace'">
+        <xsl:sequence select="'0.2222222222222222em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'thickmathspace'">
+        <xsl:sequence select="'0.2777777777777778em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'verythickmathspace'">
+        <xsl:sequence select="'0.3333333333333333em'"/>
+      </xsl:when>
+      <xsl:when test="$width eq 'veryverythickmathspace'">
+        <xsl:sequence select="'0.3888888888888889em'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$width"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function> 
   
   <xsl:template match="mspace[@linebreak]" mode="mathml2tex">
     <xsl:if test="@linebreak eq 'newline'">

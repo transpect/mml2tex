@@ -380,7 +380,7 @@
     <xsl:text>{</xsl:text>
     <xsl:choose>
       <xsl:when test="self::msup and matches(*[2], $prime-regex)">
-        <xsl:text>\prime</xsl:text>
+        <xsl:sequence select="for $i in (1 to string-length(*[2])) return '\prime'"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -392,7 +392,7 @@
   
   <!-- primes, such as y'' -->
   
-  <xsl:variable name="prime-regex" select="'^[''&#x2032;&#x2033;&#x2034;]$'" as="xs:string"/>
+  <xsl:variable name="prime-regex" select="'^[''&#x2032;&#x2033;&#x2034;]+$'" as="xs:string"/>
   
   <xsl:template match="msup[mi[1] and *[2] and matches(*[2], $prime-regex)]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
@@ -450,7 +450,7 @@
     <xsl:text>}^{</xsl:text>
     <xsl:choose>
       <xsl:when test="self::msubsup and matches(*[3], $prime-regex)">
-        <xsl:text>\prime</xsl:text>
+        <xsl:sequence select="for $i in (1 to string-length(*[3])) return '\prime'"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="*[3]" mode="#current"/>

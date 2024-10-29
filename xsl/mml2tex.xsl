@@ -378,14 +378,23 @@
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:value-of select="if (local-name(.) eq 'msup') then '^' else '_'"/>
     <xsl:text>{</xsl:text>
-    <xsl:apply-templates select="*[2]" mode="#current"/>
+    <xsl:choose>
+      <xsl:when test="self::msup and matches(*[2], $prime-regex)">
+        <xsl:text>\prime</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="*[2]" mode="#current"/>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>}</xsl:text>
     <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">}</xsl:if>
   </xsl:template>
   
   <!-- primes, such as y'' -->
   
-  <xsl:template match="msup[mi[1] and *[2] and matches(*[2], '^[''&#x2032;&#x2033;&#x2034;]$')]" mode="mathml2tex">
+  <xsl:variable name="prime-regex" select="'^[''&#x2032;&#x2033;&#x2034;]$'" as="xs:string"/>
+  
+  <xsl:template match="msup[mi[1] and *[2] and matches(*[2], $prime-regex)]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
@@ -410,7 +419,8 @@
                         'max', 
                         'min'"/>
 
-  <xsl:template match="msubsup|munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+  <xsl:template match="msubsup
+                      |munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
@@ -438,7 +448,14 @@
     <xsl:text>_{</xsl:text>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}^{</xsl:text>
-    <xsl:apply-templates select="*[3]" mode="#current"/>
+    <xsl:choose>
+      <xsl:when test="self::msubsup and matches(*[3], $prime-regex)">
+        <xsl:text>\prime</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="*[3]" mode="#current"/>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>}</xsl:text>
     <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">}</xsl:if>
   </xsl:template>
@@ -1146,13 +1163,15 @@
     <xsl:for-each select="$chars">
       <xsl:variable name="char" select="." as="xs:string"/>
       <xsl:analyze-string select="." regex="{$texregex}">
-  
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
           <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
           <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
                         select="if($is-text)
-                        then ($texmap[@character eq $char][@mode eq 'text'], $texmap[@character eq $char][not(@mode)],$texmap[@character eq $char][@mode])[1]
+                                then ($texmap[@character eq $char][@mode eq 'text'], 
+                                      $texmap[@character eq $char][not(@mode)],
+                                      $texmap[@character eq $char][@mode]
+                                      )[1]
                                 else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
           <xsl:variable name="replacement" as="xs:string"
                         select="if(exists($unmapped-char)) 

@@ -690,7 +690,8 @@
     <xsl:text>]</xsl:text>
   </xsl:template>
   <xsl:template match="munder[not(@accentunder eq 'true')][*[1] = ('&#x2190;', '&#x20d6;', '&#x2192;', '&#x20d7;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*
-    |mover[not(@accent eq 'true')][*[2] = ('&#x2190;', '&#x20d6;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*" mode="mathml2tex-accent-post" priority="0.5">
+                      |mover[not(@accent eq 'true')][*[2] = ('&#x2190;', '&#x20d6;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*
+                      |mover[not(@accent eq 'true')][*[2] = ('&#x2192;', '&#x20d7;')][string-length(*[1]) eq 1]/*" mode="mathml2tex-accent-post" priority="0.5">
     <xsl:text>{}</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][string-length(*[1]) eq 1][*[2] = ('&#x2192;', '&#x20d7;')]/*" mode="mathml2tex-accent-pre" priority="0.7">

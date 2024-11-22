@@ -50,6 +50,8 @@
   <xsl:variable name="left-parenthesis-regex" select="'[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
+  
+  <xsl:variable name="create-one-column-matrix" select="false()"/>
    
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
@@ -887,10 +889,10 @@
   
   <xsl:template match="mfenced[count(*) eq 1 and mtable[count(mtr) gt 1]
                                                        [not(@rowlines)]
-                                                       [every $row in mtr satisfies count($row/*) gt 1]
-                                                       [every $cell in mtr/mtd satisfies count($cell/*) eq 1]]
-                              [not(@open or @close) or (@open = ('(', '[', '{', '|', '‖') and @close = (')', ']', '}', '|', '‖'))]" 
-                mode="mathml2tex" priority="5">
+                                                       [every $row in mtr satisfies count($row/*) gt 1
+                                                        or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
+                                                       [every $cell in mtr/mtd satisfies count($cell/*[not(self::mo)]) eq 1]]
+                              [not(@open or @close) or (@open = ('(', '[', '{', '|', '‖') and @close = (')', ']', '}', '|', '‖'))]" mode="mathml2tex" priority="5">
     <xsl:variable name="matrix-type" select="(translate(@open, '([{|‖', 'pbBvV'), 'p')[normalize-space()][1]" as="xs:string"/>
     <xsl:value-of select="concat('\begin{', $matrix-type, 'matrix}&#xa;')"/>
     <xsl:apply-templates select="mtable/*" mode="#current"/>
@@ -899,7 +901,8 @@
   
   <xsl:template match="mtable[count(mtr) gt 1]
                              [not(@rowlines)]
-                             [every $row in mtr satisfies count($row/*) gt 1]
+                             [every $row in mtr satisfies count($row/*) gt 1
+                              or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
                              [every $cell in mtr/mtd satisfies count($cell/*) eq 1]
                              [not(parent::mfenced)]" mode="mathml2tex" priority="5">
     <xsl:text>\begin{matrix}&#xa;</xsl:text>

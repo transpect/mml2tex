@@ -60,8 +60,13 @@
   </xsl:template>
 
   <xsl:template match="math" mode="mathml2tex">
+    <xsl:variable name="de-core-transformation" as="element(math)">
+      <xsl:copy>
+        <xsl:apply-templates select="node()" mode="mml-de-core"/>
+      </xsl:copy>
+    </xsl:variable>
     <xsl:variable name="basic-transformation">
-      <xsl:apply-templates select="@display, node()" mode="#current"/>
+      <xsl:apply-templates select="$de-core-transformation/@display, $de-core-transformation/node()" mode="#current"/>
     </xsl:variable>
     <xsl:value-of select="$basic-transformation"/>
   </xsl:template>
@@ -71,6 +76,25 @@
       <xsl:with-param name="create-limits" as="xs:boolean" select="true()" tunnel="yes"/>
     </xsl:next-match>
   </xsl:template> -->
+  
+  <xsl:template match="mrow[mo]
+                           [matches(mo[1],$parenthesis-regex)
+                           and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
+    <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
+      <xsl:attribute name="open" select="mo[1]"/>
+      <xsl:attribute name="close" select="mo[last()]"/>
+      <xsl:if test="mrow[mo]">
+        <xsl:attribute name="separators" select="string-join(mrow/mo[last()],'')"/>
+      </xsl:if>
+      <xsl:apply-templates select="node() except mo" mode="#current"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="* | @*" mode="mml-de-core">
+    <xsl:copy copy-namespaces="no">
+      <xsl:apply-templates select="@*,node()" mode="mml-de-core" />
+    </xsl:copy>
+  </xsl:template> 
 
   <xsl:template match="math/@display" mode="mathml2tex">
     <xsl:if test="$set-math-style = 'yes'">
@@ -690,8 +714,7 @@
     <xsl:text>]</xsl:text>
   </xsl:template>
   <xsl:template match="munder[not(@accentunder eq 'true')][*[1] = ('&#x2190;', '&#x20d6;', '&#x2192;', '&#x20d7;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*
-                      |mover[not(@accent eq 'true')][*[2] = ('&#x2190;', '&#x20d6;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*
-                      |mover[not(@accent eq 'true')][*[2] = ('&#x2192;', '&#x20d7;')][string-length(*[1]) eq 1]/*" mode="mathml2tex-accent-post" priority="0.5">
+    |mover[not(@accent eq 'true')][*[2] = ('&#x2190;', '&#x20d6;', '&#x2194;', '&#x20e1;', '&#x21d0;', '&#x21d2;', '&#x21d4;', '&#x20d0;', '&#x20d1;', '&#x21cb;', '&#x21cc;')]/*" mode="mathml2tex-accent-post" priority="0.5">
     <xsl:text>{}</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][string-length(*[1]) eq 1][*[2] = ('&#x2192;', '&#x20d7;')]/*" mode="mathml2tex-accent-pre" priority="0.7">

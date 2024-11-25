@@ -87,8 +87,8 @@
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:attribute name="open" select="mo[1]"/>
       <xsl:attribute name="close" select="mo[last()]"/>
-        <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
-      <xsl:apply-templates select="node() except mo[matches(.,$separators-regex)]" mode="#current"/>
+      <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
+      <xsl:apply-templates select="node() except (mo[matches(.,$separators-regex)], mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>
     </xsl:element>
   </xsl:template>
   

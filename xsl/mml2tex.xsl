@@ -79,16 +79,16 @@
     </xsl:next-match>
   </xsl:template> -->
   
+  <xsl:variable name="separators-regex" select="'^[.;|]$'"/>
+  
   <xsl:template match="mrow[mo]
                            [matches(mo[1],$parenthesis-regex)
                            and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:attribute name="open" select="mo[1]"/>
       <xsl:attribute name="close" select="mo[last()]"/>
-      <xsl:if test="mrow[mo]">
-        <xsl:attribute name="separators" select="string-join(mrow/mo[last()],'')"/>
-      </xsl:if>
-      <xsl:apply-templates select="node() except mo" mode="#current"/>
+        <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
+      <xsl:apply-templates select="node() except mo[matches(.,$separators-regex)]" mode="#current"/>
     </xsl:element>
   </xsl:template>
   

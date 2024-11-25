@@ -64,7 +64,7 @@
   <xsl:template match="math" mode="mathml2tex">
     <xsl:variable name="de-core-transformation" as="element(math)">
       <xsl:copy>
-        <xsl:apply-templates select="node()" mode="mml-de-core"/>
+        <xsl:apply-templates select="@*, node()" mode="mml-de-core"/>
       </xsl:copy>
     </xsl:variable>
     <xsl:variable name="basic-transformation">

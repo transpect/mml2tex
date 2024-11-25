@@ -81,14 +81,15 @@
   
   <xsl:variable name="separators-regex" select="'^[.;|]$'"/>
   
-  <xsl:template match="mrow[mo]
+  <xsl:template match="mrow[mo][mrow]
+                           [count(mo[matches(.,$parenthesis-regex)]) ge 2]
                            [matches(mo[1],$parenthesis-regex)
-                           and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
+                            and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:attribute name="open" select="mo[1]"/>
       <xsl:attribute name="close" select="mo[last()]"/>
       <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
-      <xsl:apply-templates select="node() except (mo[matches(.,$separators-regex)], mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>
+      <xsl:apply-templates select="mrow/node() except (mo[matches(.,$separators-regex)])" mode="#current"/>
     </xsl:element>
   </xsl:template>
   

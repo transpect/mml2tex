@@ -81,7 +81,9 @@
   
   <xsl:variable name="separators-regex" select="'^[.;|]$'"/>
   
-  <xsl:template match="mrow[mo][mrow]
+  <xsl:template match="mrow[mo]
+                           [(mrow and (every $el in * satisfies $el[self::mo or self::mrow]))
+                           or count(*[not(self::mo)]) eq 1]
                            [count(mo[matches(.,$parenthesis-regex)]) ge 2]
                            [matches(mo[1],$parenthesis-regex)
                             and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
@@ -89,7 +91,9 @@
       <xsl:attribute name="open" select="mo[1]"/>
       <xsl:attribute name="close" select="mo[last()]"/>
       <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
-      <xsl:apply-templates select="mrow/node() except (mo[matches(.,$separators-regex)])" mode="#current"/>
+      <xsl:apply-templates select=" if (mrow and (every $el in * satisfies $el[self::mo or self::mrow])) 
+                                    then mrow/node() except (mo[matches(.,$separators-regex)])
+                                    else node() except (mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>
     </xsl:element>
   </xsl:template>
   

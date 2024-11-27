@@ -93,7 +93,7 @@
     </xsl:element>
   </xsl:template>
   
-  <xsl:template match="* | @*" mode="mml-de-core">
+  <xsl:template match="* | @* | processing-instruction()" mode="mml-de-core">
     <xsl:copy copy-namespaces="no">
       <xsl:apply-templates select="@*,node()" mode="mml-de-core" />
     </xsl:copy>

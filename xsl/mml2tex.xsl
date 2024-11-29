@@ -81,15 +81,15 @@
   
   <xsl:variable name="separators-regex" select="'^[.;|]$'"/>
   
-  <xsl:template match="mrow[mo]
+  <xsl:template match="mrow[mo[@stretchy='true']]
                            [(mrow and (every $el in * satisfies $el[self::mo or self::mrow]))
                            or count(*[not(self::mo)]) eq 1]
-                           [count(mo[matches(.,$parenthesis-regex)]) ge 2]
-                           [matches(mo[1],$parenthesis-regex)
-                            and matches(mo[last()],$parenthesis-regex)]" mode="mml-de-core">
+                           [count(mo[@stretchy='true'][matches(.,$parenthesis-regex)]) ge 2]
+                           [matches(mo[@stretchy='true'][1],$parenthesis-regex)
+                            and matches(mo[@stretchy='true'][last()],$parenthesis-regex)]" mode="mml-de-core">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
-      <xsl:attribute name="open" select="mo[1]"/>
-      <xsl:attribute name="close" select="mo[last()]"/>
+      <xsl:attribute name="open" select="mo[@stretchy='true'][1]"/>
+      <xsl:attribute name="close" select="mo[@stretchy='true'][last()]"/>
       <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
       <xsl:apply-templates select=" if (mrow and (every $el in * satisfies $el[self::mo or self::mrow])) 
                                     then mrow/node() except (mo[matches(.,$separators-regex)])
@@ -915,15 +915,16 @@
     <xsl:text>\end{matrix}&#xa;</xsl:text>
   </xsl:template>
   
-  <xsl:template match="mo/text()[    matches(., $parenthesis-regex)]
+  <xsl:template match="mo/text()[matches(., $parenthesis-regex)]
                                 [not($katex = 'yes')]
-                                [ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
-                                                                                    'mover', 
-                                                                                    'mroot', 
-                                                                                    'msqrt',                                                                                    
-                                                                                    'mtable', 
-                                                                                    'munder', 
-                                                                                    'munderover')]" 
+                                [ancestor::*[position() = (2,3)]
+                                            [not(self::math)]//*/local-name() = ('mfrac', 
+                                                                                 'mover', 
+                                                                                 'mroot', 
+                                                                                 'msqrt',                                                                                    
+                                                                                 'mtable', 
+                                                                                 'munder', 
+                                                                                 'munderover')]" 
                 mode="mathml2tex" priority="10">
    <xsl:choose>
      <xsl:when test="matches(., '\&#x7c;') and not(tr:determine-bar-orientation(parent::mo))">
@@ -964,15 +965,15 @@
   </xsl:function>
   
   <xsl:template match="mo[not(node())]
-                                [not($katex = 'yes')]
-                                [ancestor::*[position() = (2,3)]//*/local-name() = ('mfrac', 
-                                                                                    'mover', 
-                                                                                    'mroot', 
-                                                                                    'msqrt',                                                                                    
-                                                                                    'mtable', 
-                                                                                    'munder',
-                                                                                    'mrow',
-                                                                                    'munderover')]" 
+                          [not($katex = 'yes')]
+                          [ancestor::*[position() = (2,3)]
+  							                      [not(self::math)]//*/local-name() = ('mfrac', 
+                                                                           'mover', 
+                                                                           'mroot', 
+                                                                           'msqrt', 
+                                                                           'munder',
+                                                                           'mrow',
+                                                                           'munderover')]" 
                 mode="mathml2tex" priority="20">
     <xsl:next-match/>
     <xsl:call-template name="fence">

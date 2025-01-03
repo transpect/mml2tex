@@ -16650,7 +16650,8 @@
       <char character="" string="\hskip0.167em" origin="only-in-katex"/>
       <char character="Þ" string="{Þ\vphantom{A}}" origin="only-in-katex"/>
       <char character="þ" string="{þ\vphantom{A}}" origin="only-in-katex"/>
-      <char character="˜" string="\tilde{}" origin="only-in-katex"/>
+      <char character="˜" string="\tilde{}" origin="only-in-katex" mode="math"/>
+     <char character="˜" string="˜" origin="manual" mode="text"/>
       <char character="⨱"
             string="\mathrel{\underline \times}"
             origin="only-in-katex"/>

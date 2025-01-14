@@ -449,22 +449,19 @@
                         'lim',
                         'max', 
                         'min'"/>
+  
+  <!-- removed curly braces around limits because they obstruct kerning
+       https://mantis.le-tex.de/view.php?id=38384-->
 
   <xsl:template match="msubsup
                       |munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
-    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
+    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes" select="true()"/>
     <xsl:if test="count(*) ne 3">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">{</xsl:if>
     <xsl:variable name="base">
-      <xsl:if test="not($create-limits)">
-        <xsl:text>{</xsl:text>
-      </xsl:if>
       <xsl:apply-templates select="*[1]" mode="#current"/>
-      <xsl:if test="not($create-limits)">
-        <xsl:text>}</xsl:text>
-      </xsl:if>
     </xsl:variable>
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>{</xsl:text>
@@ -473,7 +470,7 @@
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
     </xsl:if>
-    <xsl:if test="$create-limits and *[1] = $integrals-sums-and-limits">
+    <xsl:if test="*[1] = $integrals-sums-and-limits">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>
@@ -800,14 +797,11 @@
   
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
-    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:if test="$create-limits">
-      <xsl:text>\limits</xsl:text>
-    </xsl:if>
+    <xsl:text>\limits</xsl:text>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>
@@ -1220,9 +1214,6 @@
                                                                     $insert-whitespace) 
                                                       else $replacement
                                                       )" as="xs:string"/>
-          <!--<xsl:if test="matches($replacement, 'ddot')">
-              <xsl:message select=".,'-\-\-', $result"></xsl:message>
-          </xsl:if>-->
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>
         <xsl:non-matching-substring>

@@ -230,7 +230,7 @@
     <!-- LATIN SMALL LETTER GAMMA -->
     <char character="&#x263;" string="\textbabygamma{}" mode="text"/>
     <!-- LATIN SMALL LETTER RAMS HORN  -->
-    <char character="&#x264;" string="textramshorns{}" mode="text"/>
+    <char character="&#x264;" string="\textramshorns{}" mode="text"/>
     <!-- LATIN SMALL LETTER TURNED H -->
     <char character="&#x265;" string="\textturnh{}" mode="text"/>
     <!-- LATIN SMALL LETTER H WITH HOOK  -->

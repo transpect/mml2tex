@@ -158,6 +158,7 @@
                       |@groupalign
                       |@columnwidth
                       |@rowalign
+                      |@rowspacing
                       |@displaystyle
                       |@scriptlevel[parent::mstyle]
                       |@linethickness[parent::mstyle]

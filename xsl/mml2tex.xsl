@@ -254,18 +254,24 @@
   </xsl:template>
 
   <xsl:template match="menclose" mode="mathml2tex">
-    <xsl:value-of select="tr:menclose-to-latex(@notation)[1]"/>
+    <xsl:variable name="notationTokens" as="xs:string+">
+      <xsl:variable name="notationWithReplaceXCancel" select="tr:menclose-replace-xcancel(@notation)" />
+      <xsl:value-of select="distinct-values(tokenize($notationWithReplaceXCancel, '\s+'))" />
+    </xsl:variable>
+    <xsl:for-each select="$notationTokens">
+      <xsl:value-of select="tr:menclose-to-latex(.)[1]"/>
+    </xsl:for-each>
     <xsl:apply-templates mode="#current"/>
-    <xsl:value-of select="tr:menclose-to-latex(@notation)[2]"/>
+    <xsl:for-each select="reverse($notationTokens)">
+      <xsl:value-of select="tr:menclose-to-latex(.)[2]"/>
+    </xsl:for-each>
   </xsl:template>
   
   <xsl:function name="tr:menclose-to-latex" as="xs:string+">
-    <xsl:param name="notation" as="attribute(notation)"/>
+    <xsl:param name="notation" as="xs:string+" />
     <xsl:sequence select="if($notation = ('box', 'roundedbox'))  then ('\boxed{',      '}')
                       else if($notation eq 'updiagonalstrike')   then ('\cancel{',     '}')
                       else if($notation eq 'downdiagonalstrike') then ('\bcancel{',    '}')
-                      else if($notation = ('updiagonalstrike downdiagonalstrike', 'downdiagonalstrike updiagonalstrike'))
-                                                                 then ('\xcancel{',    '}')
                       else if($notation eq 'horizontalstrike')   then ('\text{\sout{$','$}}')
                       else if($notation eq 'updiagonalarrow')    then ('\cancelto{}',  '}')
                       else if($notation eq 'top')                then ('\overline{',   '}')
@@ -276,6 +282,22 @@
                       else                                            (concat('\', $notation, '{'), '}')"/>
   </xsl:function>
   
+  <xsl:function name="tr:menclose-replace-xcancel" as="xs:string+">
+    <xsl:param name="notation" as="xs:string+"/>
+    <xsl:variable name="tokenUpDiagStrike" select="'updiagonalstrike'" />
+    <xsl:variable name="tokenDownDiagStrike" select="'downdiagonalstrike'" />
+    <xsl:variable name="tokenXCancel" select="'xcancel'" />
+    <xsl:choose>
+      <xsl:when test="contains($notation, $tokenUpDiagStrike) and contains($notation, $tokenDownDiagStrike)">
+        <xsl:variable name="replaceUpDiagStr" select="replace($notation, $tokenUpDiagStrike, $tokenXCancel)" />
+        <xsl:variable name="replaceDwnDiagStr" select="replace($replaceUpDiagStr, $tokenDownDiagStrike, $tokenXCancel)" />
+        <xsl:sequence select="$replaceDwnDiagStr" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$notation" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
 
   <xsl:template match="mfrac" mode="mathml2tex">
     <xsl:choose>

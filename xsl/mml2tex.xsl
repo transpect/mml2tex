@@ -90,7 +90,7 @@
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:attribute name="open" select="mo[@stretchy='true'][1]"/>
       <xsl:attribute name="close" select="mo[@stretchy='true'][last()]"/>
-      <xsl:attribute name="separators" select="string-join(mrow/mo[matches(.,$separators-regex)][last()],'')"/>
+      <xsl:attribute name="separators" select="string-join(mo[matches(.,$separators-regex)][last()],'')"/>
       <xsl:apply-templates select=" if (mrow and (every $el in * satisfies $el[self::mo or self::mrow])) 
                                     then mrow/node() except (mo[matches(.,$separators-regex)])
                                     else node() except (mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>

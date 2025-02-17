@@ -3,7 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  
   xmlns:xs="http://www.w3.org/2001/XMLSchema"  
   xmlns:tr="http://transpect.io"
-  xmlns:mml="http://www.w3.org/1998/Math/MathML" 
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
   xmlns:mml2tex="http://transpect.io/mml2tex"
   xmlns:xml2tex="http://transpect.io/xml2tex"
   xmlns:html="http://www.w3.org/1999/xhtml"
@@ -436,7 +436,12 @@
     <xsl:text>{</xsl:text>
     <xsl:choose>
       <xsl:when test="self::msup and matches(*[2], $prime-regex)">
-        <xsl:sequence select="for $i in (1 to string-length(*[2])) return '\prime'"/>
+        <xsl:sequence select="for $sup in functx:chars(*[2]) 
+                              return replace(
+                                       replace(
+                                         mml2tex:utf2tex($sup, (), (), ancestor-or-self::*[1]), '''', '\\prime'
+                                       ), '&quot;', '\\prime\\prime'
+                                     )"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="*[2]" mode="#current"/>
@@ -448,7 +453,7 @@
   
   <!-- primes, such as y'' -->
   
-  <xsl:variable name="prime-regex" select="'^[''&#x2032;&#x2033;&#x2034;]+$'" as="xs:string"/>
+  <xsl:variable name="prime-regex" select="'^[''&quot;&#x2032;&#x2033;&#x2034;]+$'" as="xs:string"/>
   
   <xsl:template match="msup[mi[1] and *[2] and matches(*[2], $prime-regex)]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
@@ -503,7 +508,12 @@
     <xsl:text>}^{</xsl:text>
     <xsl:choose>
       <xsl:when test="self::msubsup and matches(*[3], $prime-regex)">
-        <xsl:sequence select="for $i in (1 to string-length(*[3])) return '\prime'"/>
+        <xsl:sequence select="for $sup in functx:chars(*[3]) 
+                              return replace(
+                                       replace(
+                                         mml2tex:utf2tex($sup, (), (), ancestor-or-self::*[1]), '''', '\\prime'
+                                       ), '&quot;', '\\prime\\prime'
+                                     )"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="*[3]" mode="#current"/>
@@ -1264,6 +1274,12 @@
     <xsl:param name="arg" as="xs:string?"/> 
     <xsl:sequence select="replace($arg,
                                   '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')"/>
+  </xsl:function>
+  
+  <xsl:function name="functx:chars" as="xs:string*">
+    <xsl:param name="arg" as="xs:string?"/> 
+    <xsl:sequence select=" for $ch in string-to-codepoints($arg)
+                           return codepoints-to-string($ch)"/>
   </xsl:function>
   
 </xsl:stylesheet>

@@ -1355,7 +1355,7 @@
     <!--lagrangian (script capital L)-->
     <char character="&#x2112;" string="${\mathcal{L}}$" mode="text"/>
     <!--cursive small l-->
-    <char character="&#x2113;" string="\ell"/>
+    <char character="&#x2113;" string="{\ell}"/>
     <!--cursive small l-->
     <char character="&#x2113;" string="${\ell}$" mode="text"/>
     <!--= \mathds{N} (dsfont), open face N-->
@@ -5419,7 +5419,7 @@
     <!--MATHEMATICAL SCRIPT SMALL K-->
     <char character="&#x1D4C0;" string="${\mathcal{k}}$" mode="text"/>
     <!--MATHEMATICAL SCRIPT SMALL L-->
-    <char character="&#x1D4C1;" string="\ell"/>
+    <char character="&#x1D4C1;" string="{\ell}"/>
     <!--MATHEMATICAL SCRIPT SMALL L-->
     <char character="&#x1D4C1;" string="${\ell}$" mode="text"/>
     <!--MATHEMATICAL SCRIPT SMALL M-->

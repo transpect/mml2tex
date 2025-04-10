@@ -84,9 +84,9 @@
   <xsl:template match="mrow[mo[@stretchy='true']]
                            [(mrow and (every $el in * satisfies $el[self::mo or self::mrow]))
                            or count(*[not(self::mo)]) eq 1]
-                           [count(mo[@stretchy='true'][matches(.,$parenthesis-regex)]) ge 2]
-                           [matches(mo[@stretchy='true'][1],$parenthesis-regex)
-                            and matches(mo[@stretchy='true'][last()],$parenthesis-regex)]" mode="mml-de-core">
+                           [count(mo[@stretchy='true'][matches(.,$parenthesis-regex) or not(node())]) ge 2]
+                           [mo[@stretchy='true'][1][matches(.,$parenthesis-regex) or not(node())]
+                            and mo[@stretchy='true'][last()][matches(.,$parenthesis-regex) or not(node())]] " mode="mml-de-core">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:attribute name="open" select="mo[@stretchy='true'][1]"/>
       <xsl:attribute name="close" select="mo[@stretchy='true'][last()]"/>

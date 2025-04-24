@@ -117,24 +117,24 @@
     <!-- INVERTED QUESTION MARK -->
     <char character="&#xBF;" string="{\textquestiondown}" mode="text"/>
     <!-- LATIN CAPITAL LETTER A WITH DIAERESIS -->
-    <char character="&#xC4;" string="&quot;A"/>
+    <char character="&#xC4;" string="\&quot;{A}"/>
     <!--LATIN CAPITAL LETTER A WITH RING ABOVE -->
     <char character="&#xC5;" string="\AA{}" mode="text"/>
     <!--Latin Capital letter AE -->
     <char character="&#xC6;" string="\AE{}" mode="text"/>
     <!-- LATIN CAPITAL LETTER O WITH DIAERESIS -->
-    <char character="&#xD6;" string="&quot;O"/>
+    <char character="&#xD6;" string="\&quot;{O}"/>
     <!--MULTIPLICATION SIGN, z notation Cartesian product-->
     <char character="&#xD7;" string="\times"/>
     <char character="&#xD7;" string="${\times}$" mode="text"/>
     <!--LATIN CAPITAL LETTER O WITH STROKE -->
     <char character="&#xD8;" string="\O{}" mode="text"/>
     <!-- LATIN CAPITAL LETTER U WITH DIAERESIS -->
-    <char character="&#xDC;" string="&quot;U"/>
+    <char character="&#xDC;" string="\&quot;{U}"/>
     <!-- LATIN SMALL LETTER SHARP S -->
-    <char character="&#xDF;" string="&quot;z"/>
+    <char character="&#xDF;" string="\&quot;{z}"/>
     <!--LATIN SMALL LETTER A WITH DIAERESIS -->
-    <char character="&#xE4;" string="&quot;a"/>
+    <char character="&#xE4;" string="\&quot;{a}"/>
     <!--LATIN SMALL LETTER A WITH RING ABOVE -->
     <char character="&#xE5;" string="\aa{}" mode="text"/>
     <!--Latin Small Letter AE -->
@@ -144,7 +144,7 @@
     <!--eth-->
     <char character="&#xF0;" string="${\eth}$" mode="text"/>
     <!-- LATIN SMALL LETTER O WITH DIAERESIS -->
-    <char character="&#xF6;" string="&quot;o"/>
+    <char character="&#xF6;" string="\&quot;{o}"/>
     <!--divide sign-->
     <char character="&#xF7;" string="\div"/>
     <!--divide sign-->
@@ -152,7 +152,7 @@
     <!--LATIN SMALL LETTER O WITH STROKE -->
     <char character="&#xF8;" string="\o{}" mode="text"/>
     <!-- LATIN SMALL LETTER U WITH DIAERESIS -->
-    <char character="&#xFC;" string="&quot;u"/>
+    <char character="&#xFC;" string="\&quot;{u}"/>
     
     <!-- *
          * Latin Extended-A

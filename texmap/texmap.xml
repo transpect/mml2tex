@@ -132,7 +132,7 @@
     <!-- LATIN CAPITAL LETTER U WITH DIAERESIS -->
     <char character="&#xDC;" string="\&quot;{U}"/>
     <!-- LATIN SMALL LETTER SHARP S -->
-    <char character="&#xDF;" string="\&quot;{z}"/>
+    <char character="&#xDF;" string="\ss{}"/>
     <!--LATIN SMALL LETTER A WITH DIAERESIS -->
     <char character="&#xE4;" string="\&quot;{a}"/>
     <!--LATIN SMALL LETTER A WITH RING ABOVE -->

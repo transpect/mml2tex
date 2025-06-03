@@ -88,9 +88,12 @@
                            [mo[@stretchy='true'][1][matches(.,$parenthesis-regex) or not(node())]
                             and mo[@stretchy='true'][last()][matches(.,$parenthesis-regex) or not(node())]] " mode="mml-de-core">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
-      <xsl:attribute name="open" select="mo[@stretchy='true'][1]"/>
-      <xsl:attribute name="close" select="mo[@stretchy='true'][last()]"/>
-      <xsl:attribute name="separators" select="string-join(mo[matches(.,$separators-regex)][last()],'')"/>
+      <xsl:variable name="open-mo" select="mo[@stretchy='true'][1]"/>
+      <xsl:variable name="close-mo" select="mo[@stretchy='true'][last()]"/>
+      <xsl:attribute name="open" select="$open-mo"/>
+      <xsl:attribute name="close" select="$close-mo"/>
+      <xsl:variable name="separator-mos" select="(mo[matches(.,$separators-regex)] except ($open-mo|$close-mo))"/>
+      <xsl:attribute name="separators" select="string-join($separator-mos,'')"/>
       <xsl:apply-templates select=" if (mrow and (every $el in * satisfies $el[self::mo or self::mrow])) 
                                     then mrow/node() except (mo[matches(.,$separators-regex)])
                                     else node() except (mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>

@@ -536,7 +536,13 @@
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 
                                   $i/ancestor-or-self::*[@groupalign][1]/@groupalign,
                                   'center')[1]"/>
-    <xsl:text>\begin{array}{</xsl:text>
+    <xsl:variable name="col-sep" as="xs:string*"
+                  select="tokenize(@rowspacing, '\s')[1]"/>
+    <xsl:text>\begin{array}</xsl:text>
+    <xsl:if test="normalize-space($col-sep)">
+      <xsl:value-of select="concat('[\arraycolsep=', $col-sep, ']')"/>
+    </xsl:if>
+    <xsl:text>{</xsl:text>
     <xsl:for-each select="1 to $mcc">
       <xsl:variable name="pos" select="min((count($col-aligns), position()))" as="xs:integer"/>
       <xsl:value-of select="substring($col-aligns[$pos], 1, 1)"/>
@@ -570,9 +576,6 @@
     <xsl:apply-templates select="@*, node()" mode="#current"/>
     <xsl:if test="following-sibling::mtr">
       <xsl:text>\\</xsl:text>
-      <xsl:if test="parent::mtable/@rowspacing[not(matches(.,'%'))] ">
-        <xsl:value-of select="concat('[', parent::mtable/@rowspacing,']')"/>
-      </xsl:if>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$rowlines[$position] = 'solid'">

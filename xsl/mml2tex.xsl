@@ -95,8 +95,8 @@
       <xsl:variable name="separator-mos" select="(mo[matches(.,$separators-regex)] except ($open-mo|$close-mo))"/>
       <xsl:attribute name="separators" select="string-join($separator-mos,'')"/>
       <xsl:apply-templates select=" if (mrow and (every $el in * satisfies $el[self::mo or self::mrow])) 
-                                    then mrow/node() except (mo[matches(.,$separators-regex)])
-                                    else node() except (mo[1][matches(.,$parenthesis-regex)], mo[last()][matches(.,$parenthesis-regex)])" mode="#current"/>
+                                    then mrow/node() except ($separator-mos)
+                                    else node() except ($open-mo, $close-mo)" mode="#current"/>
     </xsl:element>
   </xsl:template>
   

@@ -998,8 +998,8 @@
   
   <xsl:template match="mo[not(node())]
                           [not($katex = 'yes')]
-                          [ancestor::*[position() = (2,3)]
-  							                      [not(self::math)]//*/local-name() = ('mfrac', 
+                          [ancestor::*[position() = (1,2,3)]
+  							                      [not(self::math)]/descendant-or-self::*/local-name() = ('mfrac', 
                                                                            'mover', 
                                                                            'mroot', 
                                                                            'msqrt', 

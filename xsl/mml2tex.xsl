@@ -1225,6 +1225,7 @@
     <xsl:variable name="texmap" select="($texmap-override, $texmap)" as="element(xml2tex:char)*"/>
     <xsl:for-each select="$chars">
       <xsl:variable name="char" select="." as="xs:string"/>
+      <xsl:variable name="is-number-decimal-komma" select="$context/local-name() = 'mn' and matches(.,',')" as="xs:boolean"/>
       <xsl:analyze-string select="." regex="{$texregex}">
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
@@ -1253,7 +1254,8 @@
           <xsl:value-of select="$result"/>
         </xsl:matching-substring>
         <xsl:non-matching-substring>
-          <xsl:value-of select="."/>
+          <xsl:value-of select="if ($is-number-decimal-komma) then concat('{',.,'}')
+                                else ."/>
         </xsl:non-matching-substring>
       </xsl:analyze-string>
     </xsl:for-each>

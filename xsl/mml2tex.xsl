@@ -253,6 +253,8 @@
       <xsl:text>\newline&#x20;</xsl:text>
     </xsl:if>
   </xsl:template>
+  
+  <xsl:template match="mspace[not(@*)]" mode="mathml2tex"/>
 
   <xsl:template match="menclose" mode="mathml2tex">
     <xsl:variable name="notationTokens" as="xs:string+">

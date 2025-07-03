@@ -947,8 +947,8 @@
   
   <xsl:template match="mo/text()[matches(., $parenthesis-regex)]
                                 [not($katex = 'yes')]
-                                [ancestor::*[position() = (2,3)]
-                                            [not(self::math)]//*/local-name() = ('mfrac', 
+                                [ancestor::*[position() = (1,2,3)]
+                                [not(self::math)]/descendant-or-self::*/local-name() = ('mfrac', 
                                                                                  'mover', 
                                                                                  'mroot', 
                                                                                  'msqrt',                                                                                    
@@ -1225,7 +1225,8 @@
     <xsl:variable name="texmap" select="($texmap-override, $texmap)" as="element(xml2tex:char)*"/>
     <xsl:for-each select="$chars">
       <xsl:variable name="char" select="." as="xs:string"/>
-      <xsl:variable name="is-number-decimal-komma" select="$context/local-name() = 'mn' and matches(.,',')" as="xs:boolean"/>
+      <xsl:variable name="is-number-decimal-komma" select="$context/local-name() = 'mn' and matches(.,',')
+                                                           and matches($context,'(\d,)+')" as="xs:boolean"/>
       <xsl:analyze-string select="." regex="{$texregex}">
         <xsl:matching-substring>
           <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>

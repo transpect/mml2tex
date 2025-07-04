@@ -464,7 +464,7 @@
     <xsl:if test="count(*) ne 2">
       <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
     </xsl:if>
-    <xsl:apply-templates mode="#current"/>
+    <xsl:next-match/>
   </xsl:template>
   
   <xsl:variable name="integrals-sums-and-limits" as="xs:string+" 

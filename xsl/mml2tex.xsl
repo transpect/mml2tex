@@ -970,7 +970,7 @@
                         if (matches(., '\&#x7c;')) 
                         then tr:determine-bar-orientation(parent::mo)
                         else 
-                            if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x232a;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]')) 
+                            if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]') and not(following-sibling::mo))  
                             then 'left'
                             else 'right'"/>
         <xsl:with-param name="val" select="."/>

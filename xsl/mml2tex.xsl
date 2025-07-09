@@ -955,7 +955,7 @@
                                 [not(self::math)]/descendant-or-self::*/local-name() = ('mfrac', 
                                                                                  'mover', 
                                                                                  'mroot', 
-                                                                                 'msqrt',                                                                                    
+                                                                                 'msqrt',
                                                                                  'mtable', 
                                                                                  'munder', 
                                                                                  'munderover')]" 
@@ -1006,7 +1006,6 @@
                                                                            'mroot', 
                                                                            'msqrt', 
                                                                            'munder',
-                                                                           'mrow',
                                                                            'munderover')]" 
                 mode="mathml2tex" priority="20">
     <xsl:next-match/>

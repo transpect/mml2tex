@@ -132,7 +132,8 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="mo[matches(.,$parenthesis-regex)]" mode="mml-de-core">
+  <xsl:template match="mo[matches(.,$parenthesis-regex)
+                          or not(node())]" mode="mml-de-core">
     <xsl:param name="stretchy-mo" tunnel="yes"/>
     <xsl:copy>
       <xsl:if test="$stretchy-mo">

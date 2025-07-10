@@ -112,7 +112,7 @@
       <xsl:for-each-group select="*" group-adjacent="following-sibling::mo[matches(.,$parenthesis-regex) or not(node())]
                                                      or preceding-sibling::mo[matches(.,$parenthesis-regex) or not(node())]">
         <xsl:choose>
-          <xsl:when test="count(current-group()/self::mo) eq 2 and current-group()[self::*/local-name()=('mfrac', 
+          <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 and current-group()[self::*/local-name()=('mfrac', 
                                                                                  'mover', 
                                                                                  'mroot', 
                                                                                  'msqrt',

@@ -88,7 +88,7 @@
                            or count(*[not(self::mo)]) eq 1]
                            [count(mo[@stretchy='true'][matches(.,$parenthesis-regex) or not(node())]) ge 2]
                            [mo[@stretchy='true'][1][matches(.,$parenthesis-regex) or not(node())]
-                            and mo[@stretchy='true'][last()][matches(.,$parenthesis-regex) or not(node())]] " mode="mml-de-core">
+                            and mo[@stretchy='true'][last()][matches(.,$parenthesis-regex) or not(node())]] " mode="mml-de-core" priority="4">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:variable name="open-mo" select="mo[@stretchy='true'][1]"/>
       <xsl:variable name="close-mo" select="mo[@stretchy='true'][last()]"/>
@@ -104,7 +104,42 @@
     <xsl:copy copy-namespaces="no">
       <xsl:apply-templates select="@*,node()" mode="mml-de-core" />
     </xsl:copy>
-  </xsl:template> 
+  </xsl:template>
+  
+  <xsl:template match="*[mo[matches(.,$parenthesis-regex)]]" mode="mml-de-core">
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:for-each-group select="*" group-adjacent="following-sibling::mo[matches(.,$parenthesis-regex) or not(node())]
+                                                     or preceding-sibling::mo[matches(.,$parenthesis-regex) or not(node())]">
+        <xsl:choose>
+          <xsl:when test="count(current-group()/self::mo) eq 2 and current-group()[self::*/local-name()=('mfrac', 
+                                                                                 'mover', 
+                                                                                 'mroot', 
+                                                                                 'msqrt',
+                                                                                 'mtable', 
+                                                                                 'munder', 
+                                                                                 'munderover')]">
+              <xsl:apply-templates select="current-group()" mode="#current">
+                <xsl:with-param name="stretchy-mo" select="true()" tunnel="yes"/>
+              </xsl:apply-templates>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="current-group()" mode="#current"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each-group>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="mo[matches(.,$parenthesis-regex)]" mode="mml-de-core">
+    <xsl:param name="stretchy-mo" tunnel="yes"/>
+    <xsl:copy>
+      <xsl:if test="$stretchy-mo">
+        <xsl:attribute name="stretchy" select="'true'"/>
+      </xsl:if>
+      <xsl:apply-templates select="@*, node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
 
   <xsl:template match="math/@display" mode="mathml2tex">
     <xsl:if test="$set-math-style = 'yes'">
@@ -138,7 +173,6 @@
                       |@minsize
                       |@scriptminsize
                       |@fence
-                      |@stretchy
                       |@separator
                       |@accent
                       |@accentunder
@@ -949,17 +983,8 @@
     <xsl:text>\end{matrix}&#xa;</xsl:text>
   </xsl:template>
   
-  <xsl:template match="mo/text()[matches(., $parenthesis-regex)]
-                                [not($katex = 'yes')]
-                                [ancestor::*[position() = (1,2,3)]
-                                [not(self::math)]/descendant-or-self::*/local-name() = ('mfrac', 
-                                                                                 'mover', 
-                                                                                 'mroot', 
-                                                                                 'msqrt',
-                                                                                 'mtable', 
-                                                                                 'munder', 
-                                                                                 'munderover')]" 
-                mode="mathml2tex" priority="10">
+  <xsl:template match="mo[@stretchy='true']
+                         [not($katex = 'yes')]/text()" mode="mathml2tex" priority="10">
    <xsl:choose>
      <xsl:when test="matches(., '\&#x7c;') and not(tr:determine-bar-orientation(parent::mo))">
        <xsl:value-of select="."/>
@@ -998,16 +1023,9 @@
     </xsl:choose>
   </xsl:function>
   
-  <xsl:template match="mo[not(node())]
-                          [not($katex = 'yes')]
-                          [ancestor::*[position() = (1,2,3)]
-  							                      [not(self::math)]/descendant-or-self::*/local-name() = ('mfrac', 
-                                                                           'mover', 
-                                                                           'mroot', 
-                                                                           'msqrt', 
-                                                                           'munder',
-                                                                           'munderover')]" 
-                mode="mathml2tex" priority="20">
+  <xsl:template match="mo[@stretchy='true']
+                         [not(node())]
+                         [not($katex = 'yes')]" mode="mathml2tex" priority="20">
     <xsl:next-match/>
     <xsl:call-template name="fence">
       <xsl:with-param name="pos" select="if (following-sibling::mo) then 'left' else 'right'"/>

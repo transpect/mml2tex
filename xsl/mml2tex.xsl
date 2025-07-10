@@ -119,7 +119,8 @@
                                                                                   'msqrt',
                                                                                   'mtable', 
                                                                                   'munder', 
-                                                                                  'munderover')]">
+                                                                                  'munderover',
+                                                                                  'msubsup')]">
               <xsl:apply-templates select="current-group()" mode="#current">
                 <xsl:with-param name="stretchy-mo" select="true()" />
               </xsl:apply-templates>

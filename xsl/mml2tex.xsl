@@ -112,13 +112,14 @@
       <xsl:for-each-group select="*" group-adjacent="following-sibling::mo[matches(.,$parenthesis-regex) or not(node())]
                                                      or preceding-sibling::mo[matches(.,$parenthesis-regex) or not(node())]">
         <xsl:choose>
-          <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 and current-group()[self::*/local-name()=('mfrac', 
-                                                                                 'mover', 
-                                                                                 'mroot', 
-                                                                                 'msqrt',
-                                                                                 'mtable', 
-                                                                                 'munder', 
-                                                                                 'munderover')]">
+          <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 
+                          and current-group()[descendant-or-self::*/local-name()=('mfrac', 
+                                                                                  'mover', 
+                                                                                  'mroot', 
+                                                                                  'msqrt',
+                                                                                  'mtable', 
+                                                                                  'munder', 
+                                                                                  'munderover')]">
               <xsl:apply-templates select="current-group()" mode="#current">
                 <xsl:with-param name="stretchy-mo" select="true()" tunnel="yes"/>
               </xsl:apply-templates>

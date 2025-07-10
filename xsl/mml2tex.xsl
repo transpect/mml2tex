@@ -121,7 +121,7 @@
                                                                                   'munder', 
                                                                                   'munderover')]">
               <xsl:apply-templates select="current-group()" mode="#current">
-                <xsl:with-param name="stretchy-mo" select="true()" tunnel="yes"/>
+                <xsl:with-param name="stretchy-mo" select="true()" />
               </xsl:apply-templates>
           </xsl:when>
           <xsl:otherwise>
@@ -134,7 +134,7 @@
   
   <xsl:template match="mo[matches(.,$parenthesis-regex)
                           or not(node())]" mode="mml-de-core">
-    <xsl:param name="stretchy-mo" tunnel="yes"/>
+    <xsl:param name="stretchy-mo" />
     <xsl:copy>
       <xsl:if test="$stretchy-mo">
         <xsl:attribute name="stretchy" select="'true'"/>

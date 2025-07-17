@@ -470,7 +470,8 @@
 
   <xsl:template match="msup|msub" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:if test="parent::msub | parent::msubsup | parent::msup | parent::mrow/(parent::msub, parent::msup)">{</xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>

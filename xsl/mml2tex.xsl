@@ -351,7 +351,8 @@
             <xsl:apply-templates select="*[2]" mode="#current"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
+            <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ."/>
+            <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
@@ -369,7 +370,8 @@
             <xsl:text>}</xsl:text>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ."/>
+            <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ."/>
+            <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
@@ -453,7 +455,8 @@
 
   <xsl:template match="mroot" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:text>\sqrt</xsl:text>
     <!-- index (optional) -->
@@ -500,7 +503,8 @@
   
   <xsl:template match="msup[mi[1] and *[2] and matches(*[2], $prime-regex)]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:next-match/>
   </xsl:template>
@@ -530,7 +534,8 @@
                       |munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes" select="true()"/>
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:if test="parent::msub | parent::msup | parent::mrow/(parent::msub, parent::msup)">{</xsl:if>
     <xsl:variable name="base">
@@ -666,7 +671,8 @@
 
   <xsl:template match="mover|munder" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <!-- diacritical mark overline should be substituted with latex overline -->
     <xsl:variable name="expression" select="*[1]" as="element(*)"/>
@@ -862,7 +868,8 @@
 
   <xsl:template match="munderover" mode="mathml2tex">
     <xsl:if test="count(*) ne 3">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:text>\overset{</xsl:text>
     <xsl:apply-templates select="*[3]" mode="#current"/>
@@ -876,7 +883,8 @@
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
     <xsl:if test="count(*) ne 2">
-      <xsl:message terminate="{$fail-on-error}" select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
+      <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
     <xsl:text>\limits</xsl:text>

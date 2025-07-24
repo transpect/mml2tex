@@ -211,6 +211,7 @@
                       |@framespacing
                       |@rowspan
                       |@class
+                      |@style
                       |@side" mode="mathml2tex">
     <xsl:message select="'[WARNING]: attribute', name(), 'in context', ../name(), 'ignored!'"/>
   </xsl:template>

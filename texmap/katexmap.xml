@@ -490,7 +490,7 @@
             won="unicode"
             mode="text"/>
       <char character=":"
-            string="\text{\:}"
+            string="\text{:}"
             origin="different-in-katex"
             won="katex"
             dismissed-alternative="\colon"

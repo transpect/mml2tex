@@ -7209,6 +7209,8 @@
     <char character="&#x1D717;" string="\vartheta"/>
     <!--= \mathit{\vartheta} (omlmathit), MATHEMATICAL ITALIC THETA SYMBOL-->
     <char character="&#x1D717;" string="${\vartheta}$" mode="text"/>
+    <!-- GREEK KAPPA SYMBOL-->
+    <char character="&#x3f0;" string="\varkappa"/>
     <!--MATHEMATICAL ITALIC KAPPA SYMBOL-->
     <char character="&#x1D718;" string="\varkappa"/>
     <!--MATHEMATICAL ITALIC KAPPA SYMBOL-->

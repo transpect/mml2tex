@@ -57,7 +57,7 @@
   
   <!-- Controls the horizontal padding of a column within an array. Unit is pt. 
        LaTeX internal default is 5pt. Decrease in order to reduce padding. -->
-  <xsl:variable name="array-column-padding" as="xs:integer?"/>
+  <xsl:variable name="array-column-padding" as="xs:decimal?"/>
   
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    

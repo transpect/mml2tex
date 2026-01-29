@@ -55,6 +55,10 @@
   
   <xsl:variable name="create-one-column-matrix" select="false()"/>
   
+  <!-- Controls the horizontal padding of a column within an array. Unit is pt. 
+       LaTeX internal default is 5pt. Decrease in order to reduce padding. -->
+  <xsl:variable name="array-column-padding" as="xs:integer?"/>
+  
   <xsl:template match="*" mode="mathml2tex" priority="-10">
     <xsl:message terminate="{$fail-on-error}" select="'[ERROR]: unknown element', name()"/>    
   </xsl:template>
@@ -582,6 +586,9 @@
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 
                                   $i/ancestor-or-self::*[@groupalign][1]/@groupalign,
                                   'center')[1]"/>
+    <xsl:if test="$array-column-padding">
+      <xsl:text>{\setlength{\arraycolsep}{2pt}&#xa;</xsl:text>
+    </xsl:if>
     <xsl:text>\begin{array}{</xsl:text>
     <xsl:for-each select="1 to $mcc">
       <xsl:variable name="pos" select="min((count($col-aligns), position()))" as="xs:integer"/>
@@ -600,6 +607,9 @@
     <xsl:apply-templates select="@* except @width" mode="#current"/>
     <xsl:apply-templates mode="#current"/>
     <xsl:text>\end{array}</xsl:text>
+    <xsl:if test="$array-column-padding">
+      <xsl:text>&#xa;}</xsl:text>
+    </xsl:if>
   </xsl:template>
   
   <xsl:function name="mml2tex:max-col-count" as="xs:integer">
@@ -973,7 +983,8 @@
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template match="mfenced[count(*) eq 1 and mtable[count(mtr) gt 1]
+  <xsl:template match="mfenced[count(*) eq 1 and mtable[not($array-column-padding)]
+                                                       [count(mtr) gt 1]
                                                        [not(@rowlines)]
                                                        [every $row in mtr satisfies count($row/*) gt 1
                                                         or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
@@ -985,7 +996,8 @@
     <xsl:value-of select="concat('\end{', $matrix-type, 'matrix}')"/>
   </xsl:template>
   
-  <xsl:template match="mtable[count(mtr) gt 1]
+  <xsl:template match="mtable[not($array-column-padding)]
+                             [count(mtr) gt 1]
                              [not(@rowlines)]
                              [every $row in mtr satisfies count($row/*) gt 1
                               or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]

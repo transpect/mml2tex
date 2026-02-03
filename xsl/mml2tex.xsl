@@ -986,9 +986,17 @@
   <xsl:template match="mfenced[count(*) eq 1 and mtable[not($array-column-padding)]
                                                        [count(mtr) gt 1]
                                                        [not(@rowlines)]
+                                                       [not(@columnalign) or @columnalign='center']
                                                        [every $row in mtr satisfies count($row/*) gt 1
                                                         or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
-                              ]
+                                                       [not(some $cell in mtr/mtd satisfies $cell/*/local-name()=('mfrac', 
+                                                                                                                   'mover', 
+                                                                                                                   'mroot', 
+                                                                                                                   'msqrt',
+                                                                                                                   'mtable', 
+                                                                                                                   'munder', 
+                                                                                                                   'munderover',
+                                                                                                                   'msubsup'))]]
                               [not(@open or @close) or (@open = ('(', '[', '{', '|', '‖') and @close = (')', ']', '}', '|', '‖'))]" mode="mathml2tex" priority="5">
     <xsl:variable name="matrix-type" select="(translate(@open, '([{|‖', 'pbBvV'), 'p')[normalize-space()][1]" as="xs:string"/>
     <xsl:value-of select="concat('\begin{', $matrix-type, 'matrix}&#xa;')"/>
@@ -999,8 +1007,17 @@
   <xsl:template match="mtable[not($array-column-padding)]
                              [count(mtr) gt 1]
                              [not(@rowlines)]
+                             [not(@columnalign) or @columnalign='center']
                              [every $row in mtr satisfies count($row/*) gt 1
                               or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
+                             [not(some $cell in mtr/mtd satisfies $cell/*/local-name()=('mfrac', 
+                                                                                         'mover', 
+                                                                                         'mroot', 
+                                                                                         'msqrt',
+                                                                                         'mtable', 
+                                                                                         'munder', 
+                                                                                         'munderover',
+                                                                                         'msubsup'))]
                              [not(parent::mfenced)]" mode="mathml2tex" priority="5">
     <xsl:text>\begin{matrix}&#xa;</xsl:text>
     <xsl:apply-templates mode="#current"/>

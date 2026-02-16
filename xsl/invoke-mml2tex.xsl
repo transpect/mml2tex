@@ -20,7 +20,9 @@
   
   <xsl:template match="mml:math">
     <xsl:processing-instruction name="mml2tex">
-      <xsl:apply-templates select="." mode="mathml2tex"/>
+      <xsl:apply-templates select="." mode="mathml2tex">
+        <xsl:with-param name="display" select="@display" as="xs:string?" tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:processing-instruction>
   </xsl:template>
   

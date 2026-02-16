@@ -17,17 +17,19 @@
 
   <xsl:output method="text" encoding="UTF-8"/>
   
-  <xsl:param name="fail-on-error" select="'yes'"/><!-- yes|no -->
-
-  <xsl:param name="set-math-style" select="'no'"/><!-- yes|no -->
+  <xsl:param name="fail-on-error"        select="'yes'"        as="xs:string"/><!-- yes|no -->
   
-  <xsl:param name="use-upgreek-map" as="xs:boolean" select="true()"/>
+  <xsl:param name="set-math-style"       select="'no'"         as="xs:string"/><!-- yes|no -->
   
-  <xsl:param name="katex" select="'no'" as="xs:string"/>
-  <xsl:param name="katex-class" as="xs:string" select="'tr--katex'"/>
+  <xsl:param name="use-upgreek-map"      select="'yes'"        as="xs:string"/>
   
-  <!-- param avoid-packages: whitespace separated list of tex packages not to use -->
-  <xsl:param name="avoid-packages" select="''" as="xs:string?"/>
+  <xsl:param name="always-display-style" select="'no'"         as="xs:string"/>
+  
+  <xsl:param name="katex"                select="'no'"         as="xs:string"/>
+  
+  <xsl:param name="katex-class"          select="'tr--katex'"  as="xs:string"/> 
+  
+  <xsl:param name="avoid-packages"       select="''"           as="xs:string?"/> <!-- param avoid-packages: whitespace separated list of tex packages not to use -->
   
   <xsl:param name="texmap-uri" select="'../texmap/texmap.xml'" as="xs:string"/>
   
@@ -70,20 +72,18 @@
   <xsl:template match="math" mode="mathml2tex">
     <xsl:variable name="de-core-transformation" as="element(math)">
       <xsl:copy>
-        <xsl:apply-templates select="@*, node()" mode="mml-de-core"/>
+        <xsl:apply-templates select="@*, node()" mode="mml-de-core">
+          <xsl:with-param name="display" select="@display" as="xs:string?" tunnel="yes"/>
+        </xsl:apply-templates>
       </xsl:copy>
     </xsl:variable>
     <xsl:variable name="basic-transformation">
-      <xsl:apply-templates select="$de-core-transformation/@display, $de-core-transformation/node()" mode="#current"/>
+      <xsl:apply-templates select="$de-core-transformation/@display, $de-core-transformation/node()" mode="#current">
+        <xsl:with-param name="display" select="@display" as="xs:string?" tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:variable>
     <xsl:value-of select="$basic-transformation"/>
   </xsl:template>
-  <!-- Switch to “always create \limits after integral signs etc.” in an importing stylesheet:
-  <xsl:template match="mml:math" mode="mathml2tex">
-    <xsl:next-match>
-      <xsl:with-param name="create-limits" as="xs:boolean" select="true()" tunnel="yes"/>
-    </xsl:next-match>
-  </xsl:template> -->
   
   <xsl:variable name="separators-regex" select="'^[.;|]$'"/>
   
@@ -537,7 +537,7 @@
 
   <xsl:template match="msubsup
                       |munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
-    <xsl:param name="create-limits" as="xs:boolean?" tunnel="yes" select="true()"/>
+    <xsl:param name="display" as="xs:string?" tunnel="yes"/>
     <xsl:if test="count(*) ne 3">
       <xsl:message select="name(), 'must include three elements', 'context:&#xa;', ancestor::math[1]"/>
       <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
@@ -553,7 +553,7 @@
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
     </xsl:if>
-    <xsl:if test="*[1] = $integrals-sums-and-limits and math/@display = 'block'">
+    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or $always-display-style = 'yes')">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>
@@ -1085,7 +1085,7 @@
     <xsl:value-of select="concat('\text{', replace(normalize-space(.), '&#xa;+', ' '), '}')"/>
   </xsl:template>
   
-  <xsl:template match="text()[$use-upgreek-map] 
+  <xsl:template match="text()[$use-upgreek-map = 'yes'] 
                              [exists(   parent::mi[    @mathvariant eq 'normal' 
                                                    or (    empty(@mathvariant) 
                                                        and string-length(.) gt 1)]

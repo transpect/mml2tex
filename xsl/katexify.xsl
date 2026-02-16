@@ -15,7 +15,7 @@
   <xsl:import href="mml2tex.xsl"/>
   <xsl:import href="http://transpect.io/mml-normalize/xsl/mml-normalize.xsl"/>
 
-  <xsl:param name="use-upgreek-map" as="xs:boolean" select="false()"/>
+  <xsl:param name="use-upgreek-map" as="xs:string" select="'no'"/>
   <xsl:param name="remove-mspace-next-to-operator-treshold-em" select="0.21" as="xs:decimal"/>
   <xsl:param name="unwrap-mml" as="xs:string" select="'no'"/>
   <xsl:param name="katex" select="'yes'"/>

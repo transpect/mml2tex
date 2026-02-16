@@ -46,13 +46,17 @@
       <xsl:when test="true()">
         <xsl:text>$</xsl:text>
      	<xsl:for-each select="$mml2tex-preprocess//mml:math">
-     	  <xsl:apply-templates select="." mode="mathml2tex"/>
+     	  <xsl:apply-templates select="." mode="mathml2tex">
+     	    <xsl:with-param name="display" select="@display" as="xs:string?" tunnel="yes"/>
+     	  </xsl:apply-templates>
      	</xsl:for-each>
         <xsl:text>$</xsl:text>
       </xsl:when>
       <xsl:otherwise>
      	<xsl:for-each select="//mml:math">
-     	  <xsl:apply-templates select="." mode="mathml2tex"/>
+     	  <xsl:apply-templates select="." mode="mathml2tex">
+     	    <xsl:with-param name="display" select="@display" as="xs:string?" tunnel="yes"/>
+     	  </xsl:apply-templates>
      	</xsl:for-each>
       </xsl:otherwise>
     </xsl:choose>

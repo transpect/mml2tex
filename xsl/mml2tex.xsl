@@ -106,7 +106,7 @@
   
   <xsl:template match="* | @* | processing-instruction()" mode="mml-de-core">
     <xsl:copy copy-namespaces="no">
-      <xsl:apply-templates select="@*,node()" mode="mml-de-core" />
+      <xsl:apply-templates select="@*,node()" mode="mml-de-core"/>
     </xsl:copy>
   </xsl:template>
   
@@ -534,6 +534,15 @@
   
   <!-- removed curly braces around limits because they obstruct kerning
        https://mantis.le-tex.de/view.php?id=38384-->
+  
+  <xsl:template match="mstyle[count(@*) = 1 and @displaystyle]" mode="mathml2tex">
+    <xsl:apply-templates mode="#current">
+      <xsl:with-param name="display" 
+                      select="if(@displaystyle = 'true') 
+                              then 'block'
+                              else 'inline'" as="xs:string?" tunnel="yes"/>
+    </xsl:apply-templates>
+  </xsl:template>
 
   <xsl:template match="msubsup
                       |munderover[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
@@ -895,12 +904,15 @@
   
   <xsl:template match="mover[*[1] = $integrals-sums-and-limits]
                       |munder[*[1] = $integrals-sums-and-limits]" mode="mathml2tex">
+    <xsl:param name="display" select="@display" as="xs:string?" tunnel="yes"/>
     <xsl:if test="count(*) ne 2">
       <xsl:message select="name(), 'must include two elements', 'context:&#xa;', ancestor::math[1]"/>
       <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:text>\limits</xsl:text>
+    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or $always-display-style = 'yes')">
+      <xsl:text>\limits</xsl:text>
+    </xsl:if>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>
     <xsl:apply-templates select="*[2]" mode="#current"/>
     <xsl:text>}</xsl:text>

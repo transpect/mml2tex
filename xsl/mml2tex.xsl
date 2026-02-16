@@ -553,7 +553,7 @@
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
     </xsl:if>
-    <xsl:if test="*[1] = $integrals-sums-and-limits">
+    <xsl:if test="*[1] = $integrals-sums-and-limits and math/@display = 'block'">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>

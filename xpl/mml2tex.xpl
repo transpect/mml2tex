@@ -26,10 +26,17 @@
     </p:inline>
   </p:input>
   
-  <p:output port="result">
+  <p:output port="result" primary="true">
     <p:documentation>
       Provides the XML document with mml2tex processing instructions.
     </p:documentation>
+  </p:output>
+  
+  <p:output port="xml-with-normalized-equations" primary="false">
+    <p:documentation>
+      This output provides the XML document but with normalized equations. 
+    </p:documentation>
+    <p:pipe port="result" step="preprocess-output"/>
   </p:output>
   
   <p:option name="preprocessing" select="'yes'">

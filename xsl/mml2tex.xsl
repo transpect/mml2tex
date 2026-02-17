@@ -562,7 +562,7 @@
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
     </xsl:if>
-    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or $always-display-style = 'yes')">
+    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or not($display) or $always-display-style = 'yes')">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>
@@ -910,7 +910,7 @@
       <xsl:value-of select="'&#xa;% Issue with equation detected. See log for details!&#xa;'"/>
     </xsl:if>
     <xsl:apply-templates select="*[1]" mode="#current"/>
-    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or $always-display-style = 'yes')">
+    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or not($display) or $always-display-style = 'yes')">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:value-of select="concat(if(self::mover) then '^' else '_', '{')"/>

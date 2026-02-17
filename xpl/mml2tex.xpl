@@ -25,13 +25,6 @@
       <c:param-set/>
     </p:inline>
   </p:input>
-
-  <p:input port="conf" primary="false">
-    <p:documentation>
-      Expects a character map for mapping from Unicode to TeX.
-    </p:documentation>
-    <p:document href="../texmap/texmap.xml"/>
-  </p:input>
   
   <p:output port="result">
     <p:documentation>
@@ -160,7 +153,6 @@
     <p:documentation>MathML equations are converted to "mml2tex" processing instructions.</p:documentation>    
     <p:input port="source">
       <p:pipe port="result" step="preprocess-output"/>
-      <p:pipe port="conf" step="mml2tex"/>
     </p:input>
     <p:input port="stylesheet">
       <p:pipe port="result" step="load-mml2tex"/>

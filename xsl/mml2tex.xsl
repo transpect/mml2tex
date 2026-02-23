@@ -591,12 +591,12 @@
     <xsl:variable name="max-col-count" as="xs:integer"
                   select="max(for $i in mtr return count($i/mtd))"/>
     <xsl:variable name="col-aligns" as="xs:string*"
-                  select="tokenize(
-                          (@columnalign,
+                  select="tokenize(@columnalign,' '),
                           for $i in mtr[count(mtd) eq $max-col-count][1]/mtd
                           return ($i/ancestor-or-self::*[@columnalign][1]/@columnalign, 
                                   $i/ancestor-or-self::*[@groupalign][1]/@groupalign,
-                          'center'))[1],' ')"/>
+                                  'center')[1]"/>
+    
     <xsl:if test="$array-column-padding">
       <xsl:text>{\setlength{\arraycolsep}{2pt}&#xa;</xsl:text>
     </xsl:if>
@@ -999,7 +999,7 @@
   
   <xsl:template match="mfenced[count(*) eq 1 and mtable[not($array-column-padding)]
                                                        [count(mtr) gt 1]
-                                                       [not(@rowlines)]
+                                                       [not(@rowlines)][not(@columnlines)]
                                                        [not(@columnalign) or @columnalign='center']
                                                        [every $row in mtr satisfies count($row/*) gt 1
                                                         or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]
@@ -1020,7 +1020,7 @@
   
   <xsl:template match="mtable[not($array-column-padding)]
                              [count(mtr) gt 1]
-                             [not(@rowlines)]
+                             [not(@rowlines)][not(@columnlines)]
                              [not(@columnalign) or @columnalign='center']
                              [every $row in mtr satisfies count($row/*) gt 1
                               or ($create-one-column-matrix and (every $row in mtr satisfies count($row/*) ge 1 ))]

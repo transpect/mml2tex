@@ -43,7 +43,6 @@ Consider this XML input file …
 </article>
 ```
 
-
 ## Invoke standalone
 
 mml2tex is a library rather than a standalone stylesheet. If you intend to run mml2tex standalone, you need to include the dependencies, add a proper XML catalog and invoke Saxon with XML resolver support.

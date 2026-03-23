@@ -1041,13 +1041,13 @@
   <xsl:template match="mo[@stretchy='true']
                          [not($katex = 'yes')]/text()" mode="mathml2tex" priority="10">
    <xsl:choose>
-     <xsl:when test="matches(., '\&#x7c;') and not(tr:determine-bar-orientation(parent::mo))">
+     <xsl:when test="matches(., '[\&#x7c;&#x2016;]') and not(tr:determine-bar-orientation(parent::mo))">
        <xsl:value-of select="."/>
      </xsl:when>
     <xsl:otherwise>
       <xsl:call-template name="fence">
         <xsl:with-param name="pos" select="
-                        if (matches(., '\&#x7c;')) 
+                        if (matches(., '[\&#x7c;&#x2016;]')) 
                         then tr:determine-bar-orientation(parent::mo)
                         else 
                             if(matches(., '[\[\({&#x2308;&#x230a;&#x2329;&#x27e7;&#x27e8;&#x27ea;&#x27ec;&#x27ee;&#x3008;&#x300a;&#x300c;&#x300e;&#x3010;&#x3014;&#x3016;&#x3018;&#x301a;]') and not(following-sibling::mo))  
@@ -1065,14 +1065,14 @@
       <xsl:when test="($mo/parent::*[self::mfenced or self::mrow] 
                        or $mo[preceding::mo[matches(.,$parenthesis-regex)]
                               and $mo/following::mo[matches(.,$parenthesis-regex)]])
-                       and not($mo/preceding::mo[matches(.,'\&#x7c;') or not(node())]
-                               or $mo/following::mo[matches(.,'\&#x7c;') or not(node())])">
+                       and not($mo/preceding::mo[matches(.,'[\&#x7c;&#x2016;]') or not(node())]
+                               or $mo/following::mo[matches(.,'[\&#x7c;&#x2016;]') or not(node())])">
         <xsl:sequence select="'middle'"/>
       </xsl:when>
-      <xsl:when test="$mo/preceding-sibling::mo[matches(.,'\&#x7c;') or not(node())]">
+      <xsl:when test="$mo/preceding-sibling::mo[matches(.,'[\&#x7c;&#x2016;]') or not(node())]">
         <xsl:sequence select="'right'"/>
       </xsl:when>
-      <xsl:when test="$mo/following-sibling::mo[matches(.,'\&#x7c;') or not(node())]">
+      <xsl:when test="$mo/following-sibling::mo[matches(.,'[\&#x7c;&#x2016;]') or not(node())]">
         <xsl:sequence select="'left'"/>
       </xsl:when>
     </xsl:choose>
@@ -1119,7 +1119,7 @@
                       |ms/text()" mode="mathml2tex" priority="5">
     <xsl:variable name="text" select="replace(normalize-space(.), '&#xa;+', ' ')" as="xs:string"/>
     <xsl:if test="parent::mo[@stretchy eq 'true'] and matches(., $parenthesis-regex)">
-      <xsl:value-of select="if(matches(., $left-parenthesis-regex)  or (matches(.,'\&#x7c;') and not(parent::mo/preceding-sibling::mo[@stretchy='true'][matches(.,'\&#x7c;') or not(node())])))
+      <xsl:value-of select="if(matches(., $left-parenthesis-regex)  or (matches(.,'[\&#x7c;&#x2016;]') and not(parent::mo/preceding-sibling::mo[@stretchy='true'][matches(.,'[\&#x7c;&#x2016;]') or not(node())])))
                             then '\left' else '\right'"/>
     </xsl:if>
     <xsl:variable name="utf2tex" select="string-join(mml2tex:utf2tex($text, (), (), ..), '')" as="xs:string"/>

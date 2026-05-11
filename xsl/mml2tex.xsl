@@ -51,6 +51,8 @@
   
   <xsl:variable name="left-parenthesis-regex" select="'[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
   
+    <xsl:variable name="right-parenthesis-regex" select="'[\]\){&#x232a;&#x27e9;&#x3009;]'" as="xs:string"/>
+  
   <xsl:variable name="umlaut-regex" select="'[äöüÄÖÜ]'" as="xs:string"/>
 
   <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
@@ -113,26 +115,30 @@
   <xsl:template match="*[mo[matches(.,$parenthesis-regex)]]" mode="mml-de-core">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:for-each-group select="*" group-adjacent="following-sibling::mo[matches(.,$parenthesis-regex) or not(node())]
-                                                     or preceding-sibling::mo[matches(.,$parenthesis-regex) or not(node())]">
-        <xsl:choose>
-          <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 
-                          and current-group()[descendant-or-self::*/local-name()=('mfrac', 
-                                                                                  'mover', 
-                                                                                  'mroot', 
-                                                                                  'msqrt',
-                                                                                  'mtable', 
-                                                                                  'munder', 
-                                                                                  'munderover',
-                                                                                  'msubsup')]">
-              <xsl:apply-templates select="current-group()" mode="#current">
-                <xsl:with-param name="stretchy-mo" select="true()" />
-              </xsl:apply-templates>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:apply-templates select="current-group()" mode="#current"/>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:for-each-group select="*" group-starting-with="self::mo[matches(.,$left-parenthesis-regex) or not(node())]">
+        <xsl:for-each-group select="current-group()"  group-ending-with="self::mo[matches(.,$right-parenthesis-regex) or not(node())]">
+          <xsl:choose>
+            <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 
+                            and current-group()[descendant-or-self::*/local-name()=('mfrac', 
+                                                                                    'mover',
+                                                                                    'mroot', 
+                                                                                    'msqrt',
+                                                                                    'mtable', 
+                                                                                    'munder', 
+                                                                                    'munderover',
+                                                                                    'msubsup')]">
+                <xsl:apply-templates select="current-group()" mode="#current">
+                  <xsl:with-param name="stretchy-mo" select="true()" />
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="current-group()" mode="#current"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+          
+        </xsl:for-each-group>
+        
       </xsl:for-each-group>
     </xsl:copy>
   </xsl:template>

@@ -17,7 +17,7 @@
 
   <xsl:output method="text" encoding="UTF-8"/>
   
-  <xsl:param name="fail-on-error"        select="'yes'"        as="xs:string"/><!-- yes|no -->
+  <xsl:param name="fail-on-error"        select="'no'"        as="xs:string"/><!-- yes|no -->
   
   <xsl:param name="set-math-style"       select="'no'"         as="xs:string"/><!-- yes|no -->
   
@@ -115,8 +115,8 @@
   <xsl:template match="*[mo[matches(.,$parenthesis-regex)]]" mode="mml-de-core">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:for-each-group select="*" group-starting-with="self::mo[matches(.,$left-parenthesis-regex) or not(node())]">
-        <xsl:for-each-group select="current-group()"  group-ending-with="self::mo[matches(.,$right-parenthesis-regex) or not(node())]">
+      <xsl:for-each-group select="*" group-starting-with=".[self::mo[matches(.,$left-parenthesis-regex) or not(node())]]">
+        <xsl:for-each-group select="current-group()"  group-ending-with=".[self::mo[matches(.,$right-parenthesis-regex) or not(node())]]">
           <xsl:choose>
             <xsl:when test="count(current-group()/self::mo[matches(.,$parenthesis-regex) or not(node())]) ge 2 
                             and current-group()[descendant-or-self::*/local-name()=('mfrac', 

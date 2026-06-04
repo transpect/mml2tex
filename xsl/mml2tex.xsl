@@ -1044,7 +1044,10 @@
     <xsl:text>\end{matrix}&#xa;</xsl:text>
   </xsl:template>
   
-  <xsl:template match="mo[@stretchy='true']
+  <!-- commented because this template creates \left and \right delimiters 
+       before or after operators and cause a delimiter mismatch. -->
+  
+  <!--<xsl:template match="mo[@stretchy='true']
                          [not($katex = 'yes')]/text()" mode="mathml2tex" priority="10">
    <xsl:choose>
      <xsl:when test="matches(., '[\&#x7c;&#x2016;]') and not(tr:determine-bar-orientation(parent::mo))">
@@ -1063,7 +1066,7 @@
     </xsl:call-template>
     </xsl:otherwise>
    </xsl:choose>
-  </xsl:template>
+  </xsl:template>-->
   
   <xsl:function name="tr:determine-bar-orientation">
     <xsl:param name="mo" as="element()"/>

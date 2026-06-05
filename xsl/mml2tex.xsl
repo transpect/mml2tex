@@ -568,7 +568,11 @@
     <xsl:if test="matches($base, '^.*_\{[^}]*\}+$')">
       <xsl:text>}</xsl:text>
     </xsl:if>
-    <xsl:if test="*[1] = $integrals-sums-and-limits and ($display = 'block' or not($display) or $always-display-style = 'yes')">
+    <!-- https://mantis.le-tex.de/view.php?id=38384 -->
+    <xsl:if test="    *[1] = $integrals-sums-and-limits 
+                  and not(self::msubsup)
+                  and (   $display = 'block' or not($display) 
+                       or $always-display-style = 'yes')">
       <xsl:text>\limits</xsl:text>
     </xsl:if>
     <xsl:text>_{</xsl:text>

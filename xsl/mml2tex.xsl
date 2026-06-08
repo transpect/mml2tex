@@ -570,7 +570,7 @@
     </xsl:if>
     <!-- https://mantis.le-tex.de/view.php?id=38384 -->
     <xsl:if test="    *[1] = $integrals-sums-and-limits 
-                  and not(self::msubsup)
+                  and not(self::msubsup and not(ancestor::mstyle[@displaystyle = 'true']))
                   and (   $display = 'block' or not($display) 
                        or $always-display-style = 'yes')">
       <xsl:text>\limits</xsl:text>

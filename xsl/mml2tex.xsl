@@ -49,9 +49,9 @@
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e6;-&#x27ef;&#x3008;-&#x3011;&#x3014;-&#x301b;\&#x7c;&#x2016;]'" as="xs:string"/>
   
-  <xsl:variable name="left-parenthesis-regex" select="'[\[\({&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
+  <xsl:variable name="left-parenthesis-regex" select="'[\[\(\{&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
   
-    <xsl:variable name="right-parenthesis-regex" select="'[\]\){&#x232a;&#x27e9;&#x3009;]'" as="xs:string"/>
+  <xsl:variable name="right-parenthesis-regex" select="'[\]\)\}&#x232a;&#x27e9;&#x3009;]'" as="xs:string"/>
   
   <xsl:variable name="umlaut-regex" select="'[äöüÄÖÜ]'" as="xs:string"/>
 

@@ -49,9 +49,9 @@
   
   <xsl:variable name="parenthesis-regex" select="'[\[\]\(\){}&#x2308;&#x2309;&#x230a;&#x230b;&#x2329;&#x232a;&#x27e6;-&#x27ef;&#x3008;-&#x3011;&#x3014;-&#x301b;\&#x7c;&#x2016;]'" as="xs:string"/>
   
-  <xsl:variable name="left-parenthesis-regex" select="'[\[\(\{&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;]'" as="xs:string"/>
+  <xsl:variable name="left-parenthesis-regex" select="'[\[\(\{&#x2308;&#x230a;&#x2329;&#x27e8;&#x3008;\&#x7c;&#x2016;]'" as="xs:string"/>
   
-  <xsl:variable name="right-parenthesis-regex" select="'[\]\)\}&#x232a;&#x27e9;&#x3009;]'" as="xs:string"/>
+  <xsl:variable name="right-parenthesis-regex" select="'[\]\)\}&#x232a;&#x27e9;&#x3009;\&#x7c;&#x2016;]'" as="xs:string"/>
   
   <xsl:variable name="umlaut-regex" select="'[äöüÄÖÜ]'" as="xs:string"/>
 
@@ -135,10 +135,7 @@
               <xsl:apply-templates select="current-group()" mode="#current"/>
             </xsl:otherwise>
           </xsl:choose>
-          
-          
         </xsl:for-each-group>
-        
       </xsl:for-each-group>
     </xsl:copy>
   </xsl:template>
@@ -147,7 +144,7 @@
                           or not(node())]" mode="mml-de-core">
     <xsl:param name="stretchy-mo" />
     <xsl:copy>
-      <xsl:if test="$stretchy-mo">
+      <xsl:if test="$stretchy-mo and not(matches(., '[\&#x7c;&#x2016;]') and not(tr:determine-bar-orientation(.)))">
         <xsl:attribute name="stretchy" select="'true'"/>
       </xsl:if>
       <xsl:apply-templates select="@*, node()" mode="#current"/>

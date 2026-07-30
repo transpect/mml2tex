@@ -1108,7 +1108,7 @@
   </xsl:template>
   
   <xsl:template match="text()[$use-upgreek-map = 'yes'] 
-                             [exists(   parent::mi[    @mathvariant eq 'normal' 
+                             [exists(   parent::mi[    @mathvariant = ('bold','normal') 
                                                    or (    empty(@mathvariant) 
                                                        and string-length(.) gt 1)]
                                                   [matches(normalize-space(.), $texregex-upgreek)]

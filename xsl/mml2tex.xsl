@@ -1247,6 +1247,12 @@
       <xsl:when test="$elt/self::mi[. = $mml2tex:function-names][$mathvariant = 'normal']">
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:when>
+      <xsl:when test="$elt/self::mi[matches($elt, concat('^', $texregex-upgreek, '$'))]
+                                   [$mathvariant = 'bold']">
+        <xsl:text>\boldymbol{</xsl:text>
+        <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
+        <xsl:text>}</xsl:text>
+      </xsl:when>
       <xsl:when test="($elt/self::mi or $elt/self::mn or $elt/self::ms or $elt/self::mo or $elt/self::mstyle) 
                       and normalize-space(string-join(($mathvariant, $fontstyle, $fontweight), '')) 
                       and not($elt/self::mi[not(@mathvariant or @mathvariant eq 'italic')] and string-length($elt) = 1)">

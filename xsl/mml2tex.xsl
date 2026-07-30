@@ -1249,7 +1249,7 @@
       </xsl:when>
       <xsl:when test="$elt/self::mi[matches($elt, concat('^', $texregex-upgreek, '$'))]
                                    [$mathvariant = 'bold']">
-        <xsl:text>\boldymbol{</xsl:text>
+        <xsl:text>\boldsymbol{</xsl:text>
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
         <xsl:text>}</xsl:text>
       </xsl:when>

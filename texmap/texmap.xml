@@ -1413,10 +1413,10 @@
     <char character="&#x2128;" string="\mathfrak{Z}"/>
     <!--/frak Z, black-letter capital Z-->
     <char character="&#x2128;" string="${\mathfrak{Z}}$" mode="text"/>
+    <!--# \mathring{\mathrm{A}}, Ångström capital A with ring, map to &#xC5;-->
+    <char character="&#x212B;" string="\AA{}"/>
     <!--# \mathring{\mathrm{A}}, Ångström capital A with ring-->
-    <char character="&#x212B;" string="\Angstroem"/>
-    <!--# \mathring{\mathrm{A}}, Ångström capital A with ring-->
-    <char character="&#x212B;" string="${\Angstroem}$" mode="text"/>
+    <char character="&#x212B;" string="${\AA{}}$" mode="text"/>
     <!--bernoulli function (script capital B)-->
     <char character="&#x212C;" string="\mathcal{B}"/>
     <!--bernoulli function (script capital B)-->

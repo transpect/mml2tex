@@ -92,12 +92,12 @@
   <xsl:template match="mrow[mo[@stretchy='true']]
                            [(mrow and (every $el in * satisfies $el[self::mo or self::mrow]))
                            or count(*[not(self::mo)]) eq 1]
-                           [count(mo[@stretchy='true'][matches(.,$parenthesis-regex) or not(node())]) ge 2]
+                           [count(mo[(@stretchy='true' and matches(.,$parenthesis-regex)) or not(node())]) ge 2]
                            [mo[@stretchy='true'][1][matches(.,$parenthesis-regex) or not(node())]
-                            and mo[@stretchy='true'][last()][matches(.,$parenthesis-regex) or not(node())]] " mode="mml-de-core" priority="4">
+                            and mo[last()][(@stretchy='true' and matches(.,$parenthesis-regex)) or not(node())]] " mode="mml-de-core" priority="4">
     <xsl:element name="mfenced" namespace="http://www.w3.org/1998/Math/MathML">
-      <xsl:variable name="open-mo" select="mo[@stretchy='true'][1]"/>
-      <xsl:variable name="close-mo" select="mo[@stretchy='true'][last()]"/>
+      <xsl:variable name="open-mo" select="mo[@stretchy='true' or not(node())][1]"/>
+      <xsl:variable name="close-mo" select="mo[@stretchy='true' or not(node())][last()]"/>
       <xsl:attribute name="open" select="$open-mo"/>
       <xsl:attribute name="close" select="$close-mo"/>
       <xsl:variable name="separator-mos" select="(mo[matches(.,$separators-regex)] except ($open-mo|$close-mo))"/>

@@ -55,7 +55,7 @@
   
   <xsl:variable name="umlaut-regex" select="'[äöüÄÖÜ]'" as="xs:string"/>
 
-  <xsl:variable name="whitespace-regex" select="'\p{Zs}&#x200b;-&#x200f;'" as="xs:string"/>
+  <xsl:variable name="whitespace-regex" select="'[\p{Zs}&#x200b;-&#x200f;]'" as="xs:string"/>
   
   <xsl:variable name="create-one-column-matrix" select="false()"/>
   
@@ -1199,7 +1199,7 @@
     <xsl:variable name="fontstyle"   select="$elt/@fontstyle"   as="attribute(fontstyle)?"/>
     <xsl:variable name="fontweight"  select="$elt/@fontweight"  as="attribute(fontweight)?"/>
     <xsl:choose>
-      <xsl:when test="matches($elt, concat('^[', $whitespace-regex, ']+$')) 
+      <xsl:when test="matches($elt, concat('^', $whitespace-regex, '+$')) 
                       or ($elt[not(node())])">
         <xsl:apply-templates select="$elt/node()" mode="mathml2tex"/>
       </xsl:when>

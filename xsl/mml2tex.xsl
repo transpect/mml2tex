@@ -939,7 +939,6 @@
                               [@open = '{']
                               [@close = '']"
                 mode="mathml2tex">
-    <xsl:message select="'--',    count(mtable[every $r in mtr satisfies count($r/mtd) le 2]) = 1"></xsl:message>
     <xsl:apply-templates select="if(mrow[mtable]) 
                                  then mrow/*[following-sibling::mtable]
                                  else *[following-sibling::mtable]" mode="#current"/>

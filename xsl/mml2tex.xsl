@@ -39,6 +39,14 @@
   
   <xsl:variable name="texmap-upgreek" select="document($texmap-upgreek-uri)/xml2tex:set/xml2tex:charmap/xml2tex:char" as="element(xml2tex:char)*"/>
   
+  <xsl:key name="mml2tex:texmap-char" match="xml2tex:char" use="@character"/>
+  
+  <xsl:variable name="texmap-root" select="root($texmap[1])" as="node()"/>
+  
+  <!-- the key lookup is only equivalent to matching $texregex if each mapping contains exactly one character -->
+  <xsl:variable name="texmap-has-multi-char-entries" as="xs:boolean"
+                select="exists($texmap[string-length(@character) gt 1])"/>
+  
   <xsl:variable name="texregex" as="xs:string"
                 select="concat('[', functx:escape-for-regex(string-join(for $i in $texmap/@character return $i, '')), ']')"/>
 
@@ -1211,14 +1219,16 @@
       <!-- lowercase letters are not supported by \matcal, map regular letter to 
            unicode mathematical script -->
       <xsl:when test="$mathvariant = 'script' and matches($elt, '^[a-z]$')">
-        <xsl:value-of select="($texmap[  mml2tex:dec-to-hex(string-to-codepoints(@character))
-                                       = mml2tex:dec-to-hex(119893 + string-to-codepoints($elt))][not(@mode eq 'text')]/@string,
+        <xsl:value-of select="(key('mml2tex:texmap-char', 
+                                   codepoints-to-string(119893 + string-to-codepoints($elt)), 
+                                   $texmap-root)[not(@mode eq 'text')]/@string,
                                concat('&#x20;', $elt/node()))[1]"/>
       </xsl:when>
       <!-- the same for bold script -->
       <xsl:when test="$mathvariant = 'bold-script' and matches($elt, '^[a-z]$')">
-        <xsl:value-of select="($texmap[  mml2tex:dec-to-hex(string-to-codepoints(@character))
-                                       = mml2tex:dec-to-hex(119945 + string-to-codepoints($elt))][not(@mode eq 'text')]/@string,
+        <xsl:value-of select="(key('mml2tex:texmap-char', 
+                                   codepoints-to-string(119945 + string-to-codepoints($elt)), 
+                                   $texmap-root)[not(@mode eq 'text')]/@string,
                                concat('&#x20;', $elt/node()))[1]"/>
       </xsl:when>
       <xsl:when test="$elt/self::mtext 
@@ -1322,47 +1332,40 @@
     <xsl:param name="texmap-override" as="element(xml2tex:char)*"/>
     <xsl:param name="texregex-override" as="xs:string?"/>
     <xsl:param name="context" as="element()?"/>
-    <xsl:variable name="chars" as="xs:string*" 
-                  select="for $char in string-to-codepoints($string) 
-                          return codepoints-to-string($char)"/>
-    <xsl:variable name="texregex" select="($texregex-override, $texregex)[1]" as="xs:string"/>
-    <xsl:variable name="texmap" select="($texmap-override, $texmap)" as="element(xml2tex:char)*"/>
-    <xsl:for-each select="$chars">
-      <xsl:variable name="char" select="." as="xs:string"/>
-      <xsl:variable name="is-number-decimal-komma" select="$context/local-name() = 'mn' and matches(.,',')
-                                                           and matches($context,'(\d,)+')" as="xs:boolean"/>
-      <xsl:analyze-string select="." regex="{$texregex}">
-        <xsl:matching-substring>
-          <xsl:variable name="pattern" select="functx:escape-for-regex(.)" as="xs:string"/>
-          <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
-          <xsl:variable name="unmapped-char" as="element(xml2tex:char)?"
+    <xsl:variable name="is-text" select="$context/local-name() = 'mtext'" as="xs:boolean"/>
+    <xsl:variable name="is-number-with-decimal-komma" as="xs:boolean"
+                  select="$context/local-name() = 'mn' and matches($context, '(\d,)+')"/>
+    <xsl:for-each select="string-to-codepoints($string)">
+      <xsl:variable name="char" select="codepoints-to-string(.)" as="xs:string"/>
+      <xsl:variable name="default-candidates" select="key('mml2tex:texmap-char', $char, $texmap-root)" as="element(xml2tex:char)*"/>
+      <xsl:variable name="is-mappable" as="xs:boolean"
+                    select="if(exists($texregex-override)) then matches($char, $texregex-override)
+                            else if(exists($default-candidates)) then true()
+                            else $texmap-has-multi-char-entries and matches($char, $texregex)"/>
+      <xsl:choose>
+        <xsl:when test="$is-mappable">
+          <xsl:variable name="candidates" as="element(xml2tex:char)*"
+                        select="($texmap-override[@character eq $char], $default-candidates)"/>
+          <xsl:variable name="mapped-char" as="element(xml2tex:char)?"
                         select="if($is-text)
-                                then ($texmap[@character eq $char][@mode eq 'text'], 
-                                      $texmap[@character eq $char][not(@mode)],
-                                      $texmap[@character eq $char][@mode]
+                                then ($candidates[@mode eq 'text'], 
+                                      $candidates[not(@mode)],
+                                      $candidates[@mode]
                                       )[1]
-                                else $texmap[@character eq $char][@mode eq 'math' or not(@mode)][1]"/>
+                                else $candidates[@mode eq 'math' or not(@mode)][1]"/>
           <xsl:variable name="replacement" as="xs:string"
-                        select="if(exists($unmapped-char)) 
-                                then replace($unmapped-char/@string, '(\$|\\)', '\\$1')
-                                else ."/>
-          <xsl:variable name="insert-whitespace" select="if(matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
-                                                         then ()
-                                                         else '&#x20;'" as="xs:string?"/>
-          <xsl:variable name="result" select="replace(., 
-                                                      $pattern, 
-                                                      if (not($is-text)) 
-                                                      then concat($replacement, 
-                                                                    $insert-whitespace) 
-                                                      else $replacement
-                                                      )" as="xs:string"/>
-          <xsl:value-of select="$result"/>
-        </xsl:matching-substring>
-        <xsl:non-matching-substring>
-          <xsl:value-of select="if ($is-number-decimal-komma) then concat('{',.,'}')
-                                else ."/>
-        </xsl:non-matching-substring>
-      </xsl:analyze-string>
+                        select="if(exists($mapped-char)) then string($mapped-char/@string) else $char"/>
+          <xsl:sequence select="if($is-text or matches($replacement, '[-+\(\)\[\]\{\},:;\.&quot;''\?!]$')) 
+                                then $replacement
+                                else concat($replacement, '&#x20;')"/>
+        </xsl:when>
+        <xsl:when test="$is-number-with-decimal-komma and $char eq ','">
+          <xsl:sequence select="concat('{', $char, '}')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$char"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:for-each>
   </xsl:function>
   

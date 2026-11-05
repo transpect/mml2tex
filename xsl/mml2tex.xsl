@@ -854,7 +854,7 @@
     <xsl:text>\underrightarrow</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][*[2][. = ('&#x2190;', '&#x20d6;')]]/*
-                      |munder[@accentunder eq 'true'][*[1][. = ('&#x2190;', '&#x206d;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
+                      |munder[@accentunder eq 'true'][*[1][. = ('&#x2190;', '&#x20d6;')]]/*" mode="mathml2tex-accent-pre" priority="0.5">
     <xsl:text>\overleftarrow</xsl:text>
   </xsl:template>
   <xsl:template match="mover[@accent eq 'true'][*[1][. = ('&#x2190;', '&#x20d6;')]]/*

@@ -947,8 +947,7 @@
     <xsl:apply-templates select="if(mrow[mtable])
                                  then mrow/mtable/mtr 
                                  else mtable/mtr" mode="#current"/>
-    <xsl:text>\end{cases}
-    </xsl:text>
+    <xsl:text>\end{cases}</xsl:text>
     <xsl:apply-templates select="if(mrow[mtable])
                                  then mrow/*[preceding-sibling::mtable]
                                  else *[preceding-sibling::mtable]" mode="#current"/>
@@ -1049,7 +1048,7 @@
                              [not(parent::mfenced)]" mode="mathml2tex" priority="5">
     <xsl:text>\begin{matrix}&#xa;</xsl:text>
     <xsl:apply-templates mode="#current"/>
-    <xsl:text>\end{matrix}&#xa;</xsl:text>
+    <xsl:text>\end{matrix}</xsl:text>
   </xsl:template>
   
   <!-- commented because this template creates \left and \right delimiters 
